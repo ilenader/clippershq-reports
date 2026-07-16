@@ -10,6 +10,7 @@ Build reports from the automated agents that work on ClippersHQ, published here 
 
 | Ticket | Subject | Report |
 |---|---|---|
+| BL-549 | Deploy truth: LamaTok is not dark, the ledger mislabels it | [reports/BL-549.md](reports/BL-549.md) |
 | BL-547 | Scraper ledger truth: BL-543 merged locally but never pushed | [reports/BL-547.md](reports/BL-547.md) |
 | BL-546 | Merge BL-543 (the ~$45/month saving) plus four audit docs | [reports/BL-546.md](reports/BL-546.md) |
 | BL-545 | HikerAPI failure audit: 83% of failures are correct refusals | [reports/BL-545.md](reports/BL-545.md) |
