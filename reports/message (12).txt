@@ -1,0 +1,561 @@
+#!/usr/bin/env python3
+"""
+reviewer_note.py - the note layer for ClippersHQ assisted clip review.
+
+WHAT THIS IS, AND WHAT IT IS NOT
+
+`src/lib/campaign-rules.ts` already evaluates rules and returns verdicts
+(would_reject / would_pass / cannot_evaluate / rank_review). BL-659 already
+persists those verdicts to `rule_shadow_decisions`. Neither of those is being
+replaced here.
+
+What does not exist is the layer that turns a set of verdicts into something a
+human reviewer can read and act on. That is this file.
+
+    campaign-rules.ts   ->  verdicts        (exists)
+    rule_shadow_decisions -> storage        (exists, live since 12:58 UTC)
+    THIS                ->  reviewer note   (missing)
+
+The Python below reimplements just enough of the evaluator to be runnable and
+testable standalone. The part worth porting is `compose_note()` and the
+vocabulary it emits.
+
+Run:  python reviewer_note.py --demo
+
+NON-NEGOTIABLES HONOURED (BL-518, BL-521)
+  * Nothing here changes a clip status, earnings, or payout.
+  * Nothing here is ever rendered to a clipper. Owner/reviewer surfaces only.
+  * Fail open: cannot_evaluate never contributes to a reject suggestion.
+  * A rule is only called certain alongside what would make it wrong.
+"""
+
+import argparse
+import json
+import unicodedata
+from dataclasses import dataclass, field
+from datetime import datetime, timezone
+
+
+# ---------------------------------------------- vocabulary (theirs, kept) ---
+
+VERDICT_WOULD_REJECT = "would_reject"
+VERDICT_WOULD_PASS = "would_pass"
+VERDICT_CANNOT_EVALUATE = "cannot_evaluate"
+VERDICT_RANK_REVIEW = "rank_review"
+
+ENF_AUTO_REJECT = "auto_reject"
+ENF_RANK = "rank"
+ENF_HUMAN_ONLY = "human_only"
+
+# Rule types as defined in campaign-rules.ts. Production counts as of
+# BL-662/BL-663, 2026-07-24: 8 REQUIRED_CAPTION_TOKENS, 78 HUMAN_ONLY,
+# 0 of everything else, across 11 campaigns.
+T_CAPTION = "REQUIRED_CAPTION_TOKENS"
+T_SOUND = "REQUIRED_SOUND"
+T_LENGTH = "VIDEO_LENGTH"
+T_WINDOW = "POSTING_WINDOW"
+T_LOGO = "LOGO_PRESENT_THROUGHOUT"
+T_EDIT = "EDIT_QUALITY"
+T_HUMAN = "HUMAN_ONLY"
+
+CERTAIN_TYPES = {T_CAPTION, T_SOUND, T_LENGTH, T_WINDOW}
+
+# Why a "certain" check can still be wrong. Shown to the reviewer whenever a
+# certain rule fires, per the BL-663 constraint that certainty must always be
+# stated alongside its failure modes.
+FAILURE_MODES = {
+    T_CAPTION: "the caption may have been edited after submit, truncated by "
+               "the provider, or contain an invisible character",
+    T_SOUND: "an original-sound variant carries its own per-post id, and a "
+             "short link that failed to resolve reads as no sound at all",
+    T_LENGTH: "duration is read once at submit and not re-checked",
+    T_WINDOW: "timezone offset confusion around the campaign boundary",
+}
+
+
+@dataclass
+class Rule:
+    """One element of campaigns.rulesJson."""
+    id: str
+    text: str                     # verbatim clipper-facing requirement line
+    type: str
+    platforms: list = field(default_factory=list)   # [] means all
+    params: dict = field(default_factory=dict)
+    enforcement: str = ENF_HUMAN_ONLY
+
+
+@dataclass
+class Meta:
+    """What extractClipMetadata produced, plus the fields BL-663 recommends
+    persisting. Every field may be None - on all 7 live shadow rows as of
+    2026-07-24 17:47 UTC, caption and soundId were both absent."""
+    caption: str | None = None
+    sound_id: str | None = None
+    hashtags: list = field(default_factory=list)
+    duration_sec: float | None = None
+    posted_at: datetime | None = None
+    caption_edited: bool = False
+    short_link_unresolved: bool = False
+    provider_error: bool = False
+
+
+@dataclass
+class Result:
+    rule: Rule
+    verdict: str
+    reason: str          # reviewer-facing, one sentence
+
+
+# ------------------------------------------------------------------ parse ---
+
+def parse_rules_json(value):
+    """Tolerant, mirroring parseRulesJson. Any malformed shape yields [] so a
+    bad rule blob can never cause a rejection."""
+    if value is None:
+        return []
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except (ValueError, TypeError):
+            return []
+    if not isinstance(value, list):
+        return []
+
+    out = []
+    for item in value:
+        if not isinstance(item, dict):
+            continue
+        rtype = item.get("type")
+        if not rtype:
+            continue
+        out.append(Rule(
+            id=str(item.get("id", "")),
+            text=str(item.get("text", "")),
+            type=str(rtype),
+            platforms=[str(p).lower() for p in item.get("platforms") or []],
+            params=item.get("params") or {},
+            enforcement=str(item.get("enforcement") or ENF_HUMAN_ONLY),
+        ))
+    return out
+
+
+def fold(s):
+    """NFKC normalise, strip format characters (category Cf), casefold.
+    Zero-width joiners inside a hashtag are named in BL-663 as a real failure
+    mode for literal substring matching."""
+    if s is None:
+        return None
+    s = unicodedata.normalize("NFKC", s)
+    s = "".join(c for c in s if unicodedata.category(c) != "Cf")
+    return s.casefold()
+
+
+# --------------------------------------------------------------- evaluate ---
+
+def evaluate_rule(rule, meta, platform):
+    p = (platform or "").lower()
+
+    if rule.platforms and p not in rule.platforms:
+        return Result(rule, VERDICT_WOULD_PASS,
+                      "Does not apply to this platform.")
+
+    if rule.type in (T_HUMAN, T_EDIT):
+        return Result(rule, VERDICT_RANK_REVIEW,
+                      "Needs your judgement - no data can settle it.")
+
+    if rule.type == T_LOGO:
+        return Result(rule, VERDICT_RANK_REVIEW,
+                      "Visual check. Even a cover frame would only prove the "
+                      "first frame, never the whole video.")
+
+    if rule.type == T_CAPTION:
+        tokens = rule.params.get("tokens") or []
+        if not tokens:
+            return Result(rule, VERDICT_CANNOT_EVALUATE,
+                          "Rule lists no tokens to look for.")
+        if meta.caption is None:
+            return Result(rule, VERDICT_CANNOT_EVALUATE,
+                          "No caption reached me for this clip.")
+        hay = fold(meta.caption)
+        missing = [t for t in tokens if fold(t) not in hay]
+        if missing:
+            return Result(rule, VERDICT_WOULD_REJECT,
+                          "Caption is missing " + ", ".join(missing) + ".")
+        return Result(rule, VERDICT_WOULD_PASS,
+                      "Caption contains every required token.")
+
+    if rule.type == T_SOUND:
+        want = rule.params.get("soundId")
+        if not want:
+            return Result(rule, VERDICT_CANNOT_EVALUATE,
+                          "Rule specifies no sound id to match against.")
+        if p == "youtube":
+            return Result(rule, VERDICT_CANNOT_EVALUATE,
+                          "YouTube's API exposes no sound id. This can never "
+                          "be checked on YouTube.")
+        if meta.short_link_unresolved:
+            return Result(rule, VERDICT_CANNOT_EVALUATE,
+                          "Short link was not resolved, so the sound was "
+                          "never read. About 69% of TikTok links are these.")
+        if meta.provider_error:
+            return Result(rule, VERDICT_CANNOT_EVALUATE,
+                          "Provider lookup failed. Our problem, not the "
+                          "clipper's.")
+        if meta.sound_id is None:
+            return Result(rule, VERDICT_CANNOT_EVALUATE,
+                          "No sound id reached me for this clip.")
+        if str(meta.sound_id) == str(want):
+            return Result(rule, VERDICT_WOULD_PASS,
+                          "Sound id matches exactly.")
+        return Result(rule, VERDICT_WOULD_REJECT,
+                      f"Sound id is {meta.sound_id}, campaign requires {want}.")
+
+    if rule.type == T_LENGTH:
+        lo, hi = rule.params.get("minSec"), rule.params.get("maxSec")
+        if meta.duration_sec is None:
+            return Result(rule, VERDICT_CANNOT_EVALUATE,
+                          "Duration is not stored for this clip.")
+        d = meta.duration_sec
+        if lo is not None and d < lo:
+            return Result(rule, VERDICT_WOULD_REJECT,
+                          f"{d:.0f}s, below the {lo}s minimum.")
+        if hi is not None and d > hi:
+            return Result(rule, VERDICT_WOULD_REJECT,
+                          f"{d:.0f}s, above the {hi}s maximum.")
+        return Result(rule, VERDICT_WOULD_PASS, f"{d:.0f}s, within range.")
+
+    if rule.type == T_WINDOW:
+        if meta.posted_at is None:
+            return Result(rule, VERDICT_CANNOT_EVALUATE,
+                          "No post timestamp stored. True for about 98% of "
+                          "clips today.")
+        start = rule.params.get("startsAt")
+        end = rule.params.get("endsAt")
+        if start and meta.posted_at < start:
+            return Result(rule, VERDICT_WOULD_REJECT,
+                          f"Posted {meta.posted_at:%Y-%m-%d}, before the "
+                          f"campaign opened {start:%Y-%m-%d}.")
+        if end and meta.posted_at > end:
+            return Result(rule, VERDICT_WOULD_REJECT,
+                          f"Posted {meta.posted_at:%Y-%m-%d}, after close.")
+        return Result(rule, VERDICT_WOULD_PASS,
+                      f"Posted {meta.posted_at:%Y-%m-%d}, inside the window.")
+
+    return Result(rule, VERDICT_CANNOT_EVALUATE,
+                  f"Unknown rule type {rule.type}.")
+
+
+def evaluate_rules(rules, meta, platform):
+    return [evaluate_rule(r, meta, platform) for r in rules]
+
+
+# ------------------------------------------------------- the note (new) ----
+
+@dataclass
+class Note:
+    headline: str
+    suggestion: str            # look_closer | likely_reject | nothing_flagged
+    confidence: str            # high | medium | low
+    findings: list = field(default_factory=list)
+    human_checks: list = field(default_factory=list)
+    blind_spots: list = field(default_factory=list)
+    thinking: list = field(default_factory=list)
+    draft_reply: str | None = None
+    metadata_health: str | None = None
+
+
+def diagnose_metadata(meta, platform):
+    """The live BL-663 finding: all 7 shadow rows have captionPresent=false
+    and soundIdPresent=false. A reviewer seeing an empty note deserves to know
+    whether that is the clip's fault or ours."""
+    have = []
+    if meta.caption is not None:
+        have.append("caption")
+    if meta.sound_id is not None:
+        have.append("sound id")
+    if meta.duration_sec is not None:
+        have.append("duration")
+    if meta.posted_at is not None:
+        have.append("post time")
+
+    if have:
+        return None
+    return ("No clip metadata reached the evaluator at all - no caption, no "
+            "sound id, no duration, no timestamp. This matches the known "
+            "issue where every live shadow row records captionPresent=false. "
+            "It is a pipeline gap on our side, not a signal about this clip.")
+
+
+CLIPPER_PHRASING = {
+    T_SOUND: "the clip isn't using the campaign sound - please repost with "
+             "the sound linked in the campaign brief",
+    T_LENGTH: "the video length is outside the range the campaign asks for",
+    T_WINDOW: "the clip was posted outside the campaign's dates",
+}
+
+
+def draft_reply(rejects):
+    """Reviewer-facing draft. Never sent by the bot, and never contains raw
+    ids - a clipper cannot act on a 19-digit sound id."""
+    if not rejects:
+        return None
+
+    problems = []
+    for r in rejects:
+        if r.rule.type == T_CAPTION:
+            toks = r.rule.params.get("tokens") or []
+            missing = r.reason.replace("Caption is missing ", "").rstrip(".")
+            problems.append(f"the caption is missing {missing}")
+        elif r.rule.type in CLIPPER_PHRASING:
+            problems.append(CLIPPER_PHRASING[r.rule.type])
+        else:
+            problems.append(r.reason.rstrip(".").lower())
+
+    if len(problems) == 1:
+        body = problems[0][0].upper() + problems[0][1:] + "."
+    else:
+        body = "A couple of things need fixing:" + \
+               "".join(f"\n  - {p}" for p in problems)
+
+    return ("Thanks for the submission. This one can't be approved as-is.\n\n"
+            + body +
+            "\n\nSort that and resubmit and we'll take another look.")
+
+
+def compose_note(results, meta, platform, reviewer_scoped=True):
+    rejects = [r for r in results if r.verdict == VERDICT_WOULD_REJECT]
+    cannot = [r for r in results if r.verdict == VERDICT_CANNOT_EVALUATE]
+    ranks = [r for r in results if r.verdict == VERDICT_RANK_REVIEW]
+
+    # Only auto_reject-enforced rules of a certain type carry weight.
+    weighted = [r for r in rejects
+                if r.rule.enforcement == ENF_AUTO_REJECT
+                and r.rule.type in CERTAIN_TYPES]
+
+    health = diagnose_metadata(meta, platform)
+    thinking = []
+    blind = []
+
+    for r in cannot:
+        blind.append(f"{r.rule.type}: {r.reason}")
+    if meta.caption_edited:
+        blind.append("Instagram reports this caption was edited after "
+                     "posting, so what I read may not be what was submitted.")
+
+    checkable = [r for r in results
+                 if r.verdict in (VERDICT_WOULD_REJECT, VERDICT_WOULD_PASS)]
+    if not checkable:
+        confidence = "low"
+    elif cannot:
+        confidence = "medium"
+    else:
+        confidence = "high"
+
+    if not results:
+        return Note(
+            "No machine-readable rules on this campaign.",
+            "look_closer", "low",
+            thinking=["This campaign has no rulesJson, so there was nothing "
+                      "for me to check. 78 of the 86 rule lines in production "
+                      "are HUMAN_ONLY, so this is the normal case, not a "
+                      "fault."],
+            metadata_health=health)
+
+    if weighted:
+        names = ", ".join(sorted({r.rule.type for r in weighted}))
+        headline = f"Would reject on {names}."
+        suggestion = "likely_reject"
+        thinking.append(
+            "This is an exact comparison against data the platform stamps on "
+            "the post, not an interpretation of anything.")
+        for r in weighted:
+            mode = FAILURE_MODES.get(r.rule.type)
+            if mode:
+                thinking.append(f"Before acting on it: {mode}.")
+        if cannot:
+            thinking.append(
+                f"{len(cannot)} other rule(s) could not be evaluated, so this "
+                "may not be everything wrong with the clip.")
+    elif rejects:
+        headline = "Flagged, but nothing I can be certain about."
+        suggestion = "look_closer"
+        thinking.append(
+            "Everything I flagged is either judgement or a rule not set to "
+            "auto_reject. Treat it as a pointer, not a finding.")
+    elif cannot and not checkable:
+        headline = "I could not check anything on this clip."
+        suggestion = "look_closer"
+        thinking.append(
+            "Every applicable rule was unevaluable. That is fail-open working "
+            "as designed - it is never a mark against the clipper.")
+    elif cannot:
+        headline = (f"Everything checkable passed; {len(cannot)} rule(s) "
+                    "could not be evaluated.")
+        suggestion = "look_closer"
+        thinking.append(
+            "I am not saying this is clean, only that what I could see was "
+            "fine.")
+    else:
+        headline = "Nothing flagged on the machine-checkable rules."
+        suggestion = "nothing_flagged"
+        thinking.append(
+            "Every machine rule passed. I have no view on edit quality, "
+            "visuals, or anything requiring judgement.")
+
+    if ranks:
+        thinking.append(
+            f"{len(ranks)} requirement(s) are human-only and are listed below "
+            "for you to check by eye.")
+
+    if not reviewer_scoped:
+        thinking.append(
+            "This campaign has no reviewer scoped to it, so it lands on the "
+            "owner. Four campaigns are in that state.")
+
+    return Note(
+        headline, suggestion, confidence,
+        findings=[(r.rule.type, r.verdict, r.reason) for r in results
+                  if r.verdict in (VERDICT_WOULD_REJECT, VERDICT_WOULD_PASS)],
+        human_checks=[r.rule.text or r.rule.type for r in ranks],
+        blind_spots=blind,
+        thinking=thinking,
+        draft_reply=draft_reply(weighted),
+        metadata_health=health,
+    )
+
+
+# ----------------------------------------------------------------- render ---
+
+MARK = {VERDICT_WOULD_REJECT: "FLAG", VERDICT_WOULD_PASS: " ok ",
+        VERDICT_CANNOT_EVALUATE: "  ? ", VERDICT_RANK_REVIEW: "eye "}
+
+
+def render(note):
+    L = []
+    L.append(f"BOT NOTE   [{note.suggestion}]   confidence: {note.confidence}")
+    L.append(note.headline)
+
+    if note.metadata_health:
+        L.append("")
+        L.append("!! " + note.metadata_health)
+
+    if note.findings:
+        L.append("")
+        L.append("MACHINE CHECKS")
+        for rtype, verdict, reason in note.findings:
+            L.append(f"  [{MARK[verdict]}] {rtype}: {reason}")
+
+    if note.human_checks:
+        L.append("")
+        L.append("FOR YOUR EYES (no data can settle these)")
+        for t in note.human_checks:
+            L.append(f"  - {t}")
+
+    if note.blind_spots:
+        L.append("")
+        L.append("WHAT I COULD NOT SEE")
+        for b in note.blind_spots:
+            L.append(f"  {b}")
+
+    if note.thinking:
+        L.append("")
+        L.append("MY THINKING")
+        for t in note.thinking:
+            L.append(f"  {t}")
+
+    if note.draft_reply:
+        L.append("")
+        L.append("DRAFT REPLY  (edit before sending, nothing is sent by me)")
+        for line in note.draft_reply.split("\n"):
+            L.append(f"  | {line}")
+
+    L.append("")
+    L.append("  Advisory only. No status, earnings or payout touched. "
+             "The clipper sees none of this.")
+    return "\n".join(L)
+
+
+# ------------------------------------------------------------------- demo ---
+
+def demo():
+    utc = timezone.utc
+
+    rules_blob = json.dumps([
+        {"id": "r1", "text": "Use the campaign sound", "type": T_SOUND,
+         "platforms": [], "params": {"soundId": "7621960336325446431"},
+         "enforcement": ENF_AUTO_REJECT},
+        {"id": "r2", "text": "Tag @artist and #brandtag in the caption",
+         "type": T_CAPTION, "platforms": [],
+         "params": {"tokens": ["@artist", "#brandtag"]},
+         "enforcement": ENF_AUTO_REJECT},
+        {"id": "r3", "text": "Edit must feel high energy and well paced",
+         "type": T_HUMAN, "platforms": [], "params": {},
+         "enforcement": ENF_HUMAN_ONLY},
+    ])
+    rules = parse_rules_json(rules_blob)
+
+    good = dict(caption="huge edit #brandtag @artist",
+                sound_id="7621960336325446431",
+                duration_sec=20,
+                posted_at=datetime(2026, 7, 20, tzinfo=utc))
+
+    cases = [
+        ("Everything checkable passes", "tiktok", Meta(**good), True),
+
+        ("TODAY'S LIVE CASE: nothing reached the evaluator",
+         "tiktok", Meta(), True),
+
+        ("Wrong sound, the one certain check worth having",
+         "tiktok", Meta(**{**good, "sound_id": "111222333"}), True),
+
+        ("Missing caption token", "tiktok",
+         Meta(**{**good, "caption": "huge edit @artist"}), True),
+
+        ("Zero-width character hidden in the hashtag", "tiktok",
+         Meta(**{**good, "caption": "huge edit #brand\u200btag @artist"}), True),
+
+        ("TikTok short link, sound unreadable", "tiktok",
+         Meta(**{**good, "sound_id": None, "short_link_unresolved": True}),
+         True),
+
+        ("YouTube, where the sound rule cannot exist", "youtube",
+         Meta(**{**good, "sound_id": None}), True),
+
+        ("Instagram caption edited after posting", "instagram",
+         Meta(**{**good, "caption_edited": True}), True),
+
+        ("Both certain rules fail at once", "tiktok",
+         Meta(**{**good, "sound_id": "999", "caption": "nice"}), True),
+
+        ("Campaign with no reviewer scoped", "tiktok", Meta(**good), False),
+    ]
+
+    for title, platform, meta, scoped in cases:
+        print("=" * 74)
+        print(title)
+        print("-" * 74)
+        results = evaluate_rules(rules, meta, platform)
+        print(render(compose_note(results, meta, platform, scoped)))
+        print()
+
+    print("=" * 74)
+    print("Campaign with no rulesJson at all (the majority)")
+    print("-" * 74)
+    print(render(compose_note([], Meta(**good), "tiktok")))
+    print()
+    print("=" * 74)
+    print("Malformed rulesJson must yield no rules, never a rejection")
+    print("-" * 74)
+    for bad in ['{"not": "a list"}', "[1,2,3]", "not json at all", None]:
+        print(f"  {str(bad)[:24]!r:28} -> {len(parse_rules_json(bad))} rules")
+
+
+def main():
+    p = argparse.ArgumentParser(description="Reviewer note layer.")
+    p.add_argument("--demo", action="store_true")
+    a = p.parse_args()
+    demo() if a.demo else p.print_help()
+
+
+if __name__ == "__main__":
+    main()

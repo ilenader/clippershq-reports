@@ -1,0 +1,149 @@
+# Measuring the false-rejection rate — three routes, cheapest first
+
+BL-663 estimates 2 to 3 months to a live number at current volume, and that is
+*after* the `captionPresent = false` problem is fixed. Two faster routes exist
+and neither has been tried.
+
+---
+
+## Route 1 — the human baseline, from data you already have (free, today)
+
+**Nobody has measured how often a human reviewer rejects a clip that is later
+overturned.** R-5 counted 89 owner overrides in 30 days against 343 rejections,
+but did not break out how many were reject-then-approve.
+
+That number is the benchmark any bot must beat, and it is sitting in the
+database right now. No provider calls, no cost, one query over the status
+history.
+
+Why it matters more than it sounds: if humans already overturn, say, 8% of
+their own rejections, then an 11% machine rate is not the disqualifier it
+appeared to be — it is roughly human-level. If humans overturn 0.5%, the gap is
+enormous and R-2's verdict stands.
+
+**Nobody currently knows which world this is.** Every argument about acceptable
+machine error is being made without it.
+
+Caveat: an override only happens when someone notices. This measures caught
+mistakes, not all mistakes, and the true human rate is higher than whatever it
+returns. That applies equally to any machine rate measured the same way, so the
+comparison stays fair.
+
+---
+
+## Route 2 — assist mode itself (free, accrues from normal work)
+
+Once notes are live, every clip produces a machine suggestion and, shortly
+after, a human decision. Comparing them gives the disagreement rate per rule
+with no special study.
+
+Better than a backtest because bot and human see the same clip at the same
+moment, with no drift between them.
+
+BL-659's query already exists for this:
+
+```
+count(*) FILTER (WHERE d.wouldReject AND c.status='APPROVED')
+/ count(*) FILTER (WHERE d.wouldReject AND c.status IN ('APPROVED','REJECTED'))
+```
+
+The blocker is not the query. It is that zero `would_reject` decisions are
+being generated, because caption and sound never arrive.
+
+---
+
+## Route 3 — backtest on reviewed clips (costs money, contaminated)
+
+Worth running only if a number is needed before committing engineering time.
+
+**Read the contamination warning first.** Metadata was never stored, so testing
+old clips means re-fetching today. Captions get edited and sounds get swapped
+after posting, so a disagreement can mean the bot is wrong, the human was
+wrong, *or the clip changed in between*. You cannot tell which from the data.
+
+**Do not repeat R-2.** The caption gate has been measured at 11.05% over 240
+clips. The untested rule is `REQUIRED_SOUND`, which has zero production
+instances and is the one the business cares most about.
+
+### Safety
+
+1. **Read-only credentials.** Not `SUPABASE_SERVICE_ROLE_KEY` — it bypasses
+   every permission check in the system.
+2. **No writes anywhere**, including `rule_shadow_decisions`. Output to CSV.
+3. **Hard spend cap set before starting.** Stop when hit.
+4. **If a query would modify data, stop and ask.**
+
+### Method
+
+**Sample.** TikTok only (the sole reliable sound id). Status `APPROVED` or
+`REJECTED`. Campaign has an identifiable required sound. `clipUrl` canonical,
+not `/t/`. Target 200-300, mixed approved and rejected — false rejection can
+only be measured on clips a human approved. Record how many were excluded as
+short links; that number is the business case for resolution.
+
+**Resolve.** One call per *campaign* to turn its sound link into a `music.id`.
+
+**Re-fetch.** `GET /v1/media/by/url` per clip. Keep three outcomes separate and
+never collapse them: 200 usable / 404 deleted, exclude / 500 retry once then
+exclude. An excluded clip is neither pass nor fail.
+
+**Compare.** Does `music.id` match? Against the human's `status`.
+
+### Output
+
+| column | meaning |
+|---|---|
+| clip_id, campaign_id | |
+| human_status | APPROVED / REJECTED |
+| bot_verdict | would_pass / would_reject |
+| required_sound_id, actual_sound_id | |
+| agreement | AGREE / FALSE_REJECT / MISSED_CATCH |
+| fetch_status | ok / deleted / error |
+
+```
+Sampled:             300
+Usable:              247   (31 deleted, 22 provider errors)
+FALSE REJECT:         14   ( 5.7%)  <- the number that matters
+MISSED CATCH:          4   ( 1.6%)
+Short links skipped: 641
+```
+
+### Reading it
+
+**FALSE REJECT** — bot fails a clip a human approved. At 2,300 clips/month
+across 127 clippers, 1% is ~23 wrongly rejected clippers a month.
+
+**MISSED CATCH** — bot passes one a human rejected. Cheap; a human still looks.
+
+Compare against Route 1's human baseline, not against zero. A machine that
+errs less than the humans it assists is a different proposition from one
+measured against perfection.
+
+### Before blaming the bot
+
+Read every false reject by hand. Causes, in order of likelihood:
+
+1. Caption or sound changed between review and re-fetch
+2. Campaign accepts several sounds, only one recorded
+3. Original-sound variant carrying its own per-post id
+4. **The human approved despite the wrong sound, because the rule is not
+   really enforced**
+
+Cause 4 is what R-2 found with captions. If it appears here too, the finding is
+about the rulebook and no amount of engineering fixes it.
+
+### Cost
+
+$0.001-$0.10 per call. At 300 clips: $0.30 to $30. **Run 20 first** to measure
+the real rate before committing.
+
+---
+
+## Recommended order
+
+1. **Route 1 today.** Free, one query, and it is the missing denominator in
+   every argument about acceptable error.
+2. **Route 2 as the real instrument**, once Step 0 and Step 1 of the brief
+   land.
+3. **Route 3 only if** a sound-rule number is needed before engineering time is
+   committed.

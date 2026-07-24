@@ -1,0 +1,202 @@
+# Assisted clip review — brief
+
+**Follows:** BL-662 and BL-663
+**Status:** proposal
+**Respects:** BL-518 (no automatic status change) and BL-521 (no clipper ever
+sees machine suspicion) as hard constraints, not preferences
+
+---
+
+## 1. There is a live problem, and it comes before everything else
+
+BL-663 measured `rule_shadow_decisions` at 17:47 UTC today: **7 rows, and every
+one has `captionPresent = false` and `soundIdPresent = false`.**
+
+The write path deployed at 12:58 and is firing correctly. But the evaluator is
+receiving no caption and no sound id, so all 7 rows returned `cannot_evaluate`.
+The shadow is accumulating rows that decide nothing.
+
+Nothing proposed below works until that is diagnosed. This is not a scheduling
+question — the system is running right now and producing empty verdicts.
+
+**Diagnostic, per BL-663:** trace the submit `raw` for one TikTok, one
+Instagram and one YouTube clip and confirm what `extractClipMetadata` actually
+receives. Two known candidates: the Instagram nested sound path
+(`clips_metadata.music_info.music_asset_info.id`) that the current extractor
+does not reach, and whether the submit `raw` is a summary rather than the full
+provider item. The `skipHikerOverlay: true` question from BL-662 is unresolved
+and may mean Instagram captures nothing at all.
+
+---
+
+## 2. What we want to build
+
+A note attached to every pending clip, written by the evaluator, read by the
+reviewer.
+
+The note says what the machine found, what it could not check, why it thinks
+what it thinks, and — where relevant — a draft reply the reviewer can edit and
+send.
+
+**The bot decides nothing.** It writes notes. This is not a step toward
+auto-rejection; it is worth building even if auto-rejection never happens.
+
+## 3. Why this shape, for this platform specifically
+
+**The time is worth having.** Clip review costs 14.9 owner-hours a month (76%
+of measurable owner time), plus 17.0 hours from the one scoped reviewer
+carrying 52.6% of decisions. Roughly 32 hours a month across ~2,300 clips. A
+note that pre-gathers the facts and pre-writes the rejection text takes a bite
+out of that without touching a single decision.
+
+**Auto-rejection is a long way off and may never arrive.** R-2 measured 11.05%
+false rejection on the caption gate, and found humans approve 85% of clips that
+break the hashtag rule. BL-663's arithmetic is the part to hold onto: at ~2,300
+clips a month across 127 clippers, **even a 1% false-rejection rate is about 23
+honest clippers wrongly rejected every month.** Notes deliver value now without
+waiting on a number that is 2 to 3 months away at best.
+
+**Undo does not rescue a bad gate.** Rejections can be reversed in seconds, and
+89 owner overrides happened in the last 30 days, so the mechanism works. But it
+only fires when someone notices. A clipper who shrugs and stops submitting
+generates no override and no signal. Reversibility lowers the cost of a caught
+mistake and does nothing for an uncaught one.
+
+**78 of 86 production rule lines are `HUMAN_ONLY`.** The rulebook is mostly
+judgement by design. A system that only spoke about machine-checkable rules
+would be silent on most of what reviewers assess — which is why the note lists
+human-only requirements for the reviewer rather than ignoring them.
+
+## 4. What the reviewer sees
+
+```
+BOT NOTE   [likely_reject]   confidence: high
+Would reject on REQUIRED_SOUND.
+
+MACHINE CHECKS
+  [FLAG] REQUIRED_SOUND: Sound id is 111222333, campaign requires 76219603...
+  [ ok ] REQUIRED_CAPTION_TOKENS: Caption contains every required token.
+
+FOR YOUR EYES (no data can settle these)
+  - Edit must feel high energy and well paced
+
+MY THINKING
+  This is an exact comparison against data the platform stamps on the post,
+  not an interpretation of anything.
+  Before acting on it: an original-sound variant carries its own per-post id,
+  and a short link that failed to resolve reads as no sound at all.
+
+DRAFT REPLY  (edit before sending, nothing is sent by me)
+  | Thanks for the submission. This one can't be approved as-is.
+  | The clip isn't using the campaign sound - please repost with the sound
+  | linked in the campaign brief.
+
+  Advisory only. No status, earnings or payout touched.
+  The clipper sees none of this.
+```
+
+Four things earn their place:
+
+**Failure modes printed beside certainty.** BL-663 requires that a check is
+only called certain alongside what would make it wrong. The note prints that
+line every time a certain rule fires, so a reviewer never sees confidence
+without its caveat.
+
+**Human-only rules surfaced, not hidden.** They are 90% of the rulebook.
+
+**What could not be checked.** A clip whose sound was unreadable and a clip
+whose sound was wrong are entirely different situations, and collapsing them is
+how automated review goes bad.
+
+**The draft reply, in clipper language.** Reviewers currently type rejection
+reasons by hand. The draft never contains raw ids — a 19-digit sound id is not
+actionable to a clipper.
+
+## 5. Where it fits, and what not to collide with
+
+```
+campaign-rules.ts       verdicts                     EXISTS
+rule_shadow_decisions   storage                      EXISTS (live 12:58 today)
+ -> the note layer      reviewer-readable output     MISSING - this proposal
+```
+
+`campaign-rules.ts` is not being replaced. The note layer consumes its verdicts
+and adds presentation.
+
+Three existing systems to stay clear of:
+
+- **BL-599 peer-rank** — an independent bot-detection signal, fires on 3.2%,
+  ranks for the owner, surfaced in the fraud-review panel. Different signal,
+  different surface. Do not merge them.
+- **BL-650 screenshot reader** — inert, `OCR_SPACE_API_KEY` unset, accuracy
+  never measured. Out of scope.
+- **`fraudScore`** — R-5 proved it has no predictive power (19.0% vs 19.5%
+  reject). Nothing may be gated on it, and the note must never cite it.
+
+## 6. Build order
+
+**Step 0 — diagnose `captionPresent = false`.** Blocking. Everything else is
+theoretical until metadata reaches the evaluator.
+
+**Step 1 — persist what is already fetched.** TikTok `music.id`, caption,
+hashtags, duration, `createTime`; Instagram caption, `taken_at`,
+`video_duration`, and the nested sound id once extraction is fixed. No new
+vendor call. Add TikTok short-link resolution — 69% of stored links are `/t/`
+short links that return 500 and are unreachable without it.
+
+**Step 2 — run the evaluator on every submit,** not only campaigns carrying a
+`rulesJson`. Where a campaign has no rules, the note should say so plainly
+rather than being absent; "no machine-readable rules on this campaign" is
+useful information to a reviewer.
+
+**Step 3 — store the note text** alongside the verdict. Per BL-662, extend
+`rule_shadow_decisions` or add a sibling table; do not put it on `clips`.
+
+**Step 4 — render it** in the admin review queue. Owner and reviewer only, no
+clipper-facing route, consistent with BL-521.
+
+**Step 5 — add `REQUIRED_SOUND` to a few TikTok campaigns.** There are
+currently zero in production, so the one genuinely machine-certain check
+generates no data at all.
+
+**Step 6 — let it run,** and compare note against human decision. That
+comparison is the false-rejection rate, accruing from normal work rather than
+from a dedicated study.
+
+## 7. Attached
+
+`reviewer_note.py` — the note layer, runnable and tested. It parses the real
+`rulesJson` shape, emits the existing verdict vocabulary (`would_reject` /
+`would_pass` / `cannot_evaluate` / `rank_review`), and composes the reviewer
+note. No database, no network, no dependencies.
+
+`python reviewer_note.py --demo` covers eleven cases including **today's live
+case** — nothing reaching the evaluator — plus wrong sound, missing caption
+token, a zero-width character hidden inside a required hashtag, an unresolved
+TikTok short link, YouTube where the sound rule cannot exist, an Instagram
+caption edited after posting, both certain rules failing at once, a campaign
+with no reviewer scoped, a campaign with no `rulesJson`, and malformed
+`rulesJson` proving it yields zero rules rather than a rejection.
+
+Port `compose_note()` and its vocabulary. The evaluator half is only there so
+the file runs standalone.
+
+## 8. Open questions
+
+1. What is actually reaching `extractClipMetadata` at submit? (Step 0)
+2. Does Instagram capture even the caption, given `skipHikerOverlay: true` and
+   Apify retired?
+3. Short-link resolution at submit, or a backfill for the existing 69%?
+4. Extend `rule_shadow_decisions` or add a sibling table for note text?
+5. **Policy:** four campaigns have no reviewer scoped (BAD BITCH ANTHEM x2,
+   Deja Shoe, CROCS). The note flags this, but who receives those notes?
+6. **Policy:** on YouTube the sound can never be verified. Should a YouTube
+   clip be eligible for "nothing flagged" without it?
+
+## 9. Out of scope
+
+- No automatic approval or rejection. `RULES_AUTO_REJECT_LIVE` stays off.
+- No change to earnings or payout paths.
+- Nothing bot-written rendered to a clipper.
+- No new provider spend beyond what submit already does.
+- No vision, frame sampling, or OCR in this phase.
