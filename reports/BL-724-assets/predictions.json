@@ -1,0 +1,1874 @@
+[
+ {
+  "idx": "00",
+  "tag": "anime",
+  "username": "eternamente.ia",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "anime",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "animation",
+   "gt_genre": [
+    "sports"
+   ],
+   "gt_valence": "positive",
+   "note": "AI-generated Champions League football in anime STYLE. No anime franchise exists here."
+  }
+ },
+ {
+  "idx": "01",
+  "tag": "anime",
+  "username": "otakuvibesreal",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "anime",
+   "gt_franchise": "Solo Leveling",
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "action",
+    "fantasy",
+    "adventure"
+   ],
+   "gt_valence": "neutral",
+   "note": "TEMPLATED: 'Genre: Action Fantasy Adventure Dark Fantasy'. Declared tier."
+  }
+ },
+ {
+  "idx": "02",
+  "tag": "anime",
+  "username": "suniy_entlekt",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "anime",
+   "gt_franchise": "One Piece",
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "adventure",
+    "action"
+   ],
+   "gt_valence": "positive",
+   "note": "One Piece new-arc PV announcement, Japanese."
+  }
+ },
+ {
+  "idx": "03",
+  "tag": "anime",
+  "username": "lovelive_archive",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "anime",
+   "gt_franchise": "Love Live!",
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "musical"
+   ],
+   "gt_valence": "positive",
+   "note": "BiBi sub-unit of mu's, Final LoveLive."
+  }
+ },
+ {
+  "idx": "04",
+  "tag": "anime",
+  "username": "ass.100k__",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "anime",
+   "gt_franchise": "One Piece",
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "adventure",
+    "action"
+   ],
+   "gt_valence": "positive",
+   "note": "Same One Piece PV copy as 02, different account."
+  }
+ },
+ {
+  "idx": "05",
+  "tag": "animeedit",
+  "username": "mhxyt_live",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "animeedit",
+   "gt_franchise": "Jujutsu Kaisen",
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "action"
+   ],
+   "gt_valence": "positive",
+   "note": "Toji Fushiguro, cursed energy."
+  }
+ },
+ {
+  "idx": "06",
+  "tag": "animeedit",
+  "username": "wategge_ae",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "animeedit",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "live-action",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "SPAM COPYPASTA: BTS/V at a Hollywood show with Gracie Abrams and Doja Cat. Not anime at all. Tag is engagement bait."
+  }
+ },
+ {
+  "idx": "07",
+  "tag": "animeedit",
+  "username": "my_voice_over_tamil",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "animeedit",
+   "gt_franchise": "Solo Leveling",
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "action"
+   ],
+   "gt_valence": "positive",
+   "note": "Tamil voiceover on Sung Jin-Woo."
+  }
+ },
+ {
+  "idx": "08",
+  "tag": "animeedit",
+  "username": "hyon.fx",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "animeedit",
+   "gt_franchise": "My Dress-Up Darling",
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "romance",
+    "comedy"
+   ],
+   "gt_valence": "positive",
+   "note": "Caption states 'romance anime with slice-of-life and comedy'."
+  }
+ },
+ {
+  "idx": "09",
+  "tag": "animeedit",
+  "username": "xenozeo",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "animeedit",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "fantasy",
+    "adventure"
+   ],
+   "gt_valence": "positive",
+   "note": "Isekai (Ephtal, Sage of Wind), Indonesian. Title not identifiable from 300 chars."
+  }
+ },
+ {
+  "idx": "10",
+  "tag": "animememe",
+  "username": "hiroi_sensei",
+  "pred_genre": [
+   "meme",
+   "comedy"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [
+   "meme",
+   "comedy"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "animememe",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "unverifiable",
+   "gt_genre": [
+    "comedy"
+   ],
+   "gt_valence": "negative",
+   "note": "Indonesian meme about smokers and gamblers. No anime content evident."
+  }
+ },
+ {
+  "idx": "11",
+  "tag": "animememe",
+  "username": "food_diaries_06",
+  "pred_genre": [
+   "meme",
+   "comedy"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [
+   "meme",
+   "comedy"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "animememe",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "fantasy",
+    "drama"
+   ],
+   "gt_valence": "neutral",
+   "note": "Military-magic anime synopsis; title not stated in 300 chars."
+  }
+ },
+ {
+  "idx": "12",
+  "tag": "animememe",
+  "username": "pureanime.vibes",
+  "pred_genre": [
+   "meme",
+   "comedy"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [
+   "meme",
+   "comedy"
+  ],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "animememe",
+   "gt_franchise": "One Piece",
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "comedy",
+    "adventure"
+   ],
+   "gt_valence": "positive",
+   "note": "Trafalgar Law and Zoro, Episode 775 on Zou. Explicitly 'peak comedy'."
+  }
+ },
+ {
+  "idx": "13",
+  "tag": "animememe",
+  "username": "yuki.neesan09",
+  "pred_genre": [
+   "meme",
+   "comedy"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [
+   "meme",
+   "comedy"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "animememe",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "anime",
+   "gt_genre": [
+    "comedy"
+   ],
+   "gt_valence": "positive",
+   "note": "Spanish anime-edit account, generic."
+  }
+ },
+ {
+  "idx": "14",
+  "tag": "animememe",
+  "username": "naoki_04_ai",
+  "pred_genre": [
+   "meme",
+   "comedy"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [
+   "meme",
+   "comedy"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "animememe",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "unverifiable",
+   "gt_genre": [
+    "comedy"
+   ],
+   "gt_valence": "positive",
+   "note": "Spanish birthday humour. Anime link unproven."
+  }
+ },
+ {
+  "idx": "15",
+  "tag": "batman",
+  "username": "filmscenes.daily",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "crime"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Batman",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "crime"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "batman",
+   "gt_franchise": "Batman",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero",
+    "crime",
+    "drama"
+   ],
+   "gt_valence": "negative",
+   "note": "The Dark Knight (2008), the Joker as anarchic antagonist."
+  }
+ },
+ {
+  "idx": "16",
+  "tag": "batman",
+  "username": "aranamoth",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "crime"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Batman",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "crime"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "batman",
+   "gt_franchise": "Batman",
+   "tag_franchise_holds": true,
+   "gt_medium": "unverifiable",
+   "gt_genre": [
+    "superhero",
+    "comedy"
+   ],
+   "gt_valence": "positive",
+   "note": "Nightwing/batfam joke. DC, Batman family."
+  }
+ },
+ {
+  "idx": "17",
+  "tag": "batman",
+  "username": "shadowrise.co",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "crime"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Batman",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "crime"
+  ],
+  "conflict": false,
+  "pred_valence": "negative",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "batman",
+   "gt_franchise": "Batman",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero",
+    "action"
+   ],
+   "gt_valence": "neutral",
+   "note": "The Dark Knight Rises, Bane."
+  }
+ },
+ {
+  "idx": "18",
+  "tag": "batman",
+  "username": "erickrsteiner",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "crime"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Batman",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "crime"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "batman",
+   "gt_franchise": "Batman",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "comedy"
+   ],
+   "gt_valence": "positive",
+   "note": "COSPLAY at comic con, not the film. Franchise holds; genre is not superhero fiction."
+  }
+ },
+ {
+  "idx": "19",
+  "tag": "batman",
+  "username": "thatmoviefella",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "crime"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Batman",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "crime"
+  ],
+  "conflict": false,
+  "pred_valence": "negative",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "batman",
+   "gt_franchise": "Batman",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero",
+    "action"
+   ],
+   "gt_valence": "positive",
+   "note": "The Dark Knight Rises retrospective."
+  }
+ },
+ {
+  "idx": "20",
+  "tag": "capcut",
+  "username": "_elmouden_33_34",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "capcut",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "live-action",
+   "gt_genre": [],
+   "gt_valence": "positive",
+   "note": "Moroccan ceramics. No fiction content."
+  }
+ },
+ {
+  "idx": "21",
+  "tag": "capcut",
+  "username": "4__n_du",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "capcut",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "live-action",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "Emoji-only caption, #eicher (tractors)."
+  }
+ },
+ {
+  "idx": "22",
+  "tag": "capcut",
+  "username": "chira_dounger",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "capcut",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "live-action",
+   "gt_genre": [],
+   "gt_valence": "positive",
+   "note": "Travel/regional content."
+  }
+ },
+ {
+  "idx": "23",
+  "tag": "capcut",
+  "username": "chrysman_souza",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "capcut",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "meme",
+    "comedy"
+   ],
+   "gt_valence": "neutral",
+   "note": "Portuguese trucker meme."
+  }
+ },
+ {
+  "idx": "24",
+  "tag": "capcut",
+  "username": "anggraheni_10",
+  "pred_genre": [],
+  "pred_genre_src": null,
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [],
+  "conflict": false,
+  "pred_valence": null,
+  "valence_prov": "absent",
+  "gt": {
+   "tag": "capcut",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "unverifiable",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "Tag-only caption: #trend #jj #capcut."
+  }
+ },
+ {
+  "idx": "25",
+  "tag": "dragonballz",
+  "username": "diouane.opn",
+  "pred_genre": [
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "Dragon Ball Z",
+  "genre_declared": [],
+  "genre_derived": [
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "dragonballz",
+   "gt_franchise": "Dragon Ball",
+   "tag_franchise_holds": true,
+   "gt_medium": "animation",
+   "gt_genre": [
+    "action"
+   ],
+   "gt_valence": "positive",
+   "note": "Dragon Ball Raging Blast 2 VIDEO GAME footage, not the anime."
+  }
+ },
+ {
+  "idx": "26",
+  "tag": "dragonballz",
+  "username": "hey_aadi_0908",
+  "pred_genre": [
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "Dragon Ball Z",
+  "genre_declared": [],
+  "genre_derived": [
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "dragonballz",
+   "gt_franchise": "Dragon Ball",
+   "tag_franchise_holds": true,
+   "gt_medium": "unverifiable",
+   "gt_genre": [
+    "action"
+   ],
+   "gt_valence": "neutral",
+   "note": "Mixed tags: #dragonballz AND #avengersendgame. Franchise ambiguous."
+  }
+ },
+ {
+  "idx": "27",
+  "tag": "dragonballz",
+  "username": "titaneo_series",
+  "pred_genre": [
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "Dragon Ball Z",
+  "genre_declared": [],
+  "genre_derived": [
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "dragonballz",
+   "gt_franchise": "Dragon Ball",
+   "tag_franchise_holds": true,
+   "gt_medium": "animation",
+   "gt_genre": [
+    "action",
+    "adventure"
+   ],
+   "gt_valence": "positive",
+   "note": "AI-generated Dragon Ball fan series with original characters."
+  }
+ },
+ {
+  "idx": "28",
+  "tag": "dragonballz",
+  "username": "lvgashorts",
+  "pred_genre": [
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "Dragon Ball Z",
+  "genre_declared": [],
+  "genre_derived": [
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "dragonballz",
+   "gt_franchise": "Dragon Ball",
+   "tag_franchise_holds": true,
+   "gt_medium": "anime",
+   "gt_genre": [
+    "action"
+   ],
+   "gt_valence": "positive",
+   "note": "Gohan Super Saiyan transformation reaction."
+  }
+ },
+ {
+  "idx": "29",
+  "tag": "dragonballz",
+  "username": "lezy._baru",
+  "pred_genre": [
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "Dragon Ball Z",
+  "genre_declared": [],
+  "genre_derived": [
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "dragonballz",
+   "gt_franchise": "Dragon Ball",
+   "tag_franchise_holds": true,
+   "gt_medium": "animation",
+   "gt_genre": [
+    "action"
+   ],
+   "gt_valence": "positive",
+   "note": "Goku Ultra Instinct vs Vegeta Ultra Ego fanart/edits."
+  }
+ },
+ {
+  "idx": "30",
+  "tag": "literallyme",
+  "username": "carolineebainee",
+  "pred_genre": [
+   "character-study",
+   "drama"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [
+   "character-study",
+   "drama"
+  ],
+  "conflict": false,
+  "pred_valence": null,
+  "valence_prov": "absent",
+  "gt": {
+   "tag": "literallyme",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "unverifiable",
+   "gt_genre": [
+    "comedy",
+    "dark-comedy"
+   ],
+   "gt_valence": "neutral",
+   "note": "Polish: #smieszne (funny), #czarnyhumor (black humour)."
+  }
+ },
+ {
+  "idx": "31",
+  "tag": "literallyme",
+  "username": "serenexeditz",
+  "pred_genre": [
+   "character-study",
+   "drama"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [
+   "character-study",
+   "drama"
+  ],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "literallyme",
+   "gt_franchise": "Blade Runner",
+   "tag_franchise_holds": "na",
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "sci-fi",
+    "drama"
+   ],
+   "gt_valence": "negative",
+   "note": "Blade Runner 2049, Villeneuve. 'You don't like real girls'."
+  }
+ },
+ {
+  "idx": "32",
+  "tag": "literallyme",
+  "username": "diary.of.him_",
+  "pred_genre": [
+   "character-study",
+   "drama"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [
+   "character-study",
+   "drama"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "literallyme",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "unverifiable",
+   "gt_genre": [
+    "drama"
+   ],
+   "gt_valence": "negative",
+   "note": "Anxious attachment, overthinking, #sadreels. Clearly negative."
+  }
+ },
+ {
+  "idx": "33",
+  "tag": "literallyme",
+  "username": "____g.annu",
+  "pred_genre": [
+   "character-study",
+   "drama"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [
+   "character-study",
+   "drama"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "literallyme",
+   "gt_franchise": null,
+   "tag_franchise_holds": "na",
+   "gt_medium": "unverifiable",
+   "gt_genre": [],
+   "gt_valence": "positive",
+   "note": "Replaying concert stories, #corememory. Warm/positive."
+  }
+ },
+ {
+  "idx": "34",
+  "tag": "literallyme",
+  "username": "fluffieduffie",
+  "pred_genre": [
+   "character-study",
+   "drama"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": null,
+  "genre_declared": [],
+  "genre_derived": [
+   "character-study",
+   "drama"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "literallyme",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": "na",
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero"
+   ],
+   "gt_valence": "positive",
+   "note": "Ghost Rider / Ryan Gosling casting joke."
+  }
+ },
+ {
+  "idx": "35",
+  "tag": "marveledit",
+  "username": "vincenzo11211",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Marvel Cinematic Universe",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "marveledit",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": true,
+   "gt_medium": "unverifiable",
+   "gt_genre": [
+    "superhero"
+   ],
+   "gt_valence": "neutral",
+   "note": "Knull vs Doctor Doom comics discussion."
+  }
+ },
+ {
+  "idx": "36",
+  "tag": "marveledit",
+  "username": "cinephile.cuts7",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Marvel Cinematic Universe",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "marveledit",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero"
+   ],
+   "gt_valence": "positive",
+   "note": "Ghost Rider, Spirit of Vengeance, Gosling casting."
+  }
+ },
+ {
+  "idx": "37",
+  "tag": "marveledit",
+  "username": "supermovie.clips1928",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Marvel Cinematic Universe",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "marveledit",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero",
+    "drama"
+   ],
+   "gt_valence": "positive",
+   "note": "Spider-Man: Homecoming (2017) emotional beat."
+  }
+ },
+ {
+  "idx": "38",
+  "tag": "marveledit",
+  "username": "lowkey.felt",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Marvel Cinematic Universe",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "negative",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "marveledit",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero",
+    "drama"
+   ],
+   "gt_valence": "negative",
+   "note": "Post-No Way Home, Peter forgotten and living alone."
+  }
+ },
+ {
+  "idx": "39",
+  "tag": "marveledit",
+  "username": "aryan_edits_6640",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Marvel Cinematic Universe",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "negative",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "marveledit",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero",
+    "drama"
+   ],
+   "gt_valence": "negative",
+   "note": "'It's heartbreaking' - 10 years as Spider-Man."
+  }
+ },
+ {
+  "idx": "40",
+  "tag": "mcu",
+  "username": "pistonpulse44",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Marvel Cinematic Universe",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "mcu",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero",
+    "action"
+   ],
+   "gt_valence": "positive",
+   "note": "Endgame, Cap alone against Thanos."
+  }
+ },
+ {
+  "idx": "41",
+  "tag": "mcu",
+  "username": "archivocomic",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Marvel Cinematic Universe",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "mcu",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero",
+    "drama"
+   ],
+   "gt_valence": "negative",
+   "note": "Tony Stark's sacrifices across the Avengers films."
+  }
+ },
+ {
+  "idx": "42",
+  "tag": "mcu",
+  "username": "movies.house.0",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Marvel Cinematic Universe",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "mcu",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero",
+    "action"
+   ],
+   "gt_valence": "neutral",
+   "note": "Edward Norton's Hulk, Culver University battle."
+  }
+ },
+ {
+  "idx": "43",
+  "tag": "mcu",
+  "username": "moviemaniatalk",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Marvel Cinematic Universe",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "mcu",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero",
+    "action"
+   ],
+   "gt_valence": "positive",
+   "note": "Thor: Ragnarok, Hela climax."
+  }
+ },
+ {
+  "idx": "44",
+  "tag": "mcu",
+  "username": "unp.rofessionalmemes",
+  "pred_genre": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "Marvel Cinematic Universe",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "mcu",
+   "gt_franchise": "Marvel Cinematic Universe",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "superhero"
+   ],
+   "gt_valence": "positive",
+   "note": "Spider-Man: Brand New Day announcement."
+  }
+ },
+ {
+  "idx": "45",
+  "tag": "naruto",
+  "username": "blakex028",
+  "pred_genre": [
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "Naruto",
+  "genre_declared": [],
+  "genre_derived": [
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": null,
+  "valence_prov": "absent",
+  "gt": {
+   "tag": "naruto",
+   "gt_franchise": "Naruto",
+   "tag_franchise_holds": true,
+   "gt_medium": "anime",
+   "gt_genre": [
+    "action"
+   ],
+   "gt_valence": "neutral",
+   "note": "Boruto/Naruto/Sasuke tags only."
+  }
+ },
+ {
+  "idx": "46",
+  "tag": "naruto",
+  "username": "_scorpionn98",
+  "pred_genre": [
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "Naruto",
+  "genre_declared": [],
+  "genre_derived": [
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "naruto",
+   "gt_franchise": "Naruto",
+   "tag_franchise_holds": true,
+   "gt_medium": "anime",
+   "gt_genre": [
+    "action",
+    "drama"
+   ],
+   "gt_valence": "positive",
+   "note": "Jiraiya tribute, 'most beloved and legendary'."
+  }
+ },
+ {
+  "idx": "47",
+  "tag": "naruto",
+  "username": "animorph_creations",
+  "pred_genre": [
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "Naruto",
+  "genre_declared": [],
+  "genre_derived": [
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "naruto",
+   "gt_franchise": null,
+   "tag_franchise_holds": false,
+   "gt_medium": "unverifiable",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "'Naruto chicken rice master', Tamil food/trend content. Not the anime."
+  }
+ },
+ {
+  "idx": "48",
+  "tag": "naruto",
+  "username": "my_voice_over_tamil",
+  "pred_genre": [
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "Naruto",
+  "genre_declared": [],
+  "genre_derived": [
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "naruto",
+   "gt_franchise": "Naruto",
+   "tag_franchise_holds": true,
+   "gt_medium": "anime",
+   "gt_genre": [
+    "drama"
+   ],
+   "gt_valence": "positive",
+   "note": "Tamil voiceover on Naruto's real strength."
+  }
+ },
+ {
+  "idx": "49",
+  "tag": "naruto",
+  "username": "doodlingtogetherinsta",
+  "pred_genre": [
+   "action",
+   "adventure"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "Naruto",
+  "genre_declared": [],
+  "genre_derived": [
+   "action",
+   "adventure"
+  ],
+  "conflict": false,
+  "pred_valence": null,
+  "valence_prov": "absent",
+  "gt": {
+   "tag": "naruto",
+   "gt_franchise": "Naruto",
+   "tag_franchise_holds": true,
+   "gt_medium": "unverifiable",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "#naruto #art - fanart/drawing content."
+  }
+ },
+ {
+  "idx": "50",
+  "tag": "onepiece",
+  "username": "shreya9.xy",
+  "pred_genre": [
+   "adventure",
+   "action"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "One Piece",
+  "genre_declared": [],
+  "genre_derived": [
+   "adventure",
+   "action"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "onepiece",
+   "gt_franchise": null,
+   "tag_franchise_holds": false,
+   "gt_medium": "live-action",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "SPAM COPYPASTA (BTS/Gracie Abrams/Doja Cat). Identical text to 51-54, 56, 06."
+  }
+ },
+ {
+  "idx": "51",
+  "tag": "onepiece",
+  "username": "islamic_hasan786",
+  "pred_genre": [
+   "adventure",
+   "action"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "One Piece",
+  "genre_declared": [],
+  "genre_derived": [
+   "adventure",
+   "action"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "onepiece",
+   "gt_franchise": null,
+   "tag_franchise_holds": false,
+   "gt_medium": "live-action",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "SPAM COPYPASTA, same text."
+  }
+ },
+ {
+  "idx": "52",
+  "tag": "onepiece",
+  "username": "hamster.nityaa",
+  "pred_genre": [
+   "adventure",
+   "action"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "One Piece",
+  "genre_declared": [],
+  "genre_derived": [
+   "adventure",
+   "action"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "onepiece",
+   "gt_franchise": null,
+   "tag_franchise_holds": false,
+   "gt_medium": "live-action",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "SPAM COPYPASTA, same text."
+  }
+ },
+ {
+  "idx": "53",
+  "tag": "onepiece",
+  "username": "cartoon.club.tamil",
+  "pred_genre": [
+   "adventure",
+   "action"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "One Piece",
+  "genre_declared": [],
+  "genre_derived": [
+   "adventure",
+   "action"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "onepiece",
+   "gt_franchise": null,
+   "tag_franchise_holds": false,
+   "gt_medium": "live-action",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "SPAM COPYPASTA, same text."
+  }
+ },
+ {
+  "idx": "54",
+  "tag": "onepiece",
+  "username": "reelre.volt",
+  "pred_genre": [
+   "adventure",
+   "action"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": "anime",
+  "pred_medium_src": "derived",
+  "pred_franchise": "One Piece",
+  "genre_declared": [],
+  "genre_derived": [
+   "adventure",
+   "action"
+  ],
+  "conflict": false,
+  "pred_valence": "positive",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "onepiece",
+   "gt_franchise": null,
+   "tag_franchise_holds": false,
+   "gt_medium": "live-action",
+   "gt_genre": [],
+   "gt_valence": "positive",
+   "note": "SPAM COPYPASTA with a 'Pure emotions' prefix bolted on."
+  }
+ },
+ {
+  "idx": "55",
+  "tag": "theboys",
+  "username": "squirrel_d5",
+  "pred_genre": [
+   "superhero",
+   "satire",
+   "dark"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "The Boys",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "satire",
+   "dark"
+  ],
+  "conflict": false,
+  "pred_valence": "negative",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "theboys",
+   "gt_franchise": null,
+   "tag_franchise_holds": false,
+   "gt_medium": "animation",
+   "gt_genre": [
+    "comedy"
+   ],
+   "gt_valence": "positive",
+   "note": "School bathroom joke, #funnyanimation. 'the boys' used LITERALLY, not the show."
+  }
+ },
+ {
+  "idx": "56",
+  "tag": "theboys",
+  "username": "cr_editz7z",
+  "pred_genre": [
+   "superhero",
+   "satire",
+   "dark"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "The Boys",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "satire",
+   "dark"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "theboys",
+   "gt_franchise": null,
+   "tag_franchise_holds": false,
+   "gt_medium": "live-action",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "SPAM COPYPASTA with #butcher #solderboy bolted on."
+  }
+ },
+ {
+  "idx": "57",
+  "tag": "theboys",
+  "username": "shubh.edits.51",
+  "pred_genre": [
+   "action",
+   "crime",
+   "drama",
+   "superhero"
+  ],
+  "pred_genre_src": "declared",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "The Boys",
+  "genre_declared": [
+   "action",
+   "crime",
+   "drama",
+   "superhero"
+  ],
+  "genre_derived": [
+   "superhero",
+   "satire",
+   "dark"
+  ],
+  "conflict": false,
+  "pred_valence": "neutral",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "theboys",
+   "gt_franchise": "The Boys",
+   "tag_franchise_holds": true,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "action",
+    "superhero"
+   ],
+   "gt_valence": "neutral",
+   "note": "TEMPLATED: TV Show / Release Date / Creator / Cast / Genre. Declared tier."
+  }
+ },
+ {
+  "idx": "58",
+  "tag": "theboys",
+  "username": "to_catch_a_frame",
+  "pred_genre": [
+   "superhero",
+   "satire",
+   "dark"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "The Boys",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "satire",
+   "dark"
+  ],
+  "conflict": false,
+  "pred_valence": "negative",
+  "valence_prov": "derived",
+  "gt": {
+   "tag": "theboys",
+   "gt_franchise": null,
+   "tag_franchise_holds": false,
+   "gt_medium": "live-action",
+   "gt_genre": [
+    "action"
+   ],
+   "gt_valence": "neutral",
+   "note": "Michael Bay hero-shot technique across Bad Boys, Transformers etc. Not The Boys."
+  }
+ },
+ {
+  "idx": "59",
+  "tag": "theboys",
+  "username": "tuntuntunshair67",
+  "pred_genre": [
+   "superhero",
+   "satire",
+   "dark"
+  ],
+  "pred_genre_src": "derived",
+  "pred_medium": null,
+  "pred_medium_src": null,
+  "pred_franchise": "The Boys",
+  "genre_declared": [],
+  "genre_derived": [
+   "superhero",
+   "satire",
+   "dark"
+  ],
+  "conflict": false,
+  "pred_valence": null,
+  "valence_prov": "absent",
+  "gt": {
+   "tag": "theboys",
+   "gt_franchise": null,
+   "tag_franchise_holds": false,
+   "gt_medium": "unverifiable",
+   "gt_genre": [],
+   "gt_valence": "neutral",
+   "note": "#theboys #photography #nose #trending. Photography content."
+  }
+ }
+]
