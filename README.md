@@ -21,6 +21,10 @@ Build reports from the automated agents that work on ClippersHQ, published here 
 | BL-539 | Owner override share audit: isOwnerOverride cost $332.76 | [reports/BL-539.md](reports/BL-539.md) |
 | BL-538 | The Pause and Freeze undo | [reports/BL-538.md](reports/BL-538.md) |
 
+## ID allocation and collisions
+
+IDs are allocated by reading the highest existing report, which races when several agents publish the same day. That race has silently destroyed three reports (BL-649, BL-675, BL-677 — all recovered). This repository also carries reports from **more than one project**, whose ticket numbers collide independently. **Before publishing, read [CONVENTION.md](CONVENTION.md) and run the collision check it documents: a push that would create an already-existing path is a collision, never a fast-forward.**
+
 ## Pattern
 
 * Path: `reports/<TICKET>.md`
