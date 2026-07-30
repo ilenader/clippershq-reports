@@ -1,0 +1,677 @@
+{
+ "_method": "Blind spectrogram adjudication. Spectrograms carried clip id + stratum ONLY; speech_frac was withheld so the ground truth could not anchor on the detector. RULE: music = sustained horizontal harmonics, a visible beat/pulse grid, OR a tonal bed persisting through speech gaps. A diffuse BROADBAND haze with no tonal structure was scored as ambience, NOT music.",
+ "labels": {
+  "3949288493108627664": {
+   "suffix": "627664",
+   "stratum": "anime-edit",
+   "tag": "dragonballz",
+   "speech_frac": 0.661,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3949996418458781366": {
+   "suffix": "781366",
+   "stratum": "anime-edit",
+   "tag": "naruto",
+   "speech_frac": 0.994,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950157473399172521": {
+   "suffix": "172521",
+   "stratum": "anime-edit",
+   "tag": "naruto",
+   "speech_frac": 0.721,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950278845615187275": {
+   "suffix": "187275",
+   "stratum": "anime-edit",
+   "tag": "dragonballz",
+   "speech_frac": 0.986,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950358077888705241": {
+   "suffix": "705241",
+   "stratum": "anime-edit",
+   "tag": "naruto",
+   "speech_frac": 0.684,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950655006596646793": {
+   "suffix": "646793",
+   "stratum": "anime-edit",
+   "tag": "animeedit",
+   "speech_frac": 0.432,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950697282420930081": {
+   "suffix": "930081",
+   "stratum": "anime-edit",
+   "tag": "dragonballz",
+   "speech_frac": 0.998,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951176998365943398": {
+   "suffix": "943398",
+   "stratum": "anime-edit",
+   "tag": "naruto",
+   "speech_frac": 0.414,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951207484193284046": {
+   "suffix": "284046",
+   "stratum": "anime-edit",
+   "tag": "dragonballz",
+   "speech_frac": 0.825,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951295507620061438": {
+   "suffix": "061438",
+   "stratum": "anime-edit",
+   "tag": "dragonballz",
+   "speech_frac": 0.0,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951320773460163854": {
+   "suffix": "163854",
+   "stratum": "anime-edit",
+   "tag": "animeedit",
+   "speech_frac": 0.302,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951485980727793911": {
+   "suffix": "793911",
+   "stratum": "anime-edit",
+   "tag": "dragonballz",
+   "speech_frac": 0.997,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3804125181778633094": {
+   "suffix": "633094",
+   "stratum": "fan-edit",
+   "tag": "literallyme",
+   "speech_frac": 0.0,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3888984086002152210": {
+   "suffix": "152210",
+   "stratum": "fan-edit",
+   "tag": "literallyme",
+   "speech_frac": 0.525,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3899657517227092071": {
+   "suffix": "092071",
+   "stratum": "fan-edit",
+   "tag": "literallyme",
+   "speech_frac": 0.984,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3909331065007322456": {
+   "suffix": "322456",
+   "stratum": "fan-edit",
+   "tag": "literallyme",
+   "speech_frac": 0.0,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3947193025889079015": {
+   "suffix": "079015",
+   "stratum": "fan-edit",
+   "tag": "marveledit",
+   "speech_frac": 0.65,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3949476086563675809": {
+   "suffix": "675809",
+   "stratum": "fan-edit",
+   "tag": "literallyme",
+   "speech_frac": 0.999,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3949564580845260446": {
+   "suffix": "260446",
+   "stratum": "fan-edit",
+   "tag": "literallyme",
+   "speech_frac": 0.97,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3949748893930711984": {
+   "suffix": "711984",
+   "stratum": "fan-edit",
+   "tag": "marveledit",
+   "speech_frac": 0.194,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950298902489681464": {
+   "suffix": "681464",
+   "stratum": "fan-edit",
+   "tag": "marveledit",
+   "speech_frac": 0.028,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950763102894857957": {
+   "suffix": "857957",
+   "stratum": "fan-edit",
+   "tag": "capcut",
+   "speech_frac": 0.814,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951260869730801839": {
+   "suffix": "801839",
+   "stratum": "fan-edit",
+   "tag": "capcut",
+   "speech_frac": 0.0,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951299909682197575": {
+   "suffix": "197575",
+   "stratum": "fan-edit",
+   "tag": "capcut",
+   "speech_frac": 0.991,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3946973298227655034": {
+   "suffix": "655034",
+   "stratum": "franchise-clip",
+   "tag": "theboys",
+   "speech_frac": 0.188,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3948432170404783782": {
+   "suffix": "783782",
+   "stratum": "franchise-clip",
+   "tag": "theboys",
+   "speech_frac": 0.0,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3949715416075174659": {
+   "suffix": "174659",
+   "stratum": "franchise-clip",
+   "tag": "theboys",
+   "speech_frac": 0.066,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3949722640587946375": {
+   "suffix": "946375",
+   "stratum": "franchise-clip",
+   "tag": "batman",
+   "speech_frac": 0.925,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3949926653454881100": {
+   "suffix": "881100",
+   "stratum": "franchise-clip",
+   "tag": "batman",
+   "speech_frac": 0.659,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950315875177122864": {
+   "suffix": "122864",
+   "stratum": "franchise-clip",
+   "tag": "batman",
+   "speech_frac": 0.0,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950531477565697160": {
+   "suffix": "697160",
+   "stratum": "franchise-clip",
+   "tag": "theboys",
+   "speech_frac": 0.0,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950696918904353539": {
+   "suffix": "353539",
+   "stratum": "franchise-clip",
+   "tag": "theboys",
+   "speech_frac": 0.292,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951224992250347574": {
+   "suffix": "347574",
+   "stratum": "franchise-clip",
+   "tag": "theboys",
+   "speech_frac": 0.0,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951241050572382149": {
+   "suffix": "382149",
+   "stratum": "franchise-clip",
+   "tag": "mcu",
+   "speech_frac": 0.534,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951253219571901211": {
+   "suffix": "901211",
+   "stratum": "franchise-clip",
+   "tag": "mcu",
+   "speech_frac": 0.68,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951301962704039868": {
+   "suffix": "039868",
+   "stratum": "franchise-clip",
+   "tag": "mcu",
+   "speech_frac": 0.19,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3933622916046434592": {
+   "suffix": "434592",
+   "stratum": "meme",
+   "tag": "animememe",
+   "speech_frac": 0.932,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3936884347286097264": {
+   "suffix": "097264",
+   "stratum": "meme",
+   "tag": "animememe",
+   "speech_frac": 0.963,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3949803054824728017": {
+   "suffix": "728017",
+   "stratum": "meme",
+   "tag": "animememe",
+   "speech_frac": 0.655,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3950830868401516211": {
+   "suffix": "516211",
+   "stratum": "meme",
+   "tag": "animememe",
+   "speech_frac": 0.748,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951436727309894486": {
+   "suffix": "894486",
+   "stratum": "meme",
+   "tag": "animememe",
+   "speech_frac": 0.978,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3951513554778474246": {
+   "suffix": "474246",
+   "stratum": "meme",
+   "tag": "animememe",
+   "speech_frac": 0.344,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3946215017565017340": {
+   "suffix": "017340",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.758,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3946215513893878107": {
+   "suffix": "878107",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.999,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3946216124022375995": {
+   "suffix": "375995",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.913,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3946217341435834212": {
+   "suffix": "834212",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.98,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3946217844618169512": {
+   "suffix": "169512",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.973,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3946218429740263659": {
+   "suffix": "263659",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.94,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947701468643622567": {
+   "suffix": "622567",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.906,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947702031712029359": {
+   "suffix": "029359",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.664,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947703024583480385": {
+   "suffix": "480385",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.996,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947704932618470009": {
+   "suffix": "470009",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.925,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947705654365974114": {
+   "suffix": "974114",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.978,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3947706578706795974": {
+   "suffix": "795974",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.996,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947707847324280400": {
+   "suffix": "280400",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.983,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947708711325671777": {
+   "suffix": "671777",
+   "stratum": "movie-clip",
+   "tag": "clipcapture.tv",
+   "speech_frac": 0.916,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947345984799852740": {
+   "suffix": "852740",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.996,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947588612302947311": {
+   "suffix": "947311",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.148,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947844564401103314": {
+   "suffix": "103314",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.924,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947910574247925135": {
+   "suffix": "925135",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.997,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947942508587255704": {
+   "suffix": "255704",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.532,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947976617926676606": {
+   "suffix": "676606",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.929,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3948011463406345762": {
+   "suffix": "345762",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.559,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3948382794244399329": {
+   "suffix": "399329",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.179,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3948415771481265119": {
+   "suffix": "265119",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.946,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3948489682472922496": {
+   "suffix": "922496",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.775,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3949299763350738586": {
+   "suffix": "738586",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.711,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3949329896447473866": {
+   "suffix": "473866",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.99,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3949330195568255677": {
+   "suffix": "255677",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.866,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3949390547978756647": {
+   "suffix": "756647",
+   "stratum": "movie-clip",
+   "tag": "culturemeetsonline",
+   "speech_frac": 0.832,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3931285888038729468": {
+   "suffix": "729468",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.814,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3936359464185273461": {
+   "suffix": "273461",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.369,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3942791824918137445": {
+   "suffix": "137445",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.887,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3945902748552337246": {
+   "suffix": "337246",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.42,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3946415450430936974": {
+   "suffix": "936974",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.046,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3946491068472366568": {
+   "suffix": "366568",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.971,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3946815897780125365": {
+   "suffix": "125365",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.798,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3947140252367738529": {
+   "suffix": "738529",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.929,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947180560143847082": {
+   "suffix": "847082",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.853,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947216182157907904": {
+   "suffix": "907904",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.783,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947865144424162290": {
+   "suffix": "162290",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.767,
+   "audio_type": "original_sounds",
+   "music": false
+  },
+  "3947903161673917835": {
+   "suffix": "917835",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.198,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3947940693502467261": {
+   "suffix": "467261",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.0,
+   "audio_type": "original_sounds",
+   "music": true
+  },
+  "3948590170748245582": {
+   "suffix": "245582",
+   "stratum": "movie-clip",
+   "tag": "decibeldrops",
+   "speech_frac": 0.966,
+   "audio_type": "original_sounds",
+   "music": false
+  }
+ }
+}
