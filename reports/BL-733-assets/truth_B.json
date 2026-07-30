@@ -1,0 +1,14 @@
+[
+ {"id":"B26","truth":"","script":"none","bar":"false-positive","note":"film scene in rain. No overlay text. Letterbox/dark region triggered the bar detector."},
+ {"id":"B27","truth":"","script":"none","bar":"false-positive","note":"space battle. Tiny illegible in-universe hull markings only, not overlay text."},
+ {"id":"B28","truth":"","script":"none","bar":"false-positive","note":"dark red-lit scene. No text."},
+ {"id":"B29","truth":"","script":"none","bar":"false-positive","note":"letterboxed clip, no text."},
+ {"id":"B30","truth":"","script":"none","bar":"false-positive","note":"rotated 90deg film frame; illegible set-design hologram glyphs only, not overlay text."},
+ {"id":"B31","truth":"","script":"none","bar":"false-positive","note":"mosque at night. No text."},
+ {"id":"B32","truth":"","script":"none","bar":"false-positive","note":"EMOJI ONLY (cigarette, skull, fire). No characters."},
+ {"id":"B33","truth":"","script":"none","bar":"false-positive","note":"letterboxed clip, no text."},
+ {"id":"B34","truth":"","script":"none","bar":"false-positive","note":"white letterbox bars, no text."},
+ {"id":"B35","truth":"","script":"none","bar":"false-positive","note":"selfie, no text."},
+ {"id":"B36","truth":"","script":"none","bar":"false-positive","note":"portrait at night, no text."},
+ {"id":"B37","truth":"","script":"none","bar":"false-positive","note":"dark stylised frame; CapCut watermark glyph only, no letters."}
+]
