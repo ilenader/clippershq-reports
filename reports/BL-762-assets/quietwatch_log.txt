@@ -1,0 +1,115 @@
+watching: config.json, spend.json, master_leads.csv, resolve_cache.json, clippershq/youtube_finder.py, clippershq/main.py
+need 600s continuous quiet
+
+[  20s] quiet 20s/600s
+[  42s] quiet 42s/600s
+[  63s] quiet 63s/600s
+[  83s] RESET -- PROC: pid22012 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\test_spotify_finder.py
+[ 104s] quiet 20s/600s
+[ 124s] quiet 41s/600s
+[ 145s] quiet 61s/600s
+[ 165s] quiet 82s/600s
+[ 186s] quiet 103s/600s
+[ 207s] quiet 123s/600s
+[ 228s] quiet 144s/600s
+[ 248s] quiet 165s/600s
+[ 269s] quiet 185s/600s
+[ 289s] quiet 206s/600s
+[ 310s] quiet 226s/600s
+[ 330s] quiet 247s/600s
+[ 351s] RESET -- PROC: pid23660 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid37364 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[ 372s] RESET -- PROC: pid23660 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid21524 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt; pid41672 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py
+[ 392s] RESET -- PROC: pid23660 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid41672 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid13476 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\AppData\Local\
+[ 413s] RESET -- PROC: pid23660 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid41672 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid5600 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[ 433s] RESET -- PROC: pid23660 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid41672 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid1856 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[ 454s] RESET -- PROC: pid15476 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/test_funnel.py
+[ 475s] RESET -- PROC: pid39812 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:/Users/Game Centar/OneDrive/Deskt
+[ 495s] RESET -- PROC: pid37572 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid29256 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[ 516s] RESET -- PROC: pid37572 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid19144 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[ 537s] RESET -- PROC: pid37572 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py
+[ 557s] RESET -- PROC: pid37572 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid23480 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[ 578s] RESET -- PROC: pid37572 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid40876 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[ 599s] quiet 20s/600s
+[ 620s] quiet 41s/600s
+[ 641s] quiet 62s/600s
+[ 662s] quiet 83s/600s
+[ 682s] quiet 104s/600s
+[ 703s] quiet 124s/600s
+[ 725s] quiet 146s/600s
+[ 745s] quiet 166s/600s
+[ 766s] quiet 187s/600s
+[ 786s] quiet 208s/600s
+[ 807s] quiet 228s/600s
+[ 828s] RESET -- WROTE: clippershq/youtube_finder.py
+[ 848s] RESET -- WROTE: clippershq/youtube_finder.py
+[ 869s] RESET -- WROTE: clippershq/youtube_finder.py
+[ 890s] RESET -- WROTE: clippershq/youtube_finder.py
+[ 911s] RESET -- WROTE: clippershq/youtube_finder.py
+[ 931s] RESET -- WROTE: clippershq/youtube_finder.py
+[ 952s] RESET -- PROC: pid12984 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid27004 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[ 973s] RESET -- PROC: pid12984 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid41420 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt; pid38208 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[ 993s] RESET -- PROC: pid12984 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid38380 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt; pid27584 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:/Users/Game Centar/OneDrive/Deskt
+[1014s] RESET -- PROC: pid12984 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid3096 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1035s] RESET -- WROTE: clippershq/youtube_finder.py | PROC: pid12984 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid18804 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1055s] RESET -- PROC: pid12984 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid29352 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1076s] quiet 20s/600s
+[1096s] RESET -- PROC: pid1448 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid4716 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1117s] RESET -- WROTE: clippershq/youtube_finder.py | PROC: pid1448 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid24684 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1137s] RESET -- WROTE: clippershq/youtube_finder.py | PROC: pid1448 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid19424 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1158s] RESET -- PROC: pid1448 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests\run_all.py; pid37804 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1178s] RESET -- WROTE: spend.json
+[1199s] quiet 20s/600s
+[1219s] RESET -- WROTE: clippershq/youtube_finder.py
+[1240s] RESET -- WROTE: clippershq/youtube_finder.py
+[1261s] RESET -- WROTE: clippershq/youtube_finder.py
+[1281s] RESET -- PROC: pid31512 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" -c "
+import sys;sys.path.insert(0,'c
+[1302s] quiet 20s/600s
+[1322s] quiet 41s/600s
+[1343s] quiet 61s/600s
+[1363s] RESET -- WROTE: clippershq/youtube_finder.py
+[1384s] quiet 20s/600s
+[1404s] RESET -- WROTE: config.json,clippershq/youtube_finder.py
+[1425s] quiet 20s/600s
+[1445s] quiet 40s/600s
+[1465s] quiet 61s/600s
+[1486s] quiet 81s/600s
+[1506s] quiet 102s/600s
+[1527s] quiet 122s/600s
+[1547s] quiet 143s/600s
+[1568s] RESET -- PROC: pid34152 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid37112 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1588s] RESET -- PROC: pid34152 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid9704 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1609s] RESET -- PROC: pid34152 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid1448 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1629s] RESET -- PROC: pid34152 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" tests/run_all.py; pid29600 "C:\Users\Game Centar\AppData\Local\Programs\Python\Python311\python.exe" "C:\Users\Game Centar\OneDrive\Deskt
+[1650s] quiet 20s/600s
+[1670s] quiet 40s/600s
+[1691s] quiet 61s/600s
+[1711s] quiet 82s/600s
+[1733s] quiet 103s/600s
+[1753s] quiet 123s/600s
+[1774s] quiet 144s/600s
+[1794s] quiet 164s/600s
+[1815s] quiet 185s/600s
+[1835s] quiet 205s/600s
+[1856s] quiet 226s/600s
+[1876s] quiet 246s/600s
+[1897s] quiet 267s/600s
+[1917s] quiet 287s/600s
+[1938s] quiet 308s/600s
+[1958s] quiet 328s/600s
+[1979s] quiet 349s/600s
+[1999s] quiet 370s/600s
+[2020s] quiet 390s/600s
+[2040s] quiet 411s/600s
+[2061s] quiet 431s/600s
+[2082s] quiet 452s/600s
+[2102s] quiet 472s/600s
+[2122s] quiet 493s/600s
+[2143s] quiet 513s/600s
+[2163s] quiet 534s/600s
+[2184s] quiet 554s/600s
+[2204s] quiet 575s/600s
+[2225s] quiet 595s/600s
+[2245s] quiet 616s/600s
+
+QUIET WINDOW ACHIEVED
