@@ -1,0 +1,266 @@
+# clippershq-reports manifest — which project each report belongs to.
+# Generated, do not hand-edit; regenerate after adding reports.
+# class: leadgen = clipper-finder Python CLI | payments = ClippersHQ Next.js app
+#        cross = governs both | ambiguous = could not determine
+id	class	confidence	basis	date	superseded_by	title
+BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
+BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
+BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
+BL-541	payments	1.00	auto (stack markers)			BL-541 — an owner-submitted clip is now an ordinary clip
+BL-542	payments	1.00	auto (stack markers)	2026-07-17		BL-542 — the money-hole hunt
+BL-543	payments	1.00	auto (stack markers)	2026-07-16		BL-543 — kill the Instagram actor cascade
+BL-544	payments	1.00	auto (stack markers)	2026-07-16		BL-544 — Can HikerAPI, LamaTok and TikHub replace Apify?
+BL-545	payments	1.00	auto (stack markers)	2026-07-02		BL-545 — Why is HikerAPI "failing" 25.7%? And what runs submit and account connection?
+BL-546	payments	1.00	auto (stack markers)			BL-546 — merge BL-543 (the ~$45/month saving) + four audit docs to main
+BL-547	payments	1.00	auto (stack markers)	2026-07-16		BL-547 — Make the ledger tell the truth, then find every remaining dollar
+BL-548	payments	1.00	auto (stack markers)			BL-548 — BL-541 merged to main. The shredder is off.
+BL-549	payments	1.00	auto (stack markers)	2026-07-16		What is actually deployed, and why LamaTok looks dark (BL-549)
+BL-550	payments	1.00	auto (stack markers)	2026-07-16		BL-550 — the 669 do not exist: HikerAPI resolves 100% of what is resolvable
+BL-551	payments	1.00	auto (stack markers)	2026-07-17		BL-551: make the ledger tell the truth about who served what
+BL-552	payments	1.00	auto (stack markers)	2026-07-17		BL-552 — the Apify retirement map: every surviving call site, probed
+BL-553	payments	1.00	auto (stack markers)	2026-07-17		BL-553 — the ledger tells the truth, and budget_abandoned is 0
+BL-554	payments	1.00	auto (stack markers)	2026-07-17		BL-554 — the gone-leak: Apify was being paid to look up DELETED posts
+BL-555	payments	1.00	auto (stack markers)	2026-07-17		BL-555 — the gone-leak is on main
+BL-556	payments	1.00	auto (stack markers)	2026-07-17		BL-556: restrict payouts to USDT on ERC-20 and Solana, with the $12 rule
+BL-557	payments	1.00	auto (stack markers)	2026-07-17		BL-557 — clockworks is the Instagram bug wearing a TikTok label
+BL-558	payments	1.00	auto (stack markers)	2026-07-17		BL-558 — the false CRON_DOWN alerts: BL-529's fix was never merged
+BL-559	payments	1.00	auto (stack markers)	2026-07-17		BL-559 — the gone-verdict now fires on a definitive not-found, not a URL format
+BL-560	payments	1.00	auto (stack markers)	2026-07-17		BL-560: merge BL-556 (USDT payout rule) and BL-559 (LamaTok gone-verdict) to main
+BL-561	payments	1.00	auto (stack markers)			BL-561 — merge BL-538 (the Pause-and-Freeze undo) to main
+BL-562	payments	1.00	auto (stack markers)	2026-07-17		BL-562 — STRAENGE owner share paid: repair to gross, then credit $173.41
+BL-563	payments	1.00	auto (stack markers)	2026-07-17		BL-563 — close BL-562's gap: gamification and force-recalc now write gross behind one shared guard
+BL-564	payments	1.00	auto (stack markers)			BL-564: why 114 clippers cannot verify their accounts, settled by live probe
+BL-565	payments	1.00	auto (stack markers)	2026-07-03		BL-565: the lost 14-day streak, investigated end to end
+BL-566	payments	1.00	auto (stack markers)			BL-566 — merge BL-529 (the cron watchdog fix) to main, finally
+BL-567	payments	1.00	auto (stack markers)	2026-07-17		BL-567 — Apify residual-spend audit (READ ONLY)
+BL-568	payments	1.00	auto (stack markers)	2026-07-17		BL-568: the growth engine has reached 3 people, and its dashboard shows 225,080 sends that never happened
+BL-569	payments	1.00	auto (stack markers)	2026-07-17		BL-569 — ScrapeBadger: what it is, what it costs, and whether TikHub can replace it
+BL-570	payments	1.00	auto (stack markers)	2026-07-17		BL-570 — somesome top-up dress rehearsal
+BL-571	payments	1.00	auto (stack markers)	2026-07-17		BL-571 — the third gone-leak: diagnosed, NOT patched (and why the patch was wrong)
+BL-572	payments	1.00	auto (stack markers)	2026-07-17		BL-572 — STOP at PART 0: guarding tracking.ts:2145 does NOT stop the $933.94 loss
+BL-573	payments	1.00	auto (stack markers)	2026-07-18		BL-573 — fix the fake growth feed, stop the bloat, and stage ONE safe trigger
+BL-575	payments	1.00	auto (stack markers)	2026-07-17		BL-575 — merge BL-562 + BL-563 (and the two docs-only STOPs) to main
+BL-576	payments	1.00	auto (stack markers)	2026-07-17		BL-576 — START THE GONE COUNTER (measurement only; retired NOTHING)
+BL-577	payments	1.00	auto (stack markers)	2026-07-04		BL-577 — HikerAPI Cooldown Audit (READ ONLY)
+BL-578	payments	1.00	auto (stack markers)	2026-07-18		BL-578 — Merge BL-576 (START THE GONE COUNTER) into main
+BL-579	payments	1.00	auto (stack markers)			BL-579 — Cheapest way to fully replace Apify, including slideshows (READ ONLY)
+BL-580	payments	1.00	auto (stack markers)			BL-580 — Cut every Apify dollar that can be proven safe tonight
+BL-581	payments	1.00	auto (stack markers)	2026-07-18		BL-581 — merge BL-580 to main (deploy the cooldown-immune 616 skip + slideshow shadow)
+BL-582	payments	1.00	auto (stack markers)	2026-07-18		BL-582 — Apify 12h forensic: every dollar of 2026-07-18, line by line (AUDIT ONLY)
+BL-583	payments	1.00	auto (stack markers)	2026-07-18		BL-583 — Complete slideshow and carousel replacement proof (READ ONLY)
+BL-584	payments	1.00	auto (stack markers)	2026-07-18		BL-584 — Retire the confirmed-dead Instagram ghosts (re-verified live at the moment of retiring)
+BL-585	payments	1.00	auto (stack markers)			BL-585 — Merge the two finished branches so they deploy
+BL-586	payments	1.00	auto (stack markers)	2026-07-19		BL-586 — unstick the clippers who cannot verify (rebuild of the lost BL-574)
+BL-587	payments	1.00	auto (stack markers)	2026-07-19		BL-587 — merge BL-586 to main (make the verification unstick live)
+BL-588	payments	1.00	auto (stack markers)	2026-07-19		BL-588 — why Apify still spends after the 710-clip retirement (AUDIT ONLY)
+BL-589	payments	1.00	auto (stack markers)	2026-07-19		BL-589 the Apify Instagram profile/bio calls: can they be cut to HikerAPI? Probed.
+BL-590	payments	1.00	auto (stack markers)	2026-07-19		BL-590 — drive IG Apify to the floor: fix the counter, make retirement recurring
+BL-591	payments	1.00	auto (stack markers)	2026-07-19		BL-591 — merge BL-590 to main (make the counter fix + auto-retirement live)
+BL-592	payments	1.00	auto (stack markers)	2026-07-19		BL-592 the last 30 rounds, verified live: merged, deployed, and behaving?
+BL-593	payments	1.00	auto (stack markers)			BL-593 — Register the dead-clip retirement cron so it actually fires
+BL-594	payments	1.00	auto (stack markers)	2026-07-18		BL-594 — Supervised first run of the auto-retirement cron
+BL-595	payments	1.00	auto (stack markers)	2026-07-20		BL-595 — Email Deliverability Emergency Audit (READ ONLY)
+BL-596	payments	1.00	auto (stack markers)			BL-596 — Structured Rules + AI Pre-Check Foundation (DESIGN, build nothing)
+BL-597	payments	1.00	auto (stack markers)	2026-07-20		BL-597: tighten bot detection (proportionality) and fix the screenshot reader per platform
+BL-598	payments	1.00	auto (stack markers)	2026-07-20		BL-598 — Multi-Clip, Multi-Platform Batch Submission (DESIGN ONLY, TEST CLIPPERS ONLY)
+BL-599	payments	1.00	auto (stack markers)	2026-07-20		BL-599: peer-relative bot-detection RANK, active from zero views
+BL-600	payments	1.00	auto (stack markers)	2026-06-25		BL-600: does slideshow and carousel view-counting work end to end, live, without Apify
+BL-601	payments	1.00	auto (stack markers)	2026-07-20		BL-601 — Verification of the BL-598 Multi-Clip Batch Design (READ ONLY)
+BL-602	payments	1.00	auto (stack markers)	2026-07-20		BL-602 — Structured-Rules Foundation (rulesJson + shadow free checks)
+BL-603	payments	1.00	auto (stack markers)	2026-07-20		BL-603 — Merge BL-599 + BL-602 to main (merge only)
+BL-604	payments	1.00	auto (stack markers)	2026-07-20		BL-604 — Slideshow + Carousel Live Proof on the Owner's Six Posts (READ ONLY)
+BL-605	payments	1.00	auto (stack markers)	2026-07-20		BL-605 — Fix the two slideshow/carousel null-vs-0 bugs (BL-604)
+BL-606	payments	1.00	auto (stack markers)	2026-07-20		BL-606 — Multi-Clip Multi-Platform Batch Submit (TEST CLIPPERS ONLY)
+BL-607	payments	1.00	auto (stack markers)	2026-07-20		BL-607 — Merge BL-605 to main (slideshow/carousel null-vs-0 fixes)
+BL-608	payments	1.00	auto (stack markers)	2026-07-20		BL-608 — Final Apify Forensic: why Instagram still hits Apify, and the kill plan (READ ONLY)
+BL-609	payments	1.00	auto (stack markers)			BL-609 — Merge BL-606 (multi-clip multi-platform batch submit for test clippers)
+BL-610	payments	1.00	auto (stack markers)	2026-07-21		BL-610 — Stop live IG clips spilling to paid Apify
+BL-611	payments	1.00	auto (stack markers)	2026-07-21		BL-611 — Can Apify be hard-cut to zero without breaking anything?
+BL-612	payments	1.00	auto (stack markers)	2026-07-21		BL-612 — account verification fully off Apify (Instagram via HikerAPI, TikTok via LamaTok)
+BL-613	payments	1.00	auto (stack markers)	2026-07-22		BL-613 — Merge BL-612: account verification fully OFF Apify (the earning gate)
+BL-614	payments	1.00	auto (stack markers)	2026-07-22		BL-614 — Supervised Apify cutover watch (live, read-only)
+BL-615	payments	1.00	auto (stack markers)	2026-07-22		BL-615 — multiposting made visible, correct, and forgiving
+BL-616	payments	1.00	auto (stack markers)			BL-616 — Merge BL-615: multiposting visible, correct, and forgiving
+BL-617	payments	1.00	auto (stack markers)	2026-07-22		BL-617 — Whole-site health and money-flow check, end to end, on live data
+BL-618	payments	1.00	auto (stack markers)	2026-07-22		BL-618 — multiposting was invisible; diagnosed, then opened to every clipper
+BL-619	payments	1.00	auto (stack markers)			BL-619 — Merge BL-618: multiposting opened to every clipper
+BL-620	payments	1.00	auto (stack markers)	2026-07-22		BL-620 — multiposting moved into the "Submit a clip" modal
+BL-621	payments	1.00	auto (stack markers)			BL-621 — Merge BL-620: multiposting moved into the "Submit a clip" modal
+BL-622	payments	1.00	auto (stack markers)	2026-07-22		BL-622 — the multi-clip submit UI, redesigned
+BL-623	payments	1.00	auto (stack markers)			BL-623 — Merge BL-622: multi-clip submit UI redesign
+BL-624	payments	0.45	auto (stack markers)	2026-07-22		BL-624 — is account verification still healthy after the Apify cutover?
+BL-625	payments	1.00	auto (stack markers)	2026-07-22		BL-625 — the campaign money calculator
+BL-626	payments	1.00	auto (stack markers)			BL-626 — Merge BL-625: the campaign money calculator
+BL-627	payments	1.00	auto (stack markers)	2026-07-22		BL-627 — Budget Endgame + Overpayment Audit (READ ONLY)
+BL-628	payments	1.00	auto (stack markers)	2026-07-22		SCALE CEILING — where Clippers HQ breaks first (BL-628)
+BL-629	payments	1.00	auto (stack markers)	2026-07-22		CLIPS_PER_TICK safety — is it safe to raise 30 to ~120? (BL-629)
+BL-630	payments	1.00	auto (stack markers)	2026-07-22		BL-630 — the ghost fee, given a runtime existence
+BL-631	payments	1.00	auto (stack markers)	2026-07-22		BL-631 — Merge BL-630: persist the platform fee, derive the clipper pool cap from real money
+BL-632	payments	1.00	auto (stack markers)	2026-07-22		BL-632 — daily submission counter counts UP (used), not DOWN (left)
+BL-633	payments	1.00	auto (stack markers)	2026-07-23		CLIPS_PER_TICK: which service reads it, and what production really uses (BL-633)
+BL-634	payments	1.00	auto (stack markers)	2026-07-23		CLIPS_PER_TICK 30 to 60: health verification (BL-634)
+BL-635	payments	1.00	auto (stack markers)	2026-07-23		BL-635 — Is the campaign money model complete, to the cent?
+BL-636	payments	1.00	auto (stack markers)	2026-07-11		BL-636 — Analytics Screenshot Reader: Audit (READ ONLY)
+BL-637	payments	1.00	auto (stack markers)			BL-637 — Merge BL-632: daily submission counter counts UP as used
+BL-638	payments	1.00	auto (stack markers)	2026-07-23		BL-638 — somesome forensic: did money move, or is the screen showing a different number?
+BL-639	payments	1.00	auto (stack markers)	2026-07-23		BL-639 — how fast is Clippers HQ on a cheap phone on a bad connection?
+BL-640	payments	1.00	auto (stack markers)	2026-07-23		BL-640 — Can a clipper see or take anything that is not theirs?
+BL-641	payments	0.87	auto (stack markers)	2026-07-23		BL-641 — somesome is finished, and every clipper sees $9,750.00 of $9,750.00
+BL-642	payments	1.00	auto (stack markers)	2026-07-23		BL-642 — Can /api/campaigns/spend be made fast without breaking anything?
+BL-643	payments	1.00	auto (stack markers)	2026-07-23		BL-643 — can the 269 KB /earnings page be made light without breaking anything?
+BL-644	payments	0.85	auto (stack markers)	2026-07-23		BL-644 — The "fully spent" display rule, explained and judged
+BL-645	payments	1.00	auto (stack markers)	2026-07-23		BL-645 — merge round for BL-641: NOTHING TO MERGE. It was already on main.
+BL-646	payments	1.00	auto (stack markers)	2026-07-23		BL-646 — merge BL-643. It is a DOCUMENT, not a code change. The 110.8 KB saving does not land.
+BL-647	payments	1.00	auto (stack markers)	2026-07-23		BL-647 — The black screen before the splash: cause and fix
+BL-648	payments	1.00	auto (stack markers)	2026-07-24		BL-648 — The black launch screen is dead, and the 110.8 KB finally shipped
+BL-649	payments	1.00	auto (stack markers)	2026-07-24		BL-649 — Merge BL-648 to main (iOS launch images + recharts defer)
+BL-650	payments	1.00	auto (stack markers)	2026-07-24		BL-650 — the analytics-screenshot reader, rebuilt so a misread cannot accuse anyone
+BL-651	payments	1.00	auto (stack markers)	2026-07-24		BL-651 — Completed campaigns row: scrollable, faded, with desktop arrows
+BL-652	payments	1.00	auto (stack markers)	2026-07-24		BL-652 — Designing the three pre-growth security fixes, de-risked before any build
+BL-653	payments	1.00	auto (stack markers)	2026-07-24		BL-653 — merge BL-650 and BL-651 to main (both were pushed but not landed)
+BL-654	payments	1.00	auto (stack markers)	2026-07-24		BL-654 — who is actually calling the crons? Vercel or Railway?
+BL-655	payments	1.00	auto (stack markers)	2026-07-24		BL-655 — The money 24 clippers can see but cannot withdraw
+BL-656	payments	1.00	auto (stack markers)	2026-07-24		BL-656 — Two questions: the wallet backfill, and the auto-reject shadow
+BL-657	payments	1.00	auto (stack markers)	2026-07-24		BL-657 — The $390.50: money already reserved, or money we would be creating?
+BL-658	payments	1.00	auto (stack markers)	2026-07-24		BL-658 — remove the x-vercel-cron header auth (now dead code)
+BL-659	payments	1.00	auto (stack markers)	2026-07-24		BL-659 — The auto-reject shadow now persists, so it can finally be measured
+BL-660	payments	1.00	auto (stack markers)	2026-07-24		BL-660 — Merge BL-658 (cron auth) + BL-659 (shadow persistence) to main
+BL-661	payments	1.00	auto (stack markers)	2026-07-24		BL-661 — The $390.60, itemised: every clipper, every campaign, the clips behind it
+BL-662	payments	1.00	auto (stack markers)	2026-07-24		BL-662 — the complete data inventory for an automated clip reviewer
+BL-663	payments	1.00	auto (stack markers)	2026-07-24		AI Clip Reviewer — Handover Dossier (ClippersHQ)
+BL-664	payments	1.00	auto (stack markers)	2026-07-24		BL-664 — the human baseline: how often does a human reject a clip and then overturn it?
+BL-665	payments	1.00	auto (stack markers)	2026-07-24		BL-665 — Why captionPresent is false on every shadow row
+BL-666	payments	1.00	auto (stack markers)	2026-07-24		BL-666 — The reviewer note layer: the machine writes a note, the human still decides
+BL-667	payments	1.00	auto (stack markers)	2026-07-25		BL-667 — Merge BL-666 (the reviewer note layer) to main
+BL-668	payments	1.00	auto (stack markers)	2026-07-26		BL-668 — the caption and sound pipeline now delivers
+BL-669	payments	1.00	auto (stack markers)			BL-669 — MERGE of BL-668 (caption / sound / hashtags reach the reviewer note behind an opt-in flag)
+BL-670	payments	1.00	auto (stack markers)	2026-07-22		BL-670 — why the Instagram clip thumbnail never works
+BL-671	payments	1.00	auto (stack markers)	2026-07-29		BL-671 — the Completed row now drags like the landing carousel, and two buttons stand out
+BL-672	payments	1.00	auto (stack markers)			BL-672 — MERGE of BL-671 (one shared drag engine for both card rows, image-drag bug killed, two clipper buttons raised)
+BL-673	payments	1.00	auto (stack markers)	2026-07-29		BL-673 — Instagram cover capture works again, off HikerAPI instead of dead Apify
+BL-674	payments	1.00	auto (stack markers)	2026-07-29		BL-674 — what the 403 is, and whether a clipper is locked out of a campaign they earned on
+BL-675	payments	1.00	auto (stack markers)	2026-07-29		BL-675 — merge BL-673 (Instagram cover capture) to main
+BL-676	leadgen	1.00	auto (stack markers)	2026-07-29		BL-676 — the view-count decoy: which field actually carries reach, per platform
+BL-676-clippershq-campaign-refusal	payments	0.90	auto (stack markers)			BL-676 (ClippersHQ) — the silent blank screen on a completed campaign is now an explanation with a way out
+BL-677	payments	1.00	auto (stack markers)	2026-07-24		BL-677 — Apify is supposed to be dead, so why did it run?
+BL-678	leadgen	1.00	hand-verified	2026-07-29		BL-678: `/v2/track/by/id` — the count passes through intact, but `best_audio_cluster_id` is the wrong key for licensed music
+BL-678-clippershq-apify-hard-off	payments	1.00	auto (stack markers)	2026-07-24		BL-678 (ClippersHQ) — Apify is OFF by construction: no request can be built, and no key can turn it back on
+BL-679	payments	1.00	auto (stack markers)	2026-07-29		BL-679 — beat-drop timestamp and mood for Instagram Reels: what is free, what is cheap, and what cannot be done
+BL-679-clippershq-apify-merge	payments	1.00	auto (stack markers)	2026-07-29		BL-679 (ClippersHQ) — MERGE of BL-678 (Apify off by construction) and BL-676 (the completed-campaign blank screen)
+BL-680	payments	1.00	auto (stack markers)	2026-07-29		BL-680 — the clip-library schema, corrected: two fields deleted, one join key was silently wrong by 150×
+BL-680-clippershq-health-check	payments	1.00	auto (stack markers)	2026-07-29		BL-680 (ClippersHQ) — whole-site health check after a week of heavy change, and the unmerged inventory
+BL-681	payments	1.00	auto (stack markers)	2026-07-29		REQUIRED_SOUND readiness — can a sound rule actually be added, and to which campaigns?
+BL-682	leadgen	1.00	hand-verified	2026-07-29		BL-682 — Mood from text, not audio: the owner is right, and the reason is stronger than the premise
+BL-682-clippershq-instagram-caption	payments	1.00	auto (stack markers)	2026-07-29		BL-682 (ClippersHQ) — Instagram captions and sound ids reach the reviewer note again, sourced from HikerAPI
+BL-683	leadgen	1.00	hand-verified	2026-07-17		BL-683 — `energy_step_ts`: built, measured, and honest about which number it is
+BL-683-clippershq-rejected-earnings-residue	payments	1.00	auto (stack markers)	2026-07-29		BL-683 (ClippersHQ) — the 10 REJECTED clips carrying stale baseEarnings are clean, and no code needed changing
+BL-684	payments	1.00	auto (stack markers)	2026-07-22		BL-684 — is the posting-freshness rule enforced at all?
+BL-685-clippershq-merge	payments	1.00	auto (stack markers)	2026-07-30		BL-685 — merge round, two branches onto main
+BL-686	leadgen	0.90	auto (stack markers)	2026-07-29		BL-686: Instagram reels move to /v2/user/clips, and a test that was set to fail on a date nobody chose
+BL-686-clippershq-ig-freshness	payments	1.00	auto (stack markers)	2026-07-30		BL-686 (ClippersHQ) — Instagram posting-window enforcement restored
+BL-687	payments	1.00	auto (stack markers)	2026-07-29		BL-687 — Do already-installed iPhone PWAs get the new launch images? NO. And why no trick changes that.
+BL-687-clippershq-merge	payments	1.00	auto (stack markers)	2026-07-30		BL-687 — merge round, BL-686 onto main
+BL-688	cross	1.00	hand-verified	2026-07-29		BL-688 — the report-ID race: three reports were destroyed, not one, and only one was noticed
+BL-688-clippershq-payout-failure	payments	1.00	auto (stack markers)	2026-07-30		BL-688 — a clipper cannot withdraw: "Something went wrong, please try again"
+BL-689	leadgen	0.80	auto (stack markers)	2026-07-29		BL-689 — CLAP for the coarse 4-way mood split: the model is cleared, the labels are the blocker
+BL-689-clippershq-payout-message	payments	1.00	auto (stack markers)	2026-07-30		BL-689 (ClippersHQ) — a legitimate payout refusal stops being reported as a crash
+BL-690	leadgen	0.67	auto (stack markers)	2026-07-29		BL-690 — Energy-step detector on REAL audio: fabrication went 0% → 100%
+BL-690-clippershq-balance-clamp	payments	1.00	auto (stack markers)	2026-07-30		BL-690 — the balance clamp asymmetry: what is actually owed, and the correct fix
+BL-691	leadgen	0.65	auto (stack markers)	2026-07-29		BL-691: the Spotify bridge is paid, the router mix is unstable, and the track-id routing is now a chokepoint
+BL-691-clippershq-merge	payments	1.00	auto (stack markers)	2026-07-30		BL-691 (ClippersHQ) — merge BL-689 (payout refusal stops rendering as a crash) to main
+BL-692	leadgen	1.00	auto (stack markers)	2026-07-29		BL-692 — How common is caption templating? 37.5% of confirmed repost pages, ~14% of the raw discovery pool — and a parser built for the BL-682 shape c
+BL-692-clippershq-clamp-fix	payments	1.00	auto (stack markers)	2026-07-31		BL-692 (ClippersHQ) — the balance clamp asymmetry, fixed: the gate now agrees with the balance we already display
+BL-693	leadgen	1.00	auto (stack markers)	2026-07-29		BL-693 — The numpy 2.0 ABI break is now a machine check, not a memo
+BL-693-clippershq-merge	payments	1.00	auto (stack markers)	2026-07-31		BL-693 (ClippersHQ) — merge BL-692 (balance clamp asymmetry) to main
+BL-694	leadgen	0.90	auto (stack markers)	2026-07-29		BL-694 — the caption parser: built, measured on 42 hand-labelled captions, three fields with provenance
+BL-694-clippershq-launch-campaign-cta	payments	1.00	auto (stack markers)	2026-07-31		BL-694 (ClippersHQ) — a "Launch a campaign" CTA on the signed-out landing hero
+BL-695	leadgen	0.95	auto (stack markers)	2026-07-29		BL-695 — the caption parser is wired into the repost finder: mood, genre, title and a farm detector on every discovered account, for $0 — and the acco
+BL-695-clippershq-stuck-money-current	payments	1.00	auto (stack markers)	2026-07-31		BL-695 — the authoritative stuck-money list, recomputed after the clamp fix
+BL-696	payments	1.00	auto (stack markers)	2026-07-29		BL-696: the energy-step detector fabricates on music too — the reframe did not save it, but flux-as-veto is the first thing that produces a null
+BL-696-clippershq-double-pay-proof	payments	1.00	auto (stack markers)	2026-07-31		BL-696 (ClippersHQ) — can the payout system pay anyone twice? The proof, re-established against the current code
+BL-697	leadgen	0.52	auto (stack markers)	2026-07-29		BL-697 — every caller of the /v2/user/clips envelope, and the two breakages waiting on the NEXT migration
+BL-697-clippershq-merge	payments	1.00	auto (stack markers)	2026-07-31		BL-697 — merge round, BL-694 onto main
+BL-698	leadgen	1.00	hand-verified	2026-07-29		BL-698 — Identifying the film or show from a clip: two of the three routes are structurally dead, the third is unmeasured, and the payoff chain you al
+BL-698-clippershq-unavailable-display	payments	1.00	auto (stack markers)	2026-07-31		BL-698 (ClippersHQ) — tell clippers the truth about earnings on deleted videos
+BL-699	leadgen	0.73	auto (stack markers)	2026-07-29		BL-699 — Can we identify WHICH SONG is in a reel? Yes, for about 7× what finding the lead costs — and the one free option cannot do it at all
+BL-700	leadgen	1.00	auto (stack markers)	2026-07-29		BL-700 — Only 8.5% of clips are music-dominant. Fingerprinting has no target here. Do not build it.
+BL-700-clippershq-required-sound	payments	1.00	auto (stack markers)	2026-07-31		BL-700 (ClippersHQ) — the first REQUIRED_SOUND rules, at enforcement rank, added as a data operation
+BL-701	leadgen	1.00	auto (stack markers)	2026-07-29		BL-701 — The Spotify funnel's stalls are NOT O(n²). 67% of a real run is spent blocked on one global MusicBrainz lock, and the 30s watchdog is shorter
+BL-702	leadgen	0.80	auto (stack markers)	2026-07-29		BL-702 — Music presence is a PAGE-FORMAT property: 68% / 67% / 30% / 11%. Song ID is reopened.
+BL-703	leadgen	1.00	auto (stack markers)	2026-07-29		BL-703 — Content genre from the discovery hashtag: 91.5% coverage, free, on 351 real reels
+BL-704	leadgen	1.00	auto (stack markers)	2026-07-29		BL-704: Genre from title+artist — the provably-clean source covers 30% of licensed clips, the source that covers 90% isn't provably clean, and the cur
+BL-705	leadgen	0.71	auto (stack markers)	2026-07-29		BL-705 — Format is a property of the CLIP, not of the ACCOUNT. One post does not label a page.
+BL-706	leadgen	1.00	auto (stack markers)	2026-07-29		BL-706: The curated head-artist genre map — 49% from three credits an encyclopaedia will never carry, 61.2% with the recurring tail
+BL-707	leadgen	1.00	auto (stack markers)	2026-07-29		BL-707 — Medium and genre split into two axes: 4 false conflicts → 0, coverage unchanged at 91.5%
+BL-708	leadgen	0.76	auto (stack markers)	2026-07-29		BL-708 — What sounds go on each franchise: the curated map fails, and the 51% concentration that motivated it was an artifact
+BL-709	leadgen	1.00	auto (stack markers)	2026-07-29		BL-709: Discogs genre is CC0 after all (BL-704 was wrong), Wikipedia infobox buys nothing, and the free comma-split is worth 3× its estimate
+BL-710	leadgen	1.00	auto (stack markers)	2026-07-29		BL-710 — Clip library and catalogue walk: the storage and filtering halves, built and proven offline
+BL-711	leadgen	0.83	auto (stack markers)	2026-07-29		BL-711 — song identification: line CLOSED by owner decision, with the decisive question still unmeasured
+BL-712	leadgen	1.00	auto (stack markers)	2026-07-29		BL-712 — STOPPED: tree is not quiet, another agent is editing enrich_links.py. Fix #3 measured read-only: 71.8% of scraper fetches are eliminable.
+BL-713	leadgen	1.00	auto (stack markers)	2026-07-29		BL-713: 483 paid-for Spotify handles salvaged from run.log and merged — all genuinely new, and the artist-ID hint is provably wrong on 119+ of them
+BL-714	leadgen	1.00	auto (stack markers)	2026-07-29		BL-714: the block-terminator fix — cluster-A caption coverage 5.2% → 66.5%, and BL-694's baseline did not move
+BL-715	leadgen	1.00	auto (stack markers)	2026-07-29		BL-715 — Both Spotify serial bottlenecks fixed: 24% of all HTTP requests deleted, the MusicBrainz lookup can no longer outlive its own watchdog, and t
+BL-716	leadgen	1.00	auto (stack markers)	2026-07-29		BL-716 — what a sound is FOR, inferred from what it's used on: the idea works, the labeller is the ceiling
+BL-717	leadgen	1.00	auto (stack markers)	2026-07-29		BL-717 — NOT BENCHMARKED: this CPU cannot run a 7B audio-LM (measured), and there is no Gemini key. Two blockers, both structural.
+BL-718	leadgen	1.00	auto (stack markers)	2026-07-29		BL-718: the fingerprinting pilot is underpowered before it starts — the target slice is 8.7%, not 24%
+BL-719	leadgen	1.00	auto (stack markers)	2026-07-29		BL-719: Caption-text labelling does not save the high-usage band — 14.8% → 14.8%. The popular sounds are not franchise content at all.
+BL-720	leadgen	1.00	auto (stack markers)	2026-07-29		BL-720 — One of the two small audio models is viable: LFM2-Audio-1.5B GGUF runs here, guard-clean, at ~1.5 GB. Mellow is licence-clean and dependency-
+BL-721	leadgen	1.00	auto (stack markers)	2026-07-29		BL-721: the pilot is now answerable — 73 targets, and the window question resolves in the pilot's favour
+BL-722	leadgen	1.00	auto (stack markers)	2026-07-29		BL-722 — STOPPED: tree is not quiet. No process is running, but another agent is writing control.py and main.py right now.
+BL-723	leadgen	1.00	auto (stack markers)	2026-07-29		BL-723 — SECRET_BLOCKS now redacts credentials out of every log record and refuses to start if a menu names one. Plus 3 more declarations of the same 
+BL-724	leadgen	1.00	auto (stack markers)	2026-07-29		BL-724 — Measured per-field error on 60 hand-labelled clips: tag-derived franchise is wrong 28.6% of the time. There is no purity setting with zero er
+BL-725	leadgen	1.00	auto (stack markers)	2026-07-29		BL-725: Gemini audio benchmark — blocked at 18 of 60 calls by a 20/day free-tier cap, but the one stratum that completed is not encouraging
+BL-726	leadgen	0.92	auto (stack markers)	2026-07-29		BL-726 — Twitch on Helix: discovery is free and instant, the free website scrape is 82% of the clock, and the in-band pool is 260
+BL-727	leadgen	1.00	auto (stack markers)	2026-07-30		BL-727 — The clip library is wired and ran live: 20 real clips off the wire for $0.0048, the view floor stopped 3 of 4 accounts, and BL-710's paginati
+BL-728	leadgen	1.00	auto (stack markers)	2026-07-30		BL-728 — Retaining the dropped rows found the filter was wrong: `nsfw` produced 4 false positives out of 6 keyword drops, all of them chat rules *forb
+BL-729	leadgen	0.71	auto (stack markers)	2026-07-30		BL-729: Comments are a noise pit for song ID (5%) and a duplicate for source ID (20%) — close the channel, but keep three free fields it exposed
+BL-730	leadgen	1.00	auto (stack markers)	2026-07-30		BL-730 — No live run (gate failed), but the timeout spike is explained from BL-728's own saved data: fetches run to 218s despite a 10s timeout.
+BL-731	leadgen	1.00	hand-verified	2026-07-30		BL-731 — Source-footage ID from a frame: the model never declines, is wrong 20% of the time, and the free route is licence-blocked
+BL-732	leadgen	0.67	auto (stack markers)	2026-07-30		BL-732: schema fix shipped, pilot measured — the bank supports ~200 pages, but the cost is 3.7 hours, not dollars
+BL-733	leadgen	1.00	auto (stack markers)	2026-07-30		BL-733 — OCR transcription accuracy, measured for the first time: production is throwing away half its accuracy on a `max_side=512` downscale
+BL-734	leadgen	1.00	hand-verified	2026-07-30		BL-734: You don't need to replace Gemini — you need a different payer. OpenRouter routes the same model for half the price, with no tax ID
+BL-735	leadgen	0.75	auto (stack markers)	2026-07-30		BL-735 — The benchmark did not run: there is no `openrouter_api` block in config.json. The guard for it is now in place, so the key is protected the m
+BL-736	leadgen	1.00	auto (stack markers)	2026-07-30		BL-736: The downscale fix works exactly as measured — and changes nothing this module actually outputs
+BL-737	leadgen	1.00	auto (stack markers)	2026-07-30		BL-737 — Item 4 was not produced: OpenRouter blocks every audio request below a flat $0.50 balance and the account holds $0. The integration is finish
+BL-738	leadgen	0.83	auto (stack markers)	2026-07-30		BL-738 — Not fixed, and not fixable this round: a funnel process has been livelocked at 99.5% of a core for 85 minutes with ZERO writes. The bug is pr
+BL-739	leadgen	0.96	auto (stack markers)	2026-07-30		BL-739 — Run not started: the funnel process from BL-738 is still alive at 164 minutes. Items 2 and 5 answered read-only; item 2's premise turns out t
+BL-740	leadgen	1.00	auto (stack markers)	2026-07-30		BL-740 — Fix written and VERIFIED against both adversarial servers, but not applied: the funnel process from BL-738 is now 180 minutes old and still h
+BL-741	leadgen	1.00	auto (stack markers)	2026-07-30		BL-741 — Fetch-chain fix APPLIED. Both chain_proof verdicts BOUNDED against the real module, 50/50 suites green. Paid re-measurement deferred by the o
+BL-742	leadgen	1.00	hand-verified	2026-07-30		BL-742 — FALSE-NEGATIVE RATE 63.3%. The music detector discards 31 of 49 music clips. Do not ship this gate.
+BL-743	leadgen	0.90	auto (stack markers)	2026-07-31	BL-764	BL-743 — READY TO SEND TODAY: 3,659. Cross-funnel lead-quality audit of 57,386 rows.
+BL-744	leadgen	1.00	auto (stack markers)	2026-07-31		BL-744 — Spotify funnel audit: the filter order is already correct, the seeds have drifted, and 41.5% of delivered leads have no country
+BL-745	leadgen	1.00	auto (stack markers)	2026-07-31		BL-745 — Spec: what a downstream editing bot needs to recreate a clip. 29 of 39 fields already ship; the one that matters most is the one nobody has m
+BL-746	leadgen	1.00	auto (stack markers)	2026-07-31		BL-746: The counter isn't broken — it's counting a different population. The leads are real and genuinely new; the run's problem is that 67% of it was
+BL-747	leadgen	1.00	auto (stack markers)	2026-07-31		BL-747 — The Spotify no-contact pool is 18.9% and genuinely dead. The real leak is next door: 52% of delivered leads never reach master.
+BL-748	leadgen	1.00	auto (stack markers)	2026-07-31		BL-748 — YouTube funnel audit: the stack is the CORRECT (Spotify) shape, but three fields arriving free at 100% are discarded, and the subs floor is d
+BL-749	leadgen	1.00	auto (stack markers)	2026-07-31		BL-749 — Cross-funnel unread-field sweep: the clip walk gets a full engagement panel free and reads none of it
+BL-750	leadgen	1.00	auto (stack markers)	2026-07-31		BL-750 — Fix NOT applied: three agents are writing every ~30s and one took a `pre_bl749` backup of config.json. Item 1's fill rate re-measured through
+BL-751	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-751: 1,576 leads are ready to send — and 100% of them come from two funnels. The other six export literally nothing, for one shared reason
+BL-752	leadgen	1.00	hand-verified	2026-07-31		BL-752 — The audio benchmark completed: the model is not reproducible at temperature 0, and the requested headline number does not exist
+BL-753	leadgen	1.00	auto (stack markers)	2026-07-31		BL-753: Clipper-side audit — the persona hunch is wrong (0.2–0.3%, not "the bulk"), the email-drop bug is absent, and the IG crawl writes the master w
+BL-754	leadgen	0.95	auto (stack markers)	2026-07-31		BL-754 — Spec: a self-audit that prints after every run. Building it surfaced two unflagged regressions and one dead recommendation sitting in shipped
+BL-755	leadgen	1.00	auto (stack markers)	2026-07-31		BL-755 — View floor N measured at n=200 across 4 niches; the description fill drops 12.5% → 7.1% once the country gate is honoured. Implementation HEL
+BL-756	leadgen	1.00	auto (stack markers)	2026-07-31		BL-756 — Capture NOT applied: 108 files written in 3 minutes by ~4 concurrent rounds. But the six fields are re-measured on 3× the sample, and two of 
+BL-757	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-757: Send order — your sendable pool is 4,217 addresses, not 57,000, and 7.6% of it is structural bounce risk
+BL-758	leadgen	1.00	auto (stack markers)	2026-07-31		BL-758 — Build HELD: every module sections 3/4/6 must edit is mid-edit by another agent. The regression is NOT depth — it is free handle discovery col
+BL-759	leadgen	0.98	auto (stack markers)	2026-07-31		BL-759: A fresh clone imports cleanly but fails 6 of 48 suites — and there is exactly one copy of everything that matters, on one disk, with the sync 
+BL-760	leadgen	0.85	auto (stack markers)	2026-07-31		BL-760 — Engagement fields LANDED. And the caveat was right: save_count is 0% on four new accounts — it is account-specific, not general.
+BL-761	leadgen	0.93	auto (stack markers)	2026-07-31		BL-761: The 52% discard is closed, the counters are honest, and 'personal' now means it. The X-scraper idea is dead — measured 0 of 150
+BL-762	leadgen	0.97	auto (stack markers)	2026-07-31		BL-762 — The YouTube size gate now measures reach, not just followers: N = 2,000,000 views, measured on 200 channels across 4 niches
+BL-763	leadgen	1.00	hand-verified	2026-07-31		BL-763 — Audio genre labelling: CLOSE IT. Non-reproducibility is upstream of accuracy, and no threshold or vote is worth buying.
+BL-764	leadgen	1.00	auto (stack markers)	2026-07-31		BL-764: The number is 1,600 — and 1,592 of them come from one source. Six of your eight funnels export nothing because of a single empty column
+BL-765	leadgen	1.00	auto (stack markers)	2026-07-31		BL-765 — Send-path audit: **NO, not safe to send from today.** The file n8n watches holds 2 rows, nothing is suppressed, and 2,505 of 4,128 valid addr
+BL-766	leadgen	0.93	auto (stack markers)	2026-07-31	BL-769	BL-766 — Cause found: the run asked for 1,000 leads from a seed pool that holds ~452. The overflow came from related-artist expansion, whose artists c
+BL-767	leadgen	0.92	auto (stack markers)	2026-07-31		BL-767 — SPEC: the two gates protect nothing on client funnels, there is a third gate nobody has counted, and the fix is one declared field — not a ve
+BL-768	leadgen	1.00	auto (stack markers)	2026-07-31		BL-768 — Spec: suppression + bulk outcome marker. The briefed marker plan is O(n) per key and costs 73s; an index costs 0.04s. Both export files are s
+BL-769	leadgen	1.00	auto (stack markers)	2026-07-31		BL-769 — Seeds re-measured: six of seven unchanged, the trial playlist is now the best of the set AND the largest contributor. But your safe run_targe
+BL-770	leadgen	0.56	auto (stack markers)	2026-07-31		BL-770 — Junk sweep: 1 live junk address, not a guard failure. letsencrypt is in a 14-day-stale FILE that today's code already rejects
+BL-771	leadgen	1.00	auto (stack markers)	2026-07-31		BL-771 — Duplicate humans: master is clean (5, all Google Play). But the send path **would double-send 1,395 people** — because dedup is perfect *with
+BL-772	leadgen	0.81	auto (stack markers)	2026-07-31		BL-772 — Platform-change exposure: the loud-zero guard exists in exactly one funnel, five funnels have no saved baseline at all, and an empty 200 is s
+BL-773	leadgen	0.94	auto (stack markers)	2026-07-31		BL-773 — The $3.53 is real and irrelevant: time costs 100× the cash. Total addressable pool is ~2,000 fresh email leads, and the sustainable weekly ra
+BL-774	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-774: The list you can actually send to is one segment, not three — 1,568 fandom video editors, and it is a RECRUITING list, not a sales list
+BL-775	leadgen	0.44	auto (stack markers)	2026-07-31		BL-775 — What this project knows about itself: none of the four "contradictions" is one, evidence survives at 100%, and the real cost is that **165 of
+BL-776	leadgen	1.00	auto (stack markers)	2026-07-31		BL-776 — Baselines captured for all four unbaselined funnels. And the optional-field hazard turns out not to exist outside the raw mirrors: 0 optional
+BL-777	leadgen	0.97	auto (stack markers)	2026-07-31		BL-777 — YouTube has NEVER been run. Not once. It works when you run it — 12% pass, all six fixes firing — and then **every lead it produces is struct
+BL-778	leadgen	1.00	auto (stack markers)	2026-07-31		BL-778: The dead-knob population at source — 83 invisible knobs, 11 unread keys (one BL-775 missed), 32 orphan functions, and a startup assertion that
+BL-779	ambiguous	0.15	auto (stack markers)	2026-07-31		BL-779: Namespace split — 165 payments / 92 lead-gen / 1 cross-project, an index that names what supersedes what, and the reason CONVENTION.md cannot 
