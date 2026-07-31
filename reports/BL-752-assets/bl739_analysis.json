@@ -1,0 +1,97 @@
+{
+ "n_rows": 63,
+ "n_pass1": 50,
+ "by_stratum": {
+  "A-declared": 16,
+  "B-music-no-title": 20,
+  "C-dialogue": 14
+ },
+ "A": {
+  "grades": {
+   "defensible": 4,
+   "unverifiable": 4,
+   "wrong": 4,
+   "correct": 4
+  },
+  "n_gradeable": 12,
+  "strict": 4,
+  "lenient": 8
+ },
+ "item4_speech_split": {
+  "speech": {
+   "n": 2,
+   "gradeable": 0,
+   "unverifiable": 2,
+   "lenient": 0
+  },
+  "not_speech": {
+   "n": 14,
+   "gradeable": 12,
+   "unverifiable": 2,
+   "lenient": 8
+  }
+ },
+ "C": {
+  "n": 14,
+  "genre_none": 3,
+  "vocals_speech": 4,
+  "genre_dist": {
+   "hip-hop-rap": 5,
+   "none": 3,
+   "orchestral-cinematic": 3,
+   "bollywood-indian": 1,
+   "pop": 1,
+   "lo-fi": 1
+  },
+  "vocals_dist": {
+   "speech": 4,
+   "none": 10
+  }
+ },
+ "B": {
+  "n": 20,
+  "genre_dist": {
+   "orchestral-cinematic": 5,
+   "pop": 7,
+   "none": 4,
+   "rock": 2,
+   "hip-hop-rap": 1,
+   "electronic-edm": 1
+  },
+  "vocals_dist": {
+   "speech": 5,
+   "singing": 9,
+   "none": 5,
+   "rap": 1
+  },
+  "n_speech_ge_20pct": 6,
+  "heard_speech_in_those": 1
+ },
+ "consistency": {
+  "n_pairs": 10,
+  "all_four": 1,
+  "genre": 4,
+  "energy": 6,
+  "vocals": 9,
+  "has_build": 7
+ },
+ "zimmer": {
+  "passes": 5,
+  "genres": {
+   "hip-hop-rap": 1,
+   "orchestral-cinematic": 4
+  },
+  "verdict": "VARYING -> instability is the bigger problem"
+ },
+ "cost": {
+  "rows": 45,
+  "tokens_in": 49924,
+  "tokens_out": 1096,
+  "usd_total": 0.0266,
+  "usd_per_clip": 0.000591,
+  "usd_per_1000": 0.59,
+  "billed_subset_usd": 0.00603,
+  "billed_subset_rows": 11,
+  "billed_per_1000": 0.55
+ }
+}
