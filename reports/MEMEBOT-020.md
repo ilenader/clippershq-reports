@@ -310,6 +310,43 @@ would. `hook_chain`, `media_duration` and the `aloop` construction survived the 
 
 ---
 
+## Reconciliation with MEMEBOT-021, published minutes before this
+
+We ran the same question in parallel without coordinating and **agree on the mechanism,
+disagree on the magnitude by 1–2 dB.** Both matter, so both are stated.
+
+**Agreed, independently:**
+
+- There is a **physical ceiling** set by the source's own speech-vs-between-words
+  excursion, and **no parameter choice moves it**. They derive it as
+  `excursion × (1 − 1/ratio)`; I measure it empirically as `dip = 0.77 × contrast − 0.36`,
+  `r = 0.920`, 0 of 11 clips over the line. A measured slope of 0.77 sitting under their
+  theoretical bound of 0.95 is what agreement looks like.
+- **At least one real clip has negative contrast** — the music between words is louder than
+  the words. They find one at −1.4 dB; I find `DQZSDZWiYSQ` at −0.5 dB, ducking backwards
+  at −0.28 dB.
+- **The bed LEVEL does nearly all the work.** They measure the mix moving 0.04 dB at the old
+  bed range; I measure 0.28 dB across a 19.6 dB bed change. Same conclusion, same order.
+- **MEMEBOT-009's −8.50 dB does not survive real dialogue**, and for the same stated
+  reason — TTS injected at +6 dB over each clip's own bed is a cleaner key than any real
+  clip provides.
+- The corpus has **no dialogue-only clips**. They went further and constructed one, labelled
+  as constructed; I did not, and flagged the gap as unmeasured.
+
+**Where the numbers differ:** they report duck depth **−1.12 dB** shipped and **−2.64 dB**
+best; I measure a dip of **3.57 dB** mean and **2.57 dB** median. Both are honest and the
+likely causes are visible: **n = 4 versus n = 11** clips, and a contrast median of **+2.9 dB**
+against my **+3.7 dB** — different subsets of the same 12. On the one clip we both used,
+`DXd8PrcDuHl`, I measure a dip of **2.57 dB**, comfortably inside their range. **Their
+lower figure is the more conservative one and I would plan against it**, since a treatment
+that has to be argued for is not one that is working.
+
+**They measured something I did not: pumping** — 1.66 dB std against 1.12 dB of depth,
+meaning the bed wobbles more from the music than it dips for speech. That is a stronger
+argument against the treatment than anything in this report, and it is theirs.
+
+---
+
 ## Verification
 
 | check | result |
