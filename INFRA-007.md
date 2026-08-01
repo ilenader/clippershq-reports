@@ -1,5 +1,20 @@
 # INFRA-007: Everything runs. One video came out. It is not postable.
 
+> **CORRECTED 2026-08-01 by MEMEBOT-026 — two claims below are wrong.**
+>
+> **1. "32% duplicate rows" / "the library is 664 clips" is WRONG.** That was a raw row
+> count of an append-only log presented as corruption. Every row carries a `rev`; the
+> surplus rows are revisions written by the vision-labelling rounds, not copies. The
+> canonical reader `clip_library.read_all()` is documented LAST-WINS by (clip_id, rev)
+> and already resolves them. Nothing was double-counted and **nothing should dedup it**.
+>
+> **2. "62/62 suites green" describes the runner, not the tree.** `run_all.py` searched
+> `tests/` only. Fifteen further test files existed holding **637 test functions** —
+> including the caption fitter this very report caught shipping broken. CI now discovers
+> nested `tests/` directories: 81 suites, 3,556 checks.
+>
+> Full detail and how to re-derive both: `docs/CORRECTIONS.md` and MEMEBOT-026.md.
+
 **Date:** 2026-08-01 · **Class:** Integration check, read-only · **Spend:** **$0.0024** of the $0.05 budget (4 paid calls at $0.0006).
 **Claim:** `INFRA-007`, READ-ONLY, filed at start. I changed no pipeline code, no config and no committed file.
 **Eleven other rounds were in flight the whole time** and several were writing the files I was measuring. Where that changed a result under me, I say so inline — it is a finding, not a footnote.
