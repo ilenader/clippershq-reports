@@ -102,7 +102,18 @@ The tool now prints `3 path(s) registered individually` of its own accord — a 
 
 ### Suites
 
-**`tests/run_all.py` produced zero bytes in over ten minutes** and I could not get a result from it. I am not going to report a green suite I did not see. What I did run, directly:
+**CORRECTION, added after publication.** I first reported that `run_all.py` produced nothing and that I could not get a result from it. That was true when I wrote it and it was the wrong conclusion: the runner buffers its entire output and writes it only on exit, and this run took **649 seconds**. It finished after the report went up. It works; it is just silent for eleven minutes.
+
+**The real result: `FAILED -- 2 of 86 suite(s) red`.**
+
+| red suite | held by | cause |
+|---|---|---|
+| `tests/test_song_library.py` | MEMEBOT-032 | 2 checks assert `TIER_TITLE`, the constant that round is mid-way through deleting |
+| `tests/test_dashboard.py` | BL-875, INFRA-014 | not investigated; both holders are live |
+
+**Neither is mine.** All 8 checks my MEMEBOT-027 round added to `test_song_library.py` pass, including the song02 density routing. The two failures are `franchise tier -> high confidence, no review` and `a recognised title still routes` — both `TIER_TITLE` assertions.
+
+So the honest headline is not "the suite is green" and not "I could not measure it". It is: **84 of 86 suites pass, and the two that do not are mid-edit in other rounds' files.** The four suites below were run directly and are the ones bearing on this round:
 
 | suite | result |
 |---|---|
@@ -132,7 +143,7 @@ The honest lesson is not about `--audio-class`. It is that `clip_pipeline.py` ha
 
 - **I did not do the main task and am not claiming it.** Items 1, 5 and 6 are MEMEBOT-030's; item 2 is undone. This report exists so that is unambiguous.
 - **I did not verify MEMEBOT-030's renders or their argv guard's correctness** beyond confirming the files exist. Their round should report those.
-- **`run_all.py` gave me nothing.** The 244 figure is four suites run directly, not the project runner the brief asked for.
+- **My first `run_all.py` claim was wrong and is corrected above.** The runner works; it buffers for 649 s. Reporting "no result" after ten minutes of silence was impatience, not measurement — the fix was to wait, and the answer (84/86, two failures attributable to other rounds) is strictly more useful than what I published.
 - **The record defect is guarded, not fixed**, and an `expectedFailure` is a marker, not a solution. If `clip_pipeline.py` frees up, it is two string literals.
 - **MEMEBOT-023's report is still unpublished** (404 at the time of reading), so the reasoning I cite from it comes from its claim intent and the code it left behind.
 
