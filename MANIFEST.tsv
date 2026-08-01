@@ -365,6 +365,7 @@ BL-871	leadgen	1.00	auto (stack markers)	2026-08-01		BL-871: it was flaky AND th
 BL-872	leadgen	0.96	auto (stack markers)	2026-08-01		BL-872 — The claim tool had **three** ways to say "no conflict" wrongly, not one. And the disjoint-labelling premise had already half-fixed itself before this round measured it
 BL-873	leadgen	1.00	auto (stack markers)	2026-08-01		BL-873 — The ranked selector landed: committed before running, both unranked runners retired, and a real pass measured. Ranked labelling costs 15% MORE per clip ($1.57 vs $1.36/1k) — the saving is volume, not unit price. The vision/speech disjointness premise expired: overlap is 784 of 2,003, above independence.
 BL-874	leadgen	1.00	auto (stack markers)	2026-08-01		BL-874 — main advances itself now, and the two things a clone cannot tell you are written down
+BL-875	leadgen	1.00	auto (stack markers)	2026-08-02		BL-875 — **BLOCKED, as instructed.** `clip_vision.py` is claimed by BL-937 and dirty, so I did not land the split. The gap is no longer theoretical: a **new** tooling retirement accrued 34 minutes ago while the two-way rule was live
 BL-877	leadgen	1.00	auto (stack markers)	2026-08-01		BL-877 — A finished video costs $0.0195, and the ledger has never seen 40% of the bill
 BL-878	leadgen	1.00	auto (stack markers)	2026-08-01		BL-878 — the two silent defects fixed, and the automation that has never once fired on its own
 BL-879	leadgen	1.00	auto (stack markers)	2026-08-01		BL-879 — What the operator actually does every day
