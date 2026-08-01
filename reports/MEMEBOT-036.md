@@ -1,176 +1,226 @@
-# MEMEBOT-036 — the two gaps closed, and a wiring bug that makes the whole matcher unreachable
+# MEMEBOT-036 — an 8-second floor: the rule, the renders, and the check that makes it a floor
 
-*2026-08-01. Published as MEMEBOT-036, not MEMEBOT-033: that round id is held by another live
-round (pid 4104) doing unrelated work on `claim.py` and `edit.py --help`, and `claim.py`
-correctly refused to let me reclaim it. Publishing to `MEMEBOT-033.md` would have silently
-overwritten their report — the exact failure `CONVENTION.md` records happening three times.*
+New operator requirement: **no finished video may be under 8 seconds.** A hard floor.
 
-## THE HEADLINE — AND IT IS NOT THE ONE I WENT LOOKING FOR
+`memebot/` only. No paid calls. Every duration below comes from ffmpeg producing a playable
+file and ffprobe reading it back.
 
-**Zero of 199 vision matches can reach a render.**
-
-`clip_pipeline.dict_of()` builds the mapping handed to the matcher and it carries five fields:
-
-    ['clip_id', 'content_genre', 'duration_s', 'franchise', 'valence_text']
-
-No `vision_scene`. No `vision_beats`. No `vision_on_screen_text`. It was written for
-MEMEBOT-008's four-tier matcher — franchise, genre, valence, fallback — and **was never
-updated when MEMEBOT-019 added the vision tier**. Every round since has measured the matcher
-by calling `match()` on a full library row. The pipeline does not pass a full library row.
-
-| | VISION_RULE | FRANCHISE_MOOD | total |
-|---|---|---|---|
-| matcher on the **full library row** (what four rounds measured) | **199** | 13 | 212 |
-| matcher on **`dict_of(row)`** (what actually renders) | **0** | 18 | **18** |
-
-Everything MEMEBOT-019 through MEMEBOT-032 built — the vision rules, the outcome guard, the
-tone flag, the word-boundary work — is live and correct in `song_library`, and **none of it is
-reachable from `run_batch`**. The 10.5% coverage figure describes the matcher in isolation. In
-production the number is 0.9%, all of it franchise.
-
-**`clip_pipeline.py` is held by BL-855 (193 min) and MEMEBOT-035. I did not touch it.** The fix
-is one line — carry the vision fields in `dict_of()` — and it belongs to whoever holds that
-file. Stopping and reporting is the rule this repo runs on, and this is what it is for.
+**`claim.py brief` at round start** — 3 rounds in flight, none touching `memebot/`:
+`BL-849` (298 min, `clip_library/`, flagged ** nothing written yet), `BL-867` (46 min,
+`clip_library/`, `scratch/`), `BL-888` (12 min, `dashboard/`, flagged ** nothing written yet).
+One advisory on filing: BL-867 claims `scratch/` broadly; my files are `scratch/mb036_*`,
+distinct names, no real overlap. Proceeded.
 
 ---
 
-## 1. GAP ONE — COMMITTED
+## 1. THE PROBLEM, MEASURED FIRST
 
-MEMEBOT-032's manifest verified 8/10 and both misses were working-tree only: no git object
-existed for `match_detail()` or for `scratch/memebot032_remeasure.py`.
+**9.3% of the library is under 8 seconds.** Not 2%, not 20% — it shapes the render path.
 
-Staged **by explicit path**, never `git add -A`:
+Measured on **`media_duration_s`** (98.8% coverage), not `duration_s` (69.3%):
 
-    5c559a1  clippershq/song_library.py  scratch/songs.json
-             tests/test_song_library.py  docs/claims/MEMEBOT-032.claims
-             scratch/memebot032_remeasure.py
+| Below the floor | clips | % of library |
+|---|---:|---:|
+| 7–8s | 56 | 2.8% |
+| 6–7s | 56 | 2.8% |
+| 5–6s | 63 | 3.1% |
+| 4–5s | 7 | 0.3% |
+| 3–4s | 2 | 0.1% |
+| **total under 8.0s** | **184 / 1,978** | **9.3%** |
 
-**All four manifests now verify at HEAD:**
+p1 = 5.0s, p5 = 6.3s, p10 = 8.2s, median 32.8s, min 3.13s.
 
-| manifest | before | after |
+### The two duration columns disagree, and it matters
+
+`duration_s` and `media_duration_s` differ by >0.5s on **13.5%** of clips, and **classify 9
+clips differently against the floor** — one stores `duration_s=9.80` where the retrieval
+payload says `media_duration_s=5.04`. A rule tuned on `duration_s` waves those 9 straight
+through. Filtering must use `media_duration_s`; the renderer probes the real file anyway.
+
+---
+
+## 2. THE RULE
+
+| Source duration | Technique | What happens |
 |---|---|---|
-| MEMEBOT-019 | 17/17 | 17/17 |
-| MEMEBOT-022 | 9/10 | **9/9** |
-| MEMEBOT-028 | 9/9 | 9/9 |
-| **MEMEBOT-032** | **8/10** | **10/10** |
+| **≥ 8.00s** | pass | nothing |
+| **7.00 – 8.00s** | **fade** | +1.0s black (0.5s each end) |
+| **5.95 – 7.00s** | **slow + fade** | 0.85–1.0× plus the same 1.0s black |
+| **< 5.95s** | **reject** | skipped, never stretched |
 
-That commit also carried **MEMEBOT-027's** released dialogue-class work (`DIALOGUE_CLASSES`,
-`can_use_for_class`, `pick(audio_class=)`), which was finished, green, and sitting uncommitted
-in the same file. Both rounds are named in the commit message.
+**Fade before slowing — which inverts the operator's stated order, on measurable grounds.**
+Fading costs nothing: it adds real time and alters not one frame. Slowing alters every frame.
+Where fade alone clears the floor (src ≥ 7.0s — 56 of the 184) there is no reason to touch
+the pixels. Slowing is applied only where fade cannot get there alone.
 
-### The commit broke a suite, and the fix is the interesting part
+### What slowing actually costs
 
-`tests/test_claims_manifest.py` went red on **MEMEBOT-022.claims**, which claims
-`song_library::TIER_TITLE` — the constant MEMEBOT-032 deleted on measurement. Committing the
-deletion made a truthful manifest permanently unverifiable.
+- **Pitch: nothing.** The chain uses ffmpeg **`atempo`**, a time-domain stretch that
+  *preserves pitch*. The operator's pitch concern applies to `asetrate`, which is not used
+  for speed. (`edit.py` uses `asetrate` only for the deliberate pitch-shift transform, and
+  composes an inverse `atempo` to hold duration — the two are independent.)
+- **Judder: real, and the binding constraint.** Measured on the actual renders:
+  **16.0% duplicated frames at 0.8688×**, **14.6% at 0.8987×**. Source is 30fps, so at 0.85×
+  roughly 1 frame in 7 is a duplicate — at the edge of visible on panning shots, invisible on
+  static ones. Below ~0.80× the cadence becomes a visible stutter. **0.85× is the floor.**
+- **Audio artefact:** `atempo` below ~0.8× smears transients. 0.85× stays inside the clean
+  single-stage range.
 
-MEMEBOT-022 really did ship TIER_TITLE. So the claim line was replaced with a comment naming
-the round that removed it and why (1 right in 13, 5 outright wrong, 9 of 13 the same film),
-and committed separately. **A manifest asserts what a round shipped *and what still stands*;
-when a later round removes something on evidence, the honest record is that note, not a line
-that fails forever.** This was outside my declared write paths — my own commit is what broke
-it, and leaving a suite red for a non-defect would have been worse.
+### Why 5.95s is the reject line
 
-## 2. GAP TWO — THE FLAG REACHES THE RECORD
+It is not chosen, it falls out: `(8.0 − 1.0 fade) × 0.85 = 5.95`. Below that, reaching 8s
+needs a slower stretch or more than a second of black, and both look wrong.
 
-Verified through the **real pipeline**, `clip_pipeline.run_batch(dry_run=True)`, with
-retrieval stubbed at the two seams `run_batch` already exposes, exactly as
-`tests/test_clip_pipeline.py` stubs them. **No network call, nothing metered.** The record was
-read back off disk, because a plan is not a record.
+**The operator independently said "above six seconds you can slow it down."** 5.95 and his 6.0
+are the same boundary, reached from opposite ends.
 
-    match_detail  needs_review=True
-    render_plan   needs_review=True   matched_on: vision strong:left her for
-                                                  +TONE_CONFLICT:funny -> mood:melancholy
-    record line   needs_review=True   confidence=none   (top level, not in song_detail)
+**No looping.** Explicitly forbidden, and there is no code path that can do it — `plan()` has
+no loop branch, and a test asserts no plan ever mentions one. It also never freezes a frame,
+for the same reason. (The *audio* hook still loops to fill; that is separate and intended.)
 
-`needs_review` and `confidence` are both at the top level of the record and mirror the plan
-verbatim. The plumbing MEMEBOT-032 built is sound.
+---
 
-**Two things had to be adjusted to run it at all, and both are findings:**
+## 3. REAL RENDERS — 4/4 CLEAR THE FLOOR
 
-* **The live store has every song `enabled: false`** — the hook windows are still placeholders
-  and MEMEBOT-019 refused to let a placeholder window render. The proof runs against a
-  **temp copy** with one song enabled. The live store was never modified.
-* **The one real flagged clip is 125.1s and the pipeline gates [5, 90]s.** It can never reach
-  a render. Its real description, real rule and real evidence string were used with the
-  duration overridden to 30s; only the length is fiction, and only because the real length
-  makes the clip unrenderable.
+Playable files, in `scratch/mb036/`. All four decode end-to-end with video **and** audio.
 
-And then the record came back `confidence=none`, `rule_tier=None` — a **parked** plan. That is
-what exposed `dict_of()`. The check that would have passed on the evidence string alone failed
-on the record, which is the entire reason the brief asked for a record.
+| Case | Source | Technique | Planned | **Actual** | Drift | Judder |
+|---|---:|---|---:|---:|---:|---:|
+| A | 7.127s | fade | 8.127s | **8.133s** | +0.006s | — |
+| B | 6.082s | slow 0.8688× + fade | 8.001s | **8.000s** | −0.001s | 16.0% |
+| C | 6.291s | slow 0.8987× + fade | 8.000s | **8.000s** | −0.000s | 14.6% |
+| D | 7.567s | fade | 8.567s | **8.600s** | +0.033s | — |
 
-## 3. GAP THREE — THE FRANCHISE TIER'S HONEST STATE
+All h264 720×1280, aac audio, `ffmpeg -f null -` decode exit 0.
 
-    franchise matches            : 13
-    ALL 13 carry needs_review    : yes
-    ALL 13 keep confidence=high  : yes
-    of those with NO vision label: 6 (46%)
+### Three things that had to be got right, each found by a render failing
 
-The invariant asked for holds: **every franchise match is flagged, and every one keeps high
-confidence** — the tier is not wrong about the film, it simply cannot say what the clip shows.
+**1. The fade must PAD, not dim.** `fade=t=in` over existing content adds **no time** — it
+darkens the first half second and the file is exactly as short as it was. The operator asked
+for black that "buys ~1s", which is `tpad`: real black frames, with a fade across the join.
+Getting this wrong produces a technique that measurably does nothing.
 
-The counts differ from MEMEBOT-028's "12 blind of 15" and the difference is not a regression:
-**BL-849 and BL-872 have been labelling continuously**, so clips that were blind then carry a
-description now, and some of those route on vision instead and leave this tier. The tier is
-unchanged; the library moved. Six matches still route a clip nobody can check, so the reason
-for the flag has not gone away.
+**2. `apad` hangs ffmpeg.** Bare `apad`, and `apad=whole_dur=N`, both hang indefinitely here
+— **even with `-t` set**. Bisected filter by filter: `tpad` alone fine, `tpad`+`adelay` fine,
+`+apad` times out at 60s every time. Not used. The tail silence comes free: the audio stream
+simply ends before the video, which is what a black tail means.
 
-## 4. GAP FOUR — THE BENDER CASE IS OPEN
+**3. Container duration ≠ video-stream duration — and it put a render UNDER the floor.**
+Source `DUGOWzskh75`: container **7.127s**, video stream **6.967s**. `tpad` works on the video
+stream, so +1.0s gave **7.967s** where the plan predicted 8.127s — **0.03s short, from a plan
+that looked right.** So the output length is not predicted, it is **forced**: pad generously
+past the target, then cut with `-t` at exactly the planned duration.
 
-    3920038600787171113_227282247  mood=melancholy  needs_review=False
+---
 
-**Still matched, still unflagged, and nothing was built to catch it.** Nothing in its
-description says it is funny — it is funny because it is Futurama, which is a fact about the
-franchise, and the genre tier was deleted on measurement. MEMEBOT-028 said it was not
-catchable this way; it is not. Recorded as open.
+## 4. THE AUDIO STILL LANDS — with one real problem found
 
-## 5. WHERE THIS LEAVES THE MATCHER
+### The hook placement trap
 
-Final state, on a 2,003-clip snapshot with 1,451+ clips vision-labelled:
+`place_at()` and `loop_count()` both take `clip_len_s`. If the renderer passes the **source**
+length after stretching, the hook lands wrong:
 
-| tier | confidence | needs_review | matches |
-|---|---|---|---|
-| VISION_RULE | high | false (per-match tone flag can raise it) | 199 |
-| FRANCHISE_MOOD | high | **true, always** | 13 |
-| GENRE_MOOD | low | true | 0 — map empty |
-| VALENCE_MOOD | medium | true | 0 — map empty |
-| ~~TITLE_MOOD~~ | — | — | deleted |
+| Length passed | place_at | as % of final |
+|---|---:|---:|
+| source (6.08s) — **wrong** | 2.614s | **32.7%** |
+| final (8.00s) — **right** | 3.440s | **43.0%** |
 
-**The ceiling is unchanged and it is the thing to act on: with perfect rules the four songs
-reach 19.5% of labelled clips; the rules deliver 13.2%; all remaining rule work is worth at
-most 6.3 points, about 126 clips.** 80.5% of the labelled library belongs to topics no song
-targets — memes 18.1%, comedy 15.3%, romance 10.8%, anime 9.9%, crime 5.2%.
+The drop arrives **0.83s early**. Audio still covers the video (loop count over-covers, so
+nothing goes silent) — which is exactly why this would not have been noticed.
 
-**The next gain is songs, not rules.** One comedy bed is worth more than every rule
-improvement still available. Rule work is finished.
+### The fade DOES cut the hook — every time, not occasionally
 
-Two things now sit ahead of buying a song, and neither is a rule: **wire `dict_of()`** so the
-matcher that exists can actually run, and **mark the hook windows** so a song can be enabled at
-all.
+`place_at` clamps to **0.0** whenever the clip is shorter than twice the hook. Measured
+against the live song store: **all 15 hand-marked hooks run 6.0s–26.9s**, every one longer
+than half of an 8-second video.
 
-## VERIFICATION
+**So on every floor-lifted clip, `place_at` is 0.0 and the hook starts on frame one** — and a
+0.5s audio fade-in would land squarely on the hook's **attack**, the drop, the single moment
+the operator marked the window for.
 
-| check | result |
+**Fixed by decoupling the fades:** the video ramps from black, the audio starts at full level
+(`AUDIO_FADE_IN_S = 0.0`). Black video under full-level music is a normal, deliberate opening
+— a beat landing on the cut to picture. The **tail** keeps its audio fade, since the hook is
+almost always mid-phrase at the end and a ramp is kinder than a cliff.
+
+---
+
+## 5. THE CHECK — what makes it a floor rather than a preference
+
+`duration.assert_floor()` re-probes the **finished file** and fails loudly. Wired into
+`edit.py` immediately after `is_healthy_video()` and **before `os.replace`**, so a short
+render never becomes the output file.
+
+**That placement is the MEMEBOT-010 gap exactly.** Demonstrated on a synthetic 5.0s file that
+is genuinely healthy — 720×1280, aac audio, 2.7 MB:
+
+```
+duration              : 5.000s
+is_healthy_video says : True     <- the file is FINE; it is the wrong LENGTH
+FLOOR FIRES           : finished at 5.000s, under the 8.0s floor. Not shipping a short video.
+```
+
+A first attempt used a 5s file with no audio; `is_healthy_video` rejected it for an unrelated
+reason, which would have proved nothing. The fixture above is the honest one.
+
+It also catches the rest of the MEMEBOT-010 shape: `expected_s` fails a render that **clears
+the floor but misses its plan** — 5.0s would clear a 5s floor while being 56.8s short.
+
+Config: `edit.transform.duration_floor` (`enabled: true`, `floor_s: 8.0`), and **the code
+defaults to enabled** — an opt-in floor is not a floor. Verified against the live config.
+
+`memebot/scraper/tests/test_duration.py` — **15 tests, green.** The rule swept at 10ms
+resolution across 0–20s: zero plans fail to reach the floor, zero speeds below the judder
+limit, zero mentions of looping.
+
+---
+
+## 6. WHAT THE FLOOR COSTS
+
+Against `media_duration_s`, n = 1,978:
+
+| | clips | of the 184 |
+|---|---:|---:|
+| **Unusable with no stretching at all** | **184** | 100% |
+| Rescued by fade alone (≥7.0s) | 56 | 30% |
+| Rescued by slow+fade down to 0.85× (≥5.95s) | **114** | **62%** |
+| **Rejected — below 5.95s** | **70** | **38%** |
+
+**The floor costs 70 clips — 3.5% of the library.** They are not deleted; `plan()` returns
+`reject` and the caller skips them.
+
+Reference points if the operator ever wants to trade quality for volume: 0.80× would rescue
+82 of 184 on slowing alone (vs 62 at 0.85×), at visible stutter. Not recommended, measured.
+
+---
+
+## PROOF
+
+| Required | Result |
 |---|---|
-| `tests/run_all.py` | **ALL GREEN — 92/92 suites, 3,853 checks** (310.6s) |
-| `scratch/memebot036_verify.py` | **ALL PASS — 0 failed** |
-| campaigns SHA (`sha256[:16]`) | **8e02f8d6f6307ae8 — MATCH** (config.json untouched) |
-| `config.json` parses | OK — 162 top-level keys |
-| manifests at HEAD | 019 17/17 · 022 9/9 · 028 9/9 · **032 10/10** · 036 7/7 |
-| `song_library` / `crossdedup` / `google_play_finder` / `clip_pipeline` import | OK |
+| Sub-8s distribution measured | **184/1,978 = 9.3%**, bucketed; two columns disagree on 9 |
+| Rule recommended with quality costs | fade → slow+fade → reject; pitch **nil**, judder **14.6–16.0%** measured |
+| Real render per technique, playable | **4/4 clear the floor**, decode exit 0, video+audio |
+| Hard check fails on a synthetic 5s output | **fires** — while `is_healthy_video` says True |
+| memebot suites | test_duration **15/15**, test_edit, test_duck, test_scrape, test_caption_fit — **all PASS** |
+| clippershq suite | **ALL GREEN — 93/93 suites, 3,883 checks** (351 s) |
+| Campaigns byte-identical | `8e02f8d6f6307ae8` — **MATCH** |
+| config.json / config.yaml | both parse; floor reads `enabled=True, floor_s=8.0` |
 
-One earlier full-suite run was red on `test_filelock`; it passes in isolation and is the
-contention flake MEMEBOT-022 documented in a tree with a dozen rounds writing files. The
-second run, after the manifest fix, was clean.
+---
 
-## What this does not do
+### Method / limits
 
-* **It does not fix `dict_of()`.** BL-855 and MEMEBOT-035 hold `clip_pipeline.py`. The finding
-  is measured, committed and reported; the edit is theirs.
-* **It does not re-measure coverage through the pipeline.** Until `dict_of()` carries the
-  vision fields there is nothing to measure — the answer is 0.
-* **The record proof used an adjusted duration and a temp store.** Both stated above. The
-  description, rule, evidence and record path are all real; a fully real end-to-end record is
-  impossible while every song is disabled and the only flagged clip is unrenderable.
-* **Nothing was built for the Bender case**, by instruction and on measurement.
+- Library figures read through `read_snapshot` — BL-849 and BL-867 are appending to
+  `clip_library/`, and a numerator and denominator from two versions of the store is the bug
+  that module exists to prevent.
+- Judder is measured as **duplicated-frame percentage**, which is the mechanical cause. It is
+  not a perceptual study; "invisible on static shots, edge-of-visible on pans" is my
+  judgement from the cadence, not a viewer test.
+- The four renders are real library clips but a small sample. The rule is swept exhaustively
+  in tests; the *renders* prove the filter chain, not the aesthetics.
+- `plan()` is pure arithmetic and knows nothing about content. A 6s clip whose last second is
+  a hard cut will still be slowed; nothing here inspects the footage.
+- The audio findings are computed against `song_library.place_at`/`loop_count` and the live
+  store. I did **not** re-render a full pipeline video with music — `clip_pipeline.py` remains
+  unreachable from any entry point (BL-859), so there is no end-to-end path to exercise.
