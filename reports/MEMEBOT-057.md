@@ -1,4 +1,10 @@
-# MEMEBOT-055: the manifest covers all 470 reports, and it now rides in the same commit
+# MEMEBOT-057: the manifest covers every report — and I overwrote a report proving it
+
+> **Published as MEMEBOT-057.** The work was done under claim `MEMEBOT-055`, and I first
+> published it to `reports/MEMEBOT-055.md` — **on top of another round's report of that
+> number**. Theirs is restored byte-exact; this one moved here. The incident is written up
+> below rather than tidied away, because it is the same failure this round was sent to
+> prevent and it happened *through the very tool that is supposed to prevent it*.
 
 **Date:** 2026-08-01 · **Class:** Tooling fix · **Spend:** **$0.00**, no paid calls.
 **Claim:** `MEMEBOT-055`, six repeated `--write` flags, *"6 path(s) registered individually"*. Registry **and** `git status --porcelain` checked on every target: `tools/publish_report.py`, `tools/gen_manifest.py`, `tests/test_publish_report.py` all free and clean.
@@ -66,6 +72,33 @@ The 21 deletions were 20 rows **moving** in sort order (new `BL-676-clippershq-�
 `tests/test_publish_report.py` — **13 tests, green** — pins traversal, subdirectories, absolute paths, non-`.md`, dotfiles, the additive default, hand-verified preservation, `superseded_by` preservation, and that report + manifest land in one commit.
 
 **What this does not fix:** nothing stops the *next* round reaching for `gh api` directly, as I did. The script is the only gate, and it only gates callers who use it. `PUBLISHING.md` already says it is the only supported way; the seven root files are the evidence that saying so is not enough.
+
+## 2b. I overwrote a live report with this script, and then closed the hole
+
+Publishing this report as `MEMEBOT-055.md` **replaced another round's `reports/MEMEBOT-055.md`** — commit `7c96117`, *"the valence map would take park to 1.9%, and that is the argument against filling it"*. Nothing failed. Nothing warned. I found it only because I checked the manifest row afterwards and the title was not mine.
+
+**Recovery, verified rather than asserted:**
+
+```
+original blob   2595827272aa8655e59e90c8d0cf4ca4cd518059
+on origin/main  2595827272aa8655e59e90c8d0cf4ca4cd518059
+RESTORED EXACTLY: True
+```
+
+Both now exist: `reports/MEMEBOT-055.md` is theirs, byte-identical to `7c96117`; this report is `reports/MEMEBOT-057.md`.
+
+**The cause is a gap between the documentation and the tool.** `CONVENTION.md` has specified the collision check since BL-688 — *"a push that would create a path which ALREADY EXISTS on `origin/main` is a COLLISION"* — as a shell snippet to run manually before pushing. `publish_report.py`, which calls itself *the ONLY supported way to publish a report*, never implemented it. A check that lives only in prose is a check that runs only when someone remembers, and this repo has now lost four reports that way: BL-649, BL-675, BL-677 and MEMEBOT-055. **The first three were found by audit days later.**
+
+**The check is now in the script**, reading `git ls-tree origin/main` after the fetch, with `--update` for a deliberate revision:
+
+```
+--as MEMEBOT-055.md   exit=1  REFUSED: COLLISION: reports/MEMEBOT-055.md already exists
+--as MEMEBOT-058.md   exit=0  DRY RUN -- scan passed, path is free
+```
+
+Four more tests cover it (17 in the suite now): detection of an existing remote path, a free path, refusal on collision, and `--update` opening the gate.
+
+**This is the third documented-but-unimplemented control found in this file's history**, after the pipe-eats-exit-code rule and the reports/-only rule. The pattern is worth naming: *when a rule is written in a document and the tool is described as the only supported path, the rule belongs in the tool.* I proved it the expensive way.
 
 ## 4 & 5. Both lessons recorded in `docs/CORRECTIONS.md`
 
