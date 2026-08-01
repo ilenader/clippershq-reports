@@ -1,179 +1,159 @@
-# MEMEBOT-056: the publish gate is satisfiable again — the length heuristic is replaced, not narrowed a seventh time, and this report was published by the script itself
+# MEMEBOT-056: what this system actually produces, end to end
 
-**Date:** 2026-08-01 · **Type:** Fix + replacement · **Spend:** **$0.00 · 0 paid calls**
-Claim filed via `tools/claim.py`, **6 paths registered individually** with repeated `--write`. Registry checked with `tools/claims_read.py` **and** `git status --porcelain` on every target: all four **FREE and clean**. `git -C` throughout, no `reset --hard`, no bypass flag added. Committed at `176fb9b`.
+**Date:** 2026-08-01 · **Type:** Read-only audit · **Spend:** $0.00 · **No code changed, no paid call, no render**
 
-Acts on [MEMEBOT-051](MEMEBOT-051.md).
+Measured on `master_leads.csv`, 24,933,620 bytes, mtime 2026-08-01 22:55:07, and on a frozen copy of `clip_library/` (BL-928 was appending during the audit). Every figure below comes from the artefact a stage actually writes. Nothing is carried over from an earlier report: ~200 rounds landed today and most numbers in circulation were true when written.
 
----
-
-## 1. The gate could not be satisfied. It can now.
-
-`tools/publish_report.py` gates on the secret scanner's exit code, and the scanner's
-`>=32`-char opaque-literal rule fired on the **raw URL last line that every report is required
-to carry**. Every round therefore had to hand-roll the check or bypass it — the exact outcome
-BL-906 built the script to prevent.
-
-**Before, on reports nobody had touched:**
-
-```
-  MEMEBOT-048  FAIL      MEMEBOT-046  FAIL      BL-885  FAIL
-```
-
-**After, the same three files scanned unmodified — plus two more:**
-
-```
-  MEMEBOT-048  PASS   MEMEBOT-046  PASS   BL-885  PASS   MEMEBOT-051  PASS   MEMEBOT-045  PASS
-```
-
-**And this report was published by `tools/publish_report.py` itself.** If it had refused, you
-would be reading that instead.
-
-Why the `http` allowlist never fired: the candidate regex `[A-Za-z0-9+/=_\-]{32,}` excludes
-`:` and `.`, so the URL is chopped and the match *starts* at `com/ilenader/...`. The allowlist
-tested `startswith("http")` on a string that could never begin with it.
+Tiers: **RECEIPT** (a ledger row exists) · **MEASURED** (counted here) · **INFERRED** (derived, marked) · **UNKNOWN**.
 
 ---
 
-## 2. Replaced, not narrowed. The discriminator is structure.
+## 1. THE FUNNEL — hashtag to finished video
 
-BL-829 said the **fourth** narrowing should replace the heuristic. It reached **six**: a
-filename, a config-value path, a film-genre phrase, long test names, `====` banner rules, and
-the mandatory URL. Each exemption was locally correct and the rule got worse anyway, because a
-length test on a codebase full of long identifiers generates false positives faster than
-exemptions can be written.
+| # | stage | count | survives from previous | of library |
+|---|---|---:|---:|---:|
+| 1 | hashtags configured | **20** | — | — |
+| 2 | posts reachable in one full pass (20 tags × 2 pages × 30) | **1,200** | — | — |
+| 3 | confirmed repost pages in master | **239** | 19.9% of posts seen | — |
+| 4 | pages actually walked for clips | **172** | **72.0%** of pages | — |
+| 5 | clips in library (6,326 rows → distinct) | **2,003** | ~11.6 clips/page | 100% |
+| 6 | clips with a vision label | **1,984** | 99.1% | **99.1%** |
+| 7 | clips the matcher matches | **286** | **14.4%** | 14.3% |
+| 8 | clips passing the render gate | 1,773 | 88.5% | 88.5% |
+| 9 | **RENDERABLE** (matched **and** gated) | **244** | — | **12.2%** |
+| 10 | **finished videos on disk** | **32** | **13.1% of renderable** | **1.6%** |
 
-**Measured, not asserted** — this table is in the code:
-
-| case | len | entropy | longest run | classes |
-|---|---:|---:|---:|---:|
-| REAL key, hex 64 | 64 | 3.98 | **64** | 2 |
-| REAL key, mixed 40 | 40 | 5.12 | **40** | 3 |
-| REAL key, base64 44 | 44 | 4.50 | **43** | 3 |
-| the mandatory report URL | 56 | 4.40 | 10 | 3 |
-| `====` banner rule | 39 | 0.00 | 0 | 0 |
-| hyphenated prose | 52 | 3.77 | 8 | 1 |
-| long test name | 50 | 4.08 | 10 | 1 |
-| repo path | 33 | 3.84 | 8 | 1 |
-| one long lowercase word | 38 | 4.00 | 38 | 1 |
-| config film phrase | 42 | 4.03 | 14 | 1 |
-
-**A credential is one unbroken run.** Everything that false-positived is separator-structured,
-single-case, or repetitive. The replacement requires all three of, on the longest run:
+**The funnel has one narrow point and it is not where the effort went.** Discovery, walking and labelling are all healthy — 99.1% of the library carries a vision label. **The matcher rejects 85.7% of it**, and that is a supply problem in the song store, not a matcher fault: there are four songs and three reachable moods.
 
 ```
-  run >= RUN_MIN (24)   a path/URL/identifier breaks into short segments; a key does not
-  letter AND digit      rejects words and CamelCase names, which no key resembles
-  entropy >= 3.0        rejects padding and repetition
+tiers:  PARK 1,717   VISION_RULE 276   FRANCHISE_MOOD 10
+moods:  hype 249     warm 34           melancholy 3      triumphant 0
 ```
 
-**The `http`/`reports/` prefix allowlist and the `_is_repo_path` call are gone from this rule.**
-It is a replacement, not a seventh exemption.
+**87% of every match routes to one mood.** `sng_0002` (triumphant) matched **zero** of 2,003 clips — its own store note predicted this ("MEMEBOT-019 found essentially NO clips in the library for this song"), and it is still true at 5× the library size. Adding songs in moods the library already has is worth more than any further matcher work.
 
-### Two things the proof harness caught that reading would not have
+**Stage 4 is the cheapest unclaimed gain**: 67 confirmed pages (28%) have never been walked. They are already paid for.
 
-**A 31-character key was invisible to both halves of the rule.** The candidate regex said
-`{32,}` and `_looks_like_credential` said `>= 24`, so keys of 24–31 characters were never even
-considered. **Two thresholds for one decision is a blind spot neither half reveals.** There is
-now one `RUN_MIN`, used by both, and a test asserts `{32,}` no longer appears in the file.
+**Stage 10 is where it actually breaks.** Of 64 render records, **19 ok, 41 `failed:render`, 4 with no status** — a 64% failure rate, and the recorded errors are one bug:
 
-**"At least 2 of {lower, upper, digit}" flagged `BedLevelIsMeasuredOverTheWindow`** — a
-CamelCase test-class name, 31 unbroken characters. I measured case-transition rate as a
-possible discriminator and it **does not separate**: CamelCase 0.38–0.45, real keys 0.30–0.41,
-fully overlapping. Digit presence separates cleanly — **5 of 5 keys carry digits, 0 of 3
-CamelCase names do** — so the rule requires a letter *and* a digit.
+```
+ambient_bed.file='C:\Users\...\clipper finder' was requested and does not exist
+ambient_bed (skipped: C:\Users\...\clipper finder not found)
+```
 
-### The honest limit, written into the docstring rather than discovered later
-
-**A credential of 24+ characters made of letters only would pass this rule.** That is the
-price of letting a CamelCase class name through. It is still caught by both rules above it —
-the secret-block rule (any length ≥8, no exemptions of any kind) and the credential-named-field
-rule. **This is the third of three checks, not the only one.**
+That is the empty-bed-path defect MEMEBOT-049 flagged and left open: a clip with no song resolves `os.path.join(cwd, "")` to the **repo root** and hands the renderer a directory as its audio bed. **It is the single largest yield loss in the system.** The 13 renders produced under controlled conditions today (MEMEBOT-042's 3 + MEMEBOT-049's 10) succeeded 13/13 because every clip in those batches matched.
 
 ---
 
-## 3. The three checks that have never false-positived still fire
+## 2. TRUE COST OF ONE FINISHED VIDEO
 
-```
-  credential-named field   -> FIRES
-  email address            -> FIRES
-  secret-block value       -> FIRES
-```
+Ledger: **212 entries, 208 receipts, 4 labelled ESTIMATE.**
 
-**And a real value from every secret block, planted into a report, is still caught:**
+| bucket | usd | note |
+|---|---:|---|
+| ledger `total_spent_usd` as recorded | 9.2167 | includes the estimate rows |
+| rows labelled **ESTIMATE** (excluded) | **0.9182** | back-filled by rounds costing work they did not do |
+| **receipts only** | **8.2984** | |
+| — of which **video pipeline** | **$4.3338** | RECEIPT |
+| — of which lead-gen / other funnels | 3.9646 | different product; excluded below |
 
-```
-  api  CAUGHT    ig_api  CAUGHT    tikhub_api  CAUGHT    youtube_api  CAUGHT
-  twitch_api  CAUGHT    gemini_api  CAUGHT    openrouter_api  CAUGHT
-```
+Video-pipeline receipts by stage:
 
-Seven of seven. The values are read from `config.json`, written to a temp file and **never
-printed** — the scanner's own "verdicts only" rule applies to its test harness too.
+| stage | usd | calls | tier |
+|---|---:|---:|---|
+| vision labelling (all VISION campaigns) | **3.2814** | 3,476 | RECEIPT |
+| clip walk (`CLIP_LIBRARY`) | 0.5730 | 955 | RECEIPT |
+| repost discovery (`REPOST_FINDER`) | 0.3666 | 611 | RECEIPT |
+| render retrieval (`memebot`) | **0.0282** | 47 | RECEIPT |
+| audits/probes (BL-858/864/873/918/925/897) | 0.0846 | 141 | RECEIPT |
 
-**Six credential shapes that are NOT in config are also caught** — hex 64, mixed 40, base64 44,
-mixed 31, mixed 24 (at the floor), bearer-style 49. That matters: if only the planted-config
-test passed, the new rule would be dead weight riding on the secret-block rule.
+**Two honest per-video numbers, 188× apart:**
 
----
+- **Average, all-in: $4.3338 ÷ 32 = $0.135 per finished video.** This is the true historical cost and it is dominated by labelling 2,003 clips to render 32.
+- **Marginal, given a labelled matched clip: $0.00072.** MEMEBOT-049's batch spent $0.0072 in retrieval for 10 videos, 1.2 calls each.
 
-## 4. `guard_amend` can now say yes to prose — verified, not asserted
+The right figure depends on the question. For "what did the 32 cost", it is $0.135. For "what does the 33rd cost", it is **under a tenth of a cent** — the library is a sunk asset with 212 renderable clips still unused.
 
-MEMEBOT-051 left a permanently mangled commit message (backticks inside a double-quoted shell
-string were executed) because the guard refused the repair. The guard was right on the evidence
-it had, and **the hazard it was protecting against could not occur.**
+**Corrections to figures in circulation:** the ledger now *does* carry `vision_spent_usd` ($2.1438) — BL-877's finding that no such parameter existed has been fixed since. Any per-video cost quoted before that fix under-reported by roughly 40%.
 
-A message-only amend is now allowed when **three independent facts all hold, each checked**:
-
-1. **`git write-tree` == `HEAD^{tree}`** — the same object id, so no file can change and
-   nothing can be absorbed. This is the BL-820 hazard, and identical trees make it impossible.
-2. **HEAD is on no remote** (`git branch -r --contains HEAD`) — no published history is
-   rewritten.
-3. **HEAD's own message names the round** — authorship said by the commit, not inferred from
-   the `will_write` proxy that misfired on MEMEBOT-051's own commit.
-
-**Drop any one and it still refuses.** Tests pin all three: amending another round's commit is
-refused (message does not name the round), amending a *published* commit is refused, and a
-staged extra file is refused even when the message names the round — the index check is
-independent and message-only never suppresses it.
-
-**18 checks in `tests/test_guard_amend.py`, 22 in `tests/test_secrets_guard.py`, all green.**
+**INFERRED, not measured:** ffmpeg render CPU, EasyOCR and Silero CPU during discovery and speech classification. All local, none metered, all real. The $0.135 is a floor.
 
 ---
 
-## 5. The backups decision stands
+## 3. THROUGHPUT AND THE BINDING CONSTRAINT
 
-Recorded as still correct and unchanged: **`backups/` is a same-session undo, not disaster
-recovery**, because those copies die in the same event as their subjects. It is carried by the
-copy script as history. Nothing in this round touched it.
+| stage | measured rate | binding constraint |
+|---|---|---|
+| repost discovery | 4 tags × 6 pages ≈ **2 h**, $0.021 | **wall clock** — the account gate runs EasyOCR over 12 thumbnails per candidate, ~16 s each. A $0.25 cap is not a constraint; time is |
+| clip walk | 955 calls → 2,003 clips ≈ **2.1 clips/call** | **API pages**; cheap and fast |
+| vision labelling | 3,476 calls → 1,984 labels | **money** — 76% of all video-pipeline spend |
+| speech classification | 1,359 of 2,003 (67.8%) | **CPU**, 0.547 s/clip (BL-848) |
+| song matching | instant, local | **song-store supply** — 4 songs, 3 reachable moods |
+| render | **10 videos in 8.3 min ≈ 72/hour** | ffmpeg CPU, single-threaded per clip |
+| outcome loop | — | **a human step that does not exist** |
+
+**The system can render ~72 videos/hour and has 212 unused renderable clips — about 3 hours of work already paid for.** Nothing about throughput is currently limiting; supply into the matcher is.
 
 ---
 
-## Proof
+## 4. SUBSYSTEM STATUS, HONESTLY
 
-| claim | evidence |
+| subsystem | status | evidence |
+|---|---|---|
+| Lead funnels (IG/TikTok/Spotify/Twitch/YouTube/GP) | **works** | 58,988 master rows, $3.96 of receipts |
+| Repost discovery | **works with caveats** | 239 pages. Seen-cache holds 1,491 posts vs 1,200 reachable per pass — **the bank is exhausted at depth 2**; only depth or new tags yield more |
+| Clip walk | **works** | 2,003 clips, 172 accounts, 6,326 rows (3.2× revisions) |
+| Vision labelling | **works** | 99.1% coverage. Control signal caught **3 rows** where the model answered an unanswerable question |
+| Speech classification | **works with caveats** | 67.8% `speech_frac`, 92.5% `audio_class` — a third of the library has no measured speech |
+| Song matching | **built, starved** | Correct and reachable since MEMEBOT-042; 4 songs, 1 mood carries 87%, 1 song matches nothing |
+| Rendering | **works with caveats** | 13/13 under controlled conditions; **41/64 historical failures**, all the empty-bed bug |
+| Dashboard | **works with caveats** | Its own test suite writes the live `config.json` and destroyed a key (BL-855) |
+| Outcome loop | **built, wired, receives nothing** | see below |
+
+### The outcome loop is not unreachable — it is starved
+
+`run_batch → bias_for → song_library.bias_map → outcome_loop.resolve/should_bias` is a complete chain. It returns `{}` and always will, because **0 of 64 render records carry any outcome data.** Nothing posts the videos and nothing writes back views. The loop is *open*, not broken, and no amount of rendering closes it.
+
+---
+
+## 5. BUILT WITH NO CALLER
+
+25 modules have no production importer. Most are legitimate CLI entry points (`claim.py`, `publish_report.py`, `verify_claims.py`, `run.py`, `probe.py`, `preflight.py`, `stillness.py`, …) — invoked as `python x.py`, invisible to an import graph.
+
+**Genuinely uncalled — no entry point and no production importer:**
+
+| module | status |
 |---|---|
-| gate satisfiable | three published reports **PASS unmodified**; this report published **by the script** |
-| heuristic replaced | `http`/`reports/` allowlist and `_is_repo_path` removed from the rule; `{32,}` gone |
-| planted credential caught | **7 of 7 secret blocks**; 6 of 6 shapes not in config |
-| three real checks | credential-named, email, secret-block — all FIRE |
-| message-only amend | tree-oid equality + unpublished + HEAD names the round; each independently required |
-| suites | **105 of 107 green.** Reds are `test_config_contract.py` (`youtube_finder_max_run_usd`, a cap round's key) and `test_tools_tracked.py` (`tools/gen_manifest.py`, **MEMEBOT-055**, created at 23:04 during my run). I touched no config key and no tool of theirs |
-| campaigns SHA | **8e02f8d6f6307ae8 — MATCH** |
-| config | valid JSON, 161 keys |
-| claim hygiene | `claims_read.py` **and** `git status --porcelain` on all four targets before claiming |
+| `clippershq/clip_cuts.py` | MEMEBOT-038's cut detection. Tests + scratch only |
+| `clippershq/song_loudness.py` | tests + scratch only |
+| `clippershq/tag_yield.py` | tests only |
+| `clippershq/artist_genre_map.py` | tests only |
+| `clippershq/track_id.py` | tests + scratch only |
+| `clippershq/enrich.py` | nothing at all |
+
+**Named in the brief, checked individually:**
+
+- **`stillness.run_checked()`** — one caller, `tests/test_claims_manifest.py`. Its own docstring says it "exists for every OTHER check in this repo that must parse a program's output"; those other checks still do not use it.
+- **`stillness.poll()` / `--poll`** — CLI only, no programmatic caller.
+- **`vision_parse_lossy`** — declared in `CLIP_FIELDS` and **read by nothing**. The truncation marker is written and never consulted. This is the "computed then discarded at a boundary" shape, in its purest form: the value reaches disk and no consumer exists.
+- **`outcome_loop`** — *not* uncalled. Wired and starved (§4).
+
+**Caveat:** an AST walk cannot see `getattr`, config-driven dispatch or CLI subcommand tables, so this is a lower bound. Each hit above was checked by hand.
 
 ---
 
-## Honest limits
+## 6. WHAT BREAKS AT FULL SCALE TOMORROW
 
-- **A letters-only credential of 24+ characters passes the new rule.** Stated in the docstring and repeated here because it is the real cost of the change. Two other rules still cover it; nothing covers it if it is *also* absent from config *and* appears with no name beside it.
-- **`RUN_MIN = 24` and `ENTROPY_MIN = 3.0` are calibrated on ten examples**, five of them keys I constructed. They separate cleanly on that set. A key shorter than 24 unbroken characters, or one deliberately shaped to look like a path, is not covered by this rule.
-- **I did not touch `tools/publish_report.py`.** The brief said fix the scanner, not the gate, and no bypass flag was added. The script is unchanged and now works because its dependency does.
-- **The message-only amend relies on rounds naming themselves in commit subjects.** Every round here does, and the tests assume it. A round that commits without its id in the message gets the old refusal — correctly, but it will look arbitrary to whoever hits it.
-- **`git write-tree` writes an unreferenced tree object** on every guard invocation. Harmless and gc-collected, but the guard is no longer strictly read-only, which it was before.
-- **`_is_repo_path` and `_is_plain_word` are still used by rule 1** (config-value matching) and are untouched. Only the opaque-literal rule was replaced, so rule 1 keeps whatever false-positive surface it had.
-- **Two suites are red and neither is mine**, but I only diagnosed them far enough to establish that. `youtube_finder_max_run_usd` being undocumented may be a real gap in someone's cap work rather than noise.
+1. **The empty-bed bug eats ~64% of renders.** Any clip that parks fails. At scale that is the dominant loss and it is one guard in `pick_song`.
+2. **Mood collapse.** 87% of matches are `hype`, served by one song with 5 hook windows. The no-repeat rule (k=3) will exhaust rotation within 4 videos and divert everything to the LRU corpus — which is what 5 of MEMEBOT-049's 10 renders already did.
+3. **Discovery returns nothing.** The seen-cache already covers 124% of one full pass. A scaled run at current settings spends money and finds no new pages.
+4. **No feedback.** Every video is chosen with zero evidence about what performed. `bias_map` returns `{}` and will forever until something posts and reads back.
+5. **The test suite mutates production config.** Already destroyed one key. At scale, config drifts under whoever runs the suite.
+6. **Concurrency has no arbiter.** 9–13 rounds ran all day against one tree; claims are advisory, and at least three rounds queued 40+ minutes on files that were never modified.
+7. **Vision cost dominates and is unbounded.** 76% of pipeline spend. Labelling scales with the library; renders do not.
 
 ---
 
-https://raw.githubusercontent.com/ilenader/clippershq-reports/main/reports/MEMEBOT-056.md
+## The one-line answer
+
+**The system reliably produces a finished, correctly-scored, audio-verified video — 13 of 13 when the inputs are clean — and it converts only 1.6% of its library into one, because four songs cover three moods and 64% of historical renders died on a single unfixed path bug.** The expensive half is built and working. The cheap half is what is missing.
