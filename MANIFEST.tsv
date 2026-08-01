@@ -426,6 +426,7 @@ INFRA-011	ambiguous	0.00	auto (stack markers)	2026-08-01		INFRA-011 — The sett
 INFRA-012	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-012 — A save that refuses to clobber, a diff you see before it lands, and tests that finally stop writing the live config
 INFRA-013	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-013 — Reading the dashboard as the operator, not the author
 INFRA-014	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-014 — The Now tab stops fabricating, and the numbers you actually track are on it
+INFRA-015	leadgen	1.00	auto (stack markers)	2026-08-02		INFRA-015: the dashboard, rebuilt full-width — a dense analytics terminal with real charts, and every funnel runnable from the page
 MEMEBOT-001	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-001 — It is **two pipelines, not one**, and the audio answer is the good news: arbitrary audio + a start offset **already works** — in `scraper/edit.py`, which is the half that does not render captions.
 MEMEBOT-002	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-002: The ambient mixer works. Four other things do not.
 MEMEBOT-003	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-003 — The song library, the matching rule, and why it must gate on `valence` and not on `genre`
