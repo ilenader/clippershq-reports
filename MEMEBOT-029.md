@@ -88,16 +88,18 @@ Of MEMEBOT-016's own additions: `compute_caption_layout` (9 mentions) and `capti
 
 ## 4. Slow, not flaky
 
-**Zero flakes.** Nine suites run 3× each, all stable green; `test_band.py` once (126s/run).
+**Zero flakes.** Nine suites run 3× each, all stable green; `test_band.py` once (it costs too much to repeat).
 
 | suite | run 1 | run 2 | run 3 |
 |---|---|---|---|
-| test_band.py | 125.6s | — | — |
-| test_cli.py | 30.9s | 33.3s | **49.6s** |
+| test_band.py | **227.7s** | — | — |
 | test_ocr.py | 36.9s | 34.2s | 31.7s |
+| test_cli.py | 30.9s | 33.3s | **49.6s** |
 | the other seven | ≤6.2s | | |
 
-**`test_band.py` alone is ~28% of the 450s suite.** `test_cli.py` swung 30.9→49.6s (+60%) between identical runs — pure machine load, with ten rounds and a mutation run in flight. That is the same sensitivity MEMEBOT-026 flagged on `test_filelock`, and it is the argument for generous timeouts rather than a shorter suite.
+**Median total: 317.5s across the 10 `meme` suites — and `test_band.py` is 72% of it.**
+
+`test_band.py` measured **227.7s here against 125.6s in MEMEBOT-026's quieter run — 1.8× slower for identical code**, and `test_cli.py` swung 30.9→49.6s (+60%) between identical runs. Ten rounds and a mutation run were in flight. Every timing in this table is an upper bound under load, and the spread is the point: these suites are load-sensitive in exactly the way MEMEBOT-026 flagged for `test_filelock`. The argument is for generous timeouts, not a shorter suite.
 
 ## 5. Production writes: none. And the one alarm was mine, not theirs.
 
@@ -105,7 +107,9 @@ I ran every suite with a `sitecustomize.py` that wraps `open`, `Path.write_text/
 
 **No test process opened a single repo path for writing.** The only logged entries are `open(<int fd>, 'wb')` — subprocess plumbing, not a path.
 
-My file-hash check *did* flag `spend.json` as changed during `test_ocr.py` and `test_cli.py`. **That was a false positive and I chased it down rather than reporting it.** With no test running at all, `spend.json` changed twice in two minutes (`0A78FBCA` → `E6F12934`, now `total_spent_usd 4.8604`) — a concurrent round spending money. Hash-diffing production files is not a safe attribution method on a machine with ten live rounds; the write tracer is.
+My file-hash check *did* flag production files as changed — `spend.json` during `test_ocr.py` and `test_cli.py`, and `spend.json` + `logs/run.log` + `master_leads.csv` during `test_band.py`. **Every one is a false positive, and I chased them down rather than reporting them.** With no test running at all, `spend.json` changed twice in two minutes (`0A78FBCA` → `E6F12934`, now `total_spent_usd 4.8604`) — a concurrent round spending money. The flags scale with each suite's *duration*, not its behaviour: `test_band.py` ran 227.7s and collected three, the 1-second suites collected none.
+
+**Hash-diffing production files is not a safe attribution method on a machine with ten live rounds; the write tracer is.** Had I reported the raw hash diff, this round would have accused three suites of corrupting the master CSV and the money ledger.
 
 ## 6. Verdict: an asset, but not the safety net the green number implies
 
