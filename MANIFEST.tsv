@@ -487,6 +487,7 @@ MEMEBOT-056	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-056: the publi
 MEMEBOT-057	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-055: the manifest covers all 470 reports, and it now rides in the same commit
 MEMEBOT-058	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-058: three hooks were inert, and the rule I was implementing broke on me mid-round
 MEMEBOT-059	leadgen	1.00	auto (stack markers)			MEMEBOT-059 — the loop is wired, the sheet is ready, and not one record joins the store
+MEMEBOT-060	leadgen	1.00	auto (stack markers)			MEMEBOT-060 — the join key is fixed at the source, and a fresh render proves it resolves
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
 R-2	leadgen	1.00	auto (stack markers)	2026-07-17		R-2 — the cheap checks, built and measured against real history
 R-3	payments	0.60	auto (stack markers)	2026-07-16		R-3 — Can we see inside the video, and what would it cost?
