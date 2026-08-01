@@ -1,107 +1,163 @@
-# MEMEBOT-055: the manifest covers all 470 reports, and it now rides in the same commit
+# MEMEBOT-055 — the valence map would take park to 1.9%, and that is the argument against filling it
 
-**Date:** 2026-08-01 · **Class:** Tooling fix · **Spend:** **$0.00**, no paid calls.
-**Claim:** `MEMEBOT-055`, six repeated `--write` flags, *"6 path(s) registered individually"*. Registry **and** `git status --porcelain` checked on every target: `tools/publish_report.py`, `tools/gen_manifest.py`, `tests/test_publish_report.py` all free and clean.
-**`claims_read.py` (run first):** 8 live claims — MEMEBOT-039, BL-899, BL-921, BL-923, BL-924, **MEMEBOT-054**, BL-926, BL-925.
+READ-ONLY on the matcher. `scratch/songs.json`, `song_library.py` and `clip_library.py` were
+not written. No paid calls. Every library figure read through a frozen snapshot — thirteen
+rounds are in flight and three of them are writing `clip_library/`.
+
+Registry read with `tools/claims_read.py` as instructed: **13 live claims**. One advisory
+accepted — BL-895 claims `scratch/` broadly; my files are `scratch/mb055_*`.
+
+The full operator-facing proposal is `scratch/mb055_proposal.md`. This is the measurement
+behind it.
 
 ---
 
-## Item 3 was not mine to take
+## 1. THE VALENCE MAP — counts first
 
-**`MEMEBOT-054` started at 22:45 holding `scratch/scan_report_for_secrets.py`, and its intent is item 3 verbatim** — replace the ≥32-char heuristic with an entropy+charset test rather than add a seventh exemption, and prove a planted credential from every secret block is still caught. Taking it would have clobbered a live round doing the identical work.
+| valence | clips | % library | parked today | accounts | top account share |
+|---|---:|---:|---:|---:|---:|
+| positive | 866 | 43.2% | 752 | 135 | 7% |
+| neutral | 680 | 33.9% | 601 | 135 | 3% |
+| negative | 418 | 20.9% | 326 | 109 | 11% |
+| *(absent)* | 39 | 1.9% | 38 | 11 | — |
 
-So I did items 1, 2, 4 and 5, and **independently verified their result** rather than assuming it:
+**1,679 parked clips carry a valence value — 83.8% of the library.** That is the most a
+complete valence map could reach.
 
-```
-config blocks that look secret-bearing: api, ig_api, tikhub_api, youtube_api,
-                                        gemini_api, twitch_api, openrouter_api
-  api / ig_api / tikhub_api / youtube_api / gemini_api / twitch_api / openrouter_api
-  planted -> CAUGHT  (7 of 7)
-```
+**No concentration problem**, unlike genre: 109–135 accounts per value, top account 3–11%.
 
-The replacement is live (`ENTROPY_MIN = 3.0`, Shannon entropy + charset structure) and **catches a planted credential from all seven blocks**. A gate nobody re-checks is a gate nobody trusts, so this is a second pair of eyes, not a duplicate.
+### Proposed mapping
 
-## 1. MANIFEST.tsv — 266 → 470, and it can no longer drift
-
-```
-before:  470 report(s) on disk, 266 in manifest, 204 unindexed   (exit 1)
-after :  470 report(s) on disk, 470 in manifest,   0 unindexed   (exit 0)
+```json
+"valence_mood_map": { "positive": "hype", "neutral": "warm", "negative": "melancholy" }
 ```
 
-`tools/gen_manifest.py` rebuilds it, and `publish_report.py` now calls it and stages `MANIFEST.tsv` **in the same commit as the report**. An index updated by a separate manual step is an index that drifts — this one drifted for a whole session because nothing regenerated it.
+Three real examples per value are in the proposal. Only four moods are routable at all —
+your songs carry **hype, melancholy, triumphant, warm**; the vocabulary also lists **eerie,
+goofy, tense**, which have no song.
 
-`--check` exits non-zero when any report is unindexed, so this is CI-able.
+---
 
-### It is additive on purpose, and that decision cost a bug
+## 2. THE CEILING — and the correction that makes it meaningful
 
-My first version recomputed every auto row and **silently reclassified 69 of them**. My marker list is not provably the one the original generator used, so recomputing would have re-labelled 69 reports to make a number look tidier. **Coverage was the defect; re-labelling was not asked for and I could not validate it.** The default is now additive; `--reclassify` opts in explicitly.
+Simulated against the real matcher on a copy of the store:
 
-**Verified nothing was lost**, because a 21-line deletion in the diff looks exactly like data loss:
+| scenario | clips with a song | unusable |
+|---|---:|---:|
+| today | 286 | **85.7%** |
+| + valence map (3 entries) | **1,965** | **1.9%** |
+| + genre map only (25 entries) | 557 | 72.2% |
+| + both maps | 1,965 | 1.9% |
+| + both + a house set | 2,003 | 0.0% |
+| + valence map pointing at moods with **no song** | 286 | 85.7% |
 
-```
-committed rows: 266    regenerated rows: 470
-rows LOST            : 0
-rows CHANGED in place: 0
-hand-verified rows   : 10, altered: 0
-VERDICT: PASS -- nothing lost, nothing silently re-labelled
-```
+That last row is the control, and it is why the table can be trusted.
 
-The 21 deletions were 20 rows **moving** in sort order (new `BL-676-clippershq-…` style names interleave) plus one comment line: 204 new + 20 moved + 1 = the 225 additions.
+**My first version of this measurement was wrong and would have been believed.** It counted
+`match()` tiers, and reported an identical **1.9%** for a map pointing at moods that have a
+song and one pointing only at moods that do not. `match()` answers *"which rule fired"* from
+the map lookup; `pick()` is what enforces that an enabled song actually carries that mood.
+**A tier is not a song.** Reading one as the other makes an empty song library look fully
+covered. The table above calls `render_plan()` and counts a clip only when a `song_id` comes
+back — and the control row now correctly reads 286, identical to today.
 
-**A second bug worth naming because it produced a confident wrong number.** My `--check` reported *"4 in manifest"* for a 266-row file. `read_existing()` returns a **dict**, and `{r[0] for r in some_dict}` iterates keys and takes the first **character** of each — four distinct initials. It is now `set(read_existing(...))`, with the trap written next to it.
+### Reconciling with MEMEBOT-032's 19.5%
 
-## 2. A root publish is now impossible — but that is not where the seven came from
+The brief asked whether filling the maps only moves 86.2% → 80%. It does not — it moves it to
+**1.9%**. But that number and MEMEBOT-032's ceiling are not in conflict, because they answer
+different questions:
 
-**Honest correction to the brief's premise.** `publish_report.py` already hardcoded `os.path.join(clone, "reports", name)`; it could not write to the root. **The seven root reports came from bypassing it entirely with a raw `gh api -X PUT` call** — mine, earlier in this session. The tool was not at fault.
+> **1.9% park** — how many clips *get* a song.
+> **19.5%** — how many get the *right* one.
 
-**There was still a live hole, and it is now closed.** `os.path.join(clone, "reports", "../BL-1.md")` escapes to the clone root, and `--as a/b.md` invents a subdirectory. `check_dest()` requires a bare `*.md` filename:
+Filling valence closes the first gap and leaves the second exactly where it was.
 
-```
---as ../MEMEBOT-999.md      exit=1 REFUSED
---as sub/MEMEBOT-999.md     exit=1 REFUSED
---as MEMEBOT-999.txt        exit=1 REFUSED
---as MEMEBOT-053.md         exit=0 DRY RUN -- scan passed
-```
+---
 
-`tests/test_publish_report.py` — **13 tests, green** — pins traversal, subdirectories, absolute paths, non-`.md`, dotfiles, the additive default, hand-verified preservation, `superseded_by` preservation, and that report + manifest land in one commit.
+## 3. WHY I AM NOT RECOMMENDING THE OBVIOUS MAPPING
 
-**What this does not fix:** nothing stops the *next* round reaching for `gh api` directly, as I did. The script is the only gate, and it only gates callers who use it. `PUBLISHING.md` already says it is the only supported way; the seven root files are the evidence that saying so is not enough.
+Three values spread over four songs is **~491 clips per song**, assigned on a signal with the
+resolution of positive / neutral / negative.
 
-## 4 & 5. Both lessons recorded in `docs/CORRECTIONS.md`
+That converts a **visible** failure — clips park, nothing renders — into an **invisible** one:
+everything renders, and four-fifths of it carries music chosen by a three-way flag.
+MEMEBOT-019 deleted the old fallback for precisely this reason (*"it produced a breakup ballad
+over a football clip"*), and a blunt valence map rebuilds it under a different name. The park
+rate would look solved on every dashboard.
 
-**The cost of a broad commit**, with the measured case: MEMEBOT-029's state survives at `d384516^` (jobs 13, download 13, text 7, transforms 20, band 45 — matching its report exactly) and **its measurement can still be re-run**. MEMEBOT-034's and MEMEBOT-041's cannot, because one 18-file *"commit the day's work"* bundled two rounds. Not lost attribution — **unreproducible measurements**. Commit per round, not per day.
+**The least-bad version, if you want it:** fill `negative → melancholy` only. 326 parked
+clips, the tightest of the three, one entry, reversible, and you can hear the result before
+deciding about the other two.
 
-**The blob-comparison trap**: git stores blobs LF-normalised, a Windows working file holds CRLF, and a raw byte compare reports differences git does not see. MEMEBOT-053's first check called **8 of 10 files different** while `git status` was clean. Normalise both sides, or let git hash both.
+---
 
-`MEMEBOT-054` also holds `docs/CORRECTIONS.md`; I appended two distinctly-headed sections and verified its content survives alongside mine.
+## 4. THE GENRE MAP — two corrections to the brief
 
-## Verification
+**Fill is 17.7%, not 28%** — 355 of 2,003 clips.
 
-| check | result |
+**BL-847's "70.8% from two accounts" no longer holds library-wide.** Only **5 of 25** values
+exceed it, and four of those five have ≤29 clips. The nine largest genres run top‑2 of
+29–46%, across 14–26 accounts each. The warning now applies to **`satire` (79%),
+`dark-comedy` (76%) and `sci-fi` (64%)** specifically — three values to map last or not at
+all — rather than to the genre signal as a whole.
+
+**The binding limit is coverage, not concentration: 84.2% of parked clips carry no genre.**
+A complete 25-entry genre map reaches 621 clips and moves park 85.7% → **72.2%**. It is a
+sixth of the problem at eight times the number of decisions.
+
+---
+
+## 5. WHERE THE HEADROOM ACTUALLY IS
+
+**98.7% of parked clips already carry a vision label.** Only **1.0%** have neither genre nor
+vision.
+
+The parked pile is not short of signal. The four vision rules are each written for one song's
+subject and deliberately narrow — the store's own note says *"a sad clip about a dead dog must
+NOT get this song"* — so they convert 267 clips out of 1,695 that carry vision text. That
+precision is a feature; it is also the whole gap.
+
+So the ranking that matters is songs:
+
+| buy a song for | parked clips unlocked (via genre) | % of parked |
+|---|---:|---:|
+| **goofy** — comedy / sitcom / satire / family | **151** | 8.8% |
+| **eerie** — horror / sci-fi / fantasy / mystery | 91 | 5.3% |
+| **tense** — thriller / crime / mystery / war | 68 | 4.0% |
+
+**Buy goofy first.** Comedy (105 parked) and sitcom (50 parked) are the two largest parked
+genres and there is no song a comedy clip can route to today except by calling it *warm*.
+
+These are floors — counted via genre, which covers only 15.8% of the parked pile. With a
+vision rule written for the new song, each would reach considerably further into the 98.7%
+that carry vision labels.
+
+---
+
+## PROOF
+
+| Required | Result |
 |---|---|
-| manifest coverage | **470 / 470**, `--check` exit 0 |
-| rows lost / silently re-labelled | **0 / 0**; 10 hand-verified intact |
-| root publish | refused for `../`, `sub/`, non-`.md`; legitimate name still passes |
-| publish gate tests | **13 green** |
-| planted credentials (item 3, MEMEBOT-054's work) | **7 of 7 caught** |
-| config.json | valid JSON |
-| campaigns hash | **8e02f8d6f6307ae8** — see below |
-| full suite | **107 of 108 green** — see below |
-
-**The one red is not mine.** `tests/test_tools_tracked.py` fails on `tools/bl926_probe_v3u7n6ds.py` — an untracked probe under `tools/` claimed by no live round. That same test correctly classified my new file as *"in-flight (untracked but CLAIMED, not a defect): tools/gen_manifest.py [MEMEBOT-055]"*, which is the check working exactly as designed. `tests/test_publish_report.py` passes with 13 checks.
-
-Rather than leave the same defect behind, I committed my four new/changed files **by explicit path** — never `git add -A`, which is the habit the correction above is about: `b1978db`, carrying `tools/gen_manifest.py`, `tools/publish_report.py`, `tests/test_publish_report.py`, `docs/CORRECTIONS.md` and one scratch prover.
-
-**The campaigns hash does not match the brief.** The brief asked me to confirm `7a029ee5447cddd8`. The live value is **`8e02f8d6f6307ae8`**, which is what INFRA-007, MEMEBOT-016 and MEMEBOT-046 all recorded today. I could not find `7a029ee5447cddd8` anywhere: **`config.json` is gitignored** (`.gitignore:28`, because it carries live API keys), so there is no history to search and no commit in which that value could be checked. Either the brief carries a typo or it refers to a state that was never committed. **I did not change `config.json`** — it is not in my claim and `git status` cannot show it. Flagging rather than quietly reporting a MATCH against a different number.
+| Valence proposal with counts | 3 values, 866 / 680 / 418, 83.8% of library parked-and-routable |
+| Genre with counts and account spread | 27 values, 17.7% fill, 5 flagged concentrated |
+| Three real examples per entry | in `scratch/mb055_proposal.md` |
+| Projected park-rate change | 85.7% → **1.9%** (valence), → 72.2% (genre only) |
+| Ceiling reported honestly | 1.9% *matched* vs MEMEBOT-032's 19.5% *correct* — reconciled, not conflated |
+| Missing songs ranked | goofy 151 > eerie 91 > tense 68 parked clips |
+| Live maps not written | `scratch/songs.json` untouched; simulated on deep copies |
 
 ---
 
-## Limits
+### Method / limits
 
-The 204 newly-indexed rows were classified by the stack-marker heuristic and **spot-checked on six**, not hand-verified. Their `basis` says `auto (stack markers)` and their confidence is computed, so a wrong one is visible as such — but 204 classifications are not 204 verified classifications.
-
-`--reclassify` exists and I never ran it against the real manifest beyond the aborted first attempt. If the original generator's marker list differs from mine, running it would move rows; that is why it is not the default.
-
-The manifest lands in the same commit as a report **only when `publish_report.py` is used**. A `gh api` publish still bypasses everything, which is exactly how the seven root reports happened.
-
-I verified MEMEBOT-054's scanner against planted credentials from the config's own secret blocks. That proves it catches *these* shapes; it does not prove the entropy threshold is right in general, which is that round's evidence to present.
+- The mood assignments in the proposal are **illustrative groupings for costing**, not
+  recommendations. Which feeling a genre carries is the operator's call, and this round does
+  not make it.
+- The ceiling simulation uses one plausible genre→mood grouping. A different grouping changes
+  *which* song a clip gets, not how many clips get one, so the park-rate figures hold; the
+  precision figures would move.
+- `render_plan(count=False)` was used so the simulation cannot mutate rotation counters. On a
+  store copy regardless.
+- The song-unlock counts are **via `content_genre` only**. They are floors, not estimates of
+  what a new song plus a vision rule would actually reach.
+- MEMEBOT-032's 19.5% is quoted from that report, not re-measured here.
