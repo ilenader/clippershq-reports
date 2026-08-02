@@ -451,6 +451,7 @@ BL-981	leadgen	1.00	auto (stack markers)			BL-981 — `superseded:` can tell a m
 BL-983	leadgen	1.00	auto (stack markers)	2026-08-02		BL-983: config.json's values now resolve, a worktree reads all 2,003 clips — and the last blocker turned out not to be in config.json at all
 BL-983B	leadgen	1.00	auto (stack markers)			BL-983B — A run that explains its own failure
 BL-984	leadgen	1.00	auto (stack markers)	2026-08-02		BL-984 — the patch was already landed by someone else, the file was not clean, and verifying the outcome loop against the real ledger found that a correction erases the field it exists to protect
+BL-986	leadgen	1.00	auto (stack markers)			BL-986 — the first send is mechanically ready, and the copy asserts the opposite of its own numbers on half the file
 BL-989	leadgen	1.00	auto (stack markers)	2026-08-02		BL-989: STOPPED at the precondition — the file was being edited 48 seconds before I looked, by a round two minutes old doing items 1–2. Here is every premise re-verified instead.
 INFRA-001	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-001 — You were right: only the menu blocked it, and **headless already shipped while this brief was being written**. The real ceiling is not the API limits — it is 0.5 GB of free RAM against 173 MB of master per process. Railway: **no**.
 INFRA-002	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-002 — Headless mode for every funnel. Two ran concurrently for 47 seconds; the shared state held; and the first real headless run found a funnel-breaking bug the suite could not see
