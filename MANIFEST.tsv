@@ -551,6 +551,7 @@ MEMEBOT-081	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-081 — the ga
 MEMEBOT-082	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-082: ship the source's own hook, centre the picture, and stop eating the payoff word
 MEMEBOT-085	leadgen	1.00	auto (stack markers)			MEMEBOT-085 — the crop fix verified on the labelled regression set, and the two measurements MEMEBOT-082 needs
 MEMEBOT-087	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-087 — this brief is already in flight; I measured the distribution and stopped before writing anything
+MEMEBOT-091	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-091 — stopped as the brief instructs, and the decision it hands down is dominated by one already measured: at the same 30 s ceiling a trim beats a gate on both axes
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
 R-2	leadgen	1.00	auto (stack markers)	2026-07-17		R-2 — the cheap checks, built and measured against real history
 R-3	payments	0.60	auto (stack markers)	2026-07-16		R-3 — Can we see inside the video, and what would it cost?
