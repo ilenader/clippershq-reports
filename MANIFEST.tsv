@@ -584,6 +584,7 @@ MEMEBOT-102	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-102 — the fo
 MEMEBOT-104	leadgen	0.64	auto (stack markers)	2026-08-02		MEMEBOT-104: the comedy-register fix applied — and one marker carries its entire cost
 MEMEBOT-105	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-105 — the hooks need to be **4 seconds**, and the bigger win is a constant nobody has questioned: aiming at a **fixed 5s** instead of 43% of the clip takes the drop from landing 7.0s off the payoff to **2.0s off, on 16 of 28 instead of 2**.
 MEMEBOT-106	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-106 — The send-day checklist, and the fill mechanism it turned out to need
+MEMEBOT-107	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-107 — The known-state checkpoint
 MEMEBOT-109	leadgen	0.64	auto (stack markers)			MEMEBOT-109 — one marker out, nineteen clips back, sixteen of them right
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
 R-2	leadgen	1.00	auto (stack markers)	2026-07-17		R-2 — the cheap checks, built and measured against real history
