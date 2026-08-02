@@ -591,6 +591,7 @@ MEMEBOT-104	leadgen	0.64	auto (stack markers)	2026-08-02		MEMEBOT-104: the comed
 MEMEBOT-105	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-105 — the hooks need to be **4 seconds**, and the bigger win is a constant nobody has questioned: aiming at a **fixed 5s** instead of 43% of the clip takes the drop from landing 7.0s off the payoff to **2.0s off, on 16 of 28 instead of 2**.
 MEMEBOT-106	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-106 — The send-day checklist, and the fill mechanism it turned out to need
 MEMEBOT-107	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-107 — The known-state checkpoint
+MEMEBOT-108	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-108 — the target was 20 of 30. It is 10, and the failures split exactly down the middle
 MEMEBOT-109	leadgen	0.64	auto (stack markers)			MEMEBOT-109 — one marker out, nineteen clips back, sixteen of them right
 MEMEBOT-110	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-110 — the selection gate is LIVE. **Pool 2,061 → 1,723, 338 removed at 16.4%** against BL-988's predicted 16.0%. And the script refusal the renderer has had since MEMEBOT-102 now runs at selection — the fourth time a gate has admitted what the next stage rejects.
 MEMEBOT-111	leadgen	0.65	auto (stack markers)	2026-08-02		MEMEBOT-111 — The vision guard moves into the matcher, and the narrowed marker lands
