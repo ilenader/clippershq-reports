@@ -459,6 +459,7 @@ BL-991	leadgen	1.00	auto (stack markers)			BL-991 — the greeting, the article,
 BL-992	leadgen	1.00	auto (stack markers)			BL-992 — the sentence that contradicted its own numbers, and the one I wrote to replace it
 BL-993	leadgen	1.00	auto (stack markers)			BL-993 — final send-readiness: the mechanism is green, and the copy fix that makes it green is not committed
 BL-995	leadgen	1.00	auto (stack markers)	2026-08-02		BL-995: the dress rehearsal — the back half runs clean, the front half was held by another round, and a binding cap printed as $0.00
+BL-999	leadgen	1.00	auto (stack markers)	2026-08-02		BL-999 — the ordering fix is in shipping code, the stale denominator is dead, and the labeller is failing 2 calls in 3
 INFRA-001	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-001 — You were right: only the menu blocked it, and **headless already shipped while this brief was being written**. The real ceiling is not the API limits — it is 0.5 GB of free RAM against 173 MB of master per process. Railway: **no**.
 INFRA-002	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-002 — Headless mode for every funnel. Two ran concurrently for 47 seconds; the shared state held; and the first real headless run found a funnel-breaking bug the suite could not see
 INFRA-003	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-003 — SPEC: the local dashboard. Six panels, one visible at a time, reading the state files the menus already read. **Smallest honest build: 11–14 hours, zero funnel changes.** The mockup is at `scratch/infra003_mockup.html`
