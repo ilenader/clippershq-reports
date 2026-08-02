@@ -318,6 +318,30 @@ The two columns were added by BL-964 (commit `3230380`, "MX table covers 100% of
 without updating the contract test. **Owner: BL-964, `clippershq/all_bot_ready.py` +
 `tests/test_funnel.py`.** I wrote no shipped code this round and nothing in that path.
 
+## Off-brief: a crashing pre-commit hook reported itself as a manifest refusal
+
+Committing this round's scratch artefacts hit:
+
+```
+NameError: name 'check_menu' is not defined      (tools/verify_claims.py:260)
+
+  pre-commit REFUSED: a manifest above would be enrolled into permanent
+  enforcement before the code it claims is committed.
+```
+
+**I staged no manifest.** The commit was twelve files under `scratch/`. `verify_claims.py` could
+not import, the hook took its non-zero exit as a policy refusal, and printed a message about a
+condition that did not exist. This is the shape MEMEBOT-065/069 already paid for and
+`docs/TESTING.md` RULE 10 names: *a refusal is not evidence the guard works* — a guard that cannot
+run is indistinguishable, from the outside, from a guard that ran and said no.
+
+It was live for about a minute: **BL-981 holds `tools/verify_claims.py`** and was mid-fix (the
+working tree already carries the lazy `_SUPERSEDED_CHECKERS` dict with a comment naming this exact
+NameError). The retry went through. Reported because the misleading *message* is the durable part,
+not the transient break — while it lasted, no round in this repo could commit anything, and the
+hook told each of them it was their manifest's fault. **Owner: BL-981, `tools/verify_claims.py`
+and the pre-commit hook's handling of a non-zero exit that is a crash rather than a verdict.**
+
 ## Limits
 
 - **`edit.py` moved during the session, but not during the renders.** It was
