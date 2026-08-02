@@ -446,6 +446,7 @@ BL-972	leadgen	1.00	auto (stack markers)	2026-08-02		BL-972 — the post-outcome
 BL-973	leadgen	1.00	auto (stack markers)	2026-08-02		BL-973: a worktree used to answer "no rounds in flight" to ten live rounds — it now answers 13, and reads the same money ledger
 BL-974	leadgen	1.00	auto (stack markers)			BL-974 — The tools were already tracked. The hole was the exemption that hid them.
 BL-977	leadgen	1.00	auto (stack markers)			BL-977 — touch_number wired, the 51 resolved, and 20 messages read before anyone sends one
+BL-979	leadgen	1.00	auto (stack markers)	2026-08-02		BL-979: the library was not exhausted — 67 paid-for pages had never been walked
 BL-980	leadgen	1.00	auto (stack markers)			BL-980 — The secret scan splits by destination, and the allow-path rule lands
 BL-981	leadgen	1.00	auto (stack markers)			BL-981 — `superseded:` can tell a move from a removal now, and the tier that mattered is closed
 BL-983	leadgen	1.00	auto (stack markers)	2026-08-02		BL-983: config.json's values now resolve, a worktree reads all 2,003 clips — and the last blocker turned out not to be in config.json at all
