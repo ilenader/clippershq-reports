@@ -15,6 +15,7 @@ BL-1011	leadgen	1.00	auto (stack markers)			BL-1011 — The labels are now reada
 BL-1012	leadgen	1.00	auto (stack markers)			BL-1012 — the franchise allowlist, measured; the media and the assignment not reached
 BL-1013	leadgen	1.00	auto (stack markers)			BL-1013 — the lifetime cap failed open 50x; it now refuses
 BL-1014	leadgen	1.00	auto (stack markers)			BL-1014 — evaluating claude-video (/watch) as an audit tool
+BL-1016	leadgen	1.00	auto (stack markers)			BL-1016 — `motion` is stored now. It still cannot be validated, and the reason is the judges.
 BL-1017	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1017 — 19 real people were already public, and no rule had been defeated because there was no rule
 BL-1020	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1020 — interleaving takes the top 30 from **11 accounts (max 10) to 25 accounts (max 2)** at **97.3% of the ranker's signal**, and the 3 displaced clips carrying a hand verdict are all "no". **The gate did not cause the concentration — the ranker did.** Not landed: the file acquired a live writer mid-round.
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
