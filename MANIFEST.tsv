@@ -579,6 +579,7 @@ MEMEBOT-098	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-098 — 13 of 
 MEMEBOT-102	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-102 — the font fix landed, and the twelve sliced headlines are down to one
 MEMEBOT-104	leadgen	0.64	auto (stack markers)	2026-08-02		MEMEBOT-104: the comedy-register fix applied — and one marker carries its entire cost
 MEMEBOT-105	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-105 — the hooks need to be **4 seconds**, and the bigger win is a constant nobody has questioned: aiming at a **fixed 5s** instead of 43% of the clip takes the drop from landing 7.0s off the payoff to **2.0s off, on 16 of 28 instead of 2**.
+MEMEBOT-106	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-106 — The send-day checklist, and the fill mechanism it turned out to need
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
 R-2	leadgen	1.00	auto (stack markers)	2026-07-17		R-2 — the cheap checks, built and measured against real history
 R-3	payments	0.60	auto (stack markers)	2026-07-16		R-3 — Can we see inside the video, and what would it cost?
