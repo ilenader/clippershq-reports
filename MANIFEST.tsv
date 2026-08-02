@@ -3,6 +3,7 @@
 # class: leadgen = clipper-finder Python CLI | payments = ClippersHQ Next.js app
 #        cross = governs both | ambiguous = could not determine
 id	class	confidence	basis	date	superseded_by	title
+BL-1000	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1000: the front half runs — and the walk can now explain itself
 BL-1001	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1001: the last round — one page the operator opens cold, every claim sha-stamped
 BL-1002	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1002 — the matcher after three changes: 452 matched, 21 of 21 windows reachable, and the meme packet's zero-regression assertion no longer holds
 BL-1002b	leadgen	1.00	auto (stack markers)			BL-1002b — one-frame OCR: the @handle card clears, the watermark term does not, and the field it reads has 0% recall
