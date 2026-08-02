@@ -528,6 +528,7 @@ MEMEBOT-067	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-067 — two fi
 MEMEBOT-068	leadgen	0.86	auto (stack markers)	2026-08-02		MEMEBOT-068 — The comedy and meme song routes: a ranked shopping list
 MEMEBOT-069	leadgen	1.00	auto (stack markers)			MEMEBOT-069 — the rehearsal runs now, and the hook's arguments are executed rather than read
 MEMEBOT-070	leadgen	0.92	auto (stack markers)	2026-08-02		MEMEBOT-070 — The rule cache keyed on content, the vocabulary widened, and the meme song made a one-move purchase
+MEMEBOT-071	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-071: two croppers were eating the source's caption, and `pad` was silently re-centring the frame
 MEMEBOT-072	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-072 — 21 of 21 hand-marked windows are reachable, and the unattended run joins on every record
 MEMEBOT-073	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-073 — the gate was already fixed, its guard was not, and 20 of 20 renders carry their track
 MEMEBOT-075	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-075 — The manifest faults swept, and "untracked" turns out to be three states
