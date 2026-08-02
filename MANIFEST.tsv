@@ -534,6 +534,7 @@ MEMEBOT-070	leadgen	0.92	auto (stack markers)	2026-08-02		MEMEBOT-070 — The ru
 MEMEBOT-071	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-071: two croppers were eating the source's caption, and `pad` was silently re-centring the frame
 MEMEBOT-072	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-072 — 21 of 21 hand-marked windows are reachable, and the unattended run joins on every record
 MEMEBOT-073	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-073 — the gate was already fixed, its guard was not, and 20 of 20 renders carry their track
+MEMEBOT-074	leadgen	0.78	auto (stack markers)	2026-08-02		MEMEBOT-074 — I watched all 30. **A 100k repost page would post 3.** The music landed on 27 of 30 (BL-950 had 0 of 25), and the fix that stopped captions being cut mid-word now deletes the last word of every caption that does not end in a full stop — which is **5 of the 5 captions in this batch that read like a hook at all.**
 MEMEBOT-075	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-075 — The manifest faults swept, and "untracked" turns out to be three states
 MEMEBOT-076	leadgen	1.00	auto (stack markers)			MEMEBOT-076 — the caption text is the reposter's business, and the crop deletes the joke
 MEMEBOT-077	leadgen	1.00	auto (stack markers)			MEMEBOT-077 — 40-clip audit, the ceiling arithmetic, and a free signal we are throwing away
