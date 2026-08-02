@@ -181,6 +181,29 @@ supersession fixtures, which are untouched here and all passed. **Their file, th
 | `scratch/mb070_store_edit.py` | the idempotent store edit |
 | `docs/claims/MEMEBOT-070.claims` | claims manifest |
 
+---
+
+## OFF-BRIEF: a claims manifest written in prose never verifies, and MEMEBOT-068's is one
+
+Committing surfaced two things worth recording.
+
+**`.claims` is a machine-parsed format, not prose.** It takes `#` comment lines and then
+`kind: target` lines, where kind ∈ `func, const, menu, config, column, file, superseded`.
+My first draft here was prose and `verify_claims.py --enrolling` rejected it outright —
+*"line 3: unknown claim kind 'claim'"*. Rewritten, it reports **`[OK] all 18 claim(s) verify`**.
+
+**MEMEBOT-068's manifest has the same defect and is still untracked.** `docs/claims/
+MEMEBOT-068.claims` contains **zero** kind-prefixed lines. Its report is published and cited,
+so its claims currently have no enforceable backing at all. It is my own orphan from the
+previous round; left for a round that can claim it rather than silently widened into this one.
+
+**Committing is two commits, by design.** `commit_guard` enforces BL-874 — a manifest waits
+for the code, never the reverse — so the code landed at `c2ed919` and the manifest at
+`a82cf58`. Worth knowing before you fight it.
+
+Two smaller things, neither mine to fix: `tools/commit.py` prints a literal `unclaimed : %d
+path(s)` (unsubstituted format string), and its `-F` cannot read `/dev/stdin` on Windows.
+
 ## STILL OPEN
 
 - The meme rule's precision is still a **14-clip spot-check** (13/14), not a hand-labelled
