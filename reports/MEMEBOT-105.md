@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-02 · **Type:** measurement + operator proposal · **Spend:** **$0.00**, no paid call
 **Wrote:** `scratch/mb105_*` only. **`scratch/songs.json` was never opened for writing** —
-sha256 `456a0ba4…` before and after, and it is held by MEMEBOT-104 (below).
+it is held by MEMEBOT-104 and moved twice under me; the 21 hook windows this report depends on were re-verified identical after every move (below).
 
 ---
 
@@ -165,9 +165,27 @@ longer ceiling, and deleting it would throw away work that cannot be regenerated
 ### `scratch/songs.json` was not touched, and it is not mine to touch
 
 ```
-sha256 at the start of this round : 456a0ba465aa2f17d4b32d699bac77a725ff4c3453251635815db75d3619e226
-sha256 at the end                 : 456a0ba465aa2f17d4b32d699bac77a725ff4c3453251635815db75d3619e226
+sha256 when this round pinned it  : 456a0ba465aa2f17d4b32d699bac77a725ff4c3453251635815db75d3619e226
+sha256 at publish time            : e5ec2c4058638656a6cdbf6131a5b625d02f03860281e1ddb642cc20b7890892
 ```
+
+**It moved twice while this round ran, and neither move was mine.** I very nearly published the
+first sha twice over as "before and after" — it was true when written and false eight minutes
+later, which is the same defect this session has been reporting all evening, caught here only
+because I re-checked before shipping instead of quoting my own earlier line.
+
+**What matters for this report is not the file's hash but the hooks**, and those were
+re-verified after every move:
+
+```
+hook windows, HEAD vs worktree : IDENTICAL (21 hooks), checked 3 times
+hook lengths                   : 9.24s - 26.93s, unchanged
+hooks <= 10s                   : 4, unchanged
+```
+
+Every number in this report is a function of hook lengths alone. MEMEBOT-104's edits are to the
+`_readme` and the vision rules. **The measurement is unaffected, and that is checked rather
+than assumed.**
 
 **It is held by MEMEBOT-104**, claimed at 21:35:18 — 39 seconds before this round's claim, and
 it read `FREE` when this round ran its preconditions a minute earlier. That round has the
