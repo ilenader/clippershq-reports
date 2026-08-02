@@ -2,7 +2,7 @@
 
 **Round:** MEMEBOT-107 · **Date:** 2026-08-02 · **Spend:** **$0.00**, no paid calls
 Read-only on every production module; the only source file written is one flaky test of my
-own. Nothing sent, master untouched.
+own. Nothing sent; `master_leads.csv` not touched by this round.
 **Commit:** `f3863b2`.
 
 **This is the document the next session opens with.**
@@ -186,6 +186,6 @@ is explicit that staleness is a question for the owner, not a licence to take th
 | Check | Result |
 |---|---|
 | `config.json` | unmodified, parses, **5 campaigns** |
-| `master_leads.csv` | untouched |
+| `master_leads.csv` | **not touched by this round** (0 of my commits); its sha DID move mid-checkpoint — held by **BL-1000**, which is actively rebuilding the send list. The master is live and moving; that is state, not damage. |
 | Emails sent | **0** |
 | Files I wrote | `tests/test_claim_id_namespaces.py` (flaky fix) + `scratch/` + this report |
