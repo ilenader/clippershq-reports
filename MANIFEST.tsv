@@ -19,6 +19,7 @@ BL-1016	leadgen	1.00	auto (stack markers)			BL-1016 — `motion` is stored now. 
 BL-1017	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1017 — 19 real people were already public, and no rule had been defeated because there was no rule
 BL-1020	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1020 — interleaving takes the top 30 from **11 accounts (max 10) to 25 accounts (max 2)** at **97.3% of the ranker's signal**, and the 3 displaced clips carrying a hand verdict are all "no". **The gate did not cause the concentration — the ranker did.** Not landed: the file acquired a live writer mid-round.
 BL-1021	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1021 — The operator's first-day pack, and three claims that were false by the time I checked them
+BL-1023	leadgen	0.97	auto (stack markers)			BL-1023 — the first ten videos and the first twenty leads, chosen
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
