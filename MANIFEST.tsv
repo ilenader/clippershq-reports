@@ -548,6 +548,7 @@ MEMEBOT-077	leadgen	1.00	auto (stack markers)			MEMEBOT-077 — 40-clip audit, t
 MEMEBOT-078	leadgen	1.00	auto (stack markers)			MEMEBOT-078 — the track-title tier, measured; and the claim.py finding I got wrong
 MEMEBOT-080	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-080 — Both dependencies resolved, and the sweep that would not have found its own bug
 MEMEBOT-081	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-081 — the gate now refuses what the renderer refuses, and the boundary clip was decided by rendering it
+MEMEBOT-082	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-082: ship the source's own hook, centre the picture, and stop eating the payoff word
 MEMEBOT-085	leadgen	1.00	auto (stack markers)			MEMEBOT-085 — the crop fix verified on the labelled regression set, and the two measurements MEMEBOT-082 needs
 MEMEBOT-087	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-087 — this brief is already in flight; I measured the distribution and stopped before writing anything
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
