@@ -4,7 +4,9 @@
 
 Claim filed via `tools/claim.py`, paths registered individually with repeated `--write`.
 Registry read with `tools/claims_read.py --holders` and `git status --porcelain` before every
-step. `tools/commit.py` throughout — five commits, each by explicit path.
+step. `tools/commit.py` throughout on the parent — **seven commits across two repositories**
+(five parent, two in `memebot/`, which is a separate git repo with its own remote), each by
+explicit path.
 
 ---
 
@@ -162,7 +164,7 @@ than taken.
 
 | added to GUARDED | orphans | in-flight | verdict |
 |---|---|---|---|
-| `tests` | **2** — `tests/test_clip_pipeline_gate.py` (BL-899, 1,585 min) and `tests/bl932_probe_67vrvaav.py` (**no claim at all**) | 5 | **right, but not by me tonight** |
+| `tests` | **2** — `tests/test_clip_pipeline_gate.py` (BL-899, 1,585 min) and `tests/bl932_probe_67vrvaav.py` (**no claim at all** — see §6: it turned out to be a test's own litter, now fixed at cause) | 5 | **right, but not by me tonight** |
 | `scratch` | **4,486** | 32 | wrong — `scratch/` is a junk drawer by design |
 | `docs` | 0 | 4 | harmless, catches nothing today |
 
@@ -170,6 +172,39 @@ than taken.
 all ten live rounds** until BL-899's 26-hour orphan is resolved — and I cannot resolve it
 without taking the file the brief told me to name rather than take. Forcing another round's
 hand by reddening everybody's suite is the harm this round exists to reduce.
+
+## 6. The full suite's two reds were one 17-byte file, left by a test
+
+The 174-suite run came back **172 green, 2 red** — `test_suites_parse.py` and
+`test_claims_manifest.py`. Attributed individually, they are **one cause**, and it is the
+same subject as the rest of this round:
+
+`test_suites_parse.py::test_it_detects_a_planted_unparseable_file` `mkstemp`'d its plant into
+the **real `tests/` directory** and relied on a `finally` to remove it.
+
+* A run that dies between the mkstemp and the unlink leaves the plant behind. One was on
+  disk: **`tests/bl932_probe_67vrvaav.py`, 17 bytes reading `"""unterminated`**, written at
+  23:54 while eight suites ran concurrently. Untracked, unclaimed, unparseable — and it made
+  `test_every_test_module_parses` red for **every** round in the tree.
+* Concurrent runs failed each other: the final assertion said no `bl932_probe_` file remains
+  anywhere under `tests/`, so a second run's live plant broke the first run's cleanup check.
+
+**This is BL-938 arriving a second time.** That round found the identical pattern in
+`test_tools_tracked.py` and recorded why it matters — *a guard that is itself intermittently
+red is worse than no guard, because intermittent red trains people to ignore red.* The fix is
+the same: `_unparseable` already took a base, so it now accepts an absolute path and the
+plant goes in a `mkdtemp`. The assertion is not weakened; the same function still detects.
+
+Verified: both suites green, and **two concurrent runs of `test_suites_parse` both exit 0** —
+the case that was failing.
+
+**The leftover was not deleted.** A byte-identical copy sits in this session's scratchpad
+under `quarantine/` before it was removed from `tests/`. It is 17 bytes of a deliberate
+fixture with no owner, but an untracked file is unrecoverable once gone, and that is this
+round's entire subject.
+
+This also retires the "stray probe, not mine to delete" item from §5 — it had an owner after
+all: the test that planted it.
 
 ---
 
@@ -206,11 +241,30 @@ hand by reddening everybody's suite is the harm this round exists to reduce.
 * **BL-899, 26.4 h**, holding a clean `clippershq/clip_pipeline.py` and a 26-hour untracked
   `tests/test_clip_pipeline_gate.py`.
 * **MEMEBOT-039, 27.4 h**, 4 untracked scratch harnesses, blocked on a conflict long resolved.
-* **`tests/bl932_probe_67vrvaav.py`** — untracked, **no claim at all**, a stray probe in the
-  test directory. Not mine to delete.
+* ~~`tests/bl932_probe_67vrvaav.py`, a stray probe with no owner~~ — **closed in §6.** It had
+  an owner: the test that planted it into the live `tests/` directory. Fixed at cause.
 
 ## Suite and spend
 
-`PYTHONUTF8=1 python tests/run_all.py` on the parent; both memebot font suites run directly
-and from the extract. Result in the summary block. **Spend $0.00 — no paid call was made.**
-Campaigns unchanged; `config.json` untouched.
+`PYTHONUTF8=1 python tests/run_all.py` on the parent, discovery rule: every `test_*.py` under
+`tests/` and any nested `<pkg>/tests/` (MEMEBOT-026), which includes both memebot suites.
+
+**Run 1 — 172 of 174 green.** Both reds were the one 17-byte leftover in §6, fixed at cause.
+
+**Run 2 — 173 of 175 green (485s, 4 rounds in flight).** The two reds moved to
+`tests/test_claim.py` and `tests/test_doc_citations.py`, and neither is mine: **both are held
+by INFRA-024**, and `test_claim.py` was `M ` — staged, mid-edit — while the run was in
+progress. Re-run after the edit settled, **both pass**, along with every suite this round
+touched:
+
+```
+  tests/test_claim.py            PASS      tests/test_suites_parse.py        PASS
+  tests/test_doc_citations.py    PASS      tests/test_claims_manifest.py     PASS
+  tests/test_tools_tracked.py    PASS      tests/test_no_unchecked_stdout.py PASS
+```
+
+A suite count in this tree is a moment, not a property — the runner prints that itself. The
+durable number is the one from the clean extract: **5 of 5**, which is what a clone gets.
+
+**Spend $0.00 — no paid call was made.** Campaigns unchanged; `config.json` untouched.
+`memebot/runs.jsonl` was `M ` under a live render throughout and was never committed.
