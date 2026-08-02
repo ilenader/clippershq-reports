@@ -514,6 +514,7 @@ MEMEBOT-063	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-059: the check
 MEMEBOT-064	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-064: it was never the audio codec — the renderer was trimming clips under a floor it was about to enforce
 MEMEBOT-064a	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-064a: a caption ends where a sentence ends, not where the characters run out
 MEMEBOT-065	leadgen	1.00	auto (stack markers)			MEMEBOT-065 — the hook was broken at HEAD, it is not any more, and the harness that missed it can now fail
+MEMEBOT-066	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-066 — the class was not missing; the guess behind it was
 MEMEBOT-067	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-067 — two finished videos join the song store, and the record builder was never the reason they could not
 MEMEBOT-068	leadgen	0.86	auto (stack markers)	2026-08-02		MEMEBOT-068 — The comedy and meme song routes: a ranked shopping list
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
