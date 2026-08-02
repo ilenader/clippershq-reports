@@ -191,9 +191,23 @@ restarts.
 SONG one: `hype` still carries 87% of matches behind one usable track (MEMEBOT-064). More
 `hype` songs remain the highest-value purchase, and that is the operator's call.
 
-**`MIN_DURATION_S` is still 5.0 against edit.py's 8.0s floor** — MEMEBOT-064 reported it and
-it is still open in `clip_pipeline.gate`. It did not bite this run because every candidate
-was long, but it still pays to retrieve clips that cannot ship.
+> ### CORRECTION (added by MEMEBOT-073)
+>
+> **The paragraph below was WRONG WHEN THIS REPORT WAS PUBLISHED.** `MIN_DURATION_S` was
+> not 5.0 and the mismatch was not open: **BL-958 landed the derivation at 12:54:41**, in
+> commit `b45d66a`, **42 minutes before I published this**. It is
+> `round((RENDER_FLOOR_S + RENDER_FLOOR_MARGIN_S) * RENDER_MIN_SPEED, 3)` = **7.626**, with
+> a drift guard in `tests/test_clip_pipeline_entrypoint.py` that reads
+> `memebot/scraper/config.yaml`.
+>
+> I carried MEMEBOT-064's finding forward as a live limitation without re-reading the
+> constant — in a file I had edited and committed that same hour. A limitation inherited
+> from an earlier report is a claim about the code NOW, and it has to be re-measured like
+> any other. MEMEBOT-073 has the corrected numbers.
+
+~~**`MIN_DURATION_S` is still 5.0 against edit.py's 8.0s floor** — MEMEBOT-064 reported it
+and it is still open in `clip_pipeline.gate`. It did not bite this run because every
+candidate was long, but it still pays to retrieve clips that cannot ship.~~
 
 **BL-958 and BL-899 still hold `clip_pipeline.py`.** BL-958's work is committed; BL-899 has
 been stale for 15 hours. I wrote the file against a live advisory claim and said so in my
