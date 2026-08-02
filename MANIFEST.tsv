@@ -3,6 +3,7 @@
 # class: leadgen = clipper-finder Python CLI | payments = ClippersHQ Next.js app
 #        cross = governs both | ambiguous = could not determine
 id	class	confidence	basis	date	superseded_by	title
+BL-1002	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1002 — the matcher after three changes: 452 matched, 21 of 21 windows reachable, and the meme packet's zero-regression assertion no longer holds
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
