@@ -191,10 +191,12 @@ until someone removes it from memebot's history. It is in the shipped renderer t
 interleaved runs. **This round never touched `memebot/`** — the three memebot commits are
 MEMEBOT-094, MEMEBOT-064 and MEMEBOT-086.
 
-Owner: whoever holds `memebot/scraper/edit.py` (MEMEBOT-082 at time of writing). The fix is to
-delete both stub definitions and commit in the nested repo; the deeper fix is that a test which
-mutates a live file cannot be safe in a tree where eleven rounds commit concurrently, however
-careful its `finally` is.
+**RESOLVED WHILE THIS ROUND WAS WRITING.** MEMEBOT-094 removed both stubs in memebot commit
+`fbeb1ec` ("remove a test marker I committed into the renderer"); `git -C memebot show
+HEAD:scraper/edit.py` now contains the marker zero times and `test_verify_claims.py` is green.
+Recorded because the finding stands whatever happened next: a test that mutates a live file
+cannot be safe in a tree where eleven rounds commit concurrently, however careful its
+`finally` is, and this one put a stub function into the shipped renderer's history twice.
 
 ## 9. A dashboard test asserted more than its docstring, and was vacuous until today
 
@@ -214,13 +216,15 @@ empty list passes vacuously.
 
 `PYTHONUTF8=1 python tests/run_all.py`, discovery rule: **every `test_*.py` under `tests/` and
 under any nested `<pkg>/tests/` directory** (MEMEBOT-026 — a suite count without its discovery
-rule is not a count). **151 of 154 suites green.** All three reds were run individually:
+rule is not a count).
 
-| red suite | standalone | whose |
-|---|---|---|
-| `test_manifest_prose_refused.py` | **passes** | concurrent-write flake — it walks `tests/` while other rounds write into it |
-| `test_suites_parse.py` | **passes** | same flake mode; MEMEBOT-093 reported it independently in the same window |
-| `test_verify_claims.py` | **fails** | §8 — MEMEBOT-094 baked a test fixture into memebot's HEAD; not this round's |
+**ALL GREEN — 154/154 suites, 5,100 checks, 487.4 s**, with five rounds in flight.
+
+An earlier run during this round was 151/154. All three reds were run individually and none
+was this round's: `test_manifest_prose_refused.py` and `test_suites_parse.py` both pass
+standalone (they walk `tests/` while other rounds write into it — MEMEBOT-093 reported the
+same flake independently in the same window), and `test_verify_claims.py` was §8, since fixed
+at source by MEMEBOT-094.
 
 A fourth red appeared when the directly-affected suites were run together —
 `test_an_absent_marker_is_unknown_never_failed`, §9 — and was fixed rather than attributed,
@@ -229,8 +233,6 @@ round touches run **205 tests green together**: `tests/test_pipeline_decision_lo
 new), `tests/test_clip_pipeline_entrypoint.py` (32), `tests/test_decision_log.py`,
 `tests/test_dashboard.py` and `tests/test_dashboard_video.py`.
 
-A second full `run_all.py` was launched after the commits and was still in flight when this
-report was published; the number quoted above is the completed run, with every red run
-individually and attributed.
+The 154/154 figure is the post-commit run, taken after every fix in this report had landed.
 
 `config.json` is byte-identical (0-byte diff) and the campaigns block is untouched.
