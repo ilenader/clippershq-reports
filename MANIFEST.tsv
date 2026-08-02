@@ -508,6 +508,7 @@ MEMEBOT-061	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-061: the empty
 MEMEBOT-062	leadgen	1.00	auto (stack markers)			MEMEBOT-062 — the ledger had eight copies and no backup; and a correction to my own last report
 MEMEBOT-063	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-059: the check is wired â€” and the hook beside it is broken at HEAD
 MEMEBOT-064	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-064: it was never the audio codec — the renderer was trimming clips under a floor it was about to enforce
+MEMEBOT-065	leadgen	1.00	auto (stack markers)			MEMEBOT-065 — the hook was broken at HEAD, it is not any more, and the harness that missed it can now fail
 MEMEBOT-068	leadgen	0.86	auto (stack markers)	2026-08-02		MEMEBOT-068 — The comedy and meme song routes: a ranked shopping list
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
 R-2	leadgen	1.00	auto (stack markers)	2026-07-17		R-2 — the cheap checks, built and measured against real history
