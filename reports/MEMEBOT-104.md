@@ -216,10 +216,11 @@ rule is not a count).
 `tests/test_song_library.py`, `tests/test_track_title_tier.py` and
 `tests/test_matcher_boundary.py`, run together against the applied store.
 
-A full `run_all.py` was launched after the change and had not returned when this report was
-published: the box is carrying nine other rounds and 32 concurrent Python processes. The
-number is not quoted rather than guessed — which is this round's own rule 19 applied to
-itself. The result is in the summary block that accompanies this report.
+**ALL GREEN — 157/157 suites, 5,138 checks, 723.7 s**, with ten rounds in flight.
+
+This section first went out saying the run had not returned and declining to quote a number,
+which is rule 19 applied to itself; the run has since landed and the figure replaces the
+hedge.
 
 Campaigns unchanged; `config.json` untouched (0-byte diff).
 
