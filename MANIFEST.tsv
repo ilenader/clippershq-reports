@@ -437,6 +437,7 @@ BL-962	leadgen	1.00	auto (stack markers)	2026-08-02		BL-962: the list bounces at
 BL-963	leadgen	0.94	auto (stack markers)			BL-963 — The LOW-resolution A/B, and the first clip-time ground truth
 BL-964	leadgen	1.00	auto (stack markers)	2026-08-02		BL-964: the MX table now covers 100% of the send file, and a bounce can finally be recorded
 BL-965	leadgen	1.00	auto (stack markers)			BL-965 — the manifest was never ahead of its code, and the template holds up
+BL-966	leadgen	1.00	auto (stack markers)	2026-08-02		BL-966: the git index is shared, so `git commit` is a race — it now refuses, and 29 commits already admit they lost that race
 BL-967	leadgen	1.00	auto (stack markers)	2026-08-02		BL-967 — the whole data path, audited: 33 populated fields nothing reads, 72 of 81 dropped at one seam, and a ledger that records what we made and never what happened to it
 BL-968	leadgen	1.00	auto (stack markers)			BL-968 — a day of this system: what it makes, what it costs, and what actually stops it
 INFRA-001	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-001 — You were right: only the menu blocked it, and **headless already shipped while this brief was being written**. The real ceiling is not the API limits — it is 0.5 GB of free RAM against 173 MB of master per process. Railway: **no**.
