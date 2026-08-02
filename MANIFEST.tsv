@@ -544,6 +544,7 @@ MEMEBOT-075	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-075 — The ma
 MEMEBOT-076	leadgen	1.00	auto (stack markers)			MEMEBOT-076 — the caption text is the reposter's business, and the crop deletes the joke
 MEMEBOT-077	leadgen	1.00	auto (stack markers)			MEMEBOT-077 — 40-clip audit, the ceiling arithmetic, and a free signal we are throwing away
 MEMEBOT-080	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-080 — Both dependencies resolved, and the sweep that would not have found its own bug
+MEMEBOT-081	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-081 — the gate now refuses what the renderer refuses, and the boundary clip was decided by rendering it
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
 R-2	leadgen	1.00	auto (stack markers)	2026-07-17		R-2 — the cheap checks, built and measured against real history
 R-3	payments	0.60	auto (stack markers)	2026-07-16		R-3 — Can we see inside the video, and what would it cost?
