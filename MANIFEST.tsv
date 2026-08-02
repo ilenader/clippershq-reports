@@ -558,6 +558,7 @@ MEMEBOT-085	leadgen	1.00	auto (stack markers)			MEMEBOT-085 — the crop fix ver
 MEMEBOT-086	leadgen	0.93	auto (stack markers)	2026-08-02		MEMEBOT-086 — the duration ceiling, decided against the hand labels: **trim keeps 1,487 clips and 93% of payoffs; a gate keeps 481.** 30 re-rendered: **source median 55.3 s → finished 18.4 s, 30/30 inside 7–20 s, nothing over 20.0 s.** A 100k page would post **5** — up from MEMEBOT-074's 3, and this time **all five are actual video clips**, not infographics.
 MEMEBOT-087	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-087 — this brief is already in flight; I measured the distribution and stopped before writing anything
 MEMEBOT-088	leadgen	1.00	auto (stack markers)			MEMEBOT-088 — the track-title tier is live, and two of its titles were not worth keeping
+MEMEBOT-089	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-089 — 21 of 21 verified four ways, 0 of 21 postable, and the caption is now the blocker
 MEMEBOT-090	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-090 — The input-population sweep, and a population hole inside the previous fix
 MEMEBOT-091	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-091 — stopped as the brief instructs, and the decision it hands down is dominated by one already measured: at the same 30 s ceiling a trim beats a gate on both axes
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
