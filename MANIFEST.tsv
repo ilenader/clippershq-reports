@@ -543,6 +543,7 @@ MEMEBOT-074	leadgen	0.78	auto (stack markers)	2026-08-02		MEMEBOT-074 — I watc
 MEMEBOT-075	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-075 — The manifest faults swept, and "untracked" turns out to be three states
 MEMEBOT-076	leadgen	1.00	auto (stack markers)			MEMEBOT-076 — the caption text is the reposter's business, and the crop deletes the joke
 MEMEBOT-077	leadgen	1.00	auto (stack markers)			MEMEBOT-077 — 40-clip audit, the ceiling arithmetic, and a free signal we are throwing away
+MEMEBOT-078	leadgen	1.00	auto (stack markers)			MEMEBOT-078 — the track-title tier, measured; and the claim.py finding I got wrong
 MEMEBOT-080	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-080 — Both dependencies resolved, and the sweep that would not have found its own bug
 MEMEBOT-081	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-081 — the gate now refuses what the renderer refuses, and the boundary clip was decided by rendering it
 MEMEBOT-085	leadgen	1.00	auto (stack markers)			MEMEBOT-085 — the crop fix verified on the labelled regression set, and the two measurements MEMEBOT-082 needs
