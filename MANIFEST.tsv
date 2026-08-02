@@ -479,6 +479,7 @@ INFRA-017	leadgen	1.00	auto (stack markers)	2026-08-02		INFRA-017: the 700px ove
 INFRA-018	leadgen	1.00	auto (stack markers)	2026-08-02		INFRA-018: six guards parsed, the duplicate card gone, and a panel that never worked
 INFRA-019	leadgen	1.00	auto (stack markers)	2026-08-02		INFRA-019: the decision log landed in the pipeline — and the patch was wrong by 47
 INFRA-020	leadgen	1.00	auto (stack markers)	2026-08-02		INFRA-020 — the three "standing reds" were already green, and the suite went **154/154, 5,100 checks** ten minutes later. What was actually broken is that **both staleness checks in the guard file had been retired by their own success**, and the second list never had one at all.
+INFRA-022	leadgen	1.00	auto (stack markers)	2026-08-02		INFRA-022: 11 test renders were being counted as videos the system made — and two of the brief's four gaps were already shipped
 MEMEBOT-001	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-001 — It is **two pipelines, not one**, and the audio answer is the good news: arbitrary audio + a start offset **already works** — in `scraper/edit.py`, which is the half that does not render captions.
 MEMEBOT-002	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-002: The ambient mixer works. Four other things do not.
 MEMEBOT-003	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-003 — The song library, the matching rule, and why it must gate on `valence` and not on `genre`
