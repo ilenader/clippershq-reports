@@ -428,6 +428,7 @@ BL-954	leadgen	1.00	auto (stack markers)	2026-08-02		BL-954 — Items 1 and 3 we
 BL-955-full-chain-smoke-test	leadgen	1.00	auto (stack markers)	2026-08-02		BL-955: the chain produces a video, and the two halves are not connected to each other
 BL-955	leadgen	1.00	auto (stack markers)	2026-08-02		BL-955: the semaphore is in all four finders, the helper is merged, and the full suite is green — 121/121. I also wrote the ceiling test wrong first, which is the more useful half
 BL-956	leadgen	1.00	auto (stack markers)	2026-08-02		BL-956: the send path works — the MESSAGE does not exist, and 89% of rows will not merge
+BL-958-clip-pipeline-entry-point	leadgen	1.00	auto (stack markers)	2026-08-02		BL-958: the video half has two entry points, callable defaults and a cap that binds — and the gate was still admitting clips the renderer can never finish
 BL-958	leadgen	1.00	auto (stack markers)	2026-08-02		BL-958 — Every deferral closed itself while I was closing it, and the registry built to hold them is empty on purpose. 18 orphaned files committed, one of them the scanner `publish_report` runs
 BL-960	leadgen	1.00	auto (stack markers)			BL-960 — Can we read every second of a clip affordably?
 BL-961	leadgen	1.00	auto (stack markers)			BL-961 — the email exists
