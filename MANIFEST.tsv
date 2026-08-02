@@ -454,6 +454,7 @@ BL-983B	leadgen	1.00	auto (stack markers)			BL-983B — A run that explains its 
 BL-984	leadgen	1.00	auto (stack markers)	2026-08-02		BL-984 — the patch was already landed by someone else, the file was not clean, and verifying the outcome loop against the real ledger found that a correction erases the field it exists to protect
 BL-986	leadgen	1.00	auto (stack markers)			BL-986 — the first send is mechanically ready, and the copy asserts the opposite of its own numbers on half the file
 BL-987	leadgen	1.00	auto (stack markers)			BL-987 — the sweep scores per statement now, and four tier counts were wrong
+BL-988	leadgen	0.95	auto (stack markers)	2026-08-02		BL-988: the selection gate — three terms land, two categories are refused, and the frames contradict the fields
 BL-989	leadgen	1.00	auto (stack markers)	2026-08-02		BL-989: STOPPED at the precondition — the file was being edited 48 seconds before I looked, by a round two minutes old doing items 1–2. Here is every premise re-verified instead.
 BL-991	leadgen	1.00	auto (stack markers)			BL-991 — the greeting, the article, and an A/B that is now actually an A/B
 BL-992	leadgen	1.00	auto (stack markers)			BL-992 — the sentence that contradicted its own numbers, and the one I wrote to replace it
