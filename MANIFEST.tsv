@@ -574,6 +574,7 @@ MEMEBOT-094	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-094 — the ce
 MEMEBOT-095	leadgen	1.00	auto (stack markers)			MEMEBOT-095 — the drop cannot be placed at the payoff, and the reason is not the rule
 MEMEBOT-097	leadgen	1.00	auto (stack markers)			MEMEBOT-097 — Cyrillic already worked, Inter fixes three more free, and five need a decision
 MEMEBOT-098	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-098 — 13 of 30 postable. The duration defect is gone, and eleven of the seventeen failures are now properties of the clip we chose, not of the renderer
+MEMEBOT-102	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-102 — the font fix landed, and the twelve sliced headlines are down to one
 MEMEBOT-104	leadgen	0.64	auto (stack markers)	2026-08-02		MEMEBOT-104: the comedy-register fix applied — and one marker carries its entire cost
 MEMEBOT-105	leadgen	1.00	auto (stack markers)	2026-08-02		MEMEBOT-105 — the hooks need to be **4 seconds**, and the bigger win is a constant nobody has questioned: aiming at a **fixed 5s** instead of 43% of the clip takes the drop from landing 7.0s off the payoff to **2.0s off, on 16 of 28 instead of 2**.
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
