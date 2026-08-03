@@ -77,6 +77,7 @@ BL-1098	leadgen	0.77	auto (stack markers)			BL-1098 — the classifier failed tw
 BL-1104	leadgen	1.00	auto (stack markers)			BL-1104 — 100 hand labels, and the account theory does not survive them
 BL-1112	leadgen	1.00	auto (stack markers)			BL-1112 — the caption theory is untestable, and 76% of named defects are content
 BL-1114	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1114 — option (b) is a no-op as briefed, and option (c) *reduces* concentration instead of raising it
+BL-1115	leadgen	1.00	auto (stack markers)			BL-1115 — the filled field changed six verdicts, and five of six agree with the human
 BL-1120	leadgen	1.00	auto (stack markers)			BL-1120 — one vocabulary, and the code side was twice as big as we thought
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
