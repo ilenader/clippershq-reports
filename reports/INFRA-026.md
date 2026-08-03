@@ -138,7 +138,7 @@ same key set? NO — the intersection is FOUR
 | the hatch | `.ch-bar-b{fill:…}` beat the presentation attribute at specificity 0; removed |
 | rotation unmoved | 40 polls, ledger sha256 identical, rotation byte-identical |
 | screenshots | 21 images, **0 console errors, 0 external requests, 0px overflow at 700px** |
-| suites | dashboard **153/153 green** (99 + 11 + 43); parent suite — see Honest limits |
+| suites | dashboard **153/153 green** (99 + 11 + 43); parent suite **KILLED** with five other `run_all` in flight — see Honest limits. No orphan probe left behind (`ls tests/bl932_probe_*` clean) |
 | campaigns / config | `campaigns/` and `config.json` untouched; config parses, 161 blocks |
 | spend | **$0.00** — no paid call in this round |
 
@@ -173,8 +173,9 @@ same key set? NO — the intersection is FOUR
 
 ## Honest limits
 
-- **The parent suite had not finished when this was published.** The three dashboard suites are green at 153/153 and my diff touches only `api_decisions` and `api_audit` (`git diff -U0` confirms no hunk near `api_now`, `_reconcile` or any other handler), but I am not claiming a full-tree green I did not see.
-- **`test_no_two_running_rows_share_a_pid` failed once, mid-round, and passes now.** It asserts against **live** `/api/now`, and with nine rounds in flight there genuinely were duplicate running rows at that moment. Environmental, not mine — but it is a test that reads live state, and it will do this again.
+- **The parent suite was KILLED, not merely unfinished** — and "killed" is a different fact, so it is corrected here rather than left as the softer one. **FIVE other `tests/run_all.py` processes were in flight simultaneously.** The three dashboard suites are green at 153/153 (99 + 11 + 43, verified twice) and my diff touches only `api_decisions` and `api_audit` — `git diff -U0` confirms no hunk near `api_now`, `_reconcile` or any other handler — but I am not claiming a full-tree green I did not see. A second full run was started after publication.
+- **A killed `run_all` used to poison the tree for every other round, and no longer does.** BL-1023 recorded that `test_suites_parse.py` planted `tests/bl932_probe_<random>.py` and asserted on the *prefix*, so concurrent runs reddened each other and a killed run left an orphan that stayed red forever. **That is fixed**: the plant now goes to a `tempfile.mkdtemp(prefix="bl932_plant_")` with `addCleanup(shutil.rmtree)` and the assertion is scoped to that temp dir. I checked `ls tests/bl932_probe_*` after my run died — **clean**. Checked, not assumed, because the consequence lands on other rounds and not on me.
+- **What still makes concurrent suite runs unreliable is live-state tests, not litter.** `test_dashboard.py::test_no_two_running_rows_share_a_pid` reads `/api/now` and asserts no two running rows share a pid; with nine rounds in flight there genuinely were duplicates. It failed once mid-round and passed minutes later with nothing changed.
 - **My own audit-panel rewrite broke a test and I caught it from the suite, not from reasoning.** Scanning a directory instead of one fixed path collapsed "malformed" and "absent" into one message; `test_a_malformed_audit_file_is_refused_rather_than_guessed` was right to fail. The refusal now names the offending file.
 - **I applied roughly half the accessibility findings.** Table `<caption>`s are still missing on six generated tables, row selection is still a focusable `<tr>` with no role or name, chart data tables are still destroyed and rebuilt twice per poll, and there is no `forced-colors` handling. Named, not fixed, and not counted as done.
 - **The screenshots prove properties, not beauty.** They assert external requests, console errors, panel count and overflow. Nothing in this round asserts that a chart drew the right *shape*, and the `money` tab is a 9,040px page at every width — pre-existing, unmeasured, and not something I improved.
