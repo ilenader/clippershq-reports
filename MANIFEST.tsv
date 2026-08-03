@@ -74,6 +74,7 @@ BL-1095	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1095 — mining the too
 BL-1096	leadgen	1.00	auto (stack markers)			BL-1096 — the dashboard date range: BLOCKED on a live claim, with the groundwork measured
 BL-1097	leadgen	1.00	auto (stack markers)			BL-1097 — the sweep ran, the field is fuller, and it bought zero verdicts
 BL-1098	leadgen	0.77	auto (stack markers)			BL-1098 — the classifier failed twice, reading caught it twice, and I am not publishing the number
+BL-1099	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1099 — the send path refuses by default now, and BL-1091's "superset is broken" was wrong three times over
 BL-1104	leadgen	1.00	auto (stack markers)			BL-1104 — 100 hand labels, and the account theory does not survive them
 BL-1112	leadgen	1.00	auto (stack markers)			BL-1112 — the caption theory is untestable, and 76% of named defects are content
 BL-1114	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1114 — option (b) is a no-op as briefed, and option (c) *reduces* concentration instead of raising it
