@@ -124,8 +124,10 @@ small.
 
 ## 5. THE THREE LISTS
 
-Sizes are **measured where stated and extrapolated where stated** — see the limits section;
-`du` on these trees runs ~35 s per folder on this disk and the full 124 did not complete.
+Sizes are **measured where stated and extrapolated where stated** — see §6 and the limits
+section. `du` needs 35 s–3 min per folder here and the full 124 did not complete. **The size
+figures in this section were corrected after first publication**; the identification, which is
+what decides deletion, did not change.
 
 ### SAFE — reproducible, nothing unique
 
@@ -159,7 +161,7 @@ Sizes are **measured where stated and extrapolated where stated** — see the li
 
 ---
 
-## 6. THE SPACE, AND WHY THE ROOT FOLDERS ARE THE WRONG TARGET
+## 6. THE SPACE — and the root folders ARE the target, which is the opposite of what I first published
 
 Disk: **931 GB, 793 GB used, 139 GB free, 86%** — not 100%. Everything over 1 GB I could
 measure:
