@@ -88,6 +88,7 @@ BL-1117	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1117 — the media ceil
 BL-1118	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1118 — the stale figure corrected, the term re-opened, and a blank field that was mostly a mirage
 BL-1120	leadgen	1.00	auto (stack markers)			BL-1120 — one vocabulary, and the code side was twice as big as we thought
 BL-1121	leadgen	1.00	auto (stack markers)			BL-1121 — three of four items were blocked, so I fixed the thing that keeps blocking them
+BL-1122	leadgen	1.00	auto (stack markers)			BL-1122 — the vocabulary does not move judged agreement, and the one thing that works is not a judgement
 BL-1123	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1123 — STOPPED at the brief's own gate, and the handoff was already stale
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
