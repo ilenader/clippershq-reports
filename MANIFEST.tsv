@@ -76,6 +76,7 @@ BL-1096	leadgen	1.00	auto (stack markers)			BL-1096 — the dashboard date range
 BL-1097	leadgen	1.00	auto (stack markers)			BL-1097 — the sweep ran, the field is fuller, and it bought zero verdicts
 BL-1098	leadgen	0.77	auto (stack markers)			BL-1098 — the classifier failed twice, reading caught it twice, and I am not publishing the number
 BL-1099	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1099 — the send path refuses by default now, and BL-1091's "superset is broken" was wrong three times over
+BL-1100	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1100 — The white frame is gone: 45% picture → 100%, and the caption survives
 BL-1104	leadgen	1.00	auto (stack markers)			BL-1104 — 100 hand labels, and the account theory does not survive them
 BL-1106	leadgen	1.00	auto (stack markers)			BL-1106 — one global time control, and every panel honest about what it did
 BL-1107	leadgen	1.00	auto (stack markers)			BL-1107 — the leak is closed at source, and 7 live keys are already in the private history
