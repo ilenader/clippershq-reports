@@ -19,6 +19,7 @@ BL-1014	leadgen	1.00	auto (stack markers)			BL-1014 — evaluating claude-video 
 BL-1015	leadgen	1.00	auto (stack markers)			BL-1015 — the regex is fixed, +8 clips, and the output still does not move: 2 of the 4 marks are not in the field at all
 BL-1016	leadgen	1.00	auto (stack markers)			BL-1016 — `motion` is stored now. It still cannot be validated, and the reason is the judges.
 BL-1017	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1017 — 19 real people were already public, and no rule had been defeated because there was no rule
+BL-1019	leadgen	1.00	auto (stack markers)			BL-1019 — a real backup, and the history decision
 BL-1020	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1020 — interleaving takes the top 30 from **11 accounts (max 10) to 25 accounts (max 2)** at **97.3% of the ranker's signal**, and the 3 displaced clips carrying a hand verdict are all "no". **The gate did not cause the concentration — the ranker did.** Not landed: the file acquired a live writer mid-round.
 BL-1021	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1021 — The operator's first-day pack, and three claims that were false by the time I checked them
 BL-1022	leadgen	1.00	auto (stack markers)			BL-1022 — the outcome loop, driven end to end before the data exists
