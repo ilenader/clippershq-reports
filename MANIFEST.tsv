@@ -65,6 +65,7 @@ BL-1082	leadgen	0.96	auto (stack markers)	2026-08-03		BL-1082 — the account ra
 BL-1083	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1083 — 176 clips watched, and the judge is still the biggest variable
 BL-1090	leadgen	1.00	auto (stack markers)			BL-1090 — we do not write those captions; the source authors do
 BL-1091	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1091 — the send path holds at 2,970 rows, and the operator cannot send today
+BL-1094	leadgen	1.00	auto (stack markers)			BL-1094 — the library browser: STOPPED on precondition, and the numbers it would have printed are wrong
 BL-1096	leadgen	1.00	auto (stack markers)			BL-1096 — the dashboard date range: BLOCKED on a live claim, with the groundwork measured
 BL-1098	leadgen	0.77	auto (stack markers)			BL-1098 — the classifier failed twice, reading caught it twice, and I am not publishing the number
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
