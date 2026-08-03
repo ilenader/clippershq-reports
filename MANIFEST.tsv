@@ -38,6 +38,7 @@ BL-1034	leadgen	1.00	auto (stack markers)			BL-1034 — stopped at the gate: the
 BL-1035	leadgen	1.00	auto (stack markers)			BL-1035 — the backup runs on a schedule, and the history decision is written for the operator
 BL-1036	leadgen	1.00	auto (stack markers)			BL-1036 — the shared-index window, closed on the case nobody could see
 BL-1037	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1037 — the suite completes in 484 seconds and went ALL GREEN under thirteen rounds; the clean extract is the redder one
+BL-1038	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1038 — redact() now imports the scanner's rule, and three more gaps fell out of proving it
 BL-1039	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1039: the wiring is blocked by two live claims — so here is everything that decides it
 BL-1040	leadgen	1.00	auto (stack markers)			BL-1040 — the silent zero was already gone; the hand-written list was not
 BL-1041	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1041: one of six stages was free to run — and the ownership map is the finding
