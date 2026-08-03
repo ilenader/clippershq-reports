@@ -87,6 +87,7 @@ BL-1115	leadgen	1.00	auto (stack markers)			BL-1115 — the filled field changed
 BL-1116	leadgen	1.00	auto (stack markers)			BL-1116 — Resampling the inset question
 BL-1117	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1117 — the media ceiling costs $1.74, and it is not what is blocking the answer
 BL-1118	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1118 — the stale figure corrected, the term re-opened, and a blank field that was mostly a mirage
+BL-1119	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1119 — every render now ships with its original beside it
 BL-1120	leadgen	1.00	auto (stack markers)			BL-1120 — one vocabulary, and the code side was twice as big as we thought
 BL-1121	leadgen	1.00	auto (stack markers)			BL-1121 — three of four items were blocked, so I fixed the thing that keeps blocking them
 BL-1122	leadgen	1.00	auto (stack markers)			BL-1122 — the vocabulary does not move judged agreement, and the one thing that works is not a judgement
