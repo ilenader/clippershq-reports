@@ -23,6 +23,7 @@ BL-1021	leadgen	1.00	auto (stack markers)	2026-08-02		BL-1021 — The operator's
 BL-1022	leadgen	1.00	auto (stack markers)			BL-1022 — the outcome loop, driven end to end before the data exists
 BL-1023	leadgen	0.97	auto (stack markers)			BL-1023 — the first ten videos and the first twenty leads, chosen
 BL-1024	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1024: the client copy now says only what the system can do today
+BL-1027	leadgen	1.00	auto (stack markers)			BL-1027 — The second text field exists. The vision field was wrong on 11 of 11.
 BL-1029	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1029: the labeller had no caller, and the cap it never had was 20% loose
 BL-1030	leadgen	1.00	auto (stack markers)			BL-1030 — the retrieval leg is under a ceiling, and the ceiling was proven by spending
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
