@@ -505,6 +505,7 @@ INFRA-022	leadgen	1.00	auto (stack markers)	2026-08-02		INFRA-022: 11 test rende
 INFRA-023	leadgen	1.00	auto (stack markers)	2026-08-03		INFRA-023: the modules were already committed; the exposure was a font on one machine
 INFRA-024	leadgen	1.00	auto (stack markers)			INFRA-024 — the first day, from a clean clone
 INFRA-025	leadgen	1.00	auto (stack markers)			INFRA-025 — closing the silent-zero class
+INFRA-026	leadgen	1.00	auto (stack markers)	2026-08-03		INFRA-026 — both briefed items were already shipped, so I verified instead, and found six defects doing it
 INFRA-031	leadgen	1.00	auto (stack markers)	2026-08-03		INFRA-031 — A stale claim can now be taken, but only when the path is clean
 MEMEBOT-001	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-001 — It is **two pipelines, not one**, and the audio answer is the good news: arbitrary audio + a start offset **already works** — in `scraper/edit.py`, which is the half that does not render captions.
 MEMEBOT-002	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-002: The ambient mixer works. Four other things do not.
