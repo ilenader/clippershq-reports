@@ -56,6 +56,7 @@ BL-1056	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1056 — the run explai
 BL-1057	leadgen	1.00	auto (stack markers)			BL-1057 — the tool survey: 61 candidates, 3 adoptions, 45 rejections with numbers
 BL-1058	leadgen	1.00	auto (stack markers)			BL-1058 — the 357 pending records do not exist, and the bug was mine
 BL-1060	leadgen	1.00	auto (stack markers)	2026-08-03		HANDOVER — the state of ClippersHQ, and what to do next
+BL-1061	leadgen	1.00	auto (stack markers)			BL-1061 — The engine swap paid. The field is 4.4x fuller, and a gate finally moved.
 BL-1065	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1065: scratch/ has a lifetime now, and no cleanup can reach real data
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
