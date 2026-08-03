@@ -658,6 +658,7 @@ MEMEBOT-116	leadgen	1.00	auto (stack markers)			MEMEBOT-116 — the fixed-5s dro
 MEMEBOT-117	leadgen	1.00	auto (stack markers)	2026-08-03		MEMEBOT-117 — The detector is right to the pixel, and the trim is still refused
 MEMEBOT-118	leadgen	1.00	auto (stack markers)			MEMEBOT-118 — three of the four named caption defects were never caption defects
 MEMEBOT-119	leadgen	1.00	auto (stack markers)	2026-08-03		MEMEBOT-119 — 10 postable of 30, and the caption we compute has never been drawn
+MEMEBOT-120	leadgen	0.94	auto (stack markers)	2026-08-03		MEMEBOT-120 — the no-hook hole is closed at selection, and the shipped threshold was missing real hooks by 0.001
 MEMEBOT-121	leadgen	1.00	auto (stack markers)	2026-08-03		MEMEBOT-121 — the transform roll spent 1.85× the caption's margin at worst, and now spends none of it
 MEMEBOT-124	leadgen	1.00	auto (stack markers)	2026-08-03		MEMEBOT-124 — 42 frames read: the 70 px cap holds on every real source, and the refusal message I "fixed" last round was never wired
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
