@@ -59,6 +59,7 @@ BL-1060	leadgen	1.00	auto (stack markers)	2026-08-03		HANDOVER — the state of 
 BL-1061	leadgen	1.00	auto (stack markers)			BL-1061 — The engine swap paid. The field is 4.4x fuller, and a gate finally moved.
 BL-1064	leadgen	0.80	auto (stack markers)			BL-1064 — adding a client song is one command, and the preview is the product
 BL-1065	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1065: scratch/ has a lifetime now, and no cleanup can reach real data
+BL-1080	leadgen	1.00	auto (stack markers)			BL-1080 — merge_append's correct path, the unjoinable 18%, and a ceiling that binds
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
