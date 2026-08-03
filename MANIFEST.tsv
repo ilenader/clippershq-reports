@@ -82,6 +82,7 @@ BL-1114	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1114 — option (b) is 
 BL-1115	leadgen	1.00	auto (stack markers)			BL-1115 — the filled field changed six verdicts, and five of six agree with the human
 BL-1117	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1117 — the media ceiling costs $1.74, and it is not what is blocking the answer
 BL-1120	leadgen	1.00	auto (stack markers)			BL-1120 — one vocabulary, and the code side was twice as big as we thought
+BL-1121	leadgen	1.00	auto (stack markers)			BL-1121 — three of four items were blocked, so I fixed the thing that keeps blocking them
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
