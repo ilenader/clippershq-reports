@@ -76,6 +76,7 @@ BL-1097	leadgen	1.00	auto (stack markers)			BL-1097 — the sweep ran, the field
 BL-1098	leadgen	0.77	auto (stack markers)			BL-1098 — the classifier failed twice, reading caught it twice, and I am not publishing the number
 BL-1104	leadgen	1.00	auto (stack markers)			BL-1104 — 100 hand labels, and the account theory does not survive them
 BL-1112	leadgen	1.00	auto (stack markers)			BL-1112 — the caption theory is untestable, and 76% of named defects are content
+BL-1114	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1114 — option (b) is a no-op as briefed, and option (c) *reduces* concentration instead of raising it
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
