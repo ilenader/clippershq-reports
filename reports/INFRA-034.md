@@ -1,4 +1,4 @@
-# INFRA-034 — 93 of the root folders are a DIFFERENT project, and deleting all of them reclaims less than one directory inside this repo
+# INFRA-034 — 93 of the root folders are a DIFFERENT project, and they are ~65 GB, not the ~5 GB I first published
 
 **Date:** 2026-08-03 · **Type:** Read-only filesystem audit · **Spend:** **$0.00** (no paid calls)
 
@@ -151,7 +151,7 @@ Sizes are **measured where stated and extrapolated where stated** — see the li
 
 | what | count | size | what it appears to be |
 |---|---:|---:|---|
-| `Clippershq.git` worktrees | 93 | **≈3.1 GB** (6 measured at 33–34 MB, ~1,240 files each) | a **Next.js / Prisma marketplace app**, `ilenader/Clippershq.git` |
+| `Clippershq.git` worktrees | 93 | **≈65 GB** — see the correction in §6 | a **Next.js / Prisma marketplace app**, `ilenader/Clippershq.git` |
 | `wt/*` | 11 | not measured | 9 more `Clippershq.git` worktrees + 2 reports clones |
 | `WebClones` | 1 | **414 MB** (measured) | saved website copies — `.whtt` archives |
 | `projects`, `projects1` | 2 | not measured | `ayocin-next`, `ayocin-next-starter` |
@@ -168,25 +168,53 @@ measure:
 |---|---:|---|
 | **`scratch/` on disk** | **12.95 GB** | **672.7 MB tracked** in HEAD + **12.27 GB UNTRACKED** (8,926 files) |
 | `.git` | **3.66 GB** | loose objects 2.08 GiB vs pack 425 MiB — `git gc` would reclaim ~2 GB |
-| **all 124 root folders** | **≈5 GB** | the thing the operator set out to delete |
+| **all 124 root folders** | **≈65 GB** | **CORRECTED — see below.** 54 of them carry an installed `node_modules` |
 | `%TEMP%` | **2.72 GB** | `claude/` 1.53 GB; 3 × `clone_rehearsal_*` at 477 MB = 1.43 GB |
 | `backups/` | **1.83 GB** | 252 files, gitignored, **same disk as its subject** — a copy, not a backup |
 | pip cache | **1.25 GB** | free to clear |
 
-### The correction that matters
+### CORRECTION — I published ≈5 GB for the root folders and it was wrong by about 13×
 
-**The brief describes `scratch/` as "640.7 MB of a 657 MB HEAD". The tracked part is right —
-672.7 MB. What it misses is that `scratch/` is 12.95 GB on disk.** The other **12.27 GB is
-untracked render workspace** — `memebot010_work` 1.79 GB, `mb066_work` 1.14 GB, `mb082_work`
-775 MB, and so on — and it is paid for by **no clone and no extract**.
+The first version of this report sampled six `b*` folders at **33–34 MB** each, extrapolated
+93 × 33 MB ≈ 3.1 GB, and concluded the root folders were the wrong target. **The sample was
+drawn from the wrong half of a bimodal population.**
 
-The two halves need opposite remedies:
+**54 of the 124 folders carry an installed `node_modules`.** Six of those have now been
+measured directly:
 
-- the **672 MB tracked** is in every clone forever and only leaves via history rewriting;
-- the **12.27 GB untracked** is free to delete today and regenerates at ~$0.0007 per render.
+```
+b571 1,070 MB   b573 1,217 MB   b575 1,216 MB
+b576 1,217 MB   b580 1,216 MB   b581 1,216 MB      (~62,000 files each)
+```
 
-**Deleting all 124 root folders reclaims ~5 GB. Deleting `scratch/`'s untracked render
-output reclaims ~12 GB and costs nothing.**
+The six I sampled first — `b572 b577 b579 b582 b583 b584` — are all in the **other** 70, the
+ones where `npm install` was never run. So:
+
+| | count | measured | estimate |
+|---|---:|---|---:|
+| folders **with** `node_modules` | **54** | 6 measured, 1,070–1,217 MB (mean ≈1,192) | **≈64 GB** |
+| folders **without** | **70** | 13 measured, 21–34 MB | **≈2.5 GB** |
+| **root-folder total** | **124** | | **≈65 GB** |
+
+**This inverts the recommendation.** The root folders are **not** a rounding error beside
+`scratch/` — they are roughly five times larger, and 54 `node_modules` trees are the single
+biggest reclaimable block on this disk. They also explain the timing: `du` needs 35 s–3 min
+per folder precisely because of those ~62,000-file trees.
+
+**`scratch/` is still worth clearing and the numbers there stand:** 12.95 GB on disk against
+**672.7 MB tracked**, so **12.27 GB is untracked render workspace** — `memebot010_work` 1.79 GB,
+`mb066_work` 1.14 GB, `mb082_work` 775 MB — paid for by no clone and no extract, free to delete,
+~$0.0007 per render to regenerate. The 672.7 MB tracked half is in every clone forever and only
+leaves via history rewriting.
+
+**Revised order of value:** the 54 `node_modules` trees (~64 GB, and `npm install` regenerates
+them) → `scratch/` untracked (12.27 GB) → `.git` loose objects (~2 GB via `git gc`) → `%TEMP%`
+(2.72 GB) → `backups/` (1.83 GB) → pip cache (1.25 GB).
+
+> **`node_modules` is safe to delete independently of the folder that holds it.** Even for the
+> 75 do-not-delete folders in §3, removing just their `node_modules` destroys no commit and no
+> uncommitted edit — it is build output. That is the one action available today that does not
+> require resolving the other project's unpushed work first.
 
 ---
 
