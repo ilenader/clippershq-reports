@@ -35,6 +35,7 @@ BL-1031	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1031: the destructive g
 BL-1034	leadgen	1.00	auto (stack markers)			BL-1034 — stopped at the gate: the chain's every stage is under a live round
 BL-1037	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1037 — the suite completes in 484 seconds and went ALL GREEN under thirteen rounds; the clean extract is the redder one
 BL-1040	leadgen	1.00	auto (stack markers)			BL-1040 — the silent zero was already gone; the hand-written list was not
+BL-1047	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1047 — every dollar, split three ways: **$11.28 on the ledger, of which $8.25 is receipts**
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
