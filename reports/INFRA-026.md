@@ -1,4 +1,4 @@
-# INFRA-026 — both briefed items were already shipped, so I verified instead, and found six defects doing it
+# INFRA-026 — both briefed items were already shipped, so I verified instead, and found seven defects doing it — one of them mine
 
 **Date:** 2026-08-03 · **Type:** Dashboard verification + fixes · **Spend:** **$0.00** (no paid calls)
 
@@ -50,7 +50,7 @@ Reconciled exactly: **226 `ok` LINES → 220 `ok` RECORDS + 4 legacy rows with n
 
 ---
 
-## 3. Six defects found, all fixed
+## 3. Seven defects found, all fixed — and the seventh I introduced
 
 **① `/api/decisions` truncated silently.** 21 runs on disk, 12 returned, and **nothing in the payload** the page could use to say so. Its own docstring claimed the endpoint *"gives the contract a place to live… the cap"* — and the cap was the one thing it never reported. This panel is the answer to *"why did it only make 3 videos?"*, so a run below the cut is that question going unanswered on a page that looks complete. Added `runs_total` / `runs_shown` / `limit`, extended the note, and put it in a `<caption>` the table did not have: **"Pipeline runs: the 12 most recent of 21 on the decision log."**
 
@@ -63,6 +63,23 @@ Reconciled exactly: **226 `ok` LINES → 220 `ok` RECORDS + 4 legacy rows with n
 **⑤ `measured_at` was the file's mtime, labelled as a measurement date.** INFRA-022 put a date on that panel *precisely* so the figure reads as a sample taken on a day; a date derived from the wrong event defeats that — any process rewriting the file re-dates a number nobody re-measured. Now carries `date_basis` saying what it actually is.
 
 **⑥ Decision-log drop rows sat under the wrong column headers.** Headers are `stage | in | out | dropped | unaccounted`; each drop row put the **count** under `in` and the **reason** spanning `out|dropped|unaccounted`. Read aloud that is *"in, 382"* for a drop count — on the one panel whose entire job is explaining where rows went. Reason now under `stage`, count under `dropped`.
+
+**⑦ I INTRODUCED A SILENT ZERO WHILE FIXING ④, AND THIS REPO'S OWN GUARD CAUGHT IT.** Swapping one fixed path for a directory scan added a failure mode the fixed path never had:
+
+```python
+try:    names = os.listdir(audit_dir)
+except OSError: names = []          # "could not look" == "nothing there"
+```
+
+An unreadable `scratch/` fell through to *"no hand audit on disk"* — **a claim about the disk made from a failure to read it.** `tests/test_silent_zero_shape.py` names the site, the line and the fix, and it failed on my first version:
+
+```
+dashboard/server.py:1874  api_audit()
+    except OSError -> assigns names = [] -- 'could not look' resolves to the same
+    value as 'nothing there'
+```
+
+Now `FileNotFoundError` returns the honest default (a checkout with no `scratch/` genuinely has no audit) and every other `OSError` is **reported with its type**. This is the exact shape the round spent its length finding elsewhere, introduced by me while fixing a different one, and caught by a guard rather than by my reasoning.
 
 ---
 
@@ -138,7 +155,7 @@ same key set? NO — the intersection is FOUR
 | the hatch | `.ch-bar-b{fill:…}` beat the presentation attribute at specificity 0; removed |
 | rotation unmoved | 40 polls, ledger sha256 identical, rotation byte-identical |
 | screenshots | 21 images, **0 console errors, 0 external requests, 0px overflow at 700px** |
-| suites | dashboard **153/153 green** (99 + 11 + 43); parent suite **KILLED** with five other `run_all` in flight — see Honest limits. No orphan probe left behind (`ls tests/bl932_probe_*` clean) |
+| suites | **all 19 dashboard-touching suites green**, enumerated by `grep -rln dashboard tests/*.py` and classified on **exit code**; `test_silent_zero_shape` red on my first version and green now. Parent `run_all` **killed twice** with five other `run_all` in flight — see Honest limits. No orphan probe (`ls tests/bl932_probe_*` clean both times) |
 | campaigns / config | `campaigns/` and `config.json` untouched; config parses, 161 blocks |
 | spend | **$0.00** — no paid call in this round |
 
@@ -173,7 +190,8 @@ same key set? NO — the intersection is FOUR
 
 ## Honest limits
 
-- **The parent suite was KILLED, not merely unfinished** — and "killed" is a different fact, so it is corrected here rather than left as the softer one. **FIVE other `tests/run_all.py` processes were in flight simultaneously.** The three dashboard suites are green at 153/153 (99 + 11 + 43, verified twice) and my diff touches only `api_decisions` and `api_audit` — `git diff -U0` confirms no hunk near `api_now`, `_reconcile` or any other handler — but I am not claiming a full-tree green I did not see. A second full run was started after publication.
+- **My own fix introduced defect ⑦ and a test caught it, not me.** It is counted as a defect I caused, not as a save. Two of the three counting errors in §2 were also mine, and my suite-result classifier grabbed the first matching line rather than the verdict and reported 13 false reds before I re-ran it on exit codes. **Four instrument errors in one round**, all of the same family: an instrument answering a slightly different question than the one asked.
+- **The parent suite was KILLED TWICE, not merely unfinished** — and "killed" is a different fact, so it is corrected here rather than left as the softer one. **FIVE other `tests/run_all.py` processes were in flight simultaneously.** The three dashboard suites are green at 153/153 (99 + 11 + 43, verified twice) and my diff touches only `api_decisions` and `api_audit` — `git diff -U0` confirms no hunk near `api_now`, `_reconcile` or any other handler — but I am not claiming a full-tree green I did not see. A second full run was started after publication and was **also killed**, at 39 PASS / 0 FAIL of ~166 suites. Rather than a third attempt I scoped precisely: `grep -rln dashboard tests/*.py` yields **19 suites, and all 19 are green**. That is complete for my diff, which touches two handlers and four static files; it is not a full-tree green and is not offered as one.
 - **A killed `run_all` used to poison the tree for every other round, and no longer does.** BL-1023 recorded that `test_suites_parse.py` planted `tests/bl932_probe_<random>.py` and asserted on the *prefix*, so concurrent runs reddened each other and a killed run left an orphan that stayed red forever. **That is fixed**: the plant now goes to a `tempfile.mkdtemp(prefix="bl932_plant_")` with `addCleanup(shutil.rmtree)` and the assertion is scoped to that temp dir. I checked `ls tests/bl932_probe_*` after my run died — **clean**. Checked, not assumed, because the consequence lands on other rounds and not on me.
 - **What still makes concurrent suite runs unreliable is live-state tests, not litter.** `test_dashboard.py::test_no_two_running_rows_share_a_pid` reads `/api/now` and asserts no two running rows share a pid; with nine rounds in flight there genuinely were duplicates. It failed once mid-round and passed minutes later with nothing changed.
 - **My own audit-panel rewrite broke a test and I caught it from the suite, not from reasoning.** Scanning a directory instead of one fixed path collapsed "malformed" and "absent" into one message; `test_a_malformed_audit_file_is_refused_rather_than_guessed` was right to fail. The refusal now names the offending file.
