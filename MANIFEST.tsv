@@ -639,6 +639,7 @@ MEMEBOT-111	leadgen	0.65	auto (stack markers)	2026-08-02		MEMEBOT-111 — The vi
 MEMEBOT-112	leadgen	0.86	auto (stack markers)			MEMEBOT-112 — the commentary defect is real, and no stored signal separates it
 MEMEBOT-115	leadgen	1.00	auto (stack markers)	2026-08-03		MEMEBOT-115 — the pillarbox is 47% of sources, not "rare"; I fixed it, read the renders, and took the fix back out
 MEMEBOT-116	leadgen	1.00	auto (stack markers)			MEMEBOT-116 — the fixed-5s drop target, landed. And the third half nobody had named.
+MEMEBOT-117	leadgen	1.00	auto (stack markers)	2026-08-03		MEMEBOT-117 — The detector is right to the pixel, and the trim is still refused
 MEMEBOT-118	leadgen	1.00	auto (stack markers)			MEMEBOT-118 — three of the four named caption defects were never caption defects
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
 R-2	leadgen	1.00	auto (stack markers)	2026-07-17		R-2 — the cheap checks, built and measured against real history
