@@ -522,6 +522,7 @@ INFRA-025	leadgen	1.00	auto (stack markers)			INFRA-025 — closing the silent-z
 INFRA-026	leadgen	1.00	auto (stack markers)	2026-08-03		INFRA-026 — both briefed items were already shipped, so I verified instead, and found six defects doing it
 INFRA-030	leadgen	1.00	auto (stack markers)	2026-08-03		INFRA-030 — runs.json was losing **12 records in 13**. It is now a locked read-modify-write, and the audit found one more file with exactly the same shape: **`clip_seen.json`**.
 INFRA-031	leadgen	1.00	auto (stack markers)	2026-08-03		INFRA-031 — A stale claim can now be taken, but only when the path is clean
+INFRA-032	leadgen	1.00	auto (stack markers)	2026-08-03		INFRA-032 — clip_seen.json needed a **merge as well as a lock**, and a lock alone measured **worse than no lock at all**: 36 of 39 ids lost against 30. **551 library clips are already missing from the cache.**
 MEMEBOT-001	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-001 — It is **two pipelines, not one**, and the audio answer is the good news: arbitrary audio + a start offset **already works** — in `scraper/edit.py`, which is the half that does not render captions.
 MEMEBOT-002	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-002: The ambient mixer works. Four other things do not.
 MEMEBOT-003	leadgen	1.00	auto (stack markers)	2026-08-01		MEMEBOT-003 — The song library, the matching rule, and why it must gate on `valence` and not on `genre`
