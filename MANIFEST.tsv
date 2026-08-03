@@ -43,6 +43,7 @@ BL-1039	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1039: the wiring is blo
 BL-1040	leadgen	1.00	auto (stack markers)			BL-1040 — the silent zero was already gone; the hand-written list was not
 BL-1041	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1041: one of six stages was free to run — and the ownership map is the finding
 BL-1042	leadgen	1.00	auto (stack markers)			BL-1042 — the cap reserves the next call everywhere, and the retrieval leg was never capped at all
+BL-1043	leadgen	1.00	auto (stack markers)			BL-1043 — the clone bootstrap, and five defects it committed on its way to fixing one
 BL-1044	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1044 — the final-state pair, re-derived; a fourth inherited claim was false and it was the headline number
 BL-1045	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1045: the 135 root folders are 8% of the problem, and they belong to a different repo
 BL-1047	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1047 — every dollar, split three ways: **$11.28 on the ledger, of which $8.25 is receipts**
