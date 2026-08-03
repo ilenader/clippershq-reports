@@ -32,6 +32,7 @@ BL-1028	leadgen	1.00	auto (stack markers)			BL-1028 — clip_pipeline.py taken o
 BL-1029	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1029: the labeller had no caller, and the cap it never had was 20% loose
 BL-1030	leadgen	1.00	auto (stack markers)			BL-1030 — the retrieval leg is under a ceiling, and the ceiling was proven by spending
 BL-1031	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1031: the destructive git commands now refuse to point at another round's work — and INFRA-031's 15 lines were never lost
+BL-1032	leadgen	1.00	auto (stack markers)			BL-1032 — the 16× is not resolution, it is the machine: OCR cost is unmeasurable on this box, so the sweep is refused
 BL-1033	leadgen	1.00	auto (stack markers)			BL-1033 — Eight rounds fixed the matcher. The field it reads was blank.
 BL-1034	leadgen	1.00	auto (stack markers)			BL-1034 — stopped at the gate: the chain's every stage is under a live round
 BL-1037	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1037 — the suite completes in 484 seconds and went ALL GREEN under thirteen rounds; the clean extract is the redder one
