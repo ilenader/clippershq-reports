@@ -652,6 +652,7 @@ MEMEBOT-116	leadgen	1.00	auto (stack markers)			MEMEBOT-116 — the fixed-5s dro
 MEMEBOT-117	leadgen	1.00	auto (stack markers)	2026-08-03		MEMEBOT-117 — The detector is right to the pixel, and the trim is still refused
 MEMEBOT-118	leadgen	1.00	auto (stack markers)			MEMEBOT-118 — three of the four named caption defects were never caption defects
 MEMEBOT-121	leadgen	1.00	auto (stack markers)	2026-08-03		MEMEBOT-121 — the transform roll spent 1.85× the caption's margin at worst, and now spends none of it
+MEMEBOT-124	leadgen	1.00	auto (stack markers)	2026-08-03		MEMEBOT-124 — 42 frames read: the 70 px cap holds on every real source, and the refusal message I "fixed" last round was never wired
 R-1	leadgen	1.00	auto (stack markers)	2026-07-16		What the campaigns actually require, and what is already checkable for free (R-1)
 R-2	leadgen	1.00	auto (stack markers)	2026-07-17		R-2 — the cheap checks, built and measured against real history
 R-3	payments	0.60	auto (stack markers)	2026-07-16		R-3 — Can we see inside the video, and what would it cost?
