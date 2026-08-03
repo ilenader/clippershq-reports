@@ -49,6 +49,7 @@ BL-1045	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1045: the 135 root fold
 BL-1047	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1047 — every dollar, split three ways: **$11.28 on the ledger, of which $8.25 is receipts**
 BL-1048	leadgen	0.94	auto (stack markers)			BL-1048 — the operator pack re-derived, and "renders" turned out to be three numbers
 BL-1050	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1050: every funnel cap key ships, and the retrieval leg is reconciled — not re-recorded
+BL-1052	leadgen	1.00	auto (stack markers)	2026-08-01		BL-1052 — The 8-second floor holds. Three files on disk prove it did not always.
 BL-1055	leadgen	1.00	auto (stack markers)			BL-1055 — six load-bearing blocks a kill skips, and 357 records that never resolved
 BL-1058	leadgen	1.00	auto (stack markers)			BL-1058 — the 357 pending records do not exist, and the bug was mine
 BL-1065	leadgen	1.00	auto (stack markers)	2026-08-03		BL-1065: scratch/ has a lifetime now, and no cleanup can reach real data
