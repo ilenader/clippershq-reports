@@ -102,6 +102,7 @@ BL-1131	leadgen	0.78	auto (stack markers)			BL-1131 — every subscription, key 
 BL-1132	leadgen	0.75	auto (stack markers)			BL-1132 — can the model we already pay for hear the clip?
 BL-1133	leadgen	1.00	auto (stack markers)			BL-1133 — no speech, a lower label, and one pair instead of three
 BL-1134	leadgen	1.00	auto (stack markers)			BL-1134 — free open-source audio analysis: what actually hears, on this machine
+BL-1135	cross	0.50	auto (stack markers)			BL-1135 — Essentia on WSL2, end to end
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
