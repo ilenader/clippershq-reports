@@ -97,6 +97,7 @@ BL-1126	leadgen	1.00	auto (stack markers)			BL-1126 — end-to-end test from zer
 BL-1127	leadgen	1.00	auto (stack markers)			BL-1127 — the render rebuilt to the operator's spec
 BL-1128	leadgen	1.00	auto (stack markers)			BL-1128 — the label, and the clips
 BL-1129	leadgen	1.00	auto (stack markers)	2026-08-04		BL-1129 — what we are paying for, and whether anything hears audio
+BL-1130	leadgen	0.82	auto (stack markers)			BL-1130 — six defects, fixed at the root
 BL-1131	leadgen	0.78	auto (stack markers)			BL-1131 — every subscription, key and recurring charge: the cancel list
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
