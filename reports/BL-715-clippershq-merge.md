@@ -127,35 +127,52 @@ stored 2822). With `LAMATOK_SLIDESHOW_BYID=false` the pre-BL-713 result returned
 **Probes disclosed:** the merged-tree harness made ~14 LamaTok requests, **6 billed 200s** (3 `by/id` slideshow
 resolves, 2 normal-video `by/url`, 1 `by/id` in the id-match check); the rest were 500s, timeouts and a 404,
 which this client's own comment notes are not billed, plus 2 free HEAD-follows to tiktok.com. All per-post
-calls, never profile scans, so ONE CALL PER PROFILE is not engaged. **0 HikerAPI calls, 0 Apify actor runs.**
+calls, never profile scans, so ONE CALL PER PROFILE is not engaged. The post-deploy confirmation below added
+**2 more requests, 1 billed**. Round total **~16 LamaTok requests, 7 billed 200s**, inside the ~20 cap.
+**0 HikerAPI calls, 0 Apify actor runs.**
 
 ## AFTER THE PUSH — DID IT ACTUALLY WORK
 
-**NOT YET. No stranded clip has been polled against the merged code, and success is NOT being claimed.**
+**IT WORKED — on the first stranded slideshow that came due, in production, unattended.**
 
 `main` moved `8b5aaf57` → `70e3fa4e` at roughly `2026-08-05 11:12 UTC`. `railway.json` builds `main` with
-NIXPACKS and `npm start`; the deployed SHA is not readable from here, so no claim is made about which tick
-first ran the new code.
+NIXPACKS and `npm start`. The deployed SHA is not readable from here, so the proof below is behavioural.
 
-Three tracking ticks have fired since (`cron_runs`, cast to `::text`): `2026-08-05 11:11:58.224`,
-`11:21:19.277`, `11:30:51.454`, polling 90, 22 and 0 jobs. **None of the 13 touched them.** As of
-`now() = 2026-08-05 11:35:13.459554+00` every one of the 13 still reads:
+The `12:01` UTC tick polled 3 of the 13. One of them was a TikTok slideshow, and it **wrote the first
+ClipStat of its life**:
 
-| field | all 13 clips |
+| clip | `cms8mpjwt08zz0pqi0bcqrp01` (`https://vm.tiktok.com/ZGdxNVyxG/`) |
 | --- | --- |
-| `lastCheckedAt` | `11:11:36` (4 clips) or earlier, i.e. **before the push** |
-| ClipStat rows | **0** |
-| latest views | **null** |
-| `cadenceReason` | `INFRA_DEFER` |
-| `consecutiveGone` / `consecutiveFailures` | **0 / 0** |
-| `videoUnavailable` | **false** |
-| earnings | **$0.00** |
+| ClipStat rows before / after | **0 → 1** (row `cmsg1ddhr001r10phoox3iqjh`) |
+| stat written at | `2026-08-05 12:01:17.967` |
+| views / likes / comments / shares | `0 / 0 / 0 / 0`, `isManual=false` |
+| `cadenceReason` | **`INFRA_DEFER` → `LOW_VIEW_24H`** |
+| `checkIntervalMin` / `nextCheckAt` | `360` → `1440`, next `2026-08-06 12:00:00` |
+| `consecutiveGone` / `videoUnavailable` | `0` / `false` |
 
-This is **scheduling, not failure**. Their `nextCheckAt` values are `12:00` UTC (3 clips), `13:00` (2),
-`16:00` (4) and `17:00` (4), so the earliest honest proof point is the `~12:0x` tick. Two facts are already
-good news and are worth stating: nothing regressed on them (`consecutiveGone` still 0 across all 13, nothing
-newly stamped `videoUnavailable`), and the harness proved the exact same production reader resolves these
-exact clips at 151 and 1 views on the merged tree.
+Leaving `INFRA_DEFER` is the tell: that reason is written ONLY on a failed fetch, so a clip that moves off it
+and onto `LOW_VIEW_24H` has been **successfully resolved**. Before this merge that clip had failed every
+poll since 2026-07-31 and had never recorded a view.
+
+**The stored 0 is a REAL reading, not a fabricated one** (BL-543's distinction, and the one that matters
+here). Confirmed independently through the production reader at `now() = 2026-08-05 12:29:41`:
+```
+[LAMATOK-BYID] RESOLVED id=7668591551253089569 idMatch=true http=200 views=0 viewSource=playCount imagePost=true
+[CONFIRM] verdict=ok viewSource=byId:playCount respId=7668591551253089569 imagePost=true
+          stats={"diggCount":0,"shareCount":0,"commentCount":0,"playCount":0,"collectCount":"0"}
+```
+`imagePost=true` proves it is genuinely a slideshow, the id matched exactly, and LamaTok's own stats block
+reports `playCount: 0` with 0 diggs, comments and shares. The stored row matches the provider field for
+field. This slideshow simply has zero views; the pipeline now says so instead of saying nothing.
+
+**The two Instagram `/p/` clips polled in the same tick stayed `INFRA_DEFER` with 0 stats, which is CORRECT**
+and exactly what was predicted: they are image-only carousels with no count on any endpoint, and BL-610's
+quarantine is untouched.
+
+**Honest scope of the claim: 1 of 8 TikTok slideshows so far.** The other 7 had not come due at
+`now() = 2026-08-05 12:29:20.263827+00`; their `nextCheckAt` values are `13:00` (1), `16:00` (3) and `17:00`
+(3) UTC. Across all 13, `consecutiveGone` is still **0** and nothing was newly stamped `videoUnavailable`.
+Earnings are still **$0.00**, correctly: 0 views earns nothing, and the campaign's `minViews` is 1,000.
 
 **The exact query for the owner to run later** (`node scripts/run-select.js "<sql>"`, read-only):
 
@@ -176,27 +193,28 @@ WHERE c.id IN ('cms5y1dmi008q0pmrjqlbv8vr','cms5y4zhp009g0pmrg1jvn4wq','cms6jtld
 ORDER BY host, t."lastCheckedAt" DESC;
 ```
 
-**What success will look like:** the **8 TikTok** rows (`vm.` / `vt.tiktok.com`) gain `n_stats >= 1` with a
-real `latest_views` and `reason` leaving `INFRA_DEFER`. The **5 Instagram** rows should stay at 0 forever, and
-that is CORRECT, not a failure: BL-712 proved they are image-only carousels with no view count on any
-endpoint, so BL-610's quarantine is the right answer and this merge deliberately does not touch it.
+**What continued success looks like:** the remaining **7 TikTok** rows (`vm.` / `vt.tiktok.com`) gain
+`n_stats >= 1` and leave `INFRA_DEFER`, as the first one already has. The **5 Instagram** rows should stay at
+0 forever, and that is CORRECT, not a failure: BL-712 proved they are image-only carousels with no view count
+on any endpoint, so BL-610's quarantine is the right answer and this merge deliberately does not touch it.
 
-**No stored views moved down.** Over the last 6 hours there were **241** consecutive-stat pairs with exactly
-**1** downward move and **0** zeroed. That one move is `cmse03c8g0dgr0po2ezs7qoqb`, an **Instagram REEL**,
+**No stored views moved down.** In the 80 minutes since the push, **182** ClipStat rows were written across
+the platform with **0** downward moves and **0** zeroed. Widening to 6 hours there were **241**
+consecutive-stat pairs with exactly **1** downward move: `cmse03c8g0dgr0po2ezs7qoqb`, an **Instagram REEL**,
 status PENDING, earnings $0, which went 58,383 → 22,921 at `2026-08-05 08:01:46.296` — **over three hours
 before this merge existed**, and on a platform this merge cannot touch (`hikerapi.ts` byte-identical). It is
-reported for completeness, not attributed to BL-713. In the window since the push there are **0** downward
-moves and **0** zeroed.
+reported for completeness, not attributed to BL-713.
 
 ## TICK HEALTH AT CLIPS_PER_TICK 90
 
-Measured from the live DB, not assumed. Jobs polled per tick over the last 3 hours:
-`11:11 → 90`, `11:02 → 90`, `10:10 → 20`, `10:03 → 39`, `10:02 → 6`, `09:11 → 25`, `09:01 → 43`.
-The two most recent ticks each polled **exactly 90**, which both **confirms `CLIPS_PER_TICK = 90`
-empirically** and shows the ticks are running at the cap and completing: every one of those 90 jobs got its
-`lastCheckedAt` and `nextCheckAt` written, which only happens at the end of a clip's processing. The tracking
-cron fired **18 times in 3 hours** (6 per hour, as designed), most recently `2026-08-05 11:11:58.224`, so no
-tick is hanging past its 300s ceiling or holding the lock.
+Measured from the live DB, not assumed. Jobs polled per tick, spanning the push at ~11:12:
+`12:11 → 21`, **`12:01 → 90`**, `11:21 → 22`, **`11:11 → 90`**, and before that `10:10 → 20`, `10:03 → 39`,
+`09:11 → 25`, `09:01 → 43`. The batch ticks each polled **exactly 90**, which both **confirms
+`CLIPS_PER_TICK = 90` empirically** and shows the ticks are running at the cap and completing — every one of
+those 90 jobs got its `lastCheckedAt` and `nextCheckAt` written, which only happens at the end of a clip's
+processing. **The `12:01` tick is post-merge and still cleared its full 90 within budget**, which is the
+number that matters here: the rescue did not slow the tick down. The tracking cron fired 18 times in the
+prior 3 hours (6 per hour, as designed), so no tick is hanging past its 300s ceiling or holding the lock.
 
 **One pre-existing condition, reported not fixed:** 4,682 active jobs, of which **2,248 are more than 1 hour
 overdue and 2,247 more than 6 hours overdue**. That backlog predates this merge and is a consequence of
