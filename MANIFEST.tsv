@@ -105,6 +105,7 @@ BL-1134	leadgen	1.00	auto (stack markers)			BL-1134 — free open-source audio a
 BL-1135	cross	0.50	auto (stack markers)			BL-1135 — Essentia on WSL2, end to end
 BL-1136	leadgen	1.00	auto (stack markers)			BL-1136 — the audio signal is wired, and the wall is not where we thought
 BL-1137	leadgen	1.00	auto (stack markers)	2026-08-05		BL-1137 — the automatic path delivers ZERO song-matched videos, and it is wiring, not songs
+BL-1139	leadgen	0.86	auto (stack markers)			BL-1139 — paste the pages, harvest their best, and find out which ones were worth it
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
