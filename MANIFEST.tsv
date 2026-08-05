@@ -112,6 +112,7 @@ BL-1141	leadgen	1.00	auto (stack markers)	2026-08-05		BL-1141 — the three wiri
 BL-1142	leadgen	1.00	auto (stack markers)			BL-1142 — teach it by example, per song
 BL-1143	leadgen	1.00	auto (stack markers)			BL-1143 — nothing about a clip predicts how well it does. Here is what that cost to prove.
 BL-1144	leadgen	1.00	auto (stack markers)	2026-08-05		BL-1144 — the corpus fallback is unreachable, the proxy is clean, and one premise was wrong
+BL-1145	leadgen	0.79	auto (stack markers)	2026-07-23		BL-1145 — nine vetted design skills, then a left rail and one server instead of two
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -329,6 +330,7 @@ BL-716-clippershq-straenge-rewrite	ambiguous	0.00	auto (stack markers)	2026-08-0
 BL-716	leadgen	1.00	auto (stack markers)	2026-07-29		BL-716 — what a sound is FOR, inferred from what it's used on: the idea works, the labeller is the ceiling
 BL-717-clippershq-revival-schedule	leadgen	1.00	auto (stack markers)	2026-08-05		BL-717 — A revival re-check schedule for retired clips, and the fetch-failure versus genuinely-gone distinction
 BL-717	leadgen	1.00	auto (stack markers)	2026-07-29		BL-717 — NOT BENCHMARKED: this CPU cannot run a 7B audio-LM (measured), and there is no Gemini key. Two blockers, both structural.
+BL-718-clippershq-earnings-trim-fix	payments	1.00	auto (stack markers)	2026-08-05		BL-718 — the paid floor: a shared pool cap could write a clipper DOWN below money already paid
 BL-718	leadgen	1.00	auto (stack markers)	2026-07-29		BL-718: the fingerprinting pilot is underpowered before it starts — the target slice is 8.7%, not 24%
 BL-719	leadgen	1.00	auto (stack markers)	2026-07-29		BL-719: Caption-text labelling does not save the high-usage band — 14.8% → 14.8%. The popular sounds are not franchise content at all.
 BL-720	leadgen	1.00	auto (stack markers)	2026-07-29		BL-720 — One of the two small audio models is viable: LFM2-Audio-1.5B GGUF runs here, guard-clean, at ~1.5 GB. Mellow is licence-clean and dependency-
