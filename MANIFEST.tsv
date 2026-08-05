@@ -114,6 +114,7 @@ BL-1143	leadgen	1.00	auto (stack markers)			BL-1143 — nothing about a clip pre
 BL-1144	leadgen	1.00	auto (stack markers)	2026-08-05		BL-1144 — the corpus fallback is unreachable, the proxy is clean, and one premise was wrong
 BL-1145	leadgen	0.79	auto (stack markers)	2026-07-23		BL-1145 — nine vetted design skills, then a left rail and one server instead of two
 BL-1146	leadgen	1.00	auto (stack markers)			BL-1146 — the drop lands where it is planned now, and the placer is worth 2.02x
+BL-1147	leadgen	1.00	auto (stack markers)			BL-1147 — you have two Pythons, and everything is installed in the one you are not using
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -335,6 +336,7 @@ BL-718-clippershq-earnings-trim-fix	payments	1.00	auto (stack markers)	2026-08-0
 BL-718	leadgen	1.00	auto (stack markers)	2026-07-29		BL-718: the fingerprinting pilot is underpowered before it starts — the target slice is 8.7%, not 24%
 BL-719-clippershq-straenge-revert	payments	1.00	auto (stack markers)	2026-08-05		BL-719 — revert the STRAENGE budget and the $60.47 restore, keep the code fix
 BL-719	leadgen	1.00	auto (stack markers)	2026-07-29		BL-719: Caption-text labelling does not save the high-usage band — 14.8% → 14.8%. The popular sounds are not franchise content at all.
+BL-720-clippershq-gone-verdict-fix	payments	0.67	auto (stack markers)	2026-08-05		BL-720 — a clip may only be marked gone when NO HUMAN can see it
 BL-720	leadgen	1.00	auto (stack markers)	2026-07-29		BL-720 — One of the two small audio models is viable: LFM2-Audio-1.5B GGUF runs here, guard-clean, at ~1.5 GB. Mellow is licence-clean and dependency-
 BL-721	leadgen	1.00	auto (stack markers)	2026-07-29		BL-721: the pilot is now answerable — 73 targets, and the window question resolves in the pilot's favour
 BL-722	leadgen	1.00	auto (stack markers)	2026-07-29		BL-722 — STOPPED: tree is not quiet. No process is running, but another agent is writing control.py and main.py right now.
