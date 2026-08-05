@@ -118,6 +118,7 @@ BL-1147	leadgen	1.00	auto (stack markers)			BL-1147 — you have two Pythons, an
 BL-1148	leadgen	1.00	auto (stack markers)			BL-1148 — a Desktop icon, and the reason his dashboard would not start
 BL-1149	leadgen	1.00	auto (stack markers)			BL-1149 — "Request failed" and OFFLINE were the same fact, and the funnel that "failed" was never alive
 BL-1150	leadgen	1.00	auto (stack markers)			BL-1150 — the ghost is a recycled pid, and six markers are lying, not one
+BL-1151	leadgen	1.00	auto (stack markers)			BL-1151 — the fix was already in; the proof was not, and my own report was wrong
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
