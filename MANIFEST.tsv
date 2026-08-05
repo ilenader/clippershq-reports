@@ -108,6 +108,7 @@ BL-1137	leadgen	1.00	auto (stack markers)	2026-08-05		BL-1137 — the automatic 
 BL-1138	leadgen	1.00	auto (stack markers)			BL-1138 — a shareable render repo, and the four things only a clean extract could find
 BL-1139	leadgen	0.86	auto (stack markers)			BL-1139 — paste the pages, harvest their best, and find out which ones were worth it
 BL-1140	leadgen	1.00	auto (stack markers)			BL-1140 — paste the links, name the song, get the videos
+BL-1141	leadgen	1.00	auto (stack markers)	2026-08-05		BL-1141 — the three wiring defects are fixed, and the system matches songs now
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -317,6 +318,7 @@ BL-712-clippershq-slideshow-views	leadgen	0.94	auto (stack markers)	2026-08-05		
 BL-712	leadgen	1.00	auto (stack markers)	2026-07-29		BL-712 — STOPPED: tree is not quiet, another agent is editing enrich_links.py. Fix #3 measured read-only: 71.8% of scraper fetches are eliminable.
 BL-713-clippershq-slideshow-fix	leadgen	0.83	auto (stack markers)	2026-08-05		BL-713 — TikTok photo slideshows now resolve their view counts
 BL-713	leadgen	1.00	auto (stack markers)	2026-07-29		BL-713: 483 paid-for Spotify handles salvaged from run.log and merged — all genuinely new, and the artist-ID hint is provably wrong on 119+ of them
+BL-714-clippershq-two-clipper-discrepancy	payments	1.00	auto (stack markers)	2026-08-05		BL-714 — Two clippers report money vanishing, and the owner's admin disagrees with what they see
 BL-714	leadgen	1.00	auto (stack markers)	2026-07-29		BL-714: the block-terminator fix — cluster-A caption coverage 5.2% → 66.5%, and BL-694's baseline did not move
 BL-715	leadgen	1.00	auto (stack markers)	2026-07-29		BL-715 — Both Spotify serial bottlenecks fixed: 24% of all HTTP requests deleted, the MusicBrainz lookup can no longer outlive its own watchdog, and t
 BL-716	leadgen	1.00	auto (stack markers)	2026-07-29		BL-716 — what a sound is FOR, inferred from what it's used on: the idea works, the labeller is the ceiling
