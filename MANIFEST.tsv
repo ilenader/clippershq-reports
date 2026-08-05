@@ -123,6 +123,7 @@ BL-1152	leadgen	1.00	auto (stack markers)			BL-1152 — the panel was showing th
 BL-1153	leadgen	1.00	auto (stack markers)			BL-1153 — The OCR engine was never installed, and the deletion risk was the smaller half of it
 BL-1154	leadgen	1.00	auto (stack markers)			BL-1154 — The funnels were never silent. Their reporting was.
 BL-1155	leadgen	1.00	auto (stack markers)			BL-1155 — he was being asked to choose a window the system then overrode anyway
+BL-1156	leadgen	0.90	auto (stack markers)			BL-1156 — the marking page is built; nothing beat 2.02x, so the placer is untouched
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
