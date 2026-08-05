@@ -109,6 +109,7 @@ BL-1138	leadgen	1.00	auto (stack markers)			BL-1138 — a shareable render repo,
 BL-1139	leadgen	0.86	auto (stack markers)			BL-1139 — paste the pages, harvest their best, and find out which ones were worth it
 BL-1140	leadgen	1.00	auto (stack markers)			BL-1140 — paste the links, name the song, get the videos
 BL-1141	leadgen	1.00	auto (stack markers)	2026-08-05		BL-1141 — the three wiring defects are fixed, and the system matches songs now
+BL-1142	leadgen	1.00	auto (stack markers)			BL-1142 — teach it by example, per song
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -320,8 +321,11 @@ BL-713-clippershq-slideshow-fix	leadgen	0.83	auto (stack markers)	2026-08-05		BL
 BL-713	leadgen	1.00	auto (stack markers)	2026-07-29		BL-713: 483 paid-for Spotify handles salvaged from run.log and merged — all genuinely new, and the artist-ID hint is provably wrong on 119+ of them
 BL-714-clippershq-two-clipper-discrepancy	payments	1.00	auto (stack markers)	2026-08-05		BL-714 — Two clippers report money vanishing, and the owner's admin disagrees with what they see
 BL-714	leadgen	1.00	auto (stack markers)	2026-07-29		BL-714: the block-terminator fix — cluster-A caption coverage 5.2% → 66.5%, and BL-694's baseline did not move
+BL-715-clippershq-merge	leadgen	0.62	auto (stack markers)	2026-08-05		BL-715 — merge BL-713 to main (TikTok photo slideshows resolve their view counts)
 BL-715	leadgen	1.00	auto (stack markers)	2026-07-29		BL-715 — Both Spotify serial bottlenecks fixed: 24% of all HTTP requests deleted, the MusicBrainz lookup can no longer outlive its own watchdog, and t
+BL-716-clippershq-straenge-rewrite	ambiguous	0.00	auto (stack markers)	2026-08-01		BL-716 — what rewrote a clipper's STRAENGE earnings downward on 2026-08-01, and was it correct
 BL-716	leadgen	1.00	auto (stack markers)	2026-07-29		BL-716 — what a sound is FOR, inferred from what it's used on: the idea works, the labeller is the ceiling
+BL-717-clippershq-revival-schedule	leadgen	1.00	auto (stack markers)	2026-08-05		BL-717 — A revival re-check schedule for retired clips, and the fetch-failure versus genuinely-gone distinction
 BL-717	leadgen	1.00	auto (stack markers)	2026-07-29		BL-717 — NOT BENCHMARKED: this CPU cannot run a 7B audio-LM (measured), and there is no Gemini key. Two blockers, both structural.
 BL-718	leadgen	1.00	auto (stack markers)	2026-07-29		BL-718: the fingerprinting pilot is underpowered before it starts — the target slice is 8.7%, not 24%
 BL-719	leadgen	1.00	auto (stack markers)	2026-07-29		BL-719: Caption-text labelling does not save the high-usage band — 14.8% → 14.8%. The popular sounds are not franchise content at all.
