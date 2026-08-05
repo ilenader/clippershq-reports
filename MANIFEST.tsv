@@ -119,6 +119,7 @@ BL-1148	leadgen	1.00	auto (stack markers)			BL-1148 — a Desktop icon, and the 
 BL-1149	leadgen	1.00	auto (stack markers)			BL-1149 — "Request failed" and OFFLINE were the same fact, and the funnel that "failed" was never alive
 BL-1150	leadgen	1.00	auto (stack markers)			BL-1150 — the ghost is a recycled pid, and six markers are lying, not one
 BL-1151	leadgen	1.00	auto (stack markers)			BL-1151 — the fix was already in; the proof was not, and my own report was wrong
+BL-1153	leadgen	1.00	auto (stack markers)			BL-1153 — The OCR engine was never installed, and the deletion risk was the smaller half of it
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -342,6 +343,7 @@ BL-719-clippershq-straenge-revert	payments	1.00	auto (stack markers)	2026-08-05	
 BL-719	leadgen	1.00	auto (stack markers)	2026-07-29		BL-719: Caption-text labelling does not save the high-usage band — 14.8% → 14.8%. The popular sounds are not franchise content at all.
 BL-720-clippershq-gone-verdict-fix	payments	0.67	auto (stack markers)	2026-08-05		BL-720 — a clip may only be marked gone when NO HUMAN can see it
 BL-720	leadgen	1.00	auto (stack markers)	2026-07-29		BL-720 — One of the two small audio models is viable: LFM2-Audio-1.5B GGUF runs here, guard-clean, at ~1.5 GB. Mellow is licence-clean and dependency-
+BL-721-clippershq-revival-pilot	ambiguous	0.00	auto (stack markers)	2026-08-05		BL-721 — the revival pilot: do retired clips actually come back, and is a schedule worth building
 BL-721	leadgen	1.00	auto (stack markers)	2026-07-29		BL-721: the pilot is now answerable — 73 targets, and the window question resolves in the pilot's favour
 BL-722	leadgen	1.00	auto (stack markers)	2026-07-29		BL-722 — STOPPED: tree is not quiet. No process is running, but another agent is writing control.py and main.py right now.
 BL-723	leadgen	1.00	auto (stack markers)	2026-07-29		BL-723 — SECRET_BLOCKS now redacts credentials out of every log record and refuses to start if a menu names one. Plus 3 more declarations of the same 
