@@ -121,6 +121,7 @@ BL-1150	leadgen	1.00	auto (stack markers)			BL-1150 — the ghost is a recycled 
 BL-1151	leadgen	1.00	auto (stack markers)			BL-1151 — the fix was already in; the proof was not, and my own report was wrong
 BL-1152	leadgen	1.00	auto (stack markers)			BL-1152 — the panel was showing the Windows Clipboard Service as a running lead funnel
 BL-1153	leadgen	1.00	auto (stack markers)			BL-1153 — The OCR engine was never installed, and the deletion risk was the smaller half of it
+BL-1155	leadgen	1.00	auto (stack markers)			BL-1155 — he was being asked to choose a window the system then overrode anyway
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
