@@ -111,6 +111,7 @@ BL-1140	leadgen	1.00	auto (stack markers)			BL-1140 — paste the links, name th
 BL-1141	leadgen	1.00	auto (stack markers)	2026-08-05		BL-1141 — the three wiring defects are fixed, and the system matches songs now
 BL-1142	leadgen	1.00	auto (stack markers)			BL-1142 — teach it by example, per song
 BL-1143	leadgen	1.00	auto (stack markers)			BL-1143 — nothing about a clip predicts how well it does. Here is what that cost to prove.
+BL-1144	leadgen	1.00	auto (stack markers)	2026-08-05		BL-1144 — the corpus fallback is unreachable, the proxy is clean, and one premise was wrong
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
