@@ -131,6 +131,7 @@ BL-1160	leadgen	1.00	auto (stack markers)	2026-08-06		BL-1160 — A run now outl
 BL-1161	leadgen	1.00	auto (stack markers)			BL-1161 — the target was never lost, and the panel is stale because the writer stopped
 BL-1163	leadgen	1.00	auto (stack markers)			BL-1163 — the lead-in is cut now, and the drop lands on the action to 0.000s on 10 of 10
 BL-1164	leadgen	1.00	auto (stack markers)			BL-1164 — the funnel was working; the screen was not
+BL-1166	leadgen	1.00	auto (stack markers)	2026-08-06		BL-1166 — 3,296 playlists found, a seen-set so none is walked twice, and 16x the supply
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -360,8 +361,11 @@ BL-722-clippershq-creator-analytics-scope	leadgen	1.00	auto (stack markers)	2026
 BL-722	leadgen	1.00	auto (stack markers)	2026-07-29		BL-722 — STOPPED: tree is not quiet. No process is running, but another agent is writing control.py and main.py right now.
 BL-723-clippershq-tiktok-analytics-pilot	payments	0.71	auto (stack markers)	2026-08-06		BL-723 — TikTok creator-authorized analytics: the pipe is BUILT, the proof is BLOCKED on the owner
 BL-723	leadgen	1.00	auto (stack markers)	2026-07-29		BL-723 — SECRET_BLOCKS now redacts credentials out of every log record and refuses to start if a menu names one. Plus 3 more declarations of the same 
+BL-724-clippershq-tiktok-app-review-prep	payments	0.77	auto (stack markers)	2026-08-06		BL-724 — The privacy policy stops lying, and the TikTok submission gets a map
 BL-724	leadgen	1.00	auto (stack markers)	2026-07-29		BL-724 — Measured per-field error on 60 hand-labelled clips: tag-derived franchise is wrong 28.6% of the time. There is no purity setting with zero er
+BL-725-clippershq-legal-footer	payments	1.00	auto (stack markers)	2026-08-06		BL-725 — The public site now shows its legal links
 BL-725	leadgen	1.00	auto (stack markers)	2026-07-29		BL-725: Gemini audio benchmark — blocked at 18 of 60 calls by a 20/day free-tier cap, but the one stratum that completed is not encouraging
+BL-726-clippershq-tiktok-api-matrix	leadgen	1.00	auto (stack markers)	2026-08-06		BL-726 — Which TikTok API actually carries the analytics, and whether this owner can ever reach it
 BL-726	leadgen	0.92	auto (stack markers)	2026-07-29		BL-726 — Twitch on Helix: discovery is free and instant, the free website scrape is 82% of the clock, and the in-band pool is 260
 BL-727	leadgen	1.00	auto (stack markers)	2026-07-30		BL-727 — The clip library is wired and ran live: 20 real clips off the wire for $0.0048, the view floor stopped 3 of 4 accounts, and BL-710's paginati
 BL-728	leadgen	1.00	auto (stack markers)	2026-07-30		BL-728 — Retaining the dropped rows found the filter was wrong: `nsfw` produced 4 false positives out of 6 keyword drops, all of them chat rules *forb
