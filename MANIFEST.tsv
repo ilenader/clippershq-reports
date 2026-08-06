@@ -127,6 +127,7 @@ BL-1156	leadgen	0.90	auto (stack markers)			BL-1156 — the marking page is buil
 BL-1157	leadgen	1.00	auto (stack markers)	2026-08-05		BL-1157 — the fixes all landed; he was looking at a server that started before them
 BL-1158	leadgen	1.00	auto (stack markers)			BL-1158 — 281 repost accounts in a spreadsheet, and the biggest page is 87th
 BL-1159	leadgen	1.00	auto (stack markers)			BL-1159 — bigger type, less text, and the run log that never resolved
+BL-1161	leadgen	1.00	auto (stack markers)			BL-1161 — the target was never lost, and the panel is stale because the writer stopped
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
