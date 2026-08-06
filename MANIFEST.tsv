@@ -133,6 +133,7 @@ BL-1163	leadgen	1.00	auto (stack markers)			BL-1163 — the lead-in is cut now, 
 BL-1164	leadgen	1.00	auto (stack markers)			BL-1164 — the funnel was working; the screen was not
 BL-1165	leadgen	1.00	auto (stack markers)			BL-1165 — the pool was the ceiling, and the "obvious" regex fix was still quadratic
 BL-1166	leadgen	1.00	auto (stack markers)	2026-08-06		BL-1166 — 3,296 playlists found, a seen-set so none is walked twice, and 16x the supply
+BL-1168	leadgen	1.00	auto (stack markers)	2026-08-06		BL-1168 — every button, driven in a browser, on a server that was fresh
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -368,6 +369,7 @@ BL-725-clippershq-legal-footer	payments	1.00	auto (stack markers)	2026-08-06		BL
 BL-725	leadgen	1.00	auto (stack markers)	2026-07-29		BL-725: Gemini audio benchmark — blocked at 18 of 60 calls by a 20/day free-tier cap, but the one stratum that completed is not encouraging
 BL-726-clippershq-tiktok-api-matrix	leadgen	1.00	auto (stack markers)	2026-08-06		BL-726 — Which TikTok API actually carries the analytics, and whether this owner can ever reach it
 BL-726	leadgen	0.92	auto (stack markers)	2026-07-29		BL-726 — Twitch on Helix: discovery is free and instant, the free website scrape is 82% of the clock, and the in-band pool is 260
+BL-727-clippershq-merge	payments	0.76	auto (stack markers)	2026-08-06		BL-727 — Both branches landed, in the order that mattered
 BL-727	leadgen	1.00	auto (stack markers)	2026-07-30		BL-727 — The clip library is wired and ran live: 20 real clips off the wire for $0.0048, the view floor stopped 3 of 4 accounts, and BL-710's paginati
 BL-728	leadgen	1.00	auto (stack markers)	2026-07-30		BL-728 — Retaining the dropped rows found the filter was wrong: `nsfw` produced 4 false positives out of 6 keyword drops, all of them chat rules *forb
 BL-729	leadgen	0.71	auto (stack markers)	2026-07-30		BL-729: Comments are a noise pit for song ID (5%) and a duplicate for source ID (20%) — close the channel, but keep three free fields it exposed
