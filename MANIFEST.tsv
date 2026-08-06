@@ -133,6 +133,7 @@ BL-1163	leadgen	1.00	auto (stack markers)			BL-1163 — the lead-in is cut now, 
 BL-1164	leadgen	1.00	auto (stack markers)			BL-1164 — the funnel was working; the screen was not
 BL-1165	leadgen	1.00	auto (stack markers)			BL-1165 — the pool was the ceiling, and the "obvious" regex fix was still quadratic
 BL-1166	leadgen	1.00	auto (stack markers)	2026-08-06		BL-1166 — 3,296 playlists found, a seen-set so none is walked twice, and 16x the supply
+BL-1167	leadgen	1.00	auto (stack markers)			BL-1167 — the three blockers are closed, and the email path is decomposed, widened and measured
 BL-1168	leadgen	1.00	auto (stack markers)	2026-08-06		BL-1168 — every button, driven in a browser, on a server that was fresh
 BL-1169	leadgen	1.00	auto (stack markers)	2026-08-06		BL-1169 — stopped at the precondition, and everything that could be done without those four files
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
