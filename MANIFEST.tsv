@@ -131,6 +131,7 @@ BL-1160	leadgen	1.00	auto (stack markers)	2026-08-06		BL-1160 — A run now outl
 BL-1161	leadgen	1.00	auto (stack markers)			BL-1161 — the target was never lost, and the panel is stale because the writer stopped
 BL-1163	leadgen	1.00	auto (stack markers)			BL-1163 — the lead-in is cut now, and the drop lands on the action to 0.000s on 10 of 10
 BL-1164	leadgen	1.00	auto (stack markers)			BL-1164 — the funnel was working; the screen was not
+BL-1165	leadgen	1.00	auto (stack markers)			BL-1165 — the pool was the ceiling, and the "obvious" regex fix was still quadratic
 BL-1166	leadgen	1.00	auto (stack markers)	2026-08-06		BL-1166 — 3,296 playlists found, a seen-set so none is walked twice, and 16x the supply
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
