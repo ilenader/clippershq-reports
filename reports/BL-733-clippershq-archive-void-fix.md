@@ -43,14 +43,15 @@ muscle memory and proves nothing; an amount has to be read, which means the summ
 of `handleVoid` (which now only opens the dialog) into `confirmVoid`, so opening it can no longer void anything.
 It deliberately does **not** reuse the shared `Modal`, which has no `role="dialog"`, no `aria-modal`, no focus trap and
 no focus return (pre-existing, recorded in BL-729 and BL-732). A dialog whose whole job is to stand between the owner
-and destroying money is the wrong place to inherit those gaps, so it implements them itself, portals to `document.body`,
-and marks the rest of the document `aria-hidden` while open. A Tab trap alone is not modality: a screen reader in
-browse mode would read straight past it into the admin table behind.
+and destroying money is the wrong place to inherit those gaps, so it implements them itself and portals to
+`document.body`. Modality is carried by `aria-modal` plus a focus trap with a recovery branch; there is deliberately
+**no** `aria-hidden` sweep of the background, and the accessibility section below explains why my own attempt at one
+was the wrong answer.
 | Action | file:line | Was | Now |
 |---|---|---|---|
 | **Void a payout** | `admin/payouts/page.tsx:562` | `confirm()` | **Typed: the amount** |
-| **Delete a clip** | `admin/clips/page.tsx:944` | `confirm()` | **Typed: the clip id** |
-| **Recalculate a clip's earnings** | `admin/clips/page.tsx:989` | `confirm()` | **Typed: the clip id** |
+| **Delete a clip** | `admin/clips/page.tsx:944` | `confirm()` | **Typed: a 6-char confirm code** |
+| **Recalculate a clip's earnings** | `admin/clips/page.tsx:989` | `confirm()` | **Typed: a 6-char confirm code** |
 | Bulk recalc `all` / Reset data | `force-recalc:100`, `reset-data:58` | **already typed** (`RECALC ALL`, `RESET`) | left |
 | Fraud review: stop counting / leave / reject | `admin/fraud-review/page.tsx:256-266` | `confirm()`+`prompt()` | left |
 | Freeze campaign / platform toggle | `admin/campaigns/page.tsx:669`, `:1741` | `confirm()` | left |
@@ -98,7 +99,7 @@ review path so `paidAt` is stamped; (4) never pay from this table, it is a snaps
 **Do not pay by hand first.** BL-696 established **no admin path can create a payout row**, so a hand payment is
 invisible and the balance stays fully claimable — the clipper could request the same money again and be paid twice.
 ## PART 5 — Evidence
-Harness `scripts/bl733-verify.ts`: **49 passed, 0 failed**. The archive half is a **static** proof over the source,
+Harness `scripts/bl733-verify.ts`: **60 passed, 0 failed**. The archive half is a **static** proof over the source,
 deliberately: the claim is a negative (the write does not exist), the brief forbids archiving a real campaign, and
 there is no safe throwaway archive on a production database.
 ```
@@ -124,12 +125,32 @@ campaigns, unchanged. No wallet address selected or printed; handles redacted to
 client. `tsc --noEmit` **0 errors, exit 0**. `npm run build` **exit 0**, "Compiled successfully", read from a log with
 the exit code echoed, never piped. BL-348 hooks gate **0 errors, 11 warnings — at the limit of 11**, with **eslint
 v9.39.4 confirmed present** so the gate is not silently a no-op. 5 files modified, 2 added.
-**Accessibility.** An `accessibility-lead` review of the dialog was commissioned and **had not returned by the time
-this round shipped**, so it is reported as NOT completed rather than implied. What IS verified, by the 15 dialog checks
-in the harness and by reading: `role="dialog"` + `aria-modal` + `aria-labelledby`/`aria-describedby`, focus moved in on
-open and **restored to the invoking element** on close, Tab and Shift+Tab cycled inside the panel with the disabled
-confirm button correctly excluded, Escape cancels, the typed value resets on every open so a previous attempt cannot
-pre-satisfy the gate, a `role="status"` region announcing that the phrase matched (the button enabling is otherwise a
-purely visual event), a real `<label>` on the input, and `data-no-swipe`. **Known residual, disclosed:** requiring a
-typed amount is a deliberate cognitive load, which is the point of the guard but is a real COGA cost for an
-owner who voids often.
+## Accessibility — the review returned FAIL, and it was right
+The `accessibility-lead` review landed **after** the first push and returned **FAIL with nine blocking defects**. All
+nine are fixed and pinned by 15 new harness checks. It is recorded here because a round that hid this would be worth
+less than the code it shipped.
+**What it caught that I had wrong:**
+| # | Defect | Fix |
+|---|---|---|
+| D7 | **The worst one, and self-inflicted.** The summary rendered `formatCurrency` → `"$71.98"` while the phrase demanded `"71.98"`. **Typing exactly what the dialog told you to read was rejected**, silently, for every payout | comparison normalises `$`, `,` and spaces |
+| D1 | Focus reaches `<body>` routinely (backdrop click, disabled button), and from there Tab walked **out of the dialog** into the admin table behind the scrim | recovery branch when focus escapes the panel, plus `tabIndex={-1}` on it |
+| D2 | The confirm button **disabled itself under the user's own focus** on every confirm, triggering D1 | focus moves to the panel before `onConfirm()` |
+| D3/D4/D5 | My own `aria-hidden` background sweep hid **focusable** containers (axe `aria-hidden-focus`) and, because sonner renders under `<body>`, **silenced the only channel reporting a failed void** | sweep **deleted**; `aria-modal` is ARIA 1.2's replacement for it |
+| D6 | Focus was returned to a **detached** node, since both call sites remove the row as they close | restore guarded on `isConnected` |
+| D8 | A wrong phrase was indistinguishable from an unfinished one | `aria-invalid` + a visible mismatch message; empty is not an error |
+| D9 | Escape looked like it cancelled a request it **cannot** stop | Escape refused while busy; `isComposing` respected |
+Also fixed from its advisories: failures now render **inside** the dialog (`role="alert"`), the summary used
+`--bg-page` which is **undefined repo-wide** and computed to transparent (now `--bg-input`), the input border was
+1.18:1 against the card (1.4.11), `aria-busy` is exposed, and the clip dialogs asked for a **25-character cuid** —
+a genuine COGA barrier containing every dyslexia-hostile pair, whose rational escape is copy-paste, which defeats the
+gate entirely. They now ask for a **6-character confirm code** shown as its own row.
+**It also validated the portal**, which I had added mid-review on my own reading: for OWNER the layout wrapper carries
+`transform: translateX(0)`, and a non-`none` transform becomes the containing block for `position: fixed`, so the
+in-tree dialog resolved `inset-0` against a box starting after the sidebar and sat inside a lower stacking context,
+with `ChatWidget` painting **above** it. Every user who can reach a destructive action is exactly the user who hit it.
+**Correction to the review itself:** it reports the portal and sweep as an unauthorised edit by a specialist agent
+mid-review. They were mine, made deliberately while it ran. **Passing throughout:** dialog semantics and IDREFs,
+`<dl>` structure, the `role="status"` region, label association, icon and danger-button contrast, and **WCAG 3.3.4
+Error Prevention (Financial)**, which these three actions now satisfy properly where `window.confirm()` could not show
+which clipper or which amount. **Disclosed residual:** typing a phrase is a deliberate cognitive load. That is the
+point of the guard, and it is still a real cost for an owner who voids often.
