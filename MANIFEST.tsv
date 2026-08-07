@@ -142,6 +142,7 @@ BL-1172	leadgen	1.00	auto (stack markers)	2026-08-07		BL-1172 — Every dataset 
 BL-1173	leadgen	1.00	auto (stack markers)	2026-08-06		BL-1173 — he has 2,946 Spotify leads, not 46. Today alone made 1,224.
 BL-1174	leadgen	1.00	auto (stack markers)	2026-08-07		BL-1174 — 810 already-paid leads recovered for $0.00, and the shared mailbox that stranded them
 BL-1175	leadgen	1.00	auto (stack markers)			BL-1175 — the meme-page finder is built, and 17% is the number that changes the plan
+BL-1176	leadgen	1.00	auto (stack markers)			BL-1176 — the filter was worth nothing, the merge had no caller, and 17% is two populations
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -381,10 +382,13 @@ BL-727-clippershq-merge	payments	0.76	auto (stack markers)	2026-08-06		BL-727 �
 BL-727	leadgen	1.00	auto (stack markers)	2026-07-30		BL-727 — The clip library is wired and ran live: 20 real clips off the wire for $0.0048, the view floor stopped 3 of 4 accounts, and BL-710's paginati
 BL-728-clippershq-per-campaign-minimum	payments	1.00	auto (stack markers)	2026-08-07		BL-728 — The withdrawal minimum becomes a property of the campaign
 BL-728	leadgen	1.00	auto (stack markers)	2026-07-30		BL-728 — Retaining the dropped rows found the filter was wrong: `nsfw` produced 4 false positives out of 6 keyword drops, all of them chat rules *forb
+BL-729-clippershq-campaign-type-label	payments	1.00	auto (stack markers)	2026-08-07		BL-729 — the owner sets what a campaign IS, in the top left of the clipper card
 BL-729	leadgen	0.71	auto (stack markers)	2026-07-30		BL-729: Comments are a noise pit for song ID (5%) and a duplicate for source ID (20%) — close the channel, but keep three free fields it exposed
 BL-730-clippershq-campaign-reassign-scope	payments	1.00	auto (stack markers)	2026-08-07		BL-730 — Can a PENDING clip be reassigned to a different campaign, and what would it touch?
 BL-730	leadgen	1.00	auto (stack markers)	2026-07-30		BL-730 — No live run (gate failed), but the timeout spike is explained from BL-728's own saved data: fetches run to 218s despite a 10s timeout.
+BL-731-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-07		BL-731 — merging the per-campaign withdrawal minimum, without moving anyone's verdict
 BL-731	leadgen	1.00	hand-verified	2026-07-30		BL-731 — Source-footage ID from a frame: the model never declines, is wrong 20% of the time, and the free route is licence-blocked
+BL-732-clippershq-archive-void-cascade	ambiguous	0.00	auto (stack markers)	2026-08-07		BL-732 — did archiving WinGram auto-void pending payouts? Yes. Read-only audit.
 BL-732	leadgen	0.67	auto (stack markers)	2026-07-30		BL-732: schema fix shipped, pilot measured — the bank supports ~200 pages, but the cost is 3.7 hours, not dollars
 BL-733	leadgen	1.00	auto (stack markers)	2026-07-30		BL-733 — OCR transcription accuracy, measured for the first time: production is throwing away half its accuracy on a `max_side=512` downscale
 BL-734	leadgen	1.00	hand-verified	2026-07-30		BL-734: You don't need to replace Gemini — you need a different payer. OpenRouter routes the same model for half the price, with no tax ID
