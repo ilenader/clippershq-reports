@@ -110,6 +110,11 @@ and the amount, button disabled until it matches exactly. Force-voiding a **PAID
 `isForceVoidOfPaid`) is the most dangerous, because BL-696 proved money does **not** return; it needs a stronger phrase
 and its own warning. **The same guard belongs on:** campaign **archive** itself (a `DELETE` route with no confirmation
 that, until Spec 1 lands, silently voids money), **freeze/unfreeze**, and any bulk clip **reject or retire**.
+**Live-data note, for honesty about the snapshot.** During this audit the platform kept running: one new payout request
+(`REQUESTED`, $102.88) was created at `2026-08-07 15:12:04` by a clipper on a **different** campaign (Panic Baby). It
+touches **no WinGram figure** in this report. VOIDED count (31), archived-campaign count (19) and WinGram's `archivedAt`
+were all **identical at the start and end** of the audit. **This audit changed nothing**: `run-select.js` refuses every
+write keyword and only SELECTs were run.
 ## What could not be measured
 Whether the owner saw a warning before archiving (the confirmation is client-side, no server trace); whether either
 clipper noticed, since no notification was sent; and the third April void (PR-3), unattributable because its campaign
