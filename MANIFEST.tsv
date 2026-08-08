@@ -156,6 +156,7 @@ BL-1186	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1186 — 100 pages, eve
 BL-1187	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1187 — 100 human marks, read one at a time, and the filter that finally answers to them
 BL-1188	leadgen	1.00	auto (stack markers)			BL-1188 — the creator rule, derived from his own marks; agreement 74 → 77 and pick accuracy 56% → 63%
 BL-1189	leadgen	1.00	auto (stack markers)			BL-1189 — the 31 studied, LamaTok mapped, and the funnel his spec asks for cannot be built as written
+BL-1191	leadgen	1.00	auto (stack markers)			BL-1191 — the TikTok funnel, built video-first, and the chain does not end in zero
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -413,7 +414,9 @@ BL-736-clippershq-campaign-reassign	payments	1.00	auto (stack markers)	2026-08-0
 BL-736	leadgen	1.00	auto (stack markers)	2026-07-30		BL-736: The downscale fix works exactly as measured — and changes nothing this module actually outputs
 BL-737-clippershq-mobile-nav	payments	1.00	auto (stack markers)	2026-08-08		BL-737 — the owner's mobile navigation is not missing anything. It renders all 28 items and one line of JavaScript stops him scrolling to them
 BL-737	leadgen	1.00	auto (stack markers)	2026-07-30		BL-737 — Item 4 was not produced: OpenRouter blocks every audio request below a flat $0.50 balance and the account holds $0. The integration is finish
+BL-738-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-08		BL-738 — merging BL-736, the pending-clip campaign reassignment
 BL-738	leadgen	0.83	auto (stack markers)	2026-07-30		BL-738 — Not fixed, and not fixable this round: a funnel process has been livelocked at 99.5% of a core for 85 minutes with ZERO writes. The bug is pr
+BL-739-clippershq-mobile-nav-fix	payments	1.00	auto (stack markers)	2026-08-08		BL-739 — the drawer scrolls, the background still does not, and the carve-out is deliberately narrower than the one BL-320 removed
 BL-739	leadgen	0.96	auto (stack markers)	2026-07-30		BL-739 — Run not started: the funnel process from BL-738 is still alive at 164 minutes. Items 2 and 5 answered read-only; item 2's premise turns out t
 BL-740	leadgen	1.00	auto (stack markers)	2026-07-30		BL-740 — Fix written and VERIFIED against both adversarial servers, but not applied: the funnel process from BL-738 is now 180 minutes old and still h
 BL-741	leadgen	1.00	auto (stack markers)	2026-07-30		BL-741 — Fetch-chain fix APPLIED. Both chain_proof verdicts BOUNDED against the real module, 50/50 suites green. Paid re-measurement deferred by the o
