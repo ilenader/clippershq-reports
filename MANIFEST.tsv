@@ -155,6 +155,7 @@ BL-1185	leadgen	1.00	auto (stack markers)			BL-1185 — the band reader is delet
 BL-1186	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1186 — 100 pages, every rule shown, and a box to say which ones are wrong
 BL-1187	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1187 — 100 human marks, read one at a time, and the filter that finally answers to them
 BL-1188	leadgen	1.00	auto (stack markers)			BL-1188 — the creator rule, derived from his own marks; agreement 74 → 77 and pick accuracy 56% → 63%
+BL-1189	leadgen	1.00	auto (stack markers)			BL-1189 — the 31 studied, LamaTok mapped, and the funnel his spec asks for cannot be built as written
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
