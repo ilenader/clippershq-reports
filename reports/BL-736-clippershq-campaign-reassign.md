@@ -72,7 +72,7 @@ Every move writes `CLIP_CAMPAIGN_REASSIGNED` carrying the clip id, both campaign
 and owner CPMs, the new clipper and owner CPMs, the platform, the actor, the timestamp, and the count of rows
 repointed. BL-732 found the archive cascade wrote none and went unnoticed for three days.
 ## PART 6 — Evidence
-**Harness `scripts/bl736-verify.ts`: 54 passed, 0 failed.** Each block on its own:
+**Harness `scripts/bl736-verify.ts`: 69 passed, 0 failed.** Each block on its own:
 ```
 PASS BLOCK era: a clip older than the destination's era boundary is REFUSED
 PASS BLOCK era: it is a refusal, NOT an allow-with-warning
@@ -107,24 +107,36 @@ without another write, so it was not done. **No real clip was touched.**
 `money-decimal` `ef5cdae7`, `campaign-era` `106e16ad`. **`cpm.ts` changed by exactly one union member**
 (`| "reassign"`), which BL-730's spec required because the reassignment is a stamping site and must pass the same
 half-stamp guard; `notifications.ts` gained one union member for the new notification type. Neither is a money file.
-## Accessibility — commissioned, and it had NOT returned when this shipped
-An `accessibility-lead` review of the picker and confirmation was commissioned and **did not return before this
-round shipped.** It is reported as **not completed**, not implied handled. That matters here because BL-733's review
-came back FAIL with nine blocking defects on a dialog I believed was sound.
-**What reduces the risk, and it is specific rather than hopeful:** this dialog is a deliberate mirror of
-`confirm-destructive.tsx`, which passed review only *after* those nine fixes, and it demonstrably carries each of
-them: `role="dialog"` + `aria-modal`, a Tab trap **with the recovery branch** for focus escaped to `<body>`,
-`tabIndex={-1}` on the scrollable panel, focus restore guarded on `isConnected`, Escape gated on busy and respecting
-`isComposing`, errors as `role="alert"` **inside** the dialog, `aria-busy`, a portal to `document.body`, and
-**no** `aria-hidden` background sweep (0 occurrences) — the sweep being the fix that silenced the toast region last
-time. Blocked options are native disabled radios whose reason sits **inside the `<label>`**, so it forms part of the
-accessible name rather than being merely adjacent.
-**Two defects I found and fixed myself while waiting:** a bare `$0.20` beside a campaign name was ambiguous between a
-rate and a total (now carries an sr-only "per 1,000 views"), and choosing a campaign silently inserted the
-rate-comparison block (now announced politely, keyed on the chosen campaign so re-selection re-announces).
-**Unreviewed and disclosed:** whether ~14 disabled-with-reason radios is the right cognitive load for this decision,
-and whether the confirmation fully satisfies 3.3.4 for a change that alters a clipper's pay. Both were put to the
-reviewer; neither has an answer yet.
+## Accessibility — the review returned FAIL, and it was right on all three
+It landed **after** the first push and returned **FAIL with three blocking defects**. All are fixed at
+`checkpoint/BL-736`, pinned by 15 new guards (harness 54 to **69**). Two were **regressions against house rules this
+repo had already written down**, which is the part worth being uncomfortable about.
+| # | Defect | Fix |
+|---|---|---|
+| **D1** | **Shift+Tab escaped the dialog.** A radio group has ONE roving tab stop, but the trap treated radio 1 as `first`. Select radio 3, Shift+Tab, and focus left into the admin table behind the scrim | trap collapses each group to its real stop |
+| **D1b** | Same trap, focus **on the panel** (the state on open, and after a failed submit): inside itself so the escape branch was skipped, neither end so nothing matched. **This was live in BL-733's shipped dialog too** | fixed in a shared `useDialogFocusTrap`, applied to both |
+| **D2** | Blocked campaigns used **native `disabled`**, which removes them from arrow-key roving, so a forms-mode screen reader user was never told the other 8 campaigns existed or why. **`PayoutRequestFlow.tsx:882-886` (BL-556) already rules on this**: *"aria-disabled, never native `disabled` ... a native disabled radio is skipped and the reason never heard"* | unavailable campaigns left the radio group entirely and became a plain list with reasons, so there are no dead controls at all |
+| **D3** | Selection was **border and tint only**, with no radio drawn. Under forced-colors both collapse to one colour and selected becomes indistinguishable. **BL-556 again: *"never color alone"*** | a drawn indicator ring that fills with a Check |
+**D7 was a money defect wearing an accessibility costume, and the reviewer was right to escalate it.**
+`currentClipperCpm` read `cpmAtSubmissionDecimal` alone, but `getEffectiveCpmForClip` has an explicit legacy
+fallback to the live campaign rate for a null stamp. So a null-stamped clip showed no current rate, which
+**suppressed the rate-drop warning AND sent the clipper the softer notification even when the move halved their
+pay**. Both handlers now use the same resolver the earnings path uses.
+Also fixed from its advisories: the clip-blocked banner had no association (**D5**); the dialog never said **which**
+clip or **whose**, while both sibling dialogs on the same page lead with a Clipper row (**D6**); "they will be told"
+sat in the drop branch while the notification is unconditional (**D9**); stale data painted for a frame on reopen
+(**D13**); the focus ring was clipped by the scroller (**D12**); and "legally" is gone.
+**Adopted its arrangement recommendation:** selectable campaigns first in the fieldset under a counted legend,
+unavailable ones beneath in a plain list headed "Cannot be used right now (N)". Nothing is hidden, which is BL-730's
+requirement, and the visual-search problem and the below-the-fold unreachability both dissolve.
+**One correction to the review.** It opens by reporting that two specialists edited the file mid-review and asks me
+to revert their work. **Those two edits were mine**, made deliberately while waiting and described at the time: an
+sr-only "per 1,000 views" on the CPM figure, and a `role="status"` announcement of the rate comparison. They are
+kept, and the review's own findings 4 and 15 are what they address. The read-only instruction was not breached.
+**Reported, not fixed:** `button.tsx:20` primary variant is 3.40:1 at 14px (app-wide, pre-existing, needs its own
+solid-fill token), and `--bg-page` is consumed in about 20 files while being **defined nowhere** — the real token is
+`--bg-primary`. Both want their own round. **Left as the owner's call:** whether a one-click trigger is the right
+gate for an irreversible restamp when clip delete and recalc use a typed phrase.
 ## Gates, stated honestly
 `npm ci` exit 0 (822 packages, no junction). `npx prisma generate` exit 0, **before** tsc. `tsc --noEmit` **0 errors**.
 **`npm run build` exited 1 on the first run** and I am not hiding it: it printed "Compiled successfully" and *then*
