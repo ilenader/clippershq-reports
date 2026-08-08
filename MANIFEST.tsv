@@ -159,6 +159,7 @@ BL-1189	leadgen	1.00	auto (stack markers)			BL-1189 — the 31 studied, LamaTok 
 BL-1190	leadgen	1.00	auto (stack markers)			BL-1190 — film_tv was not broken, the runner was; 50 fresh pages judged and ready to review
 BL-1191	leadgen	1.00	auto (stack markers)			BL-1191 — the TikTok funnel, built video-first, and the chain does not end in zero
 BL-1192	leadgen	1.00	auto (stack markers)			BL-1192 — "save FAILED" in green: the cause, the recovery, and a sheet that can no longer lose a mark
+BL-1193	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1193 — his specification, implemented; and the 50 marks it was supposed to be scored against do not exist
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -423,6 +424,7 @@ BL-739	leadgen	0.96	auto (stack markers)	2026-07-30		BL-739 — Run not started:
 BL-740-clippershq-reassign-picker-fix	payments	1.00	auto (stack markers)	2026-08-08		BL-740 — the reassignment picker offered zero destinations, on every clip
 BL-740	leadgen	1.00	auto (stack markers)	2026-07-30		BL-740 — Fix written and VERIFIED against both adversarial servers, but not applied: the funnel process from BL-738 is now 180 minutes old and still h
 BL-741	leadgen	1.00	auto (stack markers)	2026-07-30		BL-741 — Fetch-chain fix APPLIED. Both chain_proof verdicts BOUNDED against the real module, 50/50 suites green. Paid re-measurement deferred by the o
+BL-742-clippershq-per-clipper-cpm-scope	payments	1.00	auto (stack markers)	2026-08-08		BL-742 — a per clipper CPM is safe ONLY as a ratio preserving scale of BOTH stamps, and the retroactive half of the request should not be built
 BL-742	leadgen	1.00	hand-verified	2026-07-30		BL-742 — FALSE-NEGATIVE RATE 63.3%. The music detector discards 31 of 49 music clips. Do not ship this gate.
 BL-743	leadgen	0.90	auto (stack markers)	2026-07-31	BL-764	BL-743 — READY TO SEND TODAY: 3,659. Cross-funnel lead-quality audit of 57,386 rows.
 BL-744	leadgen	1.00	auto (stack markers)	2026-07-31		BL-744 — Spotify funnel audit: the filter order is already correct, the seeds have drifted, and 41.5% of delivered leads have no country
