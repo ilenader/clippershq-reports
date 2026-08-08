@@ -153,6 +153,7 @@ BL-1183	leadgen	1.00	auto (stack markers)			BL-1183 — one unwrapper, an empty 
 BL-1184	leadgen	1.00	auto (stack markers)			BL-1184 — parallelising the judge bought 2.95x, and the API limiter was never the wall
 BL-1185	leadgen	1.00	auto (stack markers)			BL-1185 — the band reader is deleted, the rule survives it, and coloured type was never the problem
 BL-1186	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1186 — 100 pages, every rule shown, and a box to say which ones are wrong
+BL-1187	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1187 — 100 human marks, read one at a time, and the filter that finally answers to them
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -407,6 +408,7 @@ BL-734	leadgen	1.00	hand-verified	2026-07-30		BL-734: You don't need to replace 
 BL-735-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-08		BL-735 — merging BL-733 and BL-734, one at a time
 BL-735	leadgen	0.75	auto (stack markers)	2026-07-30		BL-735 — The benchmark did not run: there is no `openrouter_api` block in config.json. The guard for it is now in place, so the key is protected the m
 BL-736	leadgen	1.00	auto (stack markers)	2026-07-30		BL-736: The downscale fix works exactly as measured — and changes nothing this module actually outputs
+BL-737-clippershq-mobile-nav	payments	1.00	auto (stack markers)	2026-08-08		BL-737 — the owner's mobile navigation is not missing anything. It renders all 28 items and one line of JavaScript stops him scrolling to them
 BL-737	leadgen	1.00	auto (stack markers)	2026-07-30		BL-737 — Item 4 was not produced: OpenRouter blocks every audio request below a flat $0.50 balance and the account holds $0. The integration is finish
 BL-738	leadgen	0.83	auto (stack markers)	2026-07-30		BL-738 — Not fixed, and not fixable this round: a funnel process has been livelocked at 99.5% of a core for 85 minutes with ZERO writes. The bug is pr
 BL-739	leadgen	0.96	auto (stack markers)	2026-07-30		BL-739 — Run not started: the funnel process from BL-738 is still alive at 164 minutes. Items 2 and 5 answered read-only; item 2's premise turns out t
