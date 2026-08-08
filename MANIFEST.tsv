@@ -152,6 +152,7 @@ BL-1182	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1182 — meme pages are
 BL-1183	leadgen	1.00	auto (stack markers)			BL-1183 — one unwrapper, an empty that is not a zero, and a killed run that lost 6 paid calls
 BL-1184	leadgen	1.00	auto (stack markers)			BL-1184 — parallelising the judge bought 2.95x, and the API limiter was never the wall
 BL-1185	leadgen	1.00	auto (stack markers)			BL-1185 — the band reader is deleted, the rule survives it, and coloured type was never the problem
+BL-1186	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1186 — 100 pages, every rule shown, and a box to say which ones are wrong
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -403,6 +404,7 @@ BL-733-clippershq-archive-void-fix	payments	1.00	auto (stack markers)	2026-08-07
 BL-733	leadgen	1.00	auto (stack markers)	2026-07-30		BL-733 — OCR transcription accuracy, measured for the first time: production is throwing away half its accuracy on a `max_side=512` downscale
 BL-734-clippershq-minimum-verify	payments	1.00	auto (stack markers)	2026-08-07		BL-734 — the owner's two $20 raises, verified; and there were SEVEN copies of the minimum, not five
 BL-734	leadgen	1.00	hand-verified	2026-07-30		BL-734: You don't need to replace Gemini — you need a different payer. OpenRouter routes the same model for half the price, with no tax ID
+BL-735-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-08		BL-735 — merging BL-733 and BL-734, one at a time
 BL-735	leadgen	0.75	auto (stack markers)	2026-07-30		BL-735 — The benchmark did not run: there is no `openrouter_api` block in config.json. The guard for it is now in place, so the key is protected the m
 BL-736	leadgen	1.00	auto (stack markers)	2026-07-30		BL-736: The downscale fix works exactly as measured — and changes nothing this module actually outputs
 BL-737	leadgen	1.00	auto (stack markers)	2026-07-30		BL-737 — Item 4 was not produced: OpenRouter blocks every audio request below a flat $0.50 balance and the account holds $0. The integration is finish
