@@ -167,6 +167,7 @@ BL-1197	leadgen	1.00	auto (stack markers)			BL-1197 — the presets only worked 
 BL-1198	leadgen	1.00	auto (stack markers)			BL-1198 — the dialogue read was never taken: 0 of 4,825 posts had audio measured
 BL-1199	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1199 — his caption hypothesis is half right, and the half that survives is not the half he described
 BL-1200	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1200 — his creator hypothesis is inverted by his own labels, and the promo vocabulary could not be derived
+BL-1203	leadgen	1.00	auto (stack markers)			BL-1203 — the page stopped jumping, and the thumbnails play
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -455,6 +456,7 @@ BL-751	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-751: 1,576 leads a
 BL-752-clippershq-per-clip-cpm-design	payments	1.00	auto (stack markers)	2026-08-09		BL-752 — Per-clip CPM override: complete design
 BL-752	leadgen	1.00	hand-verified	2026-07-31		BL-752 — The audio benchmark completed: the model is not reproducible at temperature 0, and the requested headline number does not exist
 BL-753	leadgen	1.00	auto (stack markers)	2026-07-31		BL-753: Clipper-side audit — the persona hunch is wrong (0.2–0.3%, not "the bulk"), the email-drop bug is absent, and the IG crawl writes the master w
+BL-754-clippershq-cpm-spec-review	payments	1.00	auto (stack markers)	2026-08-09		BL-754 — adversarial review of BL-752's per-clip CPM spec: two real gaps, four attacks that failed
 BL-754	leadgen	0.95	auto (stack markers)	2026-07-31		BL-754 — Spec: a self-audit that prints after every run. Building it surfaced two unflagged regressions and one dead recommendation sitting in shipped
 BL-755	leadgen	1.00	auto (stack markers)	2026-07-31		BL-755 — View floor N measured at n=200 across 4 niches; the description fill drops 12.5% → 7.1% once the country gate is honoured. Implementation HEL
 BL-756	leadgen	1.00	auto (stack markers)	2026-07-31		BL-756 — Capture NOT applied: 108 files written in 3 minutes by ~4 concurrent rounds. But the six fields are re-measured on 3× the sample, and two of 
