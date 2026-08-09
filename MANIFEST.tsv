@@ -165,6 +165,7 @@ BL-1195	leadgen	1.00	auto (stack markers)			BL-1195 — four new reads built, th
 BL-1196	leadgen	1.00	auto (stack markers)			BL-1196 — the marking tool: ten rows at a time, two clicks a page, and a save that cannot be lost
 BL-1197	leadgen	1.00	auto (stack markers)			BL-1197 — the presets only worked in one direction, and the wrong direction was the common one
 BL-1198	leadgen	1.00	auto (stack markers)			BL-1198 — the dialogue read was never taken: 0 of 4,825 posts had audio measured
+BL-1199	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1199 — his caption hypothesis is half right, and the half that survives is not the half he described
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
