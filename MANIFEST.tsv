@@ -167,6 +167,7 @@ BL-1197	leadgen	1.00	auto (stack markers)			BL-1197 — the presets only worked 
 BL-1198	leadgen	1.00	auto (stack markers)			BL-1198 — the dialogue read was never taken: 0 of 4,825 posts had audio measured
 BL-1199	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1199 — his caption hypothesis is half right, and the half that survives is not the half he described
 BL-1200	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1200 — his creator hypothesis is inverted by his own labels, and the promo vocabulary could not be derived
+BL-1202	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1202 — the caption-length requirement is live, and 500 measures better than the 400 he approved
 BL-1203	leadgen	1.00	auto (stack markers)			BL-1203 — the page stopped jumping, and the thumbnails play
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
