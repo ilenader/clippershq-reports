@@ -162,6 +162,7 @@ BL-1192	leadgen	1.00	auto (stack markers)			BL-1192 — "save FAILED" in green: 
 BL-1193	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1193 — his specification, implemented; and the 50 marks it was supposed to be scored against do not exist
 BL-1194	leadgen	1.00	auto (stack markers)	2026-08-08		BL-1194 — the 50 marks are in, the signal he pointed at does not survive, and the ceiling is not 97%
 BL-1195	leadgen	1.00	auto (stack markers)			BL-1195 — four new reads built, three measured, and NOT ONE of them clears the base rate
+BL-1196	leadgen	1.00	auto (stack markers)			BL-1196 — the marking tool: ten rows at a time, two clicks a page, and a save that cannot be lost
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -431,12 +432,19 @@ BL-742-clippershq-per-clipper-cpm-scope	payments	1.00	auto (stack markers)	2026-
 BL-742	leadgen	1.00	hand-verified	2026-07-30		BL-742 — FALSE-NEGATIVE RATE 63.3%. The music detector discards 31 of 49 music clips. Do not ship this gate.
 BL-743-clippershq-reassign-owner-side	payments	1.00	auto (stack markers)	2026-08-08		BL-743 — the owner side restamped correctly. The reassignment is clean, and the $0.39 is what a $0.20 campaign actually costs
 BL-743	leadgen	0.90	auto (stack markers)	2026-07-31	BL-764	BL-743 — READY TO SEND TODAY: 3,659. Cross-funnel lead-quality audit of 57,386 rows.
+BL-744-clippershq-admin-row-clarity	payments	1.00	auto (stack markers)	2026-08-09		BL-744 — the admin clip row now says what its numbers are, so a correct row stops reading as a bug
 BL-744	leadgen	1.00	auto (stack markers)	2026-07-31		BL-744 — Spotify funnel audit: the filter order is already correct, the seeds have drifted, and 41.5% of delivered leads have no country
+BL-745-clippershq-submit-stats	ambiguous	0.00	auto (stack markers)	2026-08-09		BL-745 — why are views not fetched the moment a clip is submitted?
 BL-745	leadgen	1.00	auto (stack markers)	2026-07-31		BL-745 — Spec: what a downstream editing bot needs to recreate a clip. 29 of 39 fields already ship; the one that matters most is the one nobody has m
+BL-746-clippershq-instagram-submit-stats	payments	1.00	auto (stack markers)	2026-08-09		BL-746 — Instagram gets its first view count at submit, from a response the platform already paid for
 BL-746	leadgen	1.00	auto (stack markers)	2026-07-31		BL-746: The counter isn't broken — it's counting a different population. The leads are real and genuinely new; the run's problem is that 67% of it was
+BL-747-clippershq-merge	payments	1.00	auto (stack markers)	2026-07-26		BL-747 — merging BL-744 and BL-746, and refusing to claim a result the data does not yet show
 BL-747	leadgen	1.00	auto (stack markers)	2026-07-31		BL-747 — The Spotify no-contact pool is 18.9% and genuinely dead. The real leak is next door: 52% of delivered leads never reach master.
+BL-748-clippershq-fabricated-zero	payments	1.00	auto (stack markers)	2026-08-09		BL-748 — the last fabricated zero leaves the Instagram classifier, and nobody was ever harmed by it
 BL-748	leadgen	1.00	auto (stack markers)	2026-07-31		BL-748 — YouTube funnel audit: the stack is the CORRECT (Spotify) shape, but three fields arriving free at 100% are discarded, and the subs floor is d
+BL-749-clippershq-zero-stat-clips	leadgen	1.00	auto (stack markers)	2026-08-09		BL-749 — the zero-stat clips: who they are, why, and what they actually cost
 BL-749	leadgen	1.00	auto (stack markers)	2026-07-31		BL-749 — Cross-funnel unread-field sweep: the clip walk gets a full engagement panel free and reads none of it
+BL-750-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-09		BL-750 — merging BL-748, and catching the moment both Instagram fixes went live in one table
 BL-750	leadgen	1.00	auto (stack markers)	2026-07-31		BL-750 — Fix NOT applied: three agents are writing every ~30s and one took a `pre_bl749` backup of config.json. Item 1's fill rate re-measured through
 BL-751	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-751: 1,576 leads are ready to send — and 100% of them come from two funnels. The other six export literally nothing, for one shared reason
 BL-752	leadgen	1.00	hand-verified	2026-07-31		BL-752 — The audio benchmark completed: the model is not reproducible at temperature 0, and the requested headline number does not exist
