@@ -167,6 +167,7 @@ BL-1197	leadgen	1.00	auto (stack markers)			BL-1197 — the presets only worked 
 BL-1198	leadgen	1.00	auto (stack markers)			BL-1198 — the dialogue read was never taken: 0 of 4,825 posts had audio measured
 BL-1199	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1199 — his caption hypothesis is half right, and the half that survives is not the half he described
 BL-1200	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1200 — his creator hypothesis is inverted by his own labels, and the promo vocabulary could not be derived
+BL-1201	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1201 — the audio is read: 1,238 clips measured, 107 pages are all-talking, and the churn is 38.1% not 15.8%
 BL-1202	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1202 — the caption-length requirement is live, and 500 measures better than the 400 he approved
 BL-1203	leadgen	1.00	auto (stack markers)			BL-1203 — the page stopped jumping, and the thumbnails play
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
@@ -456,6 +457,7 @@ BL-751-clippershq-zeroed-views	leadgen	1.00	auto (stack markers)	2026-08-09		BL-
 BL-751	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-751: 1,576 leads are ready to send — and 100% of them come from two funnels. The other six export literally nothing, for one shared reason
 BL-752-clippershq-per-clip-cpm-design	payments	1.00	auto (stack markers)	2026-08-09		BL-752 — Per-clip CPM override: complete design
 BL-752	leadgen	1.00	hand-verified	2026-07-31		BL-752 — The audio benchmark completed: the model is not reproducible at temperature 0, and the requested headline number does not exist
+BL-753-clippershq-youtube-fabricated-zero	payments	1.00	auto (stack markers)	2026-08-09		BL-753 — the YouTube fabricated zero is closed at source, and the never-decrease guard is proven UNSAFE
 BL-753	leadgen	1.00	auto (stack markers)	2026-07-31		BL-753: Clipper-side audit — the persona hunch is wrong (0.2–0.3%, not "the bulk"), the email-drop bug is absent, and the IG crawl writes the master w
 BL-754-clippershq-cpm-spec-review	payments	1.00	auto (stack markers)	2026-08-09		BL-754 — adversarial review of BL-752's per-clip CPM spec: two real gaps, four attacks that failed
 BL-754	leadgen	0.95	auto (stack markers)	2026-07-31		BL-754 — Spec: a self-audit that prints after every run. Building it surfaced two unflagged regressions and one dead recommendation sitting in shipped
