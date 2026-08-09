@@ -170,6 +170,7 @@ BL-1200	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1200 — his creator hy
 BL-1201	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1201 — the audio is read: 1,238 clips measured, 107 pages are all-talking, and the churn is 38.1% not 15.8%
 BL-1202	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1202 — the caption-length requirement is live, and 500 measures better than the 400 he approved
 BL-1203	leadgen	1.00	auto (stack markers)			BL-1203 — the page stopped jumping, and the thumbnails play
+BL-1204	leadgen	1.00	auto (stack markers)			BL-1204 — the free-text box saves now, and it was broken four ways, not one
 BL-1205	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1205 — REPORT AND STOP: the sheet's own file is dirty under a round that started two minutes ago
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
@@ -462,6 +463,7 @@ BL-753-clippershq-youtube-fabricated-zero	payments	1.00	auto (stack markers)	202
 BL-753	leadgen	1.00	auto (stack markers)	2026-07-31		BL-753: Clipper-side audit — the persona hunch is wrong (0.2–0.3%, not "the bulk"), the email-drop bug is absent, and the IG crawl writes the master w
 BL-754-clippershq-cpm-spec-review	payments	1.00	auto (stack markers)	2026-08-09		BL-754 — adversarial review of BL-752's per-clip CPM spec: two real gaps, four attacks that failed
 BL-754	leadgen	0.95	auto (stack markers)	2026-07-31		BL-754 — Spec: a self-audit that prints after every run. Building it surfaced two unflagged regressions and one dead recommendation sitting in shipped
+BL-755-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-09		BL-755 — BL-753 merged to main, and a correction to BL-753's own report
 BL-755	leadgen	1.00	auto (stack markers)	2026-07-31		BL-755 — View floor N measured at n=200 across 4 niches; the description fill drops 12.5% → 7.1% once the country gate is honoured. Implementation HEL
 BL-756	leadgen	1.00	auto (stack markers)	2026-07-31		BL-756 — Capture NOT applied: 108 files written in 3 minutes by ~4 concurrent rounds. But the six fields are re-measured on 3× the sample, and two of 
 BL-757	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-757: Send order — your sendable pool is 4,217 addresses, not 57,000, and 7.6% of it is structural bounce risk
