@@ -179,6 +179,7 @@ BL-1209	leadgen	1.00	auto (stack markers)			BL-1209 — 71 of the 130 links he p
 BL-1210	leadgen	1.00	auto (stack markers)			BL-1210 — the 34% was a reading error. The filter scored 72%, the prediction was right, and nothing I tried beats it
 BL-1211	leadgen	1.00	auto (stack markers)			BL-1211 — the paste path calls the same renderer. One branch I added, and two latent bugs in the shared reader
 BL-1212	leadgen	1.00	auto (stack markers)			BL-1212: the panel sorted folder NAMES, so a letter outranked every timestamp and his three batches were invisible
+BL-1214	leadgen	1.00	auto (stack markers)			BL-1214: the strip is 25% of the frame and he is right, the stutter is not in the file, and I shipped no fix
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -492,6 +493,7 @@ BL-764-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-10		BL-764 �
 BL-764	leadgen	1.00	auto (stack markers)	2026-07-31		BL-764: The number is 1,600 — and 1,592 of them come from one source. Six of your eight funnels export nothing because of a single empty column
 BL-765-clippershq-earnings-reminder	payments	1.00	auto (stack markers)	2026-08-10		BL-765 — the reminder beside each campaign in earnings, and the clamp that hid it from the one clipper it was for
 BL-765	leadgen	1.00	auto (stack markers)	2026-07-31		BL-765 — Send-path audit: **NO, not safe to send from today.** The file n8n watches holds 2 rows, nothing is suppressed, and 2,505 of 4,128 valid addr
+BL-766-clippershq-merge	payments	0.95	auto (stack markers)	2026-08-10		BL-766 — merge BL-765 to main: the per-campaign reminder, and the clamp that hid its predecessor
 BL-766	leadgen	0.93	auto (stack markers)	2026-07-31	BL-769	BL-766 — Cause found: the run asked for 1,000 leads from a seed pool that holds ~452. The overflow came from related-artist expansion, whose artists c
 BL-767	leadgen	0.92	auto (stack markers)	2026-07-31		BL-767 — SPEC: the two gates protect nothing on client funnels, there is a third gate nobody has counted, and the fix is one declared field — not a ve
 BL-768	leadgen	1.00	auto (stack markers)	2026-07-31		BL-768 — Spec: suppression + bulk outcome marker. The briefed marker plan is O(n) per key and costs 73s; an index costs 0.04s. Both export files are s
