@@ -14,7 +14,72 @@ summary that contradicted a vendor's own page was caught and discarded.
 
 ---
 
-## THE ANSWER, BEFORE THE WORKING
+# CORRECTION, ADDED AFTER FIRST PUBLICATION — THE ANSWER CHANGED
+
+**The verdict below was published, and then a seventh line of research returned and overturned it. The
+original text is left intact underneath so the reasoning can be audited; this block supersedes it.**
+
+**The question was framed wrongly, by the brief and by me. It asked which of six named vendors could
+front a creator's analytics. The right question was who already holds TikTok API for Business
+approval, because that approval binds the APP DEVELOPER, not the end customer.** An individual with no
+company cannot register for the Business API, which BL-726 proved and this round re-proved. **But an
+individual can OAuth a creator into a vendor that already holds that approval, and receive the full
+insights set.** None of the six named candidates is such a vendor. **Ayrshare is.**
+
+**Verified directly from Ayrshare's own API documentation, not from the agent's summary and not from
+any blog** ([analytics/post](https://www.ayrshare.com/docs/apis/analytics/post)). Documented as
+returned for TikTok:
+
+| The owner's wish list | Ayrshare field | Status |
+|---|---|---|
+| Average watch time | `averageTimeWatched` | **DOCUMENTED** |
+| Full-video watched rate | `fullVideoWatchedRate` | **DOCUMENTED** |
+| **Retention curve** | **`videoViewRetention`**, array of second/percentage | **DOCUMENTED** |
+| Traffic / impression sources | `impressionSources` | **DOCUMENTED** |
+| Reach | `reach` | **DOCUMENTED** |
+| Audience countries | `audienceCountries` | **DOCUMENTED** |
+| Audience gender | `audienceGenders` | **DOCUMENTED** |
+| Total watch time | — | **not listed** |
+| Audience age | — | **not listed** |
+| Profile views | — | **not listed** |
+
+**That is seven of ten, including every one of the four this report had called flatly unobtainable, and
+including the retention curve itself.** Prerequisites, in Ayrshare's own words: the creator must
+publish at least one video, **tap "Turn On" on the Analytics page of their TikTok mobile app**, and
+have **100 followers** for the extra viewer insights. Fields appear **24 to 48 hours after posting**.
+
+**And the consent problem dissolves.** Ayrshare is an approved TikTok API for Business partner, so
+authorization runs through TikTok's official OAuth: a scoped token, revocable by the clipper from
+TikTok's own settings, **no session cookie, no password, and no terms-of-service exposure.** The flow
+is a JWT-generated linking URL the clipper opens, then links their account
+([JWT docs](https://www.ayrshare.com/docs/apis/profiles/generate-jwt)). **This is the one thing this
+report said no vendor offered, and it is the reason everything below is superseded.**
+
+**Pricing** ([pricing](https://www.ayrshare.com/pricing/)): Premium $149/mo (1 profile), **Launch
+$299/mo (10 profiles, 28-day free trial, no credit card)**, Business $599/mo (30 profiles, scaling to
+300 at $8.99 per extra profile for 31 to 100, declining to $1.99 at 500+), Enterprise above 300.
+**For the 43 clippers who actually post TikTok clips: roughly $716/month** (Business plus 13 extra
+profiles). Far dearer than TikHub's $9.60, and legitimate rather than credential-harvesting.
+
+**REVISED VERDICT: test Ayrshare on its free 28-day Launch trial before doing anything else.** It is
+the only route found that returns the retention curve, needs no company, and asks the clipper for
+nothing beyond a genuine TikTok OAuth approval. **Do not adopt TikAPI or TikHub. Do not build anything
+until the trial returns real fields for one real clip.**
+
+**What is still UNVERIFIED and matters:** that the final authorization screen is TikTok's own rather
+than an Ayrshare-hosted one (strongly implied by the Business API partnership, not directly observed);
+whether Ayrshare requires the CUSTOMER to be a registered company (its pricing page does not say); and
+whether the **"Turn On" step in each clipper's TikTok app** is a fatal adoption obstacle, since it
+cannot be done for them and most will not know it exists. **The 100-follower threshold will also
+exclude some clippers outright.**
+
+**Everything in PART 6 about scale still stands and still constrains this.** TikTok remains 18.6% of
+clip volume from 43 active clippers. **Ayrshare changes what is technically obtainable. It does not
+change that seven clips in ten are Instagram and YouTube**, where the screen-share call remains.
+
+---
+
+## THE ORIGINAL ANSWER, NOW SUPERSEDED
 
 > **Do not build this. None of the six delivers what the owner asked for, and the two that come closest
 > both require his clippers to hand a third party a live TikTok session credential.**
@@ -407,7 +472,42 @@ That, more than the pricing, is the argument against building this at all.
 5. **SociaVault** — the same single field, dearer, 13 months old, six months without a changelog entry.
 6. **EnsembleData** — the cleanest scraper of the four, and buys the owner nothing he lacks.
 
-### The plan, and where it stops
+### THE PLAN, REPLACED BY THE CORRECTION AT THE TOP
+
+**The plan below was written before Ayrshare was found. Use this one instead.**
+
+**Step 1, free, this week: start the Ayrshare Launch 28-day trial** (no credit card) and connect **one
+TikTok account the owner controls**, never a clipper's. Post a clip, wait 48 hours, call
+`/analytics/post` and check whether `videoViewRetention`, `averageTimeWatched`, `impressionSources`
+and `audienceCountries` actually arrive with values rather than nulls. **That single test costs
+nothing and settles the entire question.** Every prior round on this topic failed by reasoning from
+documentation instead of doing this.
+
+**Step 2, the diagnostic question for the peer**, which is now sharper: *does his tool show a retention
+GRAPH, or just a set of numbers?* **A graph at one-second granularity means he is using cookies** and
+the credential and terms-of-service problems in PART 5 all apply to him. **Numbers, or a coarse
+retention array, means he is on an Ayrshare-class reseller** and the owner can simply do the same.
+
+**Step 3, only if step 1 returns real values: a two-clipper pilot** on the same trial. Pick clippers
+who will tolerate friction, walk them through the **"Turn On" step in their own TikTok app**, and
+measure how long it takes and how many give up. **That step is the likeliest killer and cannot be done
+for them.**
+
+**Step 4, stop conditions, written down now.**
+
+* **Stop if the trial returns nulls** where the docs promise fields. The docs are a claim; the trial is
+  the evidence.
+* **Stop if fewer than half of the pilot clippers complete "Turn On" unaided.** At 43 active TikTok
+  clippers there is no headroom for a flow most abandon.
+* **Stop if Ayrshare requires a registered company**, which is UNVERIFIED and would reproduce exactly
+  the wall BL-726 hit.
+* **Stop if the cost lands above roughly $716/month** without the coverage justifying it, remembering
+  that this buys analytics for 18.6% of clip volume.
+
+**What must NOT happen:** adopting TikHub or TikAPI. Both end with a third party holding a full TikTok
+session for the owner's clippers, and an official OAuth route now demonstrably exists.
+
+### The superseded plan, kept for audit
 
 **Step 1, before any code: ask the peer one question.** *What exactly does your clipper see when they
 connect, and what data do you actually get back?* **He has a working system; one screenshot of that
