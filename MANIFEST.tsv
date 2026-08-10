@@ -175,6 +175,7 @@ BL-1205	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1205 — REPORT AND STO
 BL-1206	leadgen	1.00	auto (stack markers)			BL-1206 — 573 marks read one at a time, and the last round's win turns out to be the biggest source of false rejects
 BL-1207	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1207 — the fresh-50 sheet existed and could not be opened by any route he had, three separate ways
 BL-1208	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1208 — REPORT AND STOP: the fresh-50 sheet and all four rules sit inside live round BL-1207
+BL-1209	leadgen	1.00	auto (stack markers)			BL-1209 — 71 of the 130 links he pasted were refused by an opinion, and the opinion is gone
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -472,6 +473,7 @@ BL-756-clippershq-per-clip-cpm	payments	1.00	auto (stack markers)	2026-08-09		BL
 BL-756	leadgen	1.00	auto (stack markers)	2026-07-31		BL-756 — Capture NOT applied: 108 files written in 3 minutes by ~4 concurrent rounds. But the six fields are re-measured on 3× the sample, and two of 
 BL-757-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-10		BL-757 — merge BL-756 (per-clip CPM override) to main
 BL-757	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-757: Send order — your sendable pool is 4,217 addresses, not 57,000, and 7.6% of it is structural bounce risk
+BL-758-clippershq-full-money-audit	payments	1.00	auto (stack markers)	2026-08-10		BL-758 — the complete money audit: who is owed, who cannot reach it, and whether the arithmetic is right
 BL-758	leadgen	1.00	auto (stack markers)	2026-07-31		BL-758 — Build HELD: every module sections 3/4/6 must edit is mid-edit by another agent. The regression is NOT depth — it is free handle discovery col
 BL-759	leadgen	0.98	auto (stack markers)	2026-07-31		BL-759: A fresh clone imports cleanly but fails 6 of 48 suites — and there is exactly one copy of everything that matters, on one disk, with the sync 
 BL-760	leadgen	0.85	auto (stack markers)	2026-07-31		BL-760 — Engagement fields LANDED. And the caveat was right: save_count is 0% on four new accounts — it is account-specific, not general.
