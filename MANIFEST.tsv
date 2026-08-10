@@ -172,6 +172,7 @@ BL-1202	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1202 — the caption-le
 BL-1203	leadgen	1.00	auto (stack markers)			BL-1203 — the page stopped jumping, and the thumbnails play
 BL-1204	leadgen	1.00	auto (stack markers)			BL-1204 — the free-text box saves now, and it was broken four ways, not one
 BL-1205	leadgen	1.00	auto (stack markers)	2026-08-09		BL-1205 — REPORT AND STOP: the sheet's own file is dirty under a round that started two minutes ago
+BL-1206	leadgen	1.00	auto (stack markers)			BL-1206 — 573 marks read one at a time, and the last round's win turns out to be the biggest source of false rejects
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -465,6 +466,7 @@ BL-754-clippershq-cpm-spec-review	payments	1.00	auto (stack markers)	2026-08-09	
 BL-754	leadgen	0.95	auto (stack markers)	2026-07-31		BL-754 — Spec: a self-audit that prints after every run. Building it surfaced two unflagged regressions and one dead recommendation sitting in shipped
 BL-755-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-09		BL-755 — BL-753 merged to main, and a correction to BL-753's own report
 BL-755	leadgen	1.00	auto (stack markers)	2026-07-31		BL-755 — View floor N measured at n=200 across 4 niches; the description fill drops 12.5% → 7.1% once the country gate is honoured. Implementation HEL
+BL-756-clippershq-per-clip-cpm	payments	1.00	auto (stack markers)	2026-08-09		BL-756 — per-clip CPM override, with both BL-754 gaps closed as part of the build
 BL-756	leadgen	1.00	auto (stack markers)	2026-07-31		BL-756 — Capture NOT applied: 108 files written in 3 minutes by ~4 concurrent rounds. But the six fields are re-measured on 3× the sample, and two of 
 BL-757	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-757: Send order — your sendable pool is 4,217 addresses, not 57,000, and 7.6% of it is structural bounce risk
 BL-758	leadgen	1.00	auto (stack markers)	2026-07-31		BL-758 — Build HELD: every module sections 3/4/6 must edit is mid-edit by another agent. The regression is NOT depth — it is free handle discovery col
