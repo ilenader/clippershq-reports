@@ -177,6 +177,7 @@ BL-1207	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1207 — the fresh-50 s
 BL-1208	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1208 — REPORT AND STOP: the fresh-50 sheet and all four rules sit inside live round BL-1207
 BL-1209	leadgen	1.00	auto (stack markers)			BL-1209 — 71 of the 130 links he pasted were refused by an opinion, and the opinion is gone
 BL-1210	leadgen	1.00	auto (stack markers)			BL-1210 — the 34% was a reading error. The filter scored 72%, the prediction was right, and nothing I tried beats it
+BL-1211	leadgen	1.00	auto (stack markers)			BL-1211 — the paste path calls the same renderer. One branch I added, and two latent bugs in the shared reader
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -480,10 +481,15 @@ BL-759-clippershq-worktree-inventory	payments	0.80	auto (stack markers)	2026-08-
 BL-759	leadgen	0.98	auto (stack markers)	2026-07-31		BL-759: A fresh clone imports cleanly but fails 6 of 48 suites — and there is exactly one copy of everything that matters, on one disk, with the sync 
 BL-760-clippershq-owed-verification	payments	1.00	auto (stack markers)	2026-08-10		BL-760 — does Clipper A genuinely deserve the $60.47, settled from first principles
 BL-760	leadgen	0.85	auto (stack markers)	2026-07-31		BL-760 — Engagement fields LANDED. And the caveat was right: save_count is 0% on four new accounts — it is account-specific, not general.
+BL-761-clippershq-disk-reclaim	leadgen	0.67	auto (stack markers)	2026-07-13		BL-761 — rescue the work, then reclaim the disk
 BL-761	leadgen	0.93	auto (stack markers)	2026-07-31		BL-761: The 52% discard is closed, the counters are honest, and 'personal' now means it. The X-scraper idea is dead — measured 0 of 150
+BL-762-clippershq-minimum-explanation	payments	1.00	auto (stack markers)	2026-08-10		BL-762 — telling a clipper why he cannot withdraw, where he already is
 BL-762	leadgen	0.97	auto (stack markers)	2026-07-31		BL-762 — The YouTube size gate now measures reach, not just followers: N = 2,000,000 views, measured on 200 channels across 4 niches
+BL-763-clippershq-voided-payout-unpaid	ambiguous	0.00	auto (stack markers)	2026-08-10		BL-763 — two payouts auto-voided six days ago, still unpaid
 BL-763	leadgen	1.00	hand-verified	2026-07-31		BL-763 — Audio genre labelling: CLOSE IT. Non-reproducibility is upstream of accuracy, and no threshold or vote is worth buying.
+BL-764-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-10		BL-764 — merge BL-762 (tell a clipper why he cannot withdraw) to main
 BL-764	leadgen	1.00	auto (stack markers)	2026-07-31		BL-764: The number is 1,600 — and 1,592 of them come from one source. Six of your eight funnels export nothing because of a single empty column
+BL-765-clippershq-earnings-reminder	payments	1.00	auto (stack markers)	2026-08-10		BL-765 — the reminder beside each campaign in earnings, and the clamp that hid it from the one clipper it was for
 BL-765	leadgen	1.00	auto (stack markers)	2026-07-31		BL-765 — Send-path audit: **NO, not safe to send from today.** The file n8n watches holds 2 rows, nothing is suppressed, and 2,505 of 4,128 valid addr
 BL-766	leadgen	0.93	auto (stack markers)	2026-07-31	BL-769	BL-766 — Cause found: the run asked for 1,000 leads from a seed pool that holds ~452. The overflow came from related-artist expansion, whose artists c
 BL-767	leadgen	0.92	auto (stack markers)	2026-07-31		BL-767 — SPEC: the two gates protect nothing on client funnels, there is a third gate nobody has counted, and the fix is one declared field — not a ve
