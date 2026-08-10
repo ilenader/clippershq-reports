@@ -176,6 +176,7 @@ BL-1206	leadgen	1.00	auto (stack markers)			BL-1206 — 573 marks read one at a 
 BL-1207	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1207 — the fresh-50 sheet existed and could not be opened by any route he had, three separate ways
 BL-1208	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1208 — REPORT AND STOP: the fresh-50 sheet and all four rules sit inside live round BL-1207
 BL-1209	leadgen	1.00	auto (stack markers)			BL-1209 — 71 of the 130 links he pasted were refused by an opinion, and the opinion is gone
+BL-1210	leadgen	1.00	auto (stack markers)			BL-1210 — the 34% was a reading error. The filter scored 72%, the prediction was right, and nothing I tried beats it
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -475,7 +476,9 @@ BL-757-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-10		BL-757 �
 BL-757	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-757: Send order — your sendable pool is 4,217 addresses, not 57,000, and 7.6% of it is structural bounce risk
 BL-758-clippershq-full-money-audit	payments	1.00	auto (stack markers)	2026-08-10		BL-758 — the complete money audit: who is owed, who cannot reach it, and whether the arithmetic is right
 BL-758	leadgen	1.00	auto (stack markers)	2026-07-31		BL-758 — Build HELD: every module sections 3/4/6 must edit is mid-edit by another agent. The regression is NOT depth — it is free handle discovery col
+BL-759-clippershq-worktree-inventory	payments	0.80	auto (stack markers)	2026-08-10		BL-759 — every git worktree on the owner's machine, and exactly which are safe to delete
 BL-759	leadgen	0.98	auto (stack markers)	2026-07-31		BL-759: A fresh clone imports cleanly but fails 6 of 48 suites — and there is exactly one copy of everything that matters, on one disk, with the sync 
+BL-760-clippershq-owed-verification	payments	1.00	auto (stack markers)	2026-08-10		BL-760 — does Clipper A genuinely deserve the $60.47, settled from first principles
 BL-760	leadgen	0.85	auto (stack markers)	2026-07-31		BL-760 — Engagement fields LANDED. And the caveat was right: save_count is 0% on four new accounts — it is account-specific, not general.
 BL-761	leadgen	0.93	auto (stack markers)	2026-07-31		BL-761: The 52% discard is closed, the counters are honest, and 'personal' now means it. The X-scraper idea is dead — measured 0 of 150
 BL-762	leadgen	0.97	auto (stack markers)	2026-07-31		BL-762 — The YouTube size gate now measures reach, not just followers: N = 2,000,000 views, measured on 200 channels across 4 niches
