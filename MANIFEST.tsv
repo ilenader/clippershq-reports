@@ -178,6 +178,7 @@ BL-1208	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1208 — REPORT AND STO
 BL-1209	leadgen	1.00	auto (stack markers)			BL-1209 — 71 of the 130 links he pasted were refused by an opinion, and the opinion is gone
 BL-1210	leadgen	1.00	auto (stack markers)			BL-1210 — the 34% was a reading error. The filter scored 72%, the prediction was right, and nothing I tried beats it
 BL-1211	leadgen	1.00	auto (stack markers)			BL-1211 — the paste path calls the same renderer. One branch I added, and two latent bugs in the shared reader
+BL-1212	leadgen	1.00	auto (stack markers)			BL-1212: the panel sorted folder NAMES, so a letter outranked every timestamp and his three batches were invisible
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
