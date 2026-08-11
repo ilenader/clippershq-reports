@@ -252,6 +252,33 @@ Metricool, after failing to verify it in the source. **Recorded because it is ex
 this round was told to avoid**, and because a number that was nearly published and then withdrawn is
 worth more as a warning than as data.
 
+### A second sweep, confirming the above and adding two more traps
+
+A separate documentation sweep reached the same conclusions independently and added three things.
+
+**"Retention" in TikTok's ADVERTISING documentation means app-install retention, not video
+retention.** Two different concepts, one word. **Anyone searching TikTok's docs for retention
+benchmarks will find the wrong metric and not notice.** This sits directly beside the `0.0395`
+placeholder as a way to seed a threshold from something meaningless.
+
+**Instagram has no "Replays" metric**, and Meta publishes only qualitative statements: "watch a reel
+all the way through" is named as a ranking input (Mosseri 2021, Instagram 2023) **with no numbers
+attached anywhere**. The one quantitative-shaped official field is **`reels_skip_rate` in the Graph
+API**, which is something the owner could measure himself rather than a published benchmark, and which
+no prior round has mentioned.
+
+**The no-benchmark finding is now confirmed twice, independently: no platform publishes a typical
+distribution for traffic source, watch time, completion or retention. Not TikTok, not YouTube, not
+Meta. Every percentage in circulation is third-party.** Also re-confirmed: the Research API (23 fields)
+and Display API (15 fields, stopping at `view_count`) cannot return any of these, and **no analytics
+scope exists anywhere in TikTok's scope catalogue**, which is BL-769's finding reached from a third
+direction.
+
+**Sourcing caveat carried forward honestly:** the TikTok quotes came through TikTok's own documentation
+gateway rather than a rendered portal page, and the Meta quotes through a fetch-layer summariser, with
+the two highest-stakes Meta sources independently re-pulled and matching. **If any figure here goes
+into a contract or a client-facing claim, re-pull that specific URL rather than citing this report.**
+
 ### How this changes the platform benchmarks: barely, and that is the point
 
 **Every figure here is a global average, and PART 2 has just shown that global averages are the
