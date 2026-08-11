@@ -190,6 +190,7 @@ BL-1220	leadgen	1.00	auto (stack markers)			BL-1220: RULE 8 was never broken, it
 BL-1221	leadgen	1.00	auto (stack markers)			BL-1221: `/v2/search` does not paginate — and 104 new TikTok addresses are in the send file
 BL-1222	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1222: I looked. The swap is fixed, the readback guard is blind on 9 of 9, and two clips draw the wrong words for two different reasons
 BL-1223	leadgen	1.00	auto (stack markers)			BL-1223 — the dialogue rule can finally fire, the caption pollution is one advertiser's paragraph, and the editing-page question is ready to ask
+BL-1224	leadgen	1.00	auto (stack markers)			BL-1224: he is right about the music and wrong about the trim, and the container has been lying about both
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -521,6 +522,7 @@ BL-773-clippershq-analytics-store	payments	1.00	auto (stack markers)	2026-08-11	
 BL-773	leadgen	0.94	auto (stack markers)	2026-07-31		BL-773 — The $3.53 is real and irrelevant: time costs 100× the cash. Total addressable pool is ~2,000 fresh email leads, and the sustainable weekly ra
 BL-774-clippershq-clipper-app-broken	ambiguous	0.00	auto (stack markers)	2026-08-03		BL-774 — "my app is not working", diagnosed
 BL-774	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-774: The list you can actually send to is one segment, not three — 1,568 fandom video editors, and it is a RECRUITING list, not a sales list
+BL-775-clippershq-review-evidence-panel	payments	1.00	auto (stack markers)	2026-08-11		BL-775 — information for a review, not a verdict
 BL-775	leadgen	0.44	auto (stack markers)	2026-07-31		BL-775 — What this project knows about itself: none of the four "contradictions" is one, evidence survives at 100%, and the real cost is that **165 of
 BL-776	leadgen	1.00	auto (stack markers)	2026-07-31		BL-776 — Baselines captured for all four unbaselined funnels. And the optional-field hazard turns out not to exist outside the raw mirrors: 0 optional
 BL-777	leadgen	0.97	auto (stack markers)	2026-07-31		BL-777 — YouTube has NEVER been run. Not once. It works when you run it — 12% pass, all six fixes firing — and then **every lead it produces is struct
