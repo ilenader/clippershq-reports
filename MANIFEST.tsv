@@ -185,6 +185,7 @@ BL-1215	leadgen	1.00	auto (stack markers)			BL-1215: the strip was sized to the 
 BL-1216	leadgen	1.00	auto (stack markers)			BL-1216 — THE FILTER: his rules as the spec, scored against his 623 marks
 BL-1217	leadgen	1.00	auto (stack markers)	2026-06-30		BL-1217 — the bioLink field is real at 30.0%, and the thing worth reading in it is not the link
 BL-1218	leadgen	1.00	auto (stack markers)			BL-1218: the scramble was a ONE-PIXEL overlap, and the type size was being read from two of his lines added together
+BL-1219	leadgen	1.00	auto (stack markers)			BL-1219 — seven addresses harvested, six of them new, and none of them belong in the TikTok send file
 BL-1220	leadgen	1.00	auto (stack markers)			BL-1220: RULE 8 was never broken, it was starved — the field stopped at `posts_for`
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
@@ -509,6 +510,7 @@ BL-769-clippershq-bundlesocial-pilot	leadgen	1.00	auto (stack markers)	2026-08-1
 BL-769	leadgen	1.00	auto (stack markers)	2026-07-31		BL-769 — Seeds re-measured: six of seven unchanged, the trial playlist is now the best of the set AND the largest contributor. But your safe run_targe
 BL-770-clippershq-bundlesocial-live	leadgen	1.00	auto (stack markers)	2026-08-11		BL-770 — the pilot still could not run, but the replacement question is answered without it
 BL-770	leadgen	0.56	auto (stack markers)	2026-07-31		BL-770 — Junk sweep: 1 live junk address, not a guard failure. letsencrypt is in a 14-day-stale FILE that today's code already rejects
+BL-771-clippershq-bot-detection-research	ambiguous	0.00	auto (stack markers)	2026-08-11		BL-771 — detecting bought views on TikTok: what the evidence actually supports
 BL-771	leadgen	1.00	auto (stack markers)	2026-07-31		BL-771 — Duplicate humans: master is clean (5, all Google Play). But the send path **would double-send 1,395 people** — because dedup is perfect *with
 BL-772-clippershq-connect-to-withdraw-design	ambiguous	0.00	auto (stack markers)	2026-08-11		BL-772 — connect-to-withdraw and the analytics store, designed before any code
 BL-772	leadgen	0.81	auto (stack markers)	2026-07-31		BL-772 — Platform-change exposure: the loud-zero guard exists in exactly one funnel, five funnels have no saved baseline at all, and an empty 200 is s
