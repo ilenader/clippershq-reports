@@ -184,6 +184,7 @@ BL-1214	leadgen	1.00	auto (stack markers)			BL-1214: the strip is 25% of the fra
 BL-1215	leadgen	1.00	auto (stack markers)			BL-1215: the strip was sized to the letterbox, not to his text; the ENOSPC was never a disk; and he has no white card on six clips in seven
 BL-1216	leadgen	1.00	auto (stack markers)			BL-1216 — THE FILTER: his rules as the spec, scored against his 623 marks
 BL-1217	leadgen	1.00	auto (stack markers)	2026-06-30		BL-1217 — the bioLink field is real at 30.0%, and the thing worth reading in it is not the link
+BL-1220	leadgen	1.00	auto (stack markers)			BL-1220: RULE 8 was never broken, it was starved — the field stopped at `posts_for`
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -503,9 +504,12 @@ BL-767-clippershq-creator-analytics-vendors	leadgen	0.98	auto (stack markers)	20
 BL-767	leadgen	0.92	auto (stack markers)	2026-07-31		BL-767 — SPEC: the two gates protect nothing on client funnels, there is a third gate nobody has counted, and the fix is one declared field — not a ve
 BL-768-clippershq-usage-priced-vendors	leadgen	1.00	auto (stack markers)	2026-08-11		BL-768 — is there a usage-priced vendor with creator-consented TikTok depth?
 BL-768	leadgen	1.00	auto (stack markers)	2026-07-31		BL-768 — Spec: suppression + bulk outcome marker. The briefed marker plan is O(n) per key and costs 73s; an index costs 0.04s. Both export files are s
+BL-769-clippershq-bundlesocial-pilot	leadgen	1.00	auto (stack markers)	2026-08-11		BL-769 — the bundle.social pilot, and the two TikTok rules that reshape the design
 BL-769	leadgen	1.00	auto (stack markers)	2026-07-31		BL-769 — Seeds re-measured: six of seven unchanged, the trial playlist is now the best of the set AND the largest contributor. But your safe run_targe
+BL-770-clippershq-bundlesocial-live	leadgen	1.00	auto (stack markers)	2026-08-11		BL-770 — the pilot still could not run, but the replacement question is answered without it
 BL-770	leadgen	0.56	auto (stack markers)	2026-07-31		BL-770 — Junk sweep: 1 live junk address, not a guard failure. letsencrypt is in a 14-day-stale FILE that today's code already rejects
 BL-771	leadgen	1.00	auto (stack markers)	2026-07-31		BL-771 — Duplicate humans: master is clean (5, all Google Play). But the send path **would double-send 1,395 people** — because dedup is perfect *with
+BL-772-clippershq-connect-to-withdraw-design	ambiguous	0.00	auto (stack markers)	2026-08-11		BL-772 — connect-to-withdraw and the analytics store, designed before any code
 BL-772	leadgen	0.81	auto (stack markers)	2026-07-31		BL-772 — Platform-change exposure: the loud-zero guard exists in exactly one funnel, five funnels have no saved baseline at all, and an empty 200 is s
 BL-773	leadgen	0.94	auto (stack markers)	2026-07-31		BL-773 — The $3.53 is real and irrelevant: time costs 100× the cash. Total addressable pool is ~2,000 fresh email leads, and the sustainable weekly ra
 BL-774	leadgen	1.00	auto (stack markers)	2026-07-31	BL-764	BL-774: The list you can actually send to is one segment, not three — 1,568 fandom video editors, and it is a RECRUITING list, not a sales list
