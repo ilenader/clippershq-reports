@@ -184,6 +184,7 @@ BL-1214	leadgen	1.00	auto (stack markers)			BL-1214: the strip is 25% of the fra
 BL-1215	leadgen	1.00	auto (stack markers)			BL-1215: the strip was sized to the letterbox, not to his text; the ENOSPC was never a disk; and he has no white card on six clips in seven
 BL-1216	leadgen	1.00	auto (stack markers)			BL-1216 — THE FILTER: his rules as the spec, scored against his 623 marks
 BL-1217	leadgen	1.00	auto (stack markers)	2026-06-30		BL-1217 — the bioLink field is real at 30.0%, and the thing worth reading in it is not the link
+BL-1218	leadgen	1.00	auto (stack markers)			BL-1218: the scramble was a ONE-PIXEL overlap, and the type size was being read from two of his lines added together
 BL-1220	leadgen	1.00	auto (stack markers)			BL-1220: RULE 8 was never broken, it was starved — the field stopped at `posts_for`
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
