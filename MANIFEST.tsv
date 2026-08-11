@@ -189,6 +189,7 @@ BL-1219	leadgen	1.00	auto (stack markers)			BL-1219 — seven addresses harveste
 BL-1220	leadgen	1.00	auto (stack markers)			BL-1220: RULE 8 was never broken, it was starved — the field stopped at `posts_for`
 BL-1221	leadgen	1.00	auto (stack markers)			BL-1221: `/v2/search` does not paginate — and 104 new TikTok addresses are in the send file
 BL-1222	leadgen	1.00	auto (stack markers)	2026-08-10		BL-1222: I looked. The swap is fixed, the readback guard is blind on 9 of 9, and two clips draw the wrong words for two different reasons
+BL-1223	leadgen	1.00	auto (stack markers)			BL-1223 — the dialogue rule can finally fire, the caption pollution is one advertiser's paragraph, and the editing-page question is ready to ask
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
