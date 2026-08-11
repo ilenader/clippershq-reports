@@ -187,26 +187,78 @@ whole line of work remains impossible.
 
 ---
 
-## PART 3 — THE PUBLISHED RESEARCH: NOT ESTABLISHED THIS ROUND
+## PART 3 — THE PUBLISHED RESEARCH
 
-**A dedicated research agent was tasked with completion rates by video length and normal For You page
-share, from primary sources only. It did not return within the round, and I am not filling the gap
-from memory.**
+**Added after first publication.** This section was originally a deliberate blank because the research
+agent had not returned. It has now reported, and the findings are below with confidence labels. **The
+most important one contradicts the brief's own premise, so it leads.**
 
-**What is verified, from TikTok's own documentation** (BL-769, doc_id `1762228421622786`): the
-`impression_sources` field exists and its enum is **`For You`, `Follow`, `Sound`, `Personal Profile`,
-`Search`, `Others`, `Direct Message`**. **That is the shape of the answer. TikTok publishes no typical
-distribution**, and none should be inferred from the enum alone.
+### Completion rate by video length: the duration effect is NOT confirmed on TikTok
 
-**No completion-rate or For-You-share figure is published in this report**, because none was verified to
-a primary source. **This is a deliberate blank.** BL-771 already found two published signals that
-failed when tested against this platform's real data, and the entire premise of this round is that the
-platform's own outcomes beat a general article. **An unsourced number here would be worse than none.**
+**The strongest TikTok-native measurement is a CHI 2024 data-donation study, 347 users and 9.2 million
+recommendations:** **45% of views were watched completely**, and **24% were skipped before reaching 20%
+of the video's duration**. Confidence **HIGH**, a primary study with a stated sample and method.
 
-**It also matters less than it appears.** Even a well-sourced global completion figure would be a
-platform-wide average, and PART 2 has just demonstrated that platform-wide averages are the specific
-thing that misleads here. **The benchmark that will matter is this platform's own, per campaign, once
-connections exist.**
+**But the same study found no substantial correlation between duration and completion.** That matters
+directly, because the round's framing, and the owner's own example, assume that a longer clip
+mechanically produces lower completion. **On the strongest available TikTok dataset, that assumption is
+not supported.**
+
+**The duration effect IS well established, but on other platforms:** Kuaishou (KDD 2022), WeChat
+Channels (ACM TOIS) and Snapchat (SnapUGC). Confidence **HIGH** for those platforms, **and
+transferring them to TikTok is an assumption, not a measurement.**
+
+**Three mechanism findings support the owner's underlying instinct better than any single benchmark
+would**, all from that literature: watch-time distributions are **bimodal** rather than clustered
+around a mean, replay rate **rises as duration falls**, and long videos **predict session exit**. **So
+"three seconds" genuinely does mean something different on a 6-second clip than a 60-second one, but
+the reason is the shape of the distribution rather than a clean completion-versus-length curve.**
+
+### Normal For You share: one defensible figure
+
+**72.70% of views from the For You feed**, from Metricool across **2.3 million posts and 92,000
+accounts**. Confidence **MEDIUM**: large sample, but a self-selected population of Metricool users, and
+the dispersion around that mean is not published.
+
+**The `impression_sources` taxonomy itself is confirmed HIGH** from TikTok's own API documentation
+(BL-769, doc_id `1762228421622786`): `For You`, `Follow`, `Sound`, `Personal Profile`, `Search`,
+`Others`, `Direct Message`.
+
+**No platform publishes a benchmark distribution anywhere.** That was checked and is a finding in its
+own right: there is no official "normal" to compare against, only third-party aggregate.
+
+### By content type: an explicit blank
+
+**No credible source was found for any of memes, music and lyrics, football, quotes, or creator-led
+content.** The structural reason is documented and is worth knowing: **watch-time datasets lack
+category labels, and category-labelled datasets lack watch time.** Nobody has joined the two publicly.
+
+**The raw material to compute it does exist**, in the publicly downloadable **KuaiRand** and **Tenrec**
+datasets, which is a research project rather than a lookup.
+
+### Two traps and one retraction, all worth carrying forward
+
+**TikTok's own documentation shows `full_video_watched_rate` with the sample value `0.0395`. That is a
+placeholder, not a benchmark.** A skimmer will read it as "3.95% is normal" and it means nothing of the
+kind. **Anyone building the review panel must not seed a threshold from it.**
+
+**The brief's premise that these fields are unobtainable is beatable.** TikTok does expose
+`full_video_watched_rate`, `video_view_retention` and `impression_sources` through the Accounts API,
+gated to business accounts and, since March 2026, an access application. **That is BL-769's finding
+confirmed from the other direction.**
+
+**The agent retracted one of its own earlier figures**, a "3.75s average watch duration" attributed to
+Metricool, after failing to verify it in the source. **Recorded because it is exactly the failure mode
+this round was told to avoid**, and because a number that was nearly published and then withdrawn is
+worth more as a warning than as data.
+
+### How this changes the platform benchmarks: barely, and that is the point
+
+**Every figure here is a global average, and PART 2 has just shown that global averages are the
+specific thing that misleads on this platform.** A 72.70% For You share tells the owner nothing about
+whether 40% is alarming on bees.n.honey TikTok. **These are useful as sanity bounds and as a warning
+about the `0.0395` placeholder, not as benchmarks. The benchmark that will matter is still this
+platform's own, per campaign, once clippers connect.**
 
 ---
 
@@ -339,8 +391,14 @@ most.**
 
 ## WHAT COULD NOT BE MEASURED
 
-* **PART 3 in full.** The research agent did not return, and no completion-rate or For-You-share figure
-  is published rather than being sourced from memory or an unsourced blog.
+* **PART 3 was completed after first publication** and is no longer blank. **Its source URLs are not
+  reproduced here**, because they were not carried through to my summary; the studies are identified by
+  venue, year and sample size (CHI 2024, 347 users / 9.2M recommendations; KDD 2022; ACM TOIS;
+  SnapUGC; Metricool 2.3M posts / 92k accounts) so each can be located and checked. **Anyone relying on
+  a figure should verify it at source rather than on my relay.**
+* **Whether the duration-completion effect holds on TikTok.** The strongest TikTok dataset says it does
+  not, three other platforms say it does. **Unresolved, and it sits directly under the owner's own
+  example.**
 * **Watch time, completion, impression sources, audience countries.** Zero OAuth connections exist.
 * **Clip duration.** No column exists anywhere on `clips`. **This is a gap that must be closed before
   watch-time benchmarks are attempted.**
