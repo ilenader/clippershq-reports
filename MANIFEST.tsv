@@ -181,6 +181,7 @@ BL-1211	leadgen	1.00	auto (stack markers)			BL-1211 — the paste path calls the
 BL-1212	leadgen	1.00	auto (stack markers)			BL-1212: the panel sorted folder NAMES, so a letter outranked every timestamp and his three batches were invisible
 BL-1213	leadgen	1.00	auto (stack markers)			BL-1213 — READ-ONLY AUDIT: what exists for TikTok, and every route to an email
 BL-1214	leadgen	1.00	auto (stack markers)			BL-1214: the strip is 25% of the frame and he is right, the stutter is not in the file, and I shipped no fix
+BL-1216	leadgen	1.00	auto (stack markers)			BL-1216 — THE FILTER: his rules as the spec, scored against his 623 marks
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -496,7 +497,9 @@ BL-765-clippershq-earnings-reminder	payments	1.00	auto (stack markers)	2026-08-1
 BL-765	leadgen	1.00	auto (stack markers)	2026-07-31		BL-765 — Send-path audit: **NO, not safe to send from today.** The file n8n watches holds 2 rows, nothing is suppressed, and 2,505 of 4,128 valid addr
 BL-766-clippershq-merge	payments	0.95	auto (stack markers)	2026-08-10		BL-766 — merge BL-765 to main: the per-campaign reminder, and the clamp that hid its predecessor
 BL-766	leadgen	0.93	auto (stack markers)	2026-07-31	BL-769	BL-766 — Cause found: the run asked for 1,000 leads from a seed pool that holds ~452. The overflow came from related-artist expansion, whose artists c
+BL-767-clippershq-creator-analytics-vendors	leadgen	0.98	auto (stack markers)	2026-08-10		BL-767 — which creator-consented TikTok analytics service actually delivers, and what it costs
 BL-767	leadgen	0.92	auto (stack markers)	2026-07-31		BL-767 — SPEC: the two gates protect nothing on client funnels, there is a third gate nobody has counted, and the fix is one declared field — not a ve
+BL-768-clippershq-usage-priced-vendors	leadgen	1.00	auto (stack markers)	2026-08-11		BL-768 — is there a usage-priced vendor with creator-consented TikTok depth?
 BL-768	leadgen	1.00	auto (stack markers)	2026-07-31		BL-768 — Spec: suppression + bulk outcome marker. The briefed marker plan is O(n) per key and costs 73s; an index costs 0.04s. Both export files are s
 BL-769	leadgen	1.00	auto (stack markers)	2026-07-31		BL-769 — Seeds re-measured: six of seven unchanged, the trial playlist is now the best of the set AND the largest contributor. But your safe run_targe
 BL-770	leadgen	0.56	auto (stack markers)	2026-07-31		BL-770 — Junk sweep: 1 live junk address, not a guard failure. letsencrypt is in a 14-day-stale FILE that today's code already rejects
