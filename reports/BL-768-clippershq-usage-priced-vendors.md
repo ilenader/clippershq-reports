@@ -12,7 +12,85 @@ machine-readable specification.
 
 ---
 
-## THE ANSWER, BEFORE THE WORKING
+# CORRECTION, ADDED AFTER FIRST PUBLICATION — A VENDOR DOES QUALIFY
+
+**The verdict below was published, then the fifth agent returned and overturned it. The original text
+is left intact underneath so the reasoning can be audited; this block supersedes it.**
+
+**bundle.social passes all three tests.** The field list exists on a page neither I nor the earlier
+agent had found: [info.bundle.social/api-reference/platforms/tiktok.md](https://info.bundle.social/api-reference/platforms/tiktok.md),
+which publishes the literal raw payloads. **I verified it directly**, not from the agent's summary.
+
+| The owner's ten fields | bundle.social | Level |
+|---|---|---|
+| Average watch time | **`average_time_watched`** | video |
+| Full-video watched rate | **`full_video_watched_rate`** | video |
+| Total watch time | **`total_time_watched`** | video |
+| Reach | **`reach`** | video |
+| Traffic / impression sources | **`impression_sources`** | video |
+| Audience gender | **`audience_genders`** | video |
+| Audience countries | **`audience_countries`** | video |
+| Audience age | **`audience_ages`** | account |
+| Profile views | **`profile_views`** (in the daily `metrics` array) | account |
+| **Retention curve** | **ABSENT.** The only occurrence of "retention" on the page is "data retention" | — |
+
+**Nine of ten, at $100/month flat with unlimited connected accounts.** The one missing field is the
+retention curve, which BL-767 named as the single strongest screen-share replacement. Ayrshare has it
+(`videoViewRetention`); bundle.social does not.
+
+**A methodological note that matters.** The agent explicitly corrected its own sub-agent, which had
+claimed these fields were "verified against their OpenAPI spec". They are **not** in
+`api.bundle.social/swagger-json` (886 KB, 110 paths) in any case form; the spec types the raw payload
+as a generic passthrough object. **The fields are real and the earlier evidence for them was wrong.**
+That is exactly the failure mode this whole line of rounds keeps hitting, caught this time.
+
+### A second correction, to this report AND to BL-767: Ayrshare is far cheaper at scale than stated
+
+I framed Ayrshare as unaffordable from its $149 entry tier. **That was misleading and I verified the
+real tiering directly** ([pricing](https://www.ayrshare.com/pricing/)): Business is $599 for the first
+30 profiles, then **$8.99 each for 31 to 100, $3.49 for 101 to 500, $2.49 above 500** (annual billing:
+$499 base, $7.99 / $2.99 / $1.99).
+
+| Connected clippers | **bundle.social** | **Ayrshare, monthly** | Ayrshare, annual |
+|---|---|---|---|
+| 50 | **$100** | ~$779 | ~$659 |
+| 150 | **$100** | ~$1,403 | ~$1,208 |
+| 300 | **$100** | **~$1,926**, not "unpriced Enterprise" | ~$1,656 |
+
+**So the real choice is $100/month for nine fields versus roughly $1,900/month for ten.** That is a
+genuine decision rather than the dead end I published, and it turns on whether the retention curve
+alone is worth about $1,800 a month.
+
+### The risk that may outrank both, flagged prominently
+
+TikTok's Accounts API overview reportedly lists under **Prohibited Uses**: *"Extract reports of TikTok
+profiles and posts from authorized creators' accounts, and use the aggregated data to develop a
+self-built affiliate influencer marketing program (such as creator discovery and ranking), instead of
+using the TikTok One platform or API"*, alongside *"TikTok reserves the right to revoke a developer's
+Accounts API access at any time without prior notice."*
+
+**I could not verify this myself** — the page is a JavaScript shell that returns only a title — so it
+is **UNVERIFIED** and attributed to the agent. **But the owner must read it before building anything**,
+because his stated goal is a bot-likelihood score, and "creator discovery and ranking" is the named
+prohibition. Reading insights to compute CPM payouts looks defensible; ranking clippers on aggregated
+creator data looks closer to the line. **This risk is identical through every vendor**, since they all
+inherit the same Accounts API terms, and the owner inherits continuity risk if his vendor is revoked.
+
+### Practical caveats that will bite a cron, all from the agent, UNVERIFIED by me
+
+`profile_views` is **Business-Account-only**; creators must **manually enable Analytics in the TikTok
+app**; profile demographics need **100+ followers**; and **`reach`, watch time and `impression_sources`
+go unavailable if a video has had no engagement for 7+ days**. That last one is awkward for the
+owner's design, which revisits older clips at payout time, and it should be the first thing the free
+test checks.
+
+**REVISED VERDICT: test bundle.social on its free tier now.** Free, 3 accounts, no card. If the nine
+fields arrive on a real clip, it costs $100/month flat for unlimited clippers and the problem is
+solved bar the retention curve.
+
+---
+
+## THE ORIGINAL ANSWER, NOW SUPERSEDED
 
 > **No vendor is confirmed to qualify. The market splits cleanly and the split is the finding:
 > consented-OAuth vendors price per connected profile, and usage-priced vendors are scrapers serving
@@ -345,6 +423,27 @@ above, and **one email to Ayrshare asking what 300 connected profiles costs.** B
 every open question in this report.
 
 ---
+
+## THE PARTNER-DIRECTORY QUESTION, ANSWERED AS A DEAD END
+
+The fifth agent's original task was to enumerate who holds TikTok Business API approval. **It is not
+enumerable, and that is a finding rather than a gap:**
+
+* `partners.tiktok.com/directory/pc/en` exists but is a client-rendered SPA returning an empty
+  document, **and even rendered it is an ADS certification** with nothing tying partner status to
+  `video.insights` access.
+* **TikTok publishes no list of API-approved partners.** The complete API-for-Business documentation
+  tree, **1,173 nodes**, contains no vendor directory; every "partner" hit is a Business Center
+  asset-sharing endpoint.
+* `developers.tiktok.com` has no "built with TikTok" showcase.
+
+**So the supply side cannot be worked from a list.** Vendors must be found individually and checked
+against their own docs, which is what these two rounds did.
+
+**The mechanism thesis is confirmed from TikTok's own side**, which is worth recording because it is
+what makes any of this possible: TikTok's Accounts API authorization doc states *"you (the developer)
+need to first get authorization from the business"* via a standard OAuth URL, and **nothing requires
+the authorizing creator to be a company.** The company gate binds app registration only.
 
 ## WHAT COULD NOT BE ESTABLISHED
 
