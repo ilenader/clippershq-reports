@@ -199,6 +199,7 @@ BL-1230	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1230 — the 10.9 secon
 BL-1231	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1231 — his 21 hand marks were in two places, and git was neither
 BL-1232	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1232 — follower size was a proxy; the discovery path was the mechanism. Send file 158 → 874
 BL-1233	leadgen	0.82	auto (stack markers)	2026-08-12		BL-1233 — the read gate depended on the CDN, and the engine's own resize is why
+BL-1234	leadgen	1.00	auto (stack markers)			BL-1234 — the standing mess, closed: what was actually stale, what was never lost, and the one hole that is still growing
 BL-1235	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1235 — both exports rebuilt and the partition proved at zero, then a concurrent round rebuilt two of the three files and broke it again
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
@@ -574,6 +575,7 @@ BL-795-clippershq-problem-reports	payments	1.00	auto (stack markers)	2026-08-12	
 BL-795	leadgen	1.00	auto (stack markers)	2026-07-31		BL-795 — The benchmark was already finished and already decided. I re-derived all seven numbers independently from the raw results and every one matches. No calls made, $0.0000 spent, verdict unchanged: CLOSE IT
 BL-796-clippershq-reviewer-navigation-fix	payments	1.00	auto (stack markers)	2026-08-12		BL-796 — the reviewer role REPLACES the clipper navigation, and one flag decides whether a partner keeps his own pages
 BL-796	leadgen	1.00	auto (stack markers)	2026-07-31		BL-796 — 29 files committed in 7 workstream commits and the fresh clone now passes 48/50. But committing changed less than it looks: the branch is 47 commits ahead of a remote last pushed 15 days ago, so it is all still on one disk
+BL-797-clippershq-problem-reports-build	payments	1.00	auto (stack markers)	2026-08-12		BL-797 — report a problem, one way, inside the widget that already exists
 BL-797	leadgen	1.00	auto (stack markers)	2026-07-31		BL-797 — SHIPPED: `touch_number` + `message_variant`, and a bulk marker that stamps 2,787 keys in **0.18s** instead of a projected 121s. **The 8 "ghosts" are not ghosts** — every one of those rows is still in the master, and they could be mailed but never stamped
 BL-798-clippershq-reviewer-nav-build	payments	1.00	auto (stack markers)	2026-08-12		BL-798 — the harm is smaller than it looked, and the build did not happen
 BL-798	leadgen	1.00	auto (stack markers)	2026-07-31		BL-798 — The DASH path is live and I retrieved a real 1080×1920 AV1 stream through it. But the wiring already existed, the rendition picker failed cheap in the wrong direction, and the free subtitle track is 12 of 72 clips — not 12 of 12
