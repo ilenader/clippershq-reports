@@ -201,6 +201,7 @@ BL-1232	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1232 — follower size 
 BL-1233	leadgen	0.82	auto (stack markers)	2026-08-12		BL-1233 — the read gate depended on the CDN, and the engine's own resize is why
 BL-1234	leadgen	1.00	auto (stack markers)			BL-1234 — the standing mess, closed: what was actually stale, what was never lost, and the one hole that is still growing
 BL-1235	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1235 — both exports rebuilt and the partition proved at zero, then a concurrent round rebuilt two of the three files and broke it again
+BL-1237	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1237 — the 874 meme pages are on his screen, and three of the columns he asked for are empty because nobody ever measured them
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
