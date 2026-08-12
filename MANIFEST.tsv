@@ -195,6 +195,7 @@ BL-1225	leadgen	1.00	auto (stack markers)			BL-1225: the mechanism is named and 
 BL-1226	leadgen	1.00	auto (stack markers)			BL-1226 — the music stops because `adelay` loses its own silence, and the tail with it
 BL-1227	leadgen	1.00	auto (stack markers)			BL-1227 — one icon and one launcher, clearing proved in a browser; and the regex gain was credited to the wrong change
 BL-1229	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1229 — the song stopped jumping, and he can edit his own windows
+BL-1231	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1231 — his 21 hand marks were in two places, and git was neither
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -557,9 +558,12 @@ BL-789-clippershq-instagram-route-final	payments	1.00	auto (stack markers)	2026-
 BL-789	leadgen	1.00	auto (stack markers)	2026-07-31		BL-789 — Four send-path fixes shipped. Deleting the Kick line was not enough: an unmapped source falls through to CLIPPER, so the revert had to be an explicit retirement
 BL-790-clippershq-capability-checkbox-fix	payments	1.00	auto (stack markers)	2026-08-12		BL-790 — the capability checkbox hole: reachable, persisting, and granting nothing
 BL-790	leadgen	1.00	auto (stack markers)	2026-07-31		BL-790 — Merge columns shipped: 0 rows had 3+ tokens, now 1,534 do. The Google Play fake link is gone. And the first version of my own fix wrote "0 followers" to 1,015 rows
+BL-791-clippershq-partner-reviewer-hardening	payments	1.00	auto (stack markers)	2026-08-12		BL-791 — the partner reviewer under test: what held, what I could not walk, and one claim of mine that was wrong
 BL-791	leadgen	1.00	auto (stack markers)	2026-07-31		BL-791 — 679 client rows re-run with evidence attached. But `qualified_by` was bypassed in ALL FOUR funnels, and the DIRECT rank is still meaningless: send_list sorts on three clipper metrics that are zero on every client row
+BL-792-clippershq-partner-reviewer-ui	payments	1.00	auto (stack markers)	2026-08-12		BL-792 — the named user is already a reviewer, has no invite link, and would see everything or nothing
 BL-792	ambiguous	0.00	auto (stack markers)	2026-07-31		BL-792 — Read out loud: `niche` is blank on 30 of 30, and where it IS populated it says "0% OFF". The template needs a different field, and it already exists at 100% fill
 BL-793	leadgen	1.00	auto (stack markers)	2026-07-31		BL-793 — SHIPPED: the DASH manifest is wired and a real clip now comes back as pixels. **1080×1920 AV1 retrieved end to end, ffprobe-valid, no URL stored.** But the subtitle premise does not survive contact: the track is populated on 4 of 48 clips, and where it exists it carries SPEECH, not the on-screen text — 0% word overlap with OCR
+BL-794-clippershq-partner-scope-setup	payments	1.00	auto (stack markers)	2026-08-12		BL-794 — four reviewers can see every pending clip on the platform, and the grant path is why
 BL-794	leadgen	1.00	auto (stack markers)	2026-07-31		BL-794 — Merge fields fixed and the DIRECT sort learned client evidence: 1 distinct key became 184. On the character-name question I recommend fixing the SENTENCE, not the data
 BL-795	leadgen	1.00	auto (stack markers)	2026-07-31		BL-795 — The benchmark was already finished and already decided. I re-derived all seven numbers independently from the raw results and every one matches. No calls made, $0.0000 spent, verdict unchanged: CLOSE IT
 BL-796	leadgen	1.00	auto (stack markers)	2026-07-31		BL-796 — 29 files committed in 7 workstream commits and the fresh clone now passes 48/50. But committing changed less than it looks: the branch is 47 commits ahead of a remote last pushed 15 days ago, so it is all still on one disk
