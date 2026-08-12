@@ -195,6 +195,7 @@ BL-1225	leadgen	1.00	auto (stack markers)			BL-1225: the mechanism is named and 
 BL-1226	leadgen	1.00	auto (stack markers)			BL-1226 — the music stops because `adelay` loses its own silence, and the tail with it
 BL-1227	leadgen	1.00	auto (stack markers)			BL-1227 — one icon and one launcher, clearing proved in a browser; and the regex gain was credited to the wrong change
 BL-1229	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1229 — the song stopped jumping, and he can edit his own windows
+BL-1230	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1230 — the 10.9 seconds was a typed constant, the shipped funnel has no OCR, and RULE 8 fires now
 BL-1231	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1231 — his 21 hand marks were in two places, and git was neither
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
