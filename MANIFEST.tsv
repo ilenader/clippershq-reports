@@ -213,6 +213,7 @@ BL-1244	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1244 — the "135 milli
 BL-1245	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1245 — Song04 rides from 16.0 s. Eleven renders, no rotation, no seam.
 BL-1246	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1246 — the audio test is refused by arithmetic before it is refused by evidence; and the supply path returned 3,317 fresh accounts for 4.7 cents
 BL-1248	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1248 — you already have two lanes, on two different Instagram accounts; the ceiling is WINDOWS, not tabs; and the judge is reading pixels Instagram already hands you as text
+BL-1249	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1249 — the panel that lied about every batch read THREE wrong field names, not one; and the banner that says "restart me" was on a hidden tab
 BL-1250	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1250 — The send path, audited before volume. Two send-blocking copy defects.
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
@@ -605,6 +606,7 @@ BL-804-clippershq-remove-chat	payments	1.00	auto (stack markers)	2026-08-13		BL-
 BL-804	leadgen	0.90	auto (stack markers)	2026-07-31		BL-804 — The clip pipeline ran. 200 clips, $0.0222, 99 seconds. Five of the six media-retrieval fields go 0% → 98-100%, so the handoff BL-802 measured as impossible now works — and the library still cannot say what kind of edit any clip is
 BL-805-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-13		BL-805 — BL-804 merged: the chat is gone, the report button is all that is left
 BL-805	leadgen	1.00	auto (stack markers)	2026-07-31		BL-805 — 41 distinct operators, not 42. The concentration is not the floor and not the supply: 23 of 41 pages have deeper catalogues than the one that dominated, and the fix is a config knob that already exists
+BL-806-clippershq-report-sentence	payments	1.00	auto (stack markers)	2026-08-13		BL-806 — one plain sentence saying what the report button is for
 BL-806	leadgen	1.00	auto (stack markers)	2026-07-31		BL-806 — Last mile wired. The deliverable now has a key, the clip library has 205 clips with five of six media fields populated, and the shard warning fired live on three back-dated clips during the run that proved it
 BL-807	leadgen	1.00	auto (stack markers)	2026-07-31		BL-807 — INCIDENT FIRST: I destroyed every agent's uncommitted work with a `git reset --hard` that ran in the wrong repository. Recovered the tree; other agents' in-flight edits are unrecoverable. The round's own work is re-applied and verified
 BL-808	leadgen	1.00	auto (stack markers)	2026-07-31		BL-808 — Suite green, 49 commits pushed off-disk. Both contract failures were specified by documentation that survived IN THE REPO, not by any report — and for the other five modules no specification exists anywhere
