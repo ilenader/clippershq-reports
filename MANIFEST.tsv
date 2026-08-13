@@ -207,6 +207,7 @@ BL-1238	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1238 — DIRECT_SEND is
 BL-1239	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1239 — the reader was never missing: `parallel_judge` has the OCR and NO PRODUCTION CALLER
 BL-1240	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1240 — The browser judge: his 16 examples are the standard, and the loop ran three times
 BL-1241	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1241 — song04 is ONE window, and its drop was measured 17.71 s into it, not at its start
+BL-1242	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1242 — Subtitles are visible: the dialogue ceiling, measured from both ends
 BL-1243	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1243 — the browser judge's token bill is screenshots, not words; and the cheap pre-filter destroys one wanted page in six
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
@@ -597,6 +598,7 @@ BL-803-clippershq-deploy-check	payments	1.00	auto (stack markers)	2026-08-13		BL
 BL-803	leadgen	1.00	auto (stack markers)	2026-07-31		BL-803 — READINESS AUDIT: eight of nine funnels have genuinely run and 2,787 leads reach a real export. **Nothing has ever been sent.** The three modules that BUILD the send files are the only ones with no menu entry, and the 20 clips ever stored predate the retrieval layer by one day
 BL-804-clippershq-remove-chat	payments	1.00	auto (stack markers)	2026-08-13		BL-804 — the chat is gone, the report button is all that is left, and it is visible at 320 for the first time
 BL-804	leadgen	0.90	auto (stack markers)	2026-07-31		BL-804 — The clip pipeline ran. 200 clips, $0.0222, 99 seconds. Five of the six media-retrieval fields go 0% → 98-100%, so the handoff BL-802 measured as impossible now works — and the library still cannot say what kind of edit any clip is
+BL-805-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-13		BL-805 — BL-804 merged: the chat is gone, the report button is all that is left
 BL-805	leadgen	1.00	auto (stack markers)	2026-07-31		BL-805 — 41 distinct operators, not 42. The concentration is not the floor and not the supply: 23 of 41 pages have deeper catalogues than the one that dominated, and the fix is a config knob that already exists
 BL-806	leadgen	1.00	auto (stack markers)	2026-07-31		BL-806 — Last mile wired. The deliverable now has a key, the clip library has 205 clips with five of six media fields populated, and the shard warning fired live on three back-dated clips during the run that proved it
 BL-807	leadgen	1.00	auto (stack markers)	2026-07-31		BL-807 — INCIDENT FIRST: I destroyed every agent's uncommitted work with a `git reset --hard` that ran in the wrong repository. Recovered the tree; other agents' in-flight edits are unrecoverable. The round's own work is re-applied and verified
