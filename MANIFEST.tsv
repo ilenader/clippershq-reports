@@ -220,6 +220,7 @@ BL-1252	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1252 — Both send file
 BL-1253	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1253 — 19 of 38 CSVs carry addresses, 16 of them are pure SUBSETS of the send list, and the old guard could not see a single one of them
 BL-1254	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1254 — the numbers on his spend screen were real; the denominator was not
 BL-1255	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1255 — nothing ships on that key, and the reason it "keeps coming back" is that it lives outside the repo
+BL-1256	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1256 — the registry delete worked; the key is still in every open terminal, and in six files
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
