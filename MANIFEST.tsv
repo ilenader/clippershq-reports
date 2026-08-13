@@ -205,6 +205,7 @@ BL-1236	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1236 — DIRECT_SEND.cs
 BL-1237	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1237 — the 874 meme pages are on his screen, and three of the columns he asked for are empty because nobody ever measured them
 BL-1238	leadgen	1.00	auto (stack markers)	2026-08-12		BL-1238 — DIRECT_SEND is quarantined, the committed address is gone from history, and 5 GB of backups have a lifetime
 BL-1239	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1239 — the reader was never missing: `parallel_judge` has the OCR and NO PRODUCTION CALLER
+BL-1240	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1240 — The browser judge: his 16 examples are the standard, and the loop ran three times
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -586,8 +587,11 @@ BL-798	leadgen	1.00	auto (stack markers)	2026-07-31		BL-798 — The DASH path is
 BL-799-clippershq-reviewer-nav-written	payments	1.00	auto (stack markers)	2026-08-12		BL-799 — the reviewer navigation fix, written this time, and the closed loop broken at both ends
 BL-800-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-13		BL-800 — the stacked chain, merged and re-proven on the merged tree
 BL-800	leadgen	1.00	auto (stack markers)	2026-07-31		BL-800 — Twitch expanded to ten categories: 911 channels discovered free in 7 seconds, 260 new leads for $0.081. The rebroadcast filter shipped, then had to be tightened — "marathon" flagged three live streamers mid-event
+BL-801-clippershq-merge-recovery	cross	0.50	auto (stack markers)	2026-08-12		BL-801 — the interrupted merge round, recovered
 BL-801	leadgen	1.00	auto (stack markers)	2026-07-31		BL-801 — Empty-200 is loud on all four funnels and quiet on a normal drain. The contract test ships and fails red on a seeded violation. But BL-778's "12 keys with no default" is 1 — eleven already had one
+BL-802-clippershq-scope-partner	payments	1.00	auto (stack markers)	2026-08-13		BL-802 — the partner is scoped, the three LIVE reviewers are deliberately left, and the 82-of-82 figure was wrong
 BL-802	leadgen	1.00	auto (stack markers)	2026-07-31		BL-802 — The handoff contract. The real number is 12 of 31, not 10 of 25 or 29 of 39 — and all six media-retrieval fields that make the handoff possible are at 0%
+BL-803-clippershq-deploy-check	payments	1.00	auto (stack markers)	2026-08-13		BL-803 — the merged code IS live. The deploy worked. The owner is looking at surfaces his own account cannot show him.
 BL-803	leadgen	1.00	auto (stack markers)	2026-07-31		BL-803 — READINESS AUDIT: eight of nine funnels have genuinely run and 2,787 leads reach a real export. **Nothing has ever been sent.** The three modules that BUILD the send files are the only ones with no menu entry, and the 20 clips ever stored predate the retrieval layer by one day
 BL-804	leadgen	0.90	auto (stack markers)	2026-07-31		BL-804 — The clip pipeline ran. 200 clips, $0.0222, 99 seconds. Five of the six media-retrieval fields go 0% → 98-100%, so the handoff BL-802 measured as impossible now works — and the library still cannot say what kind of edit any clip is
 BL-805	leadgen	1.00	auto (stack markers)	2026-07-31		BL-805 — 41 distinct operators, not 42. The concentration is not the floor and not the supply: 23 of 41 pages have deeper catalogues than the one that dominated, and the fix is a config knob that already exists
