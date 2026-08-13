@@ -209,6 +209,7 @@ BL-1240	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1240 — The browser ju
 BL-1241	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1241 — song04 is ONE window, and its drop was measured 17.71 s into it, not at its start
 BL-1242	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1242 — Subtitles are visible: the dialogue ceiling, measured from both ends
 BL-1243	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1243 — the browser judge's token bill is screenshots, not words; and the cheap pre-filter destroys one wanted page in six
+BL-1244	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1244 — the "135 million tokens a week" figure is not published; the cheap model is not measurably worse; and the two-tier design the numbers do not support
 BL-1246	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1246 — the audio test is refused by arithmetic before it is refused by evidence; and the supply path returned 3,317 fresh accounts for 4.7 cents
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
