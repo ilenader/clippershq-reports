@@ -216,6 +216,7 @@ BL-1248	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1248 — you already ha
 BL-1249	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1249 — the panel that lied about every batch read THREE wrong field names, not one; and the banner that says "restart me" was on a hidden tab
 BL-1250	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1250 — The send path, audited before volume. Two send-blocking copy defects.
 BL-1251	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1251 — 27 of 47 leftovers are still real, 18 reports are stale, and the free model is fast enough but fails both bars
+BL-1254	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1254 — the numbers on his spend screen were real; the denominator was not
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
