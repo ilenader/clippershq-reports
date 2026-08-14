@@ -234,6 +234,7 @@ BL-1268	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1268 — TikTok runs en
 BL-1269	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1269 — 70% is a discovery number, not a filter number
 BL-1270	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1270 — editing pages are in, and 43% of the sheet was stale
 BL-1271	leadgen	1.00	auto (stack markers)			BL-1271 — what a wanted page actually costs, and whether more browsers would help
+BL-1272	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1272 — One canonical facts file, and a guard that will not let it rot
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
