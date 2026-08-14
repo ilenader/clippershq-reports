@@ -230,6 +230,7 @@ BL-1263	leadgen	1.00	auto (stack markers)			BL-1263 — The 43.7% was a cap set 
 BL-1264	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1264 — where the two killed rounds stopped
 BL-1266	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1266 — What a page costs: $0.0409, and 80% of it is the half you cannot see
 BL-1267	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1267 — judging was never supposed to cost money
+BL-1268	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1268 — TikTok runs end to end except the last link, and the bio is still the whole email surface
 BL-1269	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1269 — 70% is a discovery number, not a filter number
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
@@ -624,7 +625,9 @@ BL-805-clippershq-merge	payments	1.00	auto (stack markers)	2026-08-13		BL-805 �
 BL-805	leadgen	1.00	auto (stack markers)	2026-07-31		BL-805 — 41 distinct operators, not 42. The concentration is not the floor and not the supply: 23 of 41 pages have deeper catalogues than the one that dominated, and the fix is a config knob that already exists
 BL-806-clippershq-report-sentence	payments	1.00	auto (stack markers)	2026-08-13		BL-806 — one plain sentence saying what the report button is for
 BL-806	leadgen	1.00	auto (stack markers)	2026-07-31		BL-806 — Last mile wired. The deliverable now has a key, the clip library has 205 clips with five of six media fields populated, and the shard warning fired live on three back-dated clips during the run that proved it
+BL-807-clippershq-health-check	payments	1.00	auto (stack markers)	2026-08-14		BL-807 — the full health check after the quiet days: the money is correct, and the redeploy already happened
 BL-807	leadgen	1.00	auto (stack markers)	2026-07-31		BL-807 — INCIDENT FIRST: I destroyed every agent's uncommitted work with a `git reset --hard` that ran in the wrong repository. Recovered the tree; other agents' in-flight edits are unrecoverable. The round's own work is re-applied and verified
+BL-808-clippershq-report-form-trim	payments	1.00	auto (stack markers)	2026-08-14		BL-808 — the report form is a heading, ONE sentence, the box and the send button
 BL-808	leadgen	1.00	auto (stack markers)	2026-07-31		BL-808 — Suite green, 49 commits pushed off-disk. Both contract failures were specified by documentation that survived IN THE REPO, not by any report — and for the other five modules no specification exists anywhere
 BL-809	leadgen	1.00	auto (stack markers)	2026-07-31		BL-809: The amplifier is gone — `git reset --hard origin/main` went from destroying 49 commits and 135 files to being a verified no-op. And a real clone was broken the whole time
 BL-810	leadgen	1.00	auto (stack markers)	2026-07-31		BL-810 — UI AUDIT: the menus do NOT have parity, `[7] See my leads & send lists` builds no send list, and **nothing in the entire interface ever names the file you are supposed to send from**
