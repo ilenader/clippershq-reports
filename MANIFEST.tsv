@@ -224,6 +224,7 @@ BL-1256	leadgen	1.00	auto (stack markers)	2026-08-13		BL-1256 — the registry d
 BL-1257	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1257 — 100 fresh pages judged end to end; the screenshot was never the bill
 BL-1258	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1258 — the prefix caches 6.4x; the 1,000-page target and the accuracy are in conflict
 BL-1259	leadgen	1.00	auto (stack markers)			BL-1259 — TikTok is wired to the UI, and the 115 pages he already has are 13.3% real
+BL-1261	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1261 — a free pre-sort kills 28 of 81 rejects and loses nothing; his target sits above the ceiling
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
