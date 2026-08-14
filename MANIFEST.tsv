@@ -227,6 +227,7 @@ BL-1259	leadgen	1.00	auto (stack markers)			BL-1259 — TikTok is wired to the U
 BL-1261	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1261 — a free pre-sort kills 28 of 81 rejects and loses nothing; his target sits above the ceiling
 BL-1263	leadgen	1.00	auto (stack markers)			BL-1263 — The 43.7% was a cap set below an invisible tail; the lane plateau was 12 mod 8
 BL-1264	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1264 — where the two killed rounds stopped
+BL-1266	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1266 — What a page costs: $0.0409, and 80% of it is the half you cannot see
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
