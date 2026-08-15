@@ -238,6 +238,7 @@ BL-1272	leadgen	1.00	auto (stack markers)	2026-08-14		BL-1272 — One canonical 
 BL-1273	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1273 — what is actually broken, today
 BL-1274	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1274 — one call carries the dates, not the emails
 BL-1275	leadgen	1.00	auto (stack markers)			BL-1275 — one judged page burns 65,296 subscription tokens, and 95.2% of it is overhead
+BL-1277	leadgen	1.00	auto (stack markers)			BL-1277 — batching did not hurt accuracy on this test, and the saving is 7.0x
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
