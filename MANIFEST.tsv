@@ -259,6 +259,7 @@ BL-1293	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1293 — The dialogue v
 BL-1294	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1294 — the two ways of finding pages, side by side, in plain language
 BL-1297	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1297 — The leak checker is permanent, and building it found four ways a leak check reads clean while leaking
 BL-1298	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1298 — The grids: what was wrong, what was not, and two sheets rebuilt
+BL-1299	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1299 — the send file is rebuilt and the 583 reconciles exactly; the dashboard half is held by a live round
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
