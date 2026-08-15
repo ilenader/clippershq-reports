@@ -262,6 +262,7 @@ BL-1296	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1296 — 100 pages nobo
 BL-1297	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1297 — The leak checker is permanent, and building it found four ways a leak check reads clean while leaking
 BL-1298	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1298 — The grids: what was wrong, what was not, and two sheets rebuilt
 BL-1299	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1299 — the send file is rebuilt and the 583 reconciles exactly; the dashboard half is held by a live round
+BL-1300	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1300 — buy the profile last. Built, wired, called, and measured on a real receipt.
 BL-1301	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1301 — 583 new leads as an update he merges, not a database he replaces
 BL-1302	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1302 — The leak check has a caller now, and the number it guards was already void
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
