@@ -291,6 +291,7 @@ BL-1325	leadgen	1.00	auto (stack markers)	2026-08-16		BL-1325 — He is right: t
 BL-1326	leadgen	1.00	auto (stack markers)			BL-1326 — The two-month gate, and the 70/30 mix
 BL-1327	leadgen	1.00	auto (stack markers)	2026-08-16		BL-1327 — 125 pages he would want, in 87 minutes, for 57 cents
 BL-1328	leadgen	1.00	auto (stack markers)	2026-08-16		BL-1328 — all 62 rendered, and the thing killing the job was the clock on the call that launched it
+BL-1329	leadgen	1.00	auto (stack markers)			BL-1329 — 100 Instagram pages, and what the probe's ordering was actually worth
 BL-1330	leadgen	0.80	auto (stack markers)	2026-08-16		BL-1330 — mining the old clipper-finder: three things worth taking, one worth refusing
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
@@ -697,6 +698,7 @@ BL-811-clippershq-express-24h	payments	1.00	auto (stack markers)	2026-08-16		BL-
 BL-811	leadgen	1.00	auto (stack markers)	2026-07-31		BL-811 — The 20-lead calibration set is built and vetted. **The settled template makes a claim that is false on every row** — I fixed it with a field that is 100% populated, and swapped 9 leads that read badly.
 BL-812-clippershq-payout-amount-fix	payments	1.00	auto (stack markers)	2026-08-16		BL-812 — the payout confirm control shows what the clipper RECEIVES, and everything left is merged
 BL-812	leadgen	1.00	auto (stack markers)	2026-07-31		BL-812 — One of the seven is fully specified and half-shipped: `outcomes.py` lost the bulk send-marker while the columns it writes survived in master. BL-810 has already documented that dead feature as live. The other four have no trace at all
+BL-813-clippershq-payment-message-fix	payments	1.00	auto (stack markers)	2026-08-16		BL-813 — every place that told a clipper the wrong payment amount, fixed in words only
 BL-813	leadgen	1.00	auto (stack markers)	2026-07-31		BL-813 — Interface fixed: the send file is now named after every run and buildable from both menus. **BL-806's `_build_send_files` never existed** — it was not unlisted, it was absent.
 BL-814	leadgen	1.00	auto (stack markers)	2026-07-31		BL-814 — SHIPPED: the merge template now quotes a REAL clip. The median it used to render diverges by more than 2× on **1,765 of 2,087 rows** (worst 44,444×). Item 6 is DEFERRED — measuring a block boundary against a corpus another process is rewriting would repeat exactly the error it exists to correct
 BL-815	leadgen	1.00	auto (stack markers)	2026-07-31		BL-815 — The bulk marker is restored and committed: **unmatched 8 → 0**, 2,949 keys in **0.27s** against a projected 205s. The live master was never stamped. **Another agent was inside `outcomes.py` when I started** — I found it before writing and worked around it
