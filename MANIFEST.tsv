@@ -287,6 +287,7 @@ BL-1321	leadgen	1.00	auto (stack markers)	2026-08-16		BL-1321 — crossing platf
 BL-1322	leadgen	1.00	auto (stack markers)	2026-08-16		BL-1322 — the cheap model is safe on one narrow question, useless on the one that matters
 BL-1323	leadgen	1.00	auto (stack markers)	2026-08-16		BL-1323 — Your 62 links were fine. The provider was down, and the message lied about it.
 BL-1325	leadgen	1.00	auto (stack markers)	2026-08-16		BL-1325 — He is right: the vendor is 39× faster than we use it, and the slow part is ours
+BL-1326	leadgen	1.00	auto (stack markers)			BL-1326 — The two-month gate, and the 70/30 mix
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -685,6 +686,7 @@ BL-807	leadgen	1.00	auto (stack markers)	2026-07-31		BL-807 — INCIDENT FIRST: 
 BL-808-clippershq-report-form-trim	payments	1.00	auto (stack markers)	2026-08-14		BL-808 — the report form is a heading, ONE sentence, the box and the send button
 BL-808	leadgen	1.00	auto (stack markers)	2026-07-31		BL-808 — Suite green, 49 commits pushed off-disk. Both contract failures were specified by documentation that survived IN THE REPO, not by any report — and for the other five modules no specification exists anywhere
 BL-809	leadgen	1.00	auto (stack markers)	2026-07-31		BL-809: The amplifier is gone — `git reset --hard origin/main` went from destroying 49 commits and 135 files to being a verified no-op. And a real clone was broken the whole time
+BL-810-clippershq-liability-dashboard	payments	1.00	auto (stack markers)	2026-08-16		BL-810 — one place that answers what he owes and what is still up for grabs
 BL-810	leadgen	1.00	auto (stack markers)	2026-07-31		BL-810 — UI AUDIT: the menus do NOT have parity, `[7] See my leads & send lists` builds no send list, and **nothing in the entire interface ever names the file you are supposed to send from**
 BL-811-clippershq-express-24h	payments	1.00	auto (stack markers)	2026-08-16		BL-811 — the express payout promise moves from 12 hours to 24 hours
 BL-811	leadgen	1.00	auto (stack markers)	2026-07-31		BL-811 — The 20-lead calibration set is built and vetted. **The settled template makes a claim that is false on every row** — I fixed it with a field that is 100% populated, and swapped 9 leads that read badly.
