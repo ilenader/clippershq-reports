@@ -21,6 +21,11 @@
 > 3. **The judge's input resolution is uncontrolled.** Depending only on which capture produced
 >    the sheet, the model receives anywhere from **124×220 to 760×760 pixels**, and the reject
 >    threshold was calibrated across that mixture without anyone knowing it varied.
+> 4. **AND IT IS NOT CURRENTLY RUNNING END TO END.** A round measured the last full run as
+>    **discovering 15,323 pages and judging ZERO of them**. **65.9% of 14,108 delivered rows carry
+>    no verdict at all**, and clipper acquisition fell **99.2% month on month**. Whatever is
+>    debated above about *how well* it judges, the more immediate fact is that the judging stage
+>    is not reached.
 >
 > **Safe to do right now:** read, measure, and publish. Nothing in this document required a
 > vendor call, and this round made none.
@@ -47,9 +52,15 @@
 > - **The operator was never directly recorded answering the car/gym/motivation question.** Every
 >   instance is a session relaying his confirmation, so the date given is *first recorded*, not
 >   the date he formed the view.
-> - **One of eight source sweeps had not reported when this was assembled** — the private reports
->   directory. Section H's timeline is therefore built from the git log, the public repository
->   and the round-id census, and is explicitly marked where it is thinner because of that.
+> - **The private-reports sweep is a DIGEST, not a full read.** Of 327 files, about 14 were read in
+>   full and 326 as a structured head-digest; **61 of them — the oldest — were seen by title only**,
+>   and no figure in this document comes from a title alone. The timeline is line-by-line from
+>   BL-1470 back to BL-1186 and thinner before that.
+> - **`photo_heavy`'s firing count does not reconcile between two instruments** — 588 in the raw
+>   log against a maximum of 439 in the reports, with the 8-of-28 kill figure absent from the
+>   reports entirely. Both are named; neither is chosen.
+> - **The 95.6% self-consistency figure is recorded both as "never written down anywhere" and as
+>   "reproduced exactly."** Both statements stand in the record.
 
 ---
 
@@ -277,7 +288,19 @@ marks: 2,142 of his verdicts over 880 handles across 10 mark files.
 same verdict, with an identical timestamp, appearing in two files. Deduplicate on the timestamp and
 it falls to **79.83%, a 16-point drop.** A copy of an opinion is not a second opinion.
 
-**THE FIGURE TO QUOTE: about 76–80%.** The project's own numbers document independently gives
+**CORROBORATED INDEPENDENTLY, with the mechanism named twice more.** A separate sweep of the
+private reports found a seventh value and the reasons for two others: **90.6% was computed on
+inverted labels**; the ~96% family *"counts BOTH copies of the same file as two sittings"* — the
+same file-copy artefact found here from the raw rows — and session-deduplicating gives **75.8%
+(135/178)**. **The newest and best-supported figure is 77.2%, Wilson 95% [69.8, 83.2], n=149, from
+two implementations that agree exactly**, 1.4 points of which came from fixing a score inversion.
+
+**⚠️ One wrinkle left standing, both halves named:** one round recorded that 95.6% *"is not on disk
+anywhere; it was never written down"* — and a later round **reproduced it exactly** as the combined
+page-level figure. Both statements are in the record and this document does not choose between
+them.
+
+**THE FIGURE TO QUOTE: 77.2% [69.8, 83.2].** The project's own numbers document independently gives
 **75.9% (41 of 54 repeat handles)** for his *decision*, and — far more striking — **18.5% (10 of
 54)** for his *score*. **He reproduces his own verdict three times in four and his own 1-to-10
 score one time in five.**
@@ -338,8 +361,19 @@ The artefact that produces the original shape **reproduces at 77.46%**, which is
 that large survived. Highest rediscovery rate ever legitimately published is 57.6% (487 of 846);
 the lowest, 3.2% (6 of 185), is consistent with the corrected figure.
 
-**Consequence, DERIVED:** 1,000 addresses needs roughly **5,200–5,400 pages, not 65,700**. The
-retracted figure overstated the work by more than twelvefold.
+**Corroborated twice more, independently:** 2.04% [0.56, 7.14] and 3.64% [1.42, 8.98], the latter
+with four cross-checks and positive controls in both directions.
+
+**⚠️ BUT TIKTOK RUNS THE OPPOSITE WAY, AND THIS IS THE MOST IMPORTANT QUALIFIER IN THE SECTION.**
+On TikTok the address-level re-find is **66.67% [39.06, 86.19]** — because a *known* handle carries
+an address **80.0%** of the time while a *new* handle carries one **4.44%** of the time. The
+page-level re-find across the corpus is **14.37% [14.03, 14.71]**.
+
+**So "rediscovery is 4.25%" is an Instagram-shaped statement.** Quoting it for TikTok inverts the
+truth: on TikTok, re-finding a known handle is where the addresses actually are.
+
+**Consequence, DERIVED, and Instagram-only:** 1,000 addresses needs roughly **5,200–5,400 pages,
+not 65,700**. The retracted figure overstated the work by more than twelvefold.
 
 ### C5. THE 96.7% TIKTOK-EDITS FIGURE — REPRODUCED EXACTLY, AND THERE WAS NO MODEL IN IT
 
@@ -361,15 +395,29 @@ Three things make it unusable:
 
 | claim | verdict | evidence |
 |---|---|---|
-| "fires 470 times" | **a mid-day snapshot** | cumulative count reached 569 by end of 08-28 |
-| "cannot currently fire" | **REFUTED** | **588 firings** on record, 194 of them solo, all Instagram, **four on 2026-08-31** |
-| "97.5% precision" | **NO PROVENANCE** | no file anywhere pairs that number with this rule |
-| its real precision | **80.49%** | 33/41, Wilson 95% [65.98, 89.81]; recall 46.48% |
-| "kills 7 of his 28 wanted" | **off by one** | raw data says **8**, and names all eight: **8/28 = 28.57%** |
+| "cannot currently fire" | **REFUTED** | **588 firings** in the raw rejection log, 194 solo, all Instagram, **four on 2026-08-31** |
+| "fires 470 times" | **a mid-day snapshot** | the same cumulative count reached 569 by end of 08-28 |
+| "97.5% precision" | **REAL, and it is a PRECISION figure — but it is ENDPOINT-DEPENDENT** | 97.4% [86.8, 99.5] on one discovery endpoint against **30.0% [18.1, 45.4]** on another. **The intervals do not overlap.** |
+| the same rule on Instagram | **0 of 192 — "dead by endpoint"** | it does not transfer across surfaces at all |
+| a third precision measurement | **80.49%** | 33/41, Wilson 95% [65.98, 89.81]; recall 46.48% |
+| "kills 7 of his 28 wanted" | **8, not 7** | the raw data names all eight: **8/28 = 28.57%**. Reports elsewhere give 1, 3, 8, 14 (26.4%) and 75 on other denominators. |
 
-**This is reason 2 in the safety verdict.** A rule that removes **28.6% of the pages he wants** is
-firing today, and the 97.5% figure that justified it is 17 points above the only precision anyone
-ever measured.
+**⚠️ I PUBLISHED "97.5% HAS NO PROVENANCE" AND THAT WAS WRONG.** A later sweep of the private
+reports found it twice, plainly labelled as precision. **The number is real; what is wrong is
+quoting it without its endpoint.** On one discovery surface it is 97.4%; on another it is 30.0%,
+and the confidence intervals are disjoint. A further caution from the same source: **41% of the
+sample it was scored on predates the rule shipping.**
+
+**⚠️ AND THE FIRING COUNTS DO NOT RECONCILE — BOTH ARE NAMED.** The raw rejection log gives **588**
+firings. A full read of 327 private reports found **71 mentions and neither that number nor the
+8-of-28 kill figure anywhere**; its counts are 0, 4, 13, 17, 30, 33, 40, 41, 86-of-86, 429 and 439.
+**UNRESOLVED.** The likeliest explanation is that reports count per-run while the log is cumulative,
+but that was not verified and is not asserted here.
+
+**This is still reason 2 in the safety verdict, and the endpoint finding makes it sharper, not
+softer.** A rule removing **28.6% of the pages he wants** is firing today, and the precision that
+justifies it swings from 97.4% to 30.0% depending purely on which surface the page came from —
+a difference nobody checks at the point the rule fires.
 
 ### C7. COST PER 1,000 — most published figures are dead
 
@@ -442,6 +490,32 @@ other modules. Two more were **cleared**: they compute a median companion and ga
 | 13 | **8 un-buried meme pages, unclaimed** | recoverable | attribution unknown; all 8 retain checkpoint records |
 | 14 | **A TikTok page's video count reaches the judge as 5 when it is 360**, and the display name is structurally always empty | CONFIRMED by another round at runtime | the judge is told a 360-video page has 5 videos, and never sees the display name |
 | 15 | **An orphaned failing test with no claimant** — one unguarded file delete in the frame extractor | **CONFIRMED by running it** | on Windows the delete fails while another process holds the file; the loop deletes frames the encoder may still hold |
+
+### ⚠️ THE DEFECT THAT OUTRANKS ALL OF THEM: THE FUNNEL IS NOT COMPLETING
+
+A round measured the last full run as **discovering 15,323 pages and judging zero**. **65.9% of
+14,108 delivered rows carry no verdict.** Clipper acquisition is down **99.2% month on month.**
+Every accuracy argument in this document is about a stage that is not currently being reached.
+**MEASURED.** This should be checked before anything else in section I is attempted.
+
+### Findings recorded in only one source, each worth acting on
+
+- **A celebrated fix is inert on his shipped configuration.** A round cut one funnel's calls from
+  1,025 to 25 — but live credentials select a different branch, so the widened query's only caller
+  never runs. It costs **15 free email addresses per 48 channels**. ⚠️ **Do not simply delete the
+  credentials** — the anonymous path dies at page 2.
+- **Eight Instagram reject rules exist only as prose**, and **his own numeric floors — 500 views,
+  10 videos — never run on Instagram at all**, because the reject path does not call the function
+  that holds them.
+- **The capture already extracts bio email addresses for free**, at **50.0% [29.0, 71.0]** of what
+  the paid call finds, and **the same address** — and **no contact path consumes them**. This is
+  the largest saving available and it needs no vendor at all.
+- **A supply gate reads the MEAN views while the median sits one line away** — the same
+  mean-over-tail shape as the retracted 29.2 s/page.
+- **A profile-rejection rule was probed across 12,960 input combinations** and is a pure function
+  of one boolean — which is the single field the free extractor does not extract.
+- **There is no E: drive.** The scheduled backup returns error 2, so **nothing deleted is
+  recoverable.**
 
 **On #14 — the evidence is the right kind.** Another round drove it against a real captured vendor
 payload: the profile writer stores the display name and a video total of **360**, while the funnel
@@ -667,10 +741,11 @@ have added something that can be wrong.
 
 ## H. TIMELINE
 
-**⚠️ PARTIAL, AND SAYING SO.** One of eight sweeps — the private reports directory — had not
-reported when this document was assembled. What follows is built from the git log, the public
-archive and the round-id census. **It is thinner than it should be for the blackout era, which is
-exactly the era that most needs it.**
+**COVERAGE, STATED HONESTLY.** All eight sweeps reported. The private-reports sweep covered 327
+files: about 14 read in full, 326 as a structured head-digest read end to end for the ~200 rounds
+from BL-1470 back to BL-1186, and **61 older files by title only**. No figure anywhere in this
+document is taken from a title alone. The blackout era is timelined round by round; the pre-BL-1186
+era is thinner.
 
 ### The eras
 
@@ -733,6 +808,12 @@ These are pure loss: findings that reached no report and therefore no other sess
 ---
 
 ## I. WHAT TO DO NEXT — ranked, with the arithmetic
+
+**0. FIRST, FIND OUT WHY THE FUNNEL IS NOT COMPLETING.**
+The last full run **discovered 15,323 pages and judged zero**; **65.9% of 14,108 delivered rows
+carry no verdict**; acquisition is down **99.2% month on month**. **The arithmetic:** every other
+item on this list improves a stage that is not currently being reached, so their expected value is
+zero until this is resolved. Nothing else should be started first.
 
 **1. Widen the wanted-kill measurement on both cutters before trusting either — and say plainly
 that the free reject gate no longer exists.**
@@ -848,6 +929,12 @@ address it prints at that moment.
   seen stores written                    0
   processes killed                       0
 ```
+
+**Seen stores re-verified at publication.** The meme store moved **5,985 → 6,013 (+28)** while this
+document was being written. **That is not this round's write** — this round wrote no store of any
+kind — and it is a live illustration of why a delta cannot attribute anything: several rounds share
+these files. TikTok (2,446), the clip store (2,193) and the repost store (1,715) were unchanged.
+The shared ledger stood at $60.95 and moved throughout on other rounds' calls.
 
 The operator's four servers were confirmed listening via the port table — never a command-line
 grep, which once matched itself and reported two live where there were none — and were left alone.
