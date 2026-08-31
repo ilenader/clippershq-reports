@@ -316,18 +316,25 @@ it is quoted.
 > in the project rather than only your grading sheets. **That count is not your judgement, and
 > building it destroys your judgement.** Measured with the shipped reader:
 >
-> - Sweeping the tree yields **18,203 pages and 1,968 "wanted"** — against **469 pages and 187
->   wanted** in your actual grading sheets.
+> - Sweeping the tree yields **18,203 pages and 1,968 "wanted"** — against **537 pages and 241
+>   wanted** in your actual grading sheets. *(Corrected: I first published 469/187 from a file
+>   glob that missed a mark file nested one directory deeper. A concurrent round, working from a
+>   wider scope, reports 619/267 — we agree on the mechanism and still differ on the denominator,
+>   so treat the exact count as approximate and the direction as settled.)*
 > - **The single biggest contributor of "wanted" pages is a backup copy of a *seen store*** — 336
 >   pages from one file. A seen store records what the funnel *encountered*, not what you want.
 >   The rest of the top sources are run extracts, generated datasets, and a backup of a
 >   review-marks file this project already documents as circular.
-> - **Worse: the resolver is last-write-wins across whatever it is given. All 469 of your graded
+> - **Worse: the resolver is last-write-wins across whatever it is given. All 537 of your graded
 >   pages end up resolved from some other file, and on 58 of them the want/not-want answer
->   REVERSES** — your sheet says you did not want the page; the pooled corpus says you did.
+>   REVERSES** — your sheet says you did not want the page; the pooled corpus says you did. (The
+>   concurrent round measures 80 reversals at its wider scope. **Both counts are non-zero and that
+>   is the finding**; neither of us should quote the other's number as our own.)
 >
 > **So a bigger corpus assembled that way is the funnel counting its own memory, and it overwrites
-> you.** Every figure in the table above is built from your grading sheets only, deliberately. Any
+> you.** Every figure in the table above uses **pages you scored 9 or 10** — the
+> stricter criterion — rather than a want/not-want flag, and the two must not be blended into one
+> sentence: they count different things. Every figure in the table above is built from your grading sheets only, deliberately. Any
 > future "we have thousands of marks" claim should be asked which files it swept.
 
 ---
