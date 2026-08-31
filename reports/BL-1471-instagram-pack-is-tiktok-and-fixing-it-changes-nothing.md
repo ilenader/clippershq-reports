@@ -199,6 +199,13 @@ width. Controls fired: an empty pack yields exactly 1 image, adding one syntheti
    answer came from a scoped search in seconds. Later, the mark reader's default walks the whole
    tree and timed out at 300 s for the same reason.
 
+7. **I reported a test suite as passing after running one of its three files.** A peer named a
+   red suite; I ran the file whose name I recognised, saw "12 tests OK", and told them it passed
+   cleanly. There are **three** files sharing that prefix and **the one I did not run is the one
+   that fails**. This project already records the lesson that a shared prefix is not a suite; I
+   repeated it anyway. **Two red suites come from a single stale artefact**, and the peer's count
+   was right where mine was wrong.
+
 **Not an error, but worth recording:** a peer's report reached me addressed to a different round.
 I redirected it rather than letting a real defect evaporate, and the peer confirmed the file it
 named is now in **nobody's** claim.
@@ -301,11 +308,29 @@ uncertifiable gate into a certified one for that brain.** Instagram/memes needs 
 **One caveat I will not paper over:** the pooled row certifies *the gate in aggregate*, not any
 brain you would actually run — and this project's standing rule is that the four brains are never
 pooled. Pooling marks to state a safety floor is a different act from pooling brains to judge, but
-it is still a weaker claim than a per-brain certificate, and it should be labelled as such wherever
+it is still a weaker claim than a per-brain certificate, and should be labelled as such wherever
 it is quoted.
 
----
+> **⚠️ AND A LARGER WARNING, ADDED AFTER PUBLICATION, BECAUSE A CONCURRENT ROUND NEARLY SHIPPED
+> THE OPPOSITE CONCLUSION.** It is tempting to enlarge the sample by sweeping every mark-like file
+> in the project rather than only your grading sheets. **That count is not your judgement, and
+> building it destroys your judgement.** Measured with the shipped reader:
+>
+> - Sweeping the tree yields **18,203 pages and 1,968 "wanted"** — against **469 pages and 187
+>   wanted** in your actual grading sheets.
+> - **The single biggest contributor of "wanted" pages is a backup copy of a *seen store*** — 336
+>   pages from one file. A seen store records what the funnel *encountered*, not what you want.
+>   The rest of the top sources are run extracts, generated datasets, and a backup of a
+>   review-marks file this project already documents as circular.
+> - **Worse: the resolver is last-write-wins across whatever it is given. All 469 of your graded
+>   pages end up resolved from some other file, and on 58 of them the want/not-want answer
+>   REVERSES** — your sheet says you did not want the page; the pooled corpus says you did.
+>
+> **So a bigger corpus assembled that way is the funnel counting its own memory, and it overwrites
+> you.** Every figure in the table above is built from your grading sheets only, deliberately. Any
+> future "we have thousands of marks" claim should be asked which files it swept.
 
+---
 
 ## 8. Paths to open
 
