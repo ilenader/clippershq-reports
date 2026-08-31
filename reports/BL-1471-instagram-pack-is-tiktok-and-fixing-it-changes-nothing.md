@@ -316,20 +316,25 @@ it is quoted.
 > in the project rather than only your grading sheets. **That count is not your judgement, and
 > building it destroys your judgement.** Measured with the shipped reader:
 >
-> - Sweeping the tree yields **18,203 pages and 1,968 "wanted"** — against **537 pages and 241
->   wanted** in your actual grading sheets. *(Corrected: I first published 469/187 from a file
->   glob that missed a mark file nested one directory deeper. A concurrent round, working from a
->   wider scope, reports 619/267 — we agree on the mechanism and still differ on the denominator,
->   so treat the exact count as approximate and the direction as settled.)*
-> - **The single biggest contributor of "wanted" pages is a backup copy of a *seen store*** — 336
->   pages from one file. A seen store records what the funnel *encountered*, not what you want.
->   The rest of the top sources are run extracts, generated datasets, and a backup of a
->   review-marks file this project already documents as circular.
-> - **Worse: the resolver is last-write-wins across whatever it is given. All 537 of your graded
->   pages end up resolved from some other file, and on 58 of them the want/not-want answer
->   REVERSES** — your sheet says you did not want the page; the pooled corpus says you did. (The
->   concurrent round measures 80 reversals at its wider scope. **Both counts are non-zero and that
->   is the finding**; neither of us should quote the other's number as our own.)
+> - Your actual grading sheets hold **537 pages, 241 flagged wanted, 127 scored 9 or 10** — from
+>   683 marks across 12 non-empty sheet files. **A concurrent round independently reproduces every
+>   one of those figures to the row**, so this side is settled.
+> - Sweeping the whole tree instead yields **~18,200 pages and ~1,970 "wanted"**. **The single
+>   biggest contributor is a backup copy of a *seen store*** — 336 pages from one file. A seen
+>   store records what the funnel *encountered*, not what you want. The rest of the top sources
+>   are run extracts, generated datasets, and a backup of a review-marks file this project already
+>   documents as circular.
+> - **The resolver is last-write-wins across whatever it is given, so pooling lets a machine record
+>   supersede your hand mark. In my snapshot all 537 of your graded pages resolve from some other
+>   file; the concurrent round measures 515 of 537.** On the reversals — pages where your sheet
+>   says you did not want it and the pooled corpus says you did — we measured **58** and **14**.
+> - **⚠️ AND THE REASON THOSE NUMBERS CANNOT BE RECONCILED IS ITSELF THE ANSWER: the pooled corpus
+>   IS NOT A FIXED SET.** Measured twice, 45 seconds apart, on one machine: **+67 mark rows**.
+>   Across the session the same call returned 18,172 then 18,203 pages, and the candidate file
+>   count rose from 5,127 to 5,151. Concurrent work writes mark-like files into `scratch/` and
+>   `output/` continuously, **so any figure derived from "every mark file in the project" is a
+>   snapshot of a moving target and is not reproducible — not between two machines, and not
+>   between two minutes on the same one.**
 >
 > **So a bigger corpus assembled that way is the funnel counting its own memory, and it overwrites
 > you.** Every figure in the table above uses **pages you scored 9 or 10** — the
