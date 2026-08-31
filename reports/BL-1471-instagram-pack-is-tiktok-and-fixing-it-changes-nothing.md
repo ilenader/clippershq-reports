@@ -328,13 +328,20 @@ it is quoted.
 >   supersede your hand mark. In my snapshot all 537 of your graded pages resolve from some other
 >   file; the concurrent round measures 515 of 537.** On the reversals — pages where your sheet
 >   says you did not want it and the pooled corpus says you did — we measured **58** and **14**.
-> - **⚠️ AND THE REASON THOSE NUMBERS CANNOT BE RECONCILED IS ITSELF THE ANSWER: the pooled corpus
->   IS NOT A FIXED SET.** Measured twice, 45 seconds apart, on one machine: **+67 mark rows**.
->   Across the session the same call returned 18,172 then 18,203 pages, and the candidate file
->   count rose from 5,127 to 5,151. Concurrent work writes mark-like files into `scratch/` and
->   `output/` continuously, **so any figure derived from "every mark file in the project" is a
->   snapshot of a moving target and is not reproducible — not between two machines, and not
->   between two minutes on the same one.**
+> - **The pooled corpus is not a fixed set.** Measured twice, 45 seconds apart on one machine:
+>   **+67 mark rows**; across the session the same call returned 18,172 then 18,203 pages and the
+>   candidate file count rose 5,127 → 5,151. Concurrent work writes mark-like files into
+>   `scratch/` and `output/` continuously. **So any figure derived from "every mark file in the
+>   project" carries a timestamp whether or not anyone writes one down.**
+> - **⚠️ BUT I FIRST OFFERED THAT AS THE EXPLANATION FOR THE DISAGREEMENT, AND MY OWN DATA DOES NOT
+>   SUPPORT IT.** Re-measuring both join keys on two snapshots 40 seconds apart, with **+71 rows**
+>   arriving in between, my counts did not move at all: **58 and 45, then 58 and 45.** The corpus
+>   grows, but on this machine it does not move *this* statistic. **So the spread between the two
+>   rounds' figures remains unexplained**, and I have withdrawn "the corpus moved underneath us" as
+>   its cause. What is established is that the reversal count **varies with the join key**, that
+>   the two rounds' key-effects run in **opposite directions** (58 vs 45 here; 14 vs 65 there), and
+>   that **nobody should quote any of these four numbers without naming both its key and its
+>   snapshot.**
 >
 > **So a bigger corpus assembled that way is the funnel counting its own memory, and it overwrites
 > you.** Every figure in the table above uses **pages you scored 9 or 10** — the
