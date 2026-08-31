@@ -342,6 +342,14 @@ it is quoted.
 >   the two rounds' key-effects run in **opposite directions** (58 vs 45 here; 14 vs 65 there), and
 >   that **nobody should quote any of these four numbers without naming both its key and its
 >   snapshot.**
+> - **The one concrete lead, left deliberately unchased.** The two rounds' joins do not match the
+>   same number of pages: mine finds **all 537** of his graded pages in the pooled set under either
+>   key, while the concurrent round's finds **515** under the exact key and **533** under the
+>   coarse one. Pages that are not matched cannot be counted as reversals, so **that gap is where
+>   the spread lives** — but neither round pursued it, and that is the right call: **it cannot
+>   change a decision.** The pooled corpus is already disqualified as a safety denominator by
+>   515–537 of 537 pages resolving from a different file, which never needed the reversal count at
+>   all. Recorded here so a future reader has the lead without having to re-derive it.
 >
 > **So a bigger corpus assembled that way is the funnel counting its own memory, and it overwrites
 > you.** Every figure in the table above uses **pages you scored 9 or 10** — the
