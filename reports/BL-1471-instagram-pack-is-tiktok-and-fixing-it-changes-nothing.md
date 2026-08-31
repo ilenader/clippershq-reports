@@ -272,12 +272,40 @@ One settings description still tells you the TikTok judge never receives worked 
 true, was fixed some rounds ago, and **the description was never updated** — so the interface
 asserts the opposite of the wiring. It is in no round's claim and will keep rotting.
 
-**5. If you want the 95% safety bar certified, the lever is sample size, not the pack.**
-At 25 wanted pages, "killed none" still only bounds the true rate at **[86.7, 100]**. Roughly 60–80
-wanted pages would tighten that lower bound past 95. That is a cheap run: no page needs buying,
-they are already on disk.
+**5. If you want the 95% safety bar certified, the lever is sample size — and you are closer than
+anyone thought. (ADDED AFTER PUBLICATION.)**
+
+Two rounds have now independently failed to find headroom in the model layer: this one found the
+pack makes no difference, and a concurrent round found that agreement *between* models (85.8%) is
+indistinguishable from one model agreeing with *itself* (84.4%). Both bottom out in the same
+place — **the sample is too small to answer the question**, not the model or the examples.
+
+But "there aren't enough marks" turns out to be **too pessimistic**, and I checked rather than
+repeating it. Counting your marks after last-keystroke-wins: **127 pages scored 9–10 and 175
+scored 8–10 exist.** At **zero kills**, the Wilson lower bound on safety by sample size is:
+
+| Scored 9–10 available | Lower bound at 0 kills | Certifies ≥95%? |
+|---|---|---|
+| instagram/edits — 2 | [34.2, 100] | no |
+| tiktok/edits — 20 | [83.9, 100] | no |
+| **this round's test set — 25** | [86.7, 100] | no |
+| instagram/memes — 40 | [91.2, 100] | no |
+| **tiktok/memes — 62** | **[94.2, 100]** | **just short** |
+| all four pooled — 127 | [97.1, 100] | yes |
+
+**So no single brain can certify the bar on its own today — but TikTok/memes is roughly eight
+graded pages short of it.** That is the cheapest outcome available anywhere in this report: **you
+already own the pages, they are on disk, and grading about eight more of them converts an
+uncertifiable gate into a certified one for that brain.** Instagram/memes needs about thirty more.
+
+**One caveat I will not paper over:** the pooled row certifies *the gate in aggregate*, not any
+brain you would actually run — and this project's standing rule is that the four brains are never
+pooled. Pooling marks to state a safety floor is a different act from pooling brains to judge, but
+it is still a weaker claim than a per-brain certificate, and it should be labelled as such wherever
+it is quoted.
 
 ---
+
 
 ## 8. Paths to open
 
