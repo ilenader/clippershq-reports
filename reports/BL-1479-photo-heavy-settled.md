@@ -287,10 +287,17 @@ REJECTION LOG.** The "four firings on 2026-08-31" that this round was sent to in
 threshold: **"the cut is 0%"** — not 10%. At a zero cut the rule fires on everything, which is
 why those rows carry a photo share of 0.0 and satisfy neither shipped arm. The same fabricated
 handles fire the view floor against a 1,000,000 threshold and the staleness rule against a
-one-day cut in the same minutes. **A rule-reachability harness is appending to the file that
-records real rejections**, and anyone counting rule firings from it is counting test fixtures as
-production events. The genuine recent firings are 23 rows from 08-31 to 09-01, all real pages,
-10 of 23 on the photo arm alone.
+one-day cut in the same twelve minutes, and neither handle appears in either resume file covering
+that window. **Something is appending probe traffic to the file that records real rejections**,
+and anyone counting rule firings from it is counting test fixtures as production events. The
+genuine recent firings are 23 rows from 08-31 to 09-01, all real pages, 10 of 23 on the photo arm
+alone.
+
+**⚠️ WHAT WAS PROVED, AND WHAT WAS NOT.** Proved: the rows are fabricated handles, at thresholds
+no shipped configuration holds, absent from the run records for their own window. **Not proved:
+which script wrote them.** The obvious reading is a rule-reachability harness, and that is an
+inference about purpose, not an observation — **the writer was never identified.** A tree-wide
+trace for it timed out on a 5.58 GB directory and was abandoned rather than guessed at.
 
 ### 3.8 WHICH ARM FIRES — MEASURED, and the video arm is effectively dead
 
@@ -601,13 +608,18 @@ floor actually fires is a SEPARATE and UNSCORED change** and should not be bundl
 floor currently fires on neither platform, and switching on a reject gate with zero observations
 of what it kills is how this project has hurt itself repeatedly.
 
-### 5. Stop a test harness writing into the production rejection log.
+### 5. Find what is writing probe rows into the production rejection log, and give it its own file.
 
 Two fabricated handles appear in the live rejection log with a stated cut of **0%**, alongside a
 view floor of 1,000,000 and a one-day staleness cut. **The arithmetic: this round was
 commissioned partly to explain "four firings on 2026-08-31", and all four are fixtures.** Anyone
-counting rule behaviour from that file is counting test data as production events. Route the
-harness to its own file.
+counting rule behaviour from that file is counting test data as production events — and a future
+round will spend real time on them again, exactly as this one did.
+
+**The first step is identifying the writer, which this round did not manage.** Searching for the
+two handles across the whole tree timed out. The cheap route is the reverse one: add the writing
+process's own name to each row at the point of append, so the next anomaly identifies itself
+instead of costing a search.
 
 ### 6. Record the posts endpoint beside every rule measurement, permanently.
 
