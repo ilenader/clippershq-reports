@@ -397,16 +397,32 @@ Three things make it unusable:
 |---|---|---|
 | "cannot currently fire" | **REFUTED** | **588 firings** in the raw rejection log, 194 solo, all Instagram, **four on 2026-08-31** |
 | "fires 470 times" | **a mid-day snapshot** | the same cumulative count reached 569 by end of 08-28 |
-| "97.5% precision" | **REAL, and it is a PRECISION figure — but it is ENDPOINT-DEPENDENT** | 97.4% [86.8, 99.5] on one discovery endpoint against **30.0% [18.1, 45.4]** on another. **The intervals do not overlap.** |
+| "97.5% precision" | **REAL — but the two numbers usually quoted beside it are NOT precisions.** See the correction below. | genuine precision is **39/40 = 97.5% [87.1, 99.6]**, killing **1** page he scored ≥6 |
 | the same rule on Instagram | **0 of 192 — "dead by endpoint"** | it does not transfer across surfaces at all |
 | a third precision measurement | **80.49%** | 33/41, Wilson 95% [65.98, 89.81]; recall 46.48% |
 | "kills 7 of his 28 wanted" | **8, not 7** | the raw data names all eight: **8/28 = 28.57%**. Reports elsewhere give 1, 3, 8, 14 (26.4%) and 75 on other denominators. |
 
-**⚠️ I PUBLISHED "97.5% HAS NO PROVENANCE" AND THAT WAS WRONG.** A later sweep of the private
-reports found it twice, plainly labelled as precision. **The number is real; what is wrong is
-quoting it without its endpoint.** On one discovery surface it is 97.4%; on another it is 30.0%,
-and the confidence intervals are disjoint. A further caution from the same source: **41% of the
-sample it was scored on predates the rule shipping.**
+**⚠️ TWO CORRECTIONS TO THIS ROW, BOTH MINE, THE SECOND MADE BY A LATER ROUND (BL-1479).**
+
+**First:** I published "97.5% has no provenance". Wrong — a sweep of the private reports found it
+twice, plainly labelled as precision.
+
+**Second, and this one I got wrong in the opposite direction:** I then wrote that the precision is
+"endpoint-dependent — 97.4% against 30.0%, disjoint intervals." **Those two numbers are not
+precisions at all.** The source row is explicitly labelled **"`photo_heavy` fires"**: they are
+**FIRE RATES** on two hashtag surfaces (38/39 and 12/40). The 97.5% precision sitting in the same
+table cell is a **different quantity that got welded onto them in quotation** — and I repeated
+the weld.
+
+**What is actually true:** the genuine precision is **39 of 40 = 97.5% [87.1, 99.6]**, killing
+**one** page he scored ≥6. And the real endpoint confound is in the **POSTS** endpoint, not the
+discovery surface: two measurements from the same day, the same marks and the same rule give
+**85.0% (17/20)** on a photo-capable posts endpoint and **0 of 192** on a video-only one.
+**That confound makes a rule vanish rather than mis-fire, which is far harder to notice.**
+
+A further caution from the same source: **41% of the sample it was scored on predates the rule
+shipping**, and **the 97.5% figure does not record which posts endpoint produced it** — that is
+unrecoverable.
 
 **⚠️ AND THE FIRING COUNTS DO NOT RECONCILE — BOTH ARE NAMED.** The raw rejection log gives **588**
 firings. A full read of 327 private reports found **71 mentions and neither that number nor the
