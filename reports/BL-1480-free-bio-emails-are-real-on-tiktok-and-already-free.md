@@ -48,7 +48,8 @@ published figures.
 | 3 | The free reader is **not** walled any more | post-fix capture file | **48 of 50** post-fix records carry a real free biography; 3 carry a free address |
 | 4 | The address really is in the bio, on TikTok | lead store, n=2,756 | Ran the reader's **exact regex** against the stored bio and compared to the paid address as a hash |
 | 5 | One Instagram call returns bio **and** contact field | `config ig_api.field_map` | The map lists `biography` and `email → public_email` in the same response shape |
-| 6 | The bio→email path is **already wired on both platforms** | `tiktok_finder.py:249, 3013`; `meme_finder.py:3043` | Read the assignments and the source labels they write |
+| 6 | TikTok already ships the additive free-address merge | `tiktok_finder.py:2851` | Read the assignment: paid wins, free fills only an empty |
+| 7 | Instagram has **no path** from the free addresses to a lead row | `meme_finder.py:4849` copies free facts but not `emails` | Call-graph trace; the two names never co-occur in the package |
 
 ---
 
@@ -177,10 +178,29 @@ The bio arrives as part of the **discovery response** — `signature` → `autho
 address is extracted from it and labelled at `:3013`. **The free bio is not an unclaimed saving on
 TikTok; it is the mechanism already in use.**
 
-**So the claim "no contact path consumes them" is FALSE as stated.** The bio→email path is wired
-on both platforms. What genuinely has no consumer is the **separate `emails` array produced by the
-page-capture JavaScript** — a second, redundant implementation of the same idea. Wiring it would
-duplicate a path that already works and would save nothing, which is why this round did not.
+**⚠️ CORRECTION, MADE AFTER FIRST PUBLICATION AND BEFORE ANYONE ACTED ON IT.** I first wrote that
+the free-bio path is "wired on both platforms" and that wiring it would merely duplicate something
+that already works. **That is wrong for Instagram, and a traced call-graph proved it.**
+
+**TikTok already ships exactly the additive merge this round was asked to consider**
+(`tiktok_finder.py:2851`): the paid address wins, and the free bio address fills in **only when
+the paid one is empty**, labelled as having come from the free bio. Its own comment states the
+reason plainly — without it, *"a page with a perfectly good address in its free bio would be
+delivered as having none — turning a saving into a supply loss."*
+
+**Instagram has no such path at all.** The free addresses are captured, carried into the funnel,
+and read twice — but the function that copies free facts forward (`meme_finder.py:4849`) takes the
+biography, the captions, the handle, the display name and the post counts, **and never the
+`emails` array**. A search for those two names co-occurring anywhere in the package returns
+**nothing**. The lead row's address is set only from the **paid** response
+(`meme_finder.py:7172-7177` via `:3003-3062`).
+
+**This does not change the price — it changes what the opportunity is.** The saving is still
+**$0.00**, because the paid call fires regardless for the contact button. But the honest
+description is not "a redundant duplicate"; it is **a possible supply gain on pages where the paid
+call returns no address at all** — and **I have not measured that**, because my net-new figure was
+computed on rows that already carry an address, which is the wrong denominator for this question.
+**That measurement is now the top recommendation in §7, and it is free to run.**
 
 **Also not done, and named rather than skipped:**
 - **A fresh paced walk to close the free-vs-paid loop — NOT RUN.** It is the right next experiment
@@ -217,7 +237,13 @@ duplicate a path that already works and would save nothing, which is why this ro
    Instagram-specific config key already holds the correct `$0.00069064`** — the `$0.0006` belongs
    to a *different vendor's* key, where it is right. The stale price survives in the documentation,
    not the configuration.
-5. **The brief said "two doc files"; I found more.** One reference-page line is definitively stale
+5. **I published that the free-bio path was "already wired on both platforms", and it is not.**
+   I reached that from two source-label assignments and stopped there. A traced call graph showed
+   the Instagram funnel copies free facts forward **without the addresses**, so no free address has
+   ever reached an Instagram lead row. **My conclusion on price survives unchanged, but my
+   description of what is on the table was wrong** — it is a potential supply gain, not a redundant
+   duplicate. Corrected above before anyone acted on it.
+6. **The brief said "two doc files"; I found more.** One reference-page line is definitively stale
    for Instagram, and two further pages quote the figure generically in a way that reads as stale.
 
 ---
@@ -278,19 +304,28 @@ On TikTok the bio comes free with discovery and the address is extracted from it
 coverage, and byte-identical to the paid address 2,670 times out of 2,670**. This is the best
 number in the report and it describes something you already own.
 
-**3. If you want the one genuinely open question answered, it costs clock and no money.**
+**3. Measure the one thing that could still be worth something — and it is free.**
+Instagram lead rows that go out **with no address at all**: how many of them have a free bio
+address sitting unused? My net-new figure (1 row) was computed on rows that **already** had an
+address, which cannot answer this. TikTok already fills that gap and says in its own code comment
+that not doing so turns a saving into a **supply loss**. If the count is material, the fix is a
+single assignment in a function that already holds both values; if it is near zero, close the item
+for good. **Either way it costs no money and settles a question that has been reopened three
+times.**
+
+**4. If you want the free-vs-paid loop closed, it costs clock and no money.**
 Everything above proves the address is *in* the bio. It does not prove the bio can be obtained
 **free** for the pages you care about, because no page with a free capture also appears in your
 lead store. **A paced walk over a few dozen pages where you already hold the address** would close
 that loop end to end. It needs no vendor call. It is the only measurement that could change the
 Instagram answer, and I would expect it to confirm it rather than overturn it.
 
-**4. Fix one stale line of documentation.**
+**5. Fix one stale line of documentation.**
 A reference page still prices the Instagram vendor at the old figure, which is **15.1% low**. The
 configuration is already correct, so this is a documentation error, not a billing one — but it is
 the number a reader would quote.
 
-**5. Treat the "bio text" source label with care in any future analysis.**
+**6. Treat the "bio text" source label with care in any future analysis.**
 It marks addresses that were **bought** and happened to also appear in the bio. Read as "already
 free", it would overstate the free yield by roughly 460 rows.
 
