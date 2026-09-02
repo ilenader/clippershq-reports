@@ -496,7 +496,7 @@ on that line.** The words sit above a tuple of floats, so every pattern search f
 `measured.*4-8` slid straight past. The denominator behind it is **0 of 72,954**.
 
 Twenty further live sites state the band as a target or assumption **and say so** — across
-four documents and six modules — and are fine. One site,
+five documents and five modules — and are fine. One site,
 `dashboard/static/app.js:1356`, states it as an expectation with no label either way.
 
 **The two replies.** There are exactly two on record in this project's entire history, both
@@ -568,6 +568,13 @@ fell from 36 to 10.
 **One of my planted "clean" controls used a reserved example domain**, which the project's
 validator correctly rejects as infrastructure. It read as a gate failure until I looked. The
 control was wrong, not the gate.
+
+**I published "four documents and six modules" and it was five and five.** The ten files
+are right and the count of sites is right; the split is not. `OPERATING.md` sits at the
+repository **root**, not under `docs/`, so counting documents as "files under `docs/`" gives
+four and silently pushes a markdown file into the module column. Corrected in place; this is
+the one-line class of fix this report defines in 3.12, applied to this report rather than to
+anything it audits.
 
 **I copied real lead addresses into a control probe.** Building the clause-attribution
 instrument I lifted its examples out of the validator's own docstring, not noticing that those
