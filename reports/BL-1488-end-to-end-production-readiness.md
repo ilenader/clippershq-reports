@@ -653,11 +653,8 @@ taskkill that *does* carry `/T` is the deliberate operator-initiated stop, which
    this list matters as much, because this one makes every other error compound. Minimum: a vendor 200
    carrying an `error` must not record `ok: true`; a private page must get its own permanent fourth
    state; a wall must be consulted regardless of how generous discovery was.
-2. **Fix the TikTok ratchet — one line, and Instagram already shows the shape.** Write `judged_by` from
-   a rules-version constant rather than from a `rule` key the model path never sets. Costs **$0.5634 per
-   run, recurring**, until it is done.
-3. **Move the bogus-mode refusal into `resolve()`.** A `--mode=edit` typo is still served the memes
-   brief end to end, and reports its provenance as "default". The refusal downstream is unreachable.
+2. ~~**Fix the TikTok ratchet.**~~ **DONE, AND VERIFIED AFTER — see the note below.**
+3. ~~**Move the bogus-mode refusal into `resolve()`.**~~ **DONE, AND VERIFIED AFTER — see the note below.**
 4. **Make `rubric_for` refuse `None` and `''`.** It is the parameter default on three functions, it
    silently buys a 2,126-byte brief instead of 5,749, and this exact bug has already come back once.
 5. **Make the preflight fail on skipped work.** It returns ok with checks NOT CHECKED, so a caller
@@ -674,6 +671,54 @@ taskkill that *does* carry `/T` is the deliberate operator-initiated stop, which
 11. **Enforce "no page delivered without an image the model saw"**, or stop claiming it — it exists only
     in scratch files today.
 12. **Replace `declared != want`** with a check that can fail, and give `both` its own brief.
+
+### ✅ ITEMS 2 AND 3 WERE FIXED BY BL-1484 WHILE THIS REPORT WAS BEING WRITTEN — VERIFIED AFTER
+
+Both were handed over as findings, not patched by me (the files were held). BL-1484 fixed both and told
+me; I drove each myself rather than accepting the report.
+
+**The ratchet — fixed, and the recurring cost is gone.** `tiktok_finder.py` now defines
+`RULES_VERSION = "BL-1484"` and floors the field: `judged_by = str(r.get("rule") or "")[:64] or
+RULES_VERSION` — which is what Instagram has done at five sites all along. Driven on five record
+shapes, with discriminating controls:
+
+| record | `is_decided` | correct? |
+|---|---|---|
+| model rejection carrying the rules version | **True** | ✅ settles, not re-bought |
+| rejection with an EMPTY decider | False | ✅ unreachable now; correct if it ever occurred |
+| bare rejection, no verdict at all | False | ✅ |
+| rule rejection (`green_screen`) | True | ✅ control fired |
+| explicitly UNJUDGED page | **False** | ✅ **nothing latches** |
+
+**So the $0.5634 is a one-off release of the legacy 939, not a recurring charge.** The figure published
+above was correct for the bytes it was measured on; it no longer describes the head of the tree.
+
+**The mode refusal — moved to the boundary.** `run_mode.resolve()` now refuses an unrecognised mode from
+**all three sources**, each naming its own provenance: `--mode=edit`, `--mode=nonsense`, `--mode=EDITZ`,
+`CLIPPERSHQ_MODE=…` and a config value all raise `ValueError`. Controls: all four valid modes still
+resolve with correct provenance, and an absent or empty value still defaults to `memes` — because "not
+specified" is a different thing from "specified wrong", which is the line `rubric_for` also draws.
+
+⚠️ **The splitters still coerce** — `split_terms`, `split_tags` and `edit_searches_for` silently return
+the memes split for a bogus mode. They are only ever called with a mode `resolve()` has already
+validated, so this is defence-in-depth rather than a live hole. It is recorded, not counted as a failure.
+
+**Still open from that pair, deliberately not taken:** `rubric_for(None)` and `rubric_for('')` still
+return the bare 2,126-byte rubric with no platform addendum, and `None` is the parameter default on
+`_messages`, `classify` and `should_reject`. That is a change to the no-platform contract rather than a
+typo refusal, and it wants its own round and its own measurement.
+
+**And two of this round's own health checks were wrong, in exactly the way it warns about.** After the
+fixes landed, `tools/health_check.py` still reported both as BROKEN — because one asserted that a
+hand-built record with an empty decider must read as *decided* (backwards: an empty decider **should**
+read undecided; the defect was that the write site could emit one at all), and the other failed the
+whole check because the downstream splitters coerce, which production cannot reach. **Both were testing
+synthetic shapes instead of the production path — the third time this round I made that error**, after
+the zero-cap check and the retracted race. Both are corrected to drive the real boundary, and the mode
+check now reports the splitters as a NOTE rather than a red. **A checker that reds on code that is
+actually correct teaches its operator to stop reading it, which is the one thing this file exists to
+prevent.** The health check now reads **9 LIVE AND FIRING, 1 BROKEN, exit 1** — the remaining red being
+the preflight that still returns OK for checks it skipped.
 
 ---
 
