@@ -657,8 +657,26 @@ taskkill that *does* carry `/T` is the deliberate operator-initiated stop, which
 3. ~~**Move the bogus-mode refusal into `resolve()`.**~~ **DONE, AND VERIFIED AFTER — see the note below.**
 4. **Make `rubric_for` refuse `None` and `''`.** It is the parameter default on three functions, it
    silently buys a 2,126-byte brief instead of 5,749, and this exact bug has already come back once.
-5. **Make the preflight fail on skipped work.** It returns ok with checks NOT CHECKED, so a caller
-   gating on it exits 0 having never dialled the judge — the residue of the five-day dead judge.
+5. **Make the preflight fail on skipped work — but read the scope first, it is narrower than I first
+   wrote.** `run_preflight` computes `bad` from FAIL alone (`preflight.py:401-411`); `n_skip` is counted
+   at `:402` and printed, and never reaches `return (not bad), out`. So an all-skipped preflight returns
+   `ok=True`. **Measured exposure, driven both ways:**
+
+   | how it is called | SKIPPED | returns |
+   |---|---|---|
+   | `network=True` — **what `run.py` passes on every funnel** | **0** | ok=True, correctly |
+   | `network=False` — the CLI form that gates the menu | **2** (`models_live`, `vendor_live`) | **ok=True having dialled nothing** |
+
+   **It is NOT reachable on the production funnel path.** Both network checks return SKIPPED *only* when
+   `network=False`; under `network=True` every failure path returns FAIL or WARN (no key → FAIL, all
+   authority dead → FAIL, vendor unreachable → FAIL). So a real run cannot currently reach the hole.
+   The live exposure is the **CLI/menu path**, which exits 0 having checked neither the judge nor the
+   vendor. **The latent risk is the one that matters:** any future check that returns SKIPPED for a
+   non-network reason — a missing optional import, an absent file — would pass silently on the run path
+   too, because the contract has no guard against it. Fix the contract, not just the two callers.
+   *(An earlier version of this line said only "a caller gating on it exits 0 having never dialled the
+   judge", which reads as though production runs were exposed. They are not. Corrected here rather than
+   quietly, because overstating a finding's blast radius is how a real defect gets discounted later.)*
 6. **Grade the 16 delivered Instagram-edits pages.** Their marks file is byte-empty; both edits brains
    are unscoreable on accuracy today, and this is the cheapest item on the list.
 7. **Get 36 more graded wanted pages** to bring the kill-rate bar from n=74 to **n=110**, the point at
