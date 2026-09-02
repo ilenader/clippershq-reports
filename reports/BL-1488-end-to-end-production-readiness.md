@@ -17,7 +17,11 @@ forever. Underneath that, the camera reaches **1.82%** of fresh pages (223 of 12
 **16 of 8,590** were ever recovered (0.19%), and **nothing in shipped code enforces "no page delivered
 without an image the model saw"** — a runtime spy put a pictureless row into the delivered .csv and
 .xlsx with no exception. Fix the five silent-and-cached faults first; every other number here improves
-once a wrong answer stops being permanent.
+once a wrong answer stops being permanent. **And one thing must be fixed before even that, because it
+was observed happening during this round:** two concurrent rounds interleaved a read-modify-write on the
+Instagram seen store and **49 already-walked, already-judged, already-paid pages were written at 17:45
+and gone by 18:24**, the key set back to byte-identical with round start. The in-process race test is
+green; the cross-process case loses data. While that holds, no seen-store guarantee means anything.
 
 ---
 
@@ -560,6 +564,38 @@ previous round saw +14. I verified they are **real, not fixture poisoning**: 0 b
 walked today, 44 rejected / 5 kept, every one carrying `verdict` and `judged_by`. **`master_leads.csv`
 is byte-identical to its backup.** Nothing this round wrote touched production.
 
+> ### ⚠️ AND THEN THOSE 49 PAGES WERE LOST — A LIVE READ-MODIFY-WRITE INTERLEAVE, OBSERVED
+>
+> I re-checked the delta **again after publishing**, which is the only reason this was caught.
+> The Instagram seen store went **6,058 → 6,107 → 6,058**:
+>
+> | time | pages | key-set sha256 | note |
+> |---|---|---|---|
+> | round start | 6,058 | `222aed5a04bf117c` | my verified backup |
+> | ~17:45 | **6,107** | `0abd7fad528b59f1` | +49 walked, judged, 44 rejected / 5 kept |
+> | 18:24 | **6,058** | **`222aed5a04bf117c`** | **identical to round start — the 49 are gone** |
+>
+> The file was **rewritten** at 18:24 (fresh `updated` stamp of `2026-09-02T18:00:49`), and against my
+> backup it shows **0 added, 0 removed, 0 records mutated in place**. A writer holding an in-memory copy
+> that predated 17:45 wrote it back and **discarded 49 pages that had already been walked, judged and
+> paid for.** They are not marked seen, so they will be re-discovered and re-bought.
+>
+> This is the classic two-interleaving-read-modify-writes shape, and the suite has a test named for it
+> having happened before on a different store. My fault-injection territory tested exactly this and found
+> **no lost update (145 of 145)** — but that test ran **two writers inside one process, both honouring the
+> file lock**. What happened here is **two separate processes from two different rounds**, and the lock did
+> not save it. **The in-process test is green and the cross-process case loses data**, which is precisely
+> why a passing test is not evidence that the mechanism works.
+>
+> ⚠️ **This is the same failure class as the round's headline blocker, pointing the other way.** A
+> silent-and-cached fault makes a wrong answer permanent; this makes a *right* answer disappear. Both
+> come from the seen store being treated as a place you can read, hold, and write back later.
+>
+> **CHECK THE SEEN-STORE DELTA AT PUBLICATION, NOT ONLY AT CHECK TIME.** Had I checked once at 17:45 I
+> would have published "+49 arrived, all real" and been wrong about the outcome. Had I checked only at
+> 18:24 I would have published "+0, nothing moved" and never seen the 49 at all. **Both single readings
+> are wrong; only the sequence is true.**
+
 **Campaigns SHA re-verified at publication, both forms: `8e02f8d6f6307ae8` (default separators) and
 `7a029ee5447cddd8` (compact) — both match.**
 
@@ -578,6 +614,11 @@ taskkill that *does* carry `/T` is the deliberate operator-initiated stop, which
 
 ## 7. WHAT TO DO NEXT, RANKED
 
+0. **Stop the cross-process lost update on the seen stores.** Observed live this round: 49 walked,
+   judged and paid-for Instagram pages were written at 17:45 and **gone by 18:24**, the key set back to
+   byte-identical with round start. The in-process race test is green; the cross-process case is not.
+   Until this is fixed, no other seen-store guarantee holds, and concurrent rounds silently destroy each
+   other's paid work.
 1. **Make a wrong answer stop being permanent.** The five silent-and-cached faults all write
    `passed: true` into the seen store, and `is_decided()` then skips those pages forever. Nothing else on
    this list matters as much, because this one makes every other error compound. Minimum: a vendor 200
