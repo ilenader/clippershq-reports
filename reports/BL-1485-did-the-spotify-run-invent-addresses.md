@@ -391,6 +391,30 @@ range 11, **a known typo domain — a certain bounce — 7**, infrastructure dom
 > first planted "clean address" used a reserved example domain, which the gate correctly
 > rejects as infrastructure. It read as a false negative until the domain was changed.
 
+### 3.8b An unrelated leak, found by the commit guard refusing this round's own work
+
+The pre-commit guard refused this round's first commit, correctly, and in doing so surfaced
+something that has nothing to do with the Spotify question and matters more than most of it.
+
+Building the clause-attribution probes above, I took the example addresses **straight out of
+the validator's own docstring**, which illustrates each rejection clause with a concrete case.
+The guard named two of them as living in the gitignored lead store and refused. It was right,
+and the probes are now fabricated strings.
+
+**But the docstring is the actual problem.** Running the same guard against the source file
+directly: **`clippershq/bio_parser.py` carries four distinct real lead addresses in its
+comments — three that live in the lead store and one that lives in the live send file.**
+
+That file is **tracked and long since committed**. The guard inspects staged changes, so it
+can only stop the next leak; addresses committed before it existed are already in git history
+and stay there. This is the same shape as the two incidents the guard was built for, except
+that it is in production source rather than in a scratch artifact, and it has been there long
+enough that nobody looks at it.
+
+**It cannot be fixed by editing the file** — that removes them from the working tree and
+leaves every one of them in history. Naming it is what this round can do; `clippershq/` is
+held by another live round and was not touched.
+
 ### 3.9 The regexes, and the one mechanism that cannot be counted
 
 Every pattern below was measured on fabricated inputs, never on real data.
@@ -545,6 +569,14 @@ fell from 36 to 10.
 validator correctly rejects as infrastructure. It read as a gate failure until I looked. The
 control was wrong, not the gate.
 
+**I copied real lead addresses into a control probe.** Building the clause-attribution
+instrument I lifted its examples out of the validator's own docstring, not noticing that those
+examples are real addresses off the send list. The commit guard refused and named two of them.
+Nothing was published or committed — the refusal happened before either — and the probes are
+now fabricated. **The guard did its job and I did not do mine**, and the only reason this is a
+paragraph rather than a history rewrite is that somebody built that guard after it happened
+twice before.
+
 **My role-prefix list is broader than the shipped classifier's**, which is why my Spotify
 figure (18.32%) exceeds the list-based one (16.00%) and the shipped classifier's (12.89%). All
 three are given; none is presented as *the* number.
@@ -565,6 +597,11 @@ at two characters, and it is one of the corruption mechanisms this round set out
 
 Every instrument this round ran hashes on read and asserts on computed sets, never on
 membership of a real record.
+
+**One exception, caught by the commit guard and not by me**: a control probe in
+`scratch/bl1485_gate.py` copied its example addresses out of a production docstring, two of
+which are real. The guard refused the commit, nothing was published or committed with them in,
+and the probes are now fabricated. See 3.8b and section 5.
 
 **Read-only, verified:** no production file written, no config changed, no document edited, no
 lead store touched, nothing restored, nothing renamed, no process killed, no vendor call made.
@@ -620,7 +657,14 @@ the dashboard. **Removes 0 addresses; removes one false claim from live source.*
 other one-line numeric corrections, of which the send-file count at 2,970 against a live 8,699
 is the largest.
 
-**8. Decide what to do about role inboxes, which are not a bug.** 16.00% [15.21, 16.83] of
+**8. Decide what to do about the four real addresses committed in `clippershq/bio_parser.py`.**
+Three live in the lead store, one in the live send file, all four in the source comments of a
+tracked file, all four already in git history. **Removes 0 addresses from the store and 4 from
+the public-facing risk surface, but only via a history rewrite** — editing the file cleans the
+working tree and changes nothing about what is already committed. It needs a decision, not a
+patch, which is why it is listed rather than done.
+
+**9. Decide what to do about role inboxes, which are not a bug.** 16.00% [15.21, 16.83] of
 Spotify addresses are role inboxes and 19.51% [18.65, 20.40] have no textual relation to the
 artist and are not free-provider addresses. **These do not bounce. They land on the wrong
 desk**, which is invisible in every metric this project has. Nothing here says they are wrong;
@@ -636,6 +680,7 @@ the number is given so the decision can be made deliberately.
 | `clippershq/bio_parser.py:27` | the pattern that truncates a local part at the first non-ASCII character |
 | `clippershq/bio_parser.py:409-416` | the obfuscation reader that builds addresses out of prose |
 | `clippershq/bio_parser.py:245-285` | `valid_email` — the good gate the Spotify route never calls |
+| `clippershq/bio_parser.py:263-265` | four real lead addresses in a tracked source comment, already in git history |
 | `clippershq/google_play_finder.py:45-69` | the gate the Spotify route uses instead |
 | `clippershq/enrich_links.py:320-339`, `:266-289` | the markup-scraping patterns and the long-run defuser |
 | `clippershq/crossdedup.py:50-81`, `:185-201`, `:261-281` | the refusal, the merge key, the union-find |
