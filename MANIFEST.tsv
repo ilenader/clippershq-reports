@@ -322,6 +322,7 @@ BL-1479-photo-heavy-settled	leadgen	1.00	auto (stack markers)			BL-1479 — phot
 BL-1480-free-bio-emails-are-real-on-tiktok-and-already-free	ambiguous	0.00	auto (stack markers)	2026-09-01		BL-1480 — the free bio emails are real, already yours on TikTok, and worth $0.00 on Instagram
 BL-1481-thirty-tested-twenty-five-do-not-work	leadgen	1.00	auto (stack markers)	2026-09-01		BL-1481 — thirty things were tested against the belief that they work; twenty-five do not
 BL-1483-the-parts-nobody-opened	leadgen	1.00	auto (stack markers)	2026-09-01		BL-1483 — the parts nobody opened: a live cut that calls itself a dry run, 939 pages latched on nothing, and a debt register whose alarm has been ringing unheard
+BL-1485-did-the-spotify-run-invent-addresses	leadgen	1.00	auto (stack markers)	2026-09-02		BL-1485 — No model ever touched an address, and the source that would prove it was never kept
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -764,6 +765,7 @@ BL-831-clippershq-hide-evidence-panel	payments	1.00	auto (stack markers)	2026-08
 BL-831	leadgen	0.88	auto (stack markers)	2026-08-01		BL-831 — The vocabulary is 18 values, not 5, and the tag map is **never consulted** (`tag=None` at the only call site). The real problem is 71.5% of clips have no genre at all — and that is supply composition, not map coverage.
 BL-832-clippershq-hide-bot-note	payments	1.00	auto (stack markers)	2026-08-29		BL-832 — the Bot note is off his clip screen too, behind a second, independent switch
 BL-832	leadgen	1.00	auto (stack markers)	2026-08-01		BL-832: The crawl costs **$0.88 per 1,000 contactable leads** — $20.63 was a category error, but so was "4.3%", and the DM pool is not the goldmine BL-757 implied
+BL-833-clippershq-view-only-and-campaign-lock	payments	1.00	auto (stack markers)	2026-09-01		BL-833 — campaign creation is locked to the owner, and "watching only" grants nothing else
 BL-833	leadgen	1.00	auto (stack markers)	2026-08-01		BL-833: The bot-facing clip CSV — 61 columns, and the permalink is NOT the retrieval key
 BL-834	leadgen	1.00	auto (stack markers)	2026-08-01		BL-834: The bio handles are not there — 1,550 was 88, and I did not write them
 BL-835	leadgen	1.00	auto (stack markers)	2026-08-01		BL-835 — Frame-by-frame video understanding: Gemini on VIDEO declines 9/9 where BL-731's thumbnails declined 0/10. Per-frame OCR is 12x cheaper than the brief assumed. Scene detection is refuted — 6 of 10 clips have no cuts at all
