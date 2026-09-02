@@ -17,11 +17,10 @@ forever. Underneath that, the camera reaches **1.82%** of fresh pages (223 of 12
 **16 of 8,590** were ever recovered (0.19%), and **nothing in shipped code enforces "no page delivered
 without an image the model saw"** — a runtime spy put a pictureless row into the delivered .csv and
 .xlsx with no exception. Fix the five silent-and-cached faults first; every other number here improves
-once a wrong answer stops being permanent. **And one thing must be fixed before even that, because it
-was observed happening during this round:** two concurrent rounds interleaved a read-modify-write on the
-Instagram seen store and **49 already-walked, already-judged, already-paid pages were written at 17:45
-and gone by 18:24**, the key set back to byte-identical with round start. The in-process race test is
-green; the cross-process case loses data. While that holds, no seen-store guarantee means anything.
+once a wrong answer stops being permanent. **(An earlier version of this paragraph named a cross-process
+seen-store race as blocker 0. That is RETRACTED — see §6. The 56 pages that vanished were deleted and
+then fully restored by a peer round on a mistaken attribution; I verified the restoration is exact, 0
+records differing. The disappearance was real, the race was my inference, and I had not established it.)**
 
 ---
 
@@ -514,6 +513,19 @@ it asked `> 0`. A control must **discriminate**: it now requires the declared $0
 exactly 0.5. This is the same trap the brief warns about — reading a key that does not exist and getting
 the same answer for every input including the controls — and it caught me in my own instrument.
 
+**I published a mechanism I had not established, and a peer round corrected me.** I saw the Instagram
+seen store return to its round-start key set with the file freshly rewritten, and I published that as a
+**cross-process read-modify-write race** that had destroyed 49 paid pages. It was not. BL-1484 had
+deleted 56 rows on a mistaken attribution and then restored every one; I verified the restoration
+independently and it is exact — **0 of 6,114 records differ**, 0 pages lost. The observation was sound;
+the cause was mine, invented from a shape I recognised. **This is the exact failure this report's own
+rules warn about** — I wrote down what the instrument's reading *meant* in the same breath as what it
+*saw*, and the meaning is the part that was wrong. One more question — *who wrote this file, and is
+there a snapshot?* — would have answered it, and the snapshot was on disk the whole time. It is
+withdrawn in §6, in §7, and in the headline. I am recording it here rather than quietly editing it out,
+because a retracted mechanism that is still sitting in someone's notes is how a wrong number gets
+rebuilt later.
+
 **I corrected a sub-agent's interpretation.** A red test was reported to me as *"`record_many` is
 dropping a handle — a silent data-loss shape in a seen store."* Driven directly: **all three records
 persist on disk.** The missing handle is a rejection with no verdict, correctly excluded from the
@@ -553,7 +565,7 @@ test, no key printed):
 
 | store | start | publication | added | removed |
 |---|---|---|---|---|
-| meme pages | 6,058 | **6,107** | **+49** | 0 |
+| meme pages | 6,058 | **6,114** | **+56** | **0** (see the retraction below) |
 | tiktok pages | 2,446 | 2,446 | 0 | 0 |
 | spotify playlists | 1,880 | 1,880 | 0 | 0 |
 | repost | 1,715 | 1,715 | 0 | 0 |
@@ -564,37 +576,53 @@ previous round saw +14. I verified they are **real, not fixture poisoning**: 0 b
 walked today, 44 rejected / 5 kept, every one carrying `verdict` and `judged_by`. **`master_leads.csv`
 is byte-identical to its backup.** Nothing this round wrote touched production.
 
-> ### ⚠️ AND THEN THOSE 49 PAGES WERE LOST — A LIVE READ-MODIFY-WRITE INTERLEAVE, OBSERVED
+> ### ⚠️ RETRACTED — I PUBLISHED A MECHANISM I HAD NOT ESTABLISHED
 >
-> I re-checked the delta **again after publishing**, which is the only reason this was caught.
-> The Instagram seen store went **6,058 → 6,107 → 6,058**:
+> **What I first published here: "the 49 pages were lost to a cross-process read-modify-write
+> interleave." THAT IS WRONG AND IS WITHDRAWN.** The disappearance was real; the cause I attached to it
+> was invented by me from a shape, not measured.
 >
-> | time | pages | key-set sha256 | note |
+> **What actually happened**, established after BL-1484 told me and I verified it independently rather
+> than taking it on trust:
+>
+> | time | pages | key-set sha256 | what |
 > |---|---|---|---|
 > | round start | 6,058 | `222aed5a04bf117c` | my verified backup |
-> | ~17:45 | **6,107** | `0abd7fad528b59f1` | +49 walked, judged, 44 rejected / 5 kept |
-> | 18:24 | **6,058** | **`222aed5a04bf117c`** | **identical to round start — the 49 are gone** |
+> | ~17:45 | 6,107 | `0abd7fad528b59f1` | +49 walked and judged by a concurrent funnel |
+> | 18:24:33 | 6,114 → **6,058** | `222aed5a04bf117c` | **BL-1484 deliberately deleted 56 rows** |
+> | now | **6,114** | `3a98de4c6239160e` | **BL-1484 restored all 56** |
 >
-> The file was **rewritten** at 18:24 (fresh `updated` stamp of `2026-09-02T18:00:49`), and against my
-> backup it shows **0 added, 0 removed, 0 records mutated in place**. A writer holding an in-memory copy
-> that predated 17:45 wrote it back and **discarded 49 pages that had already been walked, judged and
-> paid for.** They are not marked seen, so they will be re-discovered and re-bought.
+> BL-1484 saw the store grow mid-round, **wrongly concluded its own test suite had written the pages**,
+> and surgically removed them — snapshotting the pre-deletion state first. It then bisected seven
+> candidate suites with a store sha256 around each, **found that none of them writes the store, which
+> disproved its own attribution**, and put all 56 back.
 >
-> This is the classic two-interleaving-read-modify-writes shape, and the suite has a test named for it
-> having happened before on a different store. My fault-injection territory tested exactly this and found
-> **no lost update (145 of 145)** — but that test ran **two writers inside one process, both honouring the
-> file lock**. What happened here is **two separate processes from two different rounds**, and the lock did
-> not save it. **The in-process test is green and the cross-process case loses data**, which is precisely
-> why a passing test is not evidence that the mechanism works.
+> **I verified the restoration myself and it is exact.** Its 18:24 snapshot and the live store agree on
+> the key set (`3a98de4c6239160e`) and on **every record — 0 differing of 6,114**. Against my round-start
+> backup: **56 added, 0 lost.** Nothing is missing. My 6,058 reading landed inside the deletion window.
 >
-> ⚠️ **This is the same failure class as the round's headline blocker, pointing the other way.** A
-> silent-and-cached fault makes a wrong answer permanent; this makes a *right* answer disappear. Both
-> come from the seen store being treated as a place you can read, hold, and write back later.
+> **So there is no evidence here of a race, and the claim is retracted.** My fault-injection territory
+> measured **no lost update, 145 of 145**, and that stands. It remains true and worth saying that the test
+> runs **two writers inside one process**, so it is not evidence about the cross-process case either way —
+> but "not evidence for" is not "evidence against", and I published the difference as a finding. **An
+> independent demonstration of a real race would stand on its own; this was not one.**
 >
-> **CHECK THE SEEN-STORE DELTA AT PUBLICATION, NOT ONLY AT CHECK TIME.** Had I checked once at 17:45 I
-> would have published "+49 arrived, all real" and been wrong about the outcome. Had I checked only at
-> 18:24 I would have published "+0, nothing moved" and never seen the 49 at all. **Both single readings
-> are wrong; only the sequence is true.**
+> **What I got wrong, precisely.** I observed a fact — the key set returned to its round-start value and
+> the file had been rewritten — and attached a mechanism to it in the same breath. This report's own
+> standing rule says *report what the instrument saw, not what it means; the moment you write down what it
+> means you have added something that can be wrong.* I wrote down what it meant, and it was wrong. The
+> observation needed one more question — **"who wrote this file, and is there a snapshot?"** — and the
+> answer was sitting in a backup directory the whole time.
+>
+> **What survives, and it is not nothing:**
+> 1. **Check the seen-store delta at publication, not only at check time.** A single reading is wrong
+>    either way: at 17:45 "+49 arrived"; at 18:24 "+0, nothing moved". Only the sequence showed anything
+>    happened at all.
+> 2. **A round deleted 56 of another round's paid rows on a mistaken attribution.** That is a real hazard
+>    of concurrent rounds even though it was fully repaired — and the repair is the model: it snapshotted
+>    before deleting, tested its own hypothesis, disproved itself, and restored.
+> 3. **Cross-round coordination worked.** The correction reached me before this report's number could
+>    harden into a fact anyone else built on.
 
 **Campaigns SHA re-verified at publication, both forms: `8e02f8d6f6307ae8` (default separators) and
 `7a029ee5447cddd8` (compact) — both match.**
@@ -614,11 +642,12 @@ taskkill that *does* carry `/T` is the deliberate operator-initiated stop, which
 
 ## 7. WHAT TO DO NEXT, RANKED
 
-0. **Stop the cross-process lost update on the seen stores.** Observed live this round: 49 walked,
-   judged and paid-for Instagram pages were written at 17:45 and **gone by 18:24**, the key set back to
-   byte-identical with round start. The in-process race test is green; the cross-process case is not.
-   Until this is fixed, no other seen-store guarantee holds, and concurrent rounds silently destroy each
-   other's paid work.
+0. **~~Stop the cross-process lost update on the seen stores.~~ RETRACTED — no race was established.**
+   The 56 pages were deleted and fully restored by a peer round; the restoration is verified exact. What
+   remains actionable is smaller and real: **a concurrent round can mistake another round's writes for
+   its own test output.** A row stamped with its writing round would have answered that in one read
+   instead of a delete-and-bisect. And **check the seen-store delta at publication, not only at check
+   time** — a single reading was wrong in both directions here.
 1. **Make a wrong answer stop being permanent.** The five silent-and-cached faults all write
    `passed: true` into the seen store, and `is_decided()` then skips those pages forever. Nothing else on
    this list matters as much, because this one makes every other error compound. Minimum: a vendor 200
