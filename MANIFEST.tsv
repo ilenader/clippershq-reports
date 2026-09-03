@@ -332,6 +332,7 @@ BL-1490-the-third-state-that-counted-as-success	leadgen	1.00	auto (stack markers
 BL-1491-the-verification-gate	leadgen	1.00	auto (stack markers)			BL-1491 — The verification gate: what is actually wired, what is still his to decide
 BL-1492-his-approvals-were-never-read	leadgen	1.00	auto (stack markers)	2026-09-03		BL-1492 — his approvals were never read, and the reject side of the pack is pages he wants
 BL-1493-the-answer-key-audit	leadgen	1.00	auto (stack markers)			BL-1493 — the answer key, audited: the ceiling is 75.8%, and nothing reads it
+BL-1494-the-handover-package	leadgen	1.00	auto (stack markers)	2026-09-03		BL-1494 — Packaging the Spotify lead system for a second machine
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
