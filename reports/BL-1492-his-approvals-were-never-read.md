@@ -419,6 +419,17 @@ All four originals reproduced before the change, with a negative control (two br
 must differ; the same brief twice must match) — both legs passed. **The edits change did not leak
 into either memes brain.**
 
+⚠️ **These four hashes are ALSO pinned in a test, and I did not update it.** `tests/
+test_bl1440_frame_strip.py` holds all four as expected values, under a docstring reading *"If a
+round edits RUBRIC or an addendum, these move and the round has to say so out loud."* The guard
+did exactly its job and went red; I had measured the movement and published it without updating
+the pin. The two **edits** pins are now updated with the previous values recorded beside them,
+and the two **memes** pins are untouched — they are the control, and a change that moved them
+would mean the edit leaked. Because updating a guard's expected value is the easiest way to turn
+a real check into a rubber stamp, the update carries its own proof: mutating the edits addendum
+by one character makes it red, mutating the memes rubric makes it red, and restoring makes it
+green (`scratch/bl1492_pin_still_binds.py`). **The guard still binds in both directions.**
+
 ⚠️ **What was NOT done, stated plainly: a paid A/B of judge accuracy under the two phrasings.**
 That needs a model run per arm; this round's cap is $1.00, and the last such comparison here was
 n=100 unpaired on a since-dead model — the kind of number that then gets quoted for months. The
@@ -475,8 +486,21 @@ byte-level control and the offline count above are what this round can honestly 
    guessing, and by adding two controls: a deletion must be visible, and the descent must find
    more than a handful of rows. The other four counts were right, and all five stores are
    genuinely unchanged.
-8. **Three shell heredocs ate backslashes**, twice writing literal newlines into Python string
-   escapes. Each was caught by a parse check before the write. Patches are written as files.
+8. **⚠️ I REPORTED A SUITE RESULT I HAD NOT EARNED.** I read a partial log — 32 suites of 439 —
+   and wrote *"32 of 32 green so far."* The finished run was **15 red of 439**. A prefix of an
+   alphabetical run is not a sample of it, and "so far" does not make a premature number safe:
+   it gets quoted without the qualifier. The rule is to report the verdict line or nothing.
+9. **⚠️ And one of those reds was mine.** The four brief hashes are pinned in
+   `tests/test_bl1440_frame_strip.py`, whose docstring says a round that moves them *"has to say
+   so out loud."* I measured the movement, published it, and never updated the pin. Fixed, with
+   the previous values recorded and a mutation proof that the guard still binds (§3.9).
+   **14 of the 15 reds are pre-existing**, established by reverting *only my three files* to the
+   commit before this round and re-running all fifteen — 14 fail identically without my change,
+   and `test_bl1440_frame_strip` is the single one that flips. I used the working tree rather
+   than a clean worktree on purpose: the data files are gitignored, so a worktree without them
+   answers a different question.
+10. **Three shell heredocs ate backslashes**, twice writing literal newlines into Python string
+    escapes. Each was caught by a parse check before the write. Patches are written as files.
 
 ---
 
@@ -502,6 +526,14 @@ compact `7a029ee5447cddd8` **MATCHES**.
 
 **Ports:** re-checked immediately before every write under `clippershq/` — never once at the
 start. His review viewer was running throughout on its own port and was not touched.
+
+**THE TEST SUITE, stated in full rather than as a headline.** `tests/run_all.py`, the whole
+thing: **439 suites, 10,045 checks, 2,542s — 424 green, 15 red, 19 skipped.** A skip is not a
+pass. **Fourteen of the fifteen reds are pre-existing** and are named in the log; I established
+that by reverting *only my three files* to the commit before this round and re-running all
+fifteen, where fourteen fail identically. The fifteenth, `test_bl1440_frame_strip`, was **mine**
+and is fixed (§3.9, §5.9). The suites closest to this round's change are green:
+pack/exemplar **3/3**, claims **4/4**, and the drift and preflight contracts **2/2**.
 
 ---
 
