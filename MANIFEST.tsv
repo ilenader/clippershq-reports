@@ -334,6 +334,7 @@ BL-1492-his-approvals-were-never-read	leadgen	1.00	auto (stack markers)	2026-09-
 BL-1493-the-answer-key-audit	leadgen	1.00	auto (stack markers)			BL-1493 — the answer key, audited: the ceiling is 75.8%, and nothing reads it
 BL-1494-the-handover-package	leadgen	1.00	auto (stack markers)	2026-09-03		BL-1494 — Packaging the Spotify lead system for a second machine
 BL-1495-how-it-works-and-what-it-should-be	leadgen	1.00	auto (stack markers)	2026-09-04		How the page filter works today, and what it should be
+BL-1498-the-search-term-engine	leadgen	1.00	auto (stack markers)			BL-1498 — The search-term engine: his instinct is right about breadth and wrong about purity
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -780,6 +781,7 @@ BL-833-clippershq-view-only-and-campaign-lock	payments	1.00	auto (stack markers)
 BL-833	leadgen	1.00	auto (stack markers)	2026-08-01		BL-833: The bot-facing clip CSV — 61 columns, and the permalink is NOT the retrieval key
 BL-834-clippershq-trainer-referral-design	payments	1.00	auto (stack markers)	2026-09-03		BL-834: the trainer referral system, designed before any code
 BL-834	leadgen	1.00	auto (stack markers)	2026-08-01		BL-834: The bio handles are not there — 1,550 was 88, and I did not write them
+BL-835-clippershq-trainer-system	payments	1.00	auto (stack markers)	2026-09-04		BL-835: the trainer system, built
 BL-835	leadgen	1.00	auto (stack markers)	2026-08-01		BL-835 — Frame-by-frame video understanding: Gemini on VIDEO declines 9/9 where BL-731's thumbnails declined 0/10. Per-frame OCR is 12x cheaper than the brief assumed. Scene detection is refuted — 6 of 10 clips have no cuts at all
 BL-836	leadgen	1.00	auto (stack markers)	2026-08-01		BL-836: The clip export is wired to both entry points — and the retrieval round trip is closed: `clip_id` works, and the fresh manifest served a rendition the library never stored
 BL-837	leadgen	1.00	auto (stack markers)	2026-08-01		BL-837 — All seven landed. Franchise fill **doubled to 45.2%**, provenance went **0 → 194 declared**, and item 7's premise was wrong: there is no IMDb ID in any caption, only a score.
