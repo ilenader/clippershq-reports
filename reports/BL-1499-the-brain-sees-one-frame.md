@@ -206,26 +206,41 @@ brain with only the image changing. It did not happen, and no accuracy claim is 
 this report. What is proved is geometric and textual: more of the picture arrives, and the prompt
 no longer contradicts itself.
 
-**The extraction speedup was not shipped, and the measurement is now finished: it does not exist.**
-The claim was a one-line filter change worth 2.47× at the median and 3.21× at the tail. Across 30
-videos, **no candidate is both fast and pixel-correct**:
+**The extraction speedup is real, pixel-exact, and still not shipped — and I published the opposite
+of that an hour before writing this. See §5.**
 
-| candidate | median | speedup | frames identical to baseline |
-|---|---:|---:|---:|
-| the deliberately planted **known-bad** | 0.217 s | **3.08×** | **16.7%** |
-| a non-reference-frame skip | 0.291 s | 2.29× | 23.3% |
-| an fps filter | 0.630 s | 1.06× | **0.0%** |
-| **the only pixel-faithful option** | 0.617 s | **1.08×** | **100%** |
+⚠️ **There are TWO frame extractors in this codebase, not one.** One is the module described in
+§3.4, which has **zero callers**. The other is a separate one that **does** have a live caller. The
+brief describes a "one-line filter change", which fits the first; the actual win is on the second,
+and it is not a filter change at all — it is **six ffmpeg processes collapsed into one**.
 
-**The fastest candidate is the one I planted to be wrong**, and a frame *count* would have accepted
-it — it produces the right number of distinct files. Only decoded pixels rejected it. That is
-exactly the trap the brief described, where an earlier 4.81× candidate wrote six distinct files
-every time and was still wrong. **The honest result is 1.08×, which is inside the noise.**
+| extractor | live caller? | best candidate | frames identical to baseline |
+|---|---|---:|---:|
+| the one with the tiler (§3.4) | **no** | nothing beat the baseline at the median | — |
+| the one with a caller | **yes** | **1.93× median, 2.30× p90, 2.33× p95** | **180 of 180 = 100%, on 30 of 30 clips** |
 
-⚠️ *An error in my summary, not in the bench:* my first table printed the baseline as matching
-itself 0.0%, which would mean the extractor is not reproducible run to run and would have
-invalidated everything above. It is not — the bench skips the baseline because **the baseline is
-the reference** and is never compared to itself. My table rendered that absence as a zero.
+Flat across lengths — 1.95× short, 1.80× mid, 1.91× long — because the saving is **process
+starts, not decoding**. Re-derived two further ways: total wall clock over 30 clips 41.15 s →
+21.80 s = **1.89×**; best-of-three per clip summed = **1.86×**. The brief's 2.47×/3.21× did not
+reproduce; the measured figures are 1.93×/2.30×.
+
+**The control fired in both directions, and speed could not have separated them.** A deliberately
+planted bad candidate — reproducing a real fallback branch that cuts six frames from the opening
+seconds of a clip that may be 91 seconds long — ran at **1.96×, faster than the good one**, and
+wrote **six distinct files on 29 of 30 clips**. A file count or a distinctness check passes it.
+**The raw pixel hash rejected it on 30 of 30 clips, 0 of 180 frames**, while accepting the good
+candidate on 30 of 30, 180 of 180. On one near-static clip the *perceptual* test alone would have
+accepted it — so the raw hash is the load-bearing half.
+
+**Why it is still not shipped:** the live caller is an OCR leg that is **off by default**. So this
+is a measured 1.93×, not a measured saving on a live walk. The patch is written and not applied,
+and its own fallback branch — re-cutting only missing frames, so that one failed process cannot
+turn a transient fault into a refusal — **never fired and is unmeasured**.
+
+**And a comment that names the wrong mechanism.** The unused extractor claims its filter gives
+"exactly one frame per interval". Measured on 30 clips, it runs **late and ratchets**: median
+**1.19 frames** of drift, p90 3.86, max **5.66 frames**, with only **47.2%** landing within one
+frame of the requested timestamp — drift positive and monotone on every clip.
 
 **Sample images were withheld from this public report.** They are saved on the operator's machine.
 The handle detector that cleared them **failed its own first control** — it missed a planted
@@ -258,6 +273,20 @@ recognised it in one read instead of debugging it.
 flag". There are **two different functions with the same name**; one is a code-rule judge that
 cannot take the flag at all, so two of my three could never have passed it. **The honest figure is
 0 of 1.** An AST walk keyed on a bare name conflated them.
+
+⚠️ **I PUBLISHED A CONFIDENT WRONG NUMBER AND HAD TO RETRACT IT WITHIN THE HOUR.** A partial
+result showed no fast candidate surviving the pixel check, so I updated this report to say the
+extraction speedup **"does not exist"**. It does: 1.93× at the median, pixel-identical on 180 of
+180 frames. I had summarised one of **two** extractors — the one with no callers — and generalised
+from it. Nothing forced me to publish before the measurement finished; I did it because the
+first result was tidy. The retraction is in §4 and this is the error that most deserved to be
+caught before publication rather than after.
+
+*A smaller error inside that same wrong summary:* my table printed the baseline as matching itself
+0.0%, which would have meant the extractor is not reproducible run to run. It is — the bench skips
+the baseline because **the baseline is the reference** and is never compared to itself. My table
+rendered that absence as a zero. I caught that one before publishing; I did not catch the larger
+one.
 
 **A sub-agent's handle detector missed a planted handle** and every "clean" verdict before the
 repair was discarded. Another's padding control passed on a flat synthetic tile that was
@@ -306,8 +335,11 @@ model. Call count stayed at one throughout.
    newest-picture-on-disk fallback behind a 90× size spread.
 7. **Add a decode probe** to the video intake — 28 of 260 sampled files carry a valid header and
    do not decode.
-8. **Stop looking for the extraction speedup.** It was measured across 30 videos and the only
-   pixel-faithful option is 1.08×. Every candidate at 2× or more changes the frames.
+8. **Ship the extraction speedup once its consumer is on.** 1.93× median, 2.30× p90, byte-identical
+   on 180 of 180 frames across 30 clips. It is worth nothing today because its only caller is an
+   OCR leg that is off by default — turn that on, or wire the collapse into the five other sites
+   that run the same command in a loop (two of them at 11 and 12 seeks per clip, where the saving
+   should be larger). The patch is written and unapplied; its fallback branch is unmeasured.
 
 ---
 
