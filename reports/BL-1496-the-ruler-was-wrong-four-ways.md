@@ -429,17 +429,27 @@ is detected as a mismatch.
 2,446-row store read as 3 last round): TikTok **2,446** · meme **6,125** · clip **2,193** · repost
 **1,715** · Spotify **1,898**. **No row was written, rewritten or deleted by this round.**
 
-**The ledger at publication:** 25,460 rows; `total_spent_usd` **$61.385350**, equal to the sum of
-its five category scalars to the digit.
+**⚠️ THE LEDGER MOVED WHILE I WAS PUBLISHING, AND SAYING SO IS THE POINT OF CHECKING AT
+PUBLICATION RATHER THAN AT THE START.** Two readings, both real:
 
-⚠️ **EIGHT ROWS DATED TODAY ARE NOT MINE AND I LEFT THEM.** They are `FREE_JUDGE`
-`free_judge_paid_fallback` rows, 8 × $0.000089 = **$0.000712**, written by a concurrent round
-whose probe hit the same trap I did. **I did not remove them**, for three reasons: they are not
-mine, and this project has already lost a round to someone deleting 56 rows another had paid for;
-they are 0.0012% of the ledger and change no figure here; and they are the *before-picture* of the
-defect §3.1 fixes — four rows billed with no socket ever opened. If he wants them gone, the
-reconciliation is `vision_spent_usd` and `total_spent_usd` each **−$0.000712**, or the ledger
-stops reconciling.
+```
+when I wrote §3      25,460 rows    8 rows dated today    total_spent_usd $61.385350
+at publication       25,493 rows   41 rows dated today    total_spent_usd $61.391847
+```
+
+**None of it is mine** — this round made **0 vendor calls**, counted by its own counter. A
+concurrent round is actively spending, and it is booking through the code this round just fixed.
+The ledger **reconciles at both readings**: `total_spent_usd` equals the sum of its five category
+scalars to the digit. Every figure in §3.2 (the $4.83, the 9.60%) is a measurement of the 7,688
+Instagram-bearing rows and is unaffected by rows added since.
+
+⚠️ **EIGHT OF THOSE ROWS ARE THE PHANTOM ONES AND I LEFT THEM.** `FREE_JUDGE`
+`free_judge_paid_fallback`, 8 × $0.000089 = **$0.000712**, from probes that had sealed every
+socket. **I did not remove them**, for three reasons: they are not mine, and this project has
+already lost a round to someone deleting 56 rows another had paid for; they are 0.001% of the
+ledger and change no figure here; and they are the *before-picture* of the defect §3.1 fixes —
+the only unforced evidence of it on disk. If he wants them gone, the reconciliation is
+`vision_spent_usd` and `total_spent_usd` each **−$0.000712**, or the ledger stops reconciling.
 
 **Ports:** re-checked immediately before **every** write under `clippershq/` — six times, never
 once at the start. His sheet server was up throughout and was not touched. No `taskkill` was run.
