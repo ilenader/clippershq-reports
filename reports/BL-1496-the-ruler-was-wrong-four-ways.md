@@ -149,6 +149,34 @@ Fixed at all three arithmetic sites — `record_spend`, `_record_aux_spend_locke
 TikTok by 15.1%. Driven at n = 1, 25 and 1626: TikTok unchanged, Instagram correct, a mixed
 three-vendor row correct on each column.
 
+⚠️ **AND THE WRONG PRICE WAS PINNED IN FOUR TEST FILES, so the suite was enforcing the defect.**
+Any round that had priced Instagram correctly would have been told it had broken something:
+
+| test | pinned | correct |
+|---|---|---|
+| `test_bl1376_ledger_reversal` | 307 calls → **$0.1842** | $0.2120 |
+| `test_vision_vendor` | 100 calls → **$0.06** | $0.069064 |
+| `test_resilience` | 80 calls → **$0.048** | $0.055251 |
+| `test_funnel` | 24 calls → **$0.0144** | $0.016575 |
+
+Every one is *n* × $0.000600 — LamaTok's price for a HikerAPI call. All four now carry the right
+product and a note saying why it moved. **The shape each test exists for is untouched**: charge
+*n* and reverse *n* still lands on zero; the vision columns are still zero when no vision is
+passed; TikTok's figure in `test_resilience` is unchanged beside the Instagram one, which is the
+control — if it had moved, the fix would have re-priced both vendors.
+
+A second test in `test_bl1376` demonstrates that *"dividing our own dollars by our own calls
+returns the input"* — i.e. that no ratio from `spend.json` can ever be evidence about the
+constant, because the arithmetic is circular. That had to move to `ig_cost_per_call`; fed through
+`cost_per_call` it would prove nothing now.
+
+A second test in the same file demonstrates that *"dividing our own dollars by our own calls
+returns the input"* — i.e. that no ratio taken from `spend.json` can ever be evidence about the
+constant, because the arithmetic is circular. That demonstration had to move to
+`ig_cost_per_call`, the parameter that now carries the Instagram price; fed through
+`cost_per_call` it would have proved nothing, since the ratio would return HikerAPI's constant
+whatever was passed in.
+
 ⚠️ **This was never only a reporting error.** `meme_finder` computes `max_calls = int(cap / cost)`.
 Driven through the real `preflight_check`: **5,000 Instagram calls now project $3.4532 where they
 projected $3.0000.** A $3.00 cap was authorising $3.45 of spend. The cap was not a cap.
@@ -411,8 +439,41 @@ else's work.**
 6. **My first threshold driver built a synthetic author with the wrong field** (`play_count`
    instead of `views`) and the judge raised rather than answering — which is the right behaviour
    from the judge and a wasted cycle from me.
-7. **I asked a session whether it was a round number.** Sessions do not carry round numbers;
+7. **⚠️ MY OWN CHANGE SILENTLY BLINDED MY OWN INSTRUMENT.** Giving the ledger row a per-model
+   label (`free_judge_paid:<model>`, so two models billing 3× apart can be told apart) broke the
+   exact-match filter inside my booking driver. It read **zero bookings** and reported the whole
+   failure matrix as broken — a false zero produced by my own rename, in the round about false
+   zeros. Fixed by filtering on the stable **prefix**; the blast radius was checked and is one
+   test plus this driver. Then the *same* driver's ledger stub went stale a second way: it still
+   had the old `(n, spend_path)` signature after `_book_paid_call` gained `model`, so every call
+   raised `TypeError` and again read as "nothing booked". **A stub that does not track its
+   target's signature is a false zero waiting to happen.**
+8. **I asked a session whether it was a round number.** Sessions do not carry round numbers;
    `.claims/*.json` is the mapping, and I had already read the file that answered it.
+9. **Three separate patches missed their anchor because I wrote `\n` against a CRLF file.** Each
+   failed loudly rather than half-applying, but I wrote the terminator-aware patcher only after
+   the second one — and one earlier patch, applied before that, inserted four LF-terminated lines
+   into a CRLF file. Caught by counting bare LF before and after.
+10. **⚠️ I COMMITTED A CRASH IN THE LEDGER WRITER, AND ONLY THE FULL SUITE CAUGHT IT.** I added
+    the `ig_cost_per_call` kwarg to `record_spend`'s **signature**, but the arithmetic it feeds
+    lives in `_record_spend_locked` — a different function, which did not have the parameter. So
+    `main.record_spend` raised `NameError: name 'ig_cost_per_call' is not defined` **on every
+    call**: the main run's ledger write would have crashed outright. It shipped in commit
+    `8294d41` and sat there while I wrote three more sections.
+    **My own driver did not catch it because it exercises `record_aux_spend`, not `record_spend`
+    — two writers, and I proved one.** Three suites went red on it (`test_resilience`,
+    `test_enrich_concurrent`, `test_funnel`) and that is the only reason it was found. It is the
+    strongest argument in this report for the brief's own rule: drive the real path, and drive
+    *every* real path, because a chokepoint you did not call is a chokepoint you did not test.
+
+    ⚠️ **And for a window this report was published while HEAD could not write a spend row.** A
+    peer caught that by parsing the **committed blob**, not the working tree — my own suite was
+    green partly because it ran against a dirty tree that already had the fix. *"`record_spend`
+    still ACCEPTS the kwarg, so a signature-level or grep-based check passes; the failure is one
+    frame down, in a name the wrapper silently dropped."* That is a general shape worth naming:
+    **a wrapper that accepts an argument and a locked writer that needs it are two different
+    facts, and only one of them is visible from the outside.** The fix is committed in `4699b00`
+    and verified by AST on the committed blob — all five functions now accept and use it.
 
 ---
 
@@ -454,6 +515,21 @@ the only unforced evidence of it on disk. If he wants them gone, the reconciliat
 **Ports:** re-checked immediately before **every** write under `clippershq/` — six times, never
 once at the start. His sheet server was up throughout and was not touched. No `taskkill` was run.
 
+**THE FULL TEST SUITE — `tests/run_all.py`, 441 suites, 10,013 checks, 424 green / 24 red / 19
+skipped.** A skip is not a pass. Every red was bisected by reverting **only my five files** to the
+commit before this round and re-running:
+
+```
+14 red  PRE-EXISTING -- fail identically without my change
+ 1 red  ANOTHER ROUND'S (an unguarded os.replace it has since fixed)
+ 9 red  MINE
+```
+
+**All nine of mine are now green.** Four were the mis-priced expectations above; two were
+threshold pins that moved with his numbers (`test_tiktok_finder` pinned 3,000;
+`test_bl1187_rules`' fixture no longer straddled the boundary); one was the docs guard; one was
+the ledger row's label; **and one was a bug I had already committed** — §5.10.
+
 **Concurrency.** Another live round holds `clippershq/main.py` for a different purpose. I messaged
 it with the exact four functions I touched, agreed to land first, and passed on the
 `_book_paid_call` trap so it would not repeat my §5.1 mistake.
@@ -477,7 +553,18 @@ it with the exact four functions I touched, agreed to land first, and passed on 
 5. **The judge still has no `run_id`.** Its dollars now reach the run record by time window, which
    over-attributes when two runs judge at once. A `run_id` column on the ledger would end that
    whole class of question.
-6. **⚠️ `dashboard/.running.json` claims a server that has been dead since 30 August.** It names a
+6. **⚠️ `tests/test_funnel.py` HAS BEEN UN-COMMITTABLE, AND THE ONLY WAYS PAST IT ARE BAD ONES.**
+   Line 4824 carried a **real address from the lead store** inside a persona bio fixture, so
+   `write_point_guard` refused every commit that staged the file — *"gitignored lead data has
+   reappeared at a path that IS committed"*, the BL-1235 (3,972 addresses) shape. It is
+   pre-existing: the same address sits at that line six commits back. It blocked an unrelated
+   one-line fix of mine from landing, and the only routes past a refusal like that are to redact
+   it or to `--no-verify`, **which is exactly how a real address reaches history**. I redacted
+   it: a synthetic address keeping the role-inbox shape the persona tests, verified absent from
+   all 12,733 lead-store fingerprints, with the test still passing 812 checks. **Worth checking
+   whether other committed test files carry the same thing** — I only looked at the one that
+   blocked me.
+7. **⚠️ `dashboard/.running.json` claims a server that has been dead since 30 August.** It names a
    pid; that process does not exist and nothing has listened on the dashboard port for five days.
    Nothing cleans the marker up. It bears directly on this round: a pid in a file is a *claim*,
    and the only *observation* is the listening-port table — which is why every one of my six
