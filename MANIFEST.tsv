@@ -786,6 +786,7 @@ BL-834-clippershq-trainer-referral-design	payments	1.00	auto (stack markers)	202
 BL-834	leadgen	1.00	auto (stack markers)	2026-08-01		BL-834: The bio handles are not there — 1,550 was 88, and I did not write them
 BL-835-clippershq-trainer-system	payments	1.00	auto (stack markers)	2026-09-04		BL-835: the trainer system, built
 BL-835	leadgen	1.00	auto (stack markers)	2026-08-01		BL-835 — Frame-by-frame video understanding: Gemini on VIDEO declines 9/9 where BL-731's thumbnails declined 0/10. Per-frame OCR is 12x cheaper than the brief assumed. Scene detection is refuted — 6 of 10 clips have no cuts at all
+BL-836-clippershq-pending-clips-invisible	payments	1.00	auto (stack markers)	2026-09-04		BL-836: the clips page says 40 pending and shows none. The count is right and the list is wrong.
 BL-836	leadgen	1.00	auto (stack markers)	2026-08-01		BL-836: The clip export is wired to both entry points — and the retrieval round trip is closed: `clip_id` works, and the fresh manifest served a rendition the library never stored
 BL-837	leadgen	1.00	auto (stack markers)	2026-08-01		BL-837 — All seven landed. Franchise fill **doubled to 45.2%**, provenance went **0 → 194 declared**, and item 7's premise was wrong: there is no IMDb ID in any caption, only a score.
 BL-838	leadgen	1.00	auto (stack markers)	2026-08-01		BL-838: The literal-argument shape is clean — all three were already fixed. The live defect is one layer later: 30 of 34 computed values are dropped before storage, and 9 keys are unreachable through `field()`

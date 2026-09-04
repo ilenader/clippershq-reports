@@ -206,10 +206,26 @@ brain with only the image changing. It did not happen, and no accuracy claim is 
 this report. What is proved is geometric and textual: more of the picture arrives, and the prompt
 no longer contradicts itself.
 
-**The extraction speedup was not shipped.** The pixel check is working and is already rejecting
-the fast candidates: the quickest option is **4.4× faster and matches 0 of 6 frames by raw pixels**
-— exactly the trap the brief warned of, where a frame *count* cannot see the error. Measurement
-was still running when the round closed.
+**The extraction speedup was not shipped, and the measurement is now finished: it does not exist.**
+The claim was a one-line filter change worth 2.47× at the median and 3.21× at the tail. Across 30
+videos, **no candidate is both fast and pixel-correct**:
+
+| candidate | median | speedup | frames identical to baseline |
+|---|---:|---:|---:|
+| the deliberately planted **known-bad** | 0.217 s | **3.08×** | **16.7%** |
+| a non-reference-frame skip | 0.291 s | 2.29× | 23.3% |
+| an fps filter | 0.630 s | 1.06× | **0.0%** |
+| **the only pixel-faithful option** | 0.617 s | **1.08×** | **100%** |
+
+**The fastest candidate is the one I planted to be wrong**, and a frame *count* would have accepted
+it — it produces the right number of distinct files. Only decoded pixels rejected it. That is
+exactly the trap the brief described, where an earlier 4.81× candidate wrote six distinct files
+every time and was still wrong. **The honest result is 1.08×, which is inside the noise.**
+
+⚠️ *An error in my summary, not in the bench:* my first table printed the baseline as matching
+itself 0.0%, which would mean the extractor is not reproducible run to run and would have
+invalidated everything above. It is not — the bench skips the baseline because **the baseline is
+the reference** and is never compared to itself. My table rendered that absence as a zero.
 
 **Sample images were withheld from this public report.** They are saved on the operator's machine.
 The handle detector that cleared them **failed its own first control** — it missed a planted
@@ -290,6 +306,8 @@ model. Call count stayed at one throughout.
    newest-picture-on-disk fallback behind a 90× size spread.
 7. **Add a decode probe** to the video intake — 28 of 260 sampled files carry a valid header and
    do not decode.
+8. **Stop looking for the extraction speedup.** It was measured across 30 videos and the only
+   pixel-faithful option is 1.08×. Every candidate at 2× or more changes the frames.
 
 ---
 
