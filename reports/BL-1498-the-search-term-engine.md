@@ -64,10 +64,10 @@ table, never a command-line filter), 3 Python processes, 377 GiB free. Three oth
 | file | what it is | fix category |
 |---|---|---|
 | `scratch/bl1397_build_sheet.py` | **Part 0**: the source stamp now survives into a saved mark | **GENERAL** — the field is packed at the one place the JS builds its POST body from, so no caller can forget it |
-| `clippershq/search_terms.py` | the engine: generator, ledger, scoreboard, expansion loop | **GENERAL** — `next_terms()` is a chokepoint; there is no code path that yields a term without consulting the ledger |
+| `clippershq/search_terms.py` | the engine: generator, ledger, scoreboard, expansion loop | **GENERAL** — `next_terms()` is a chokepoint; there is no code path that yields a term without consulting the ledger. **Its save shipped broken and was fixed after publication — see §5** |
 | `tools/term_engine.py` | operator CLI: `plan / board / dead / expand / stats` | LOCAL — a reader, spends nothing |
 | `tests/test_bl1498_source_stamp.py` | 5 tests, incl. a negative control | — |
-| `tests/test_bl1498_term_engine.py` | 10 tests, incl. a **mutation proof** | — |
+| `tests/test_bl1498_term_engine.py` | **14** tests, incl. a **mutation proof** and the atomic-save spy | — |
 
 **Defaults are unchanged.** Nothing is switched on. `tools/term_engine.py plan` is read-only and
 spends nothing, so the engine can be inspected against a budget before it is trusted with one.
@@ -346,6 +346,45 @@ credited me with their spend.
 ---
 
 ## 5. What I got wrong
+
+**I shipped the ledger with a save that can silently fail, and I committed it.**
+`TermLedger.save()` ended in a bare `os.replace(tmp, self.path)`. On Windows that raises
+`PermissionError` [WinError 5] whenever another process holds the destination open, and 14
+Python processes were live on this machine while I fixed it. A raised save does not lose one
+write — **the ledger silently fails to persist, the `.tmp` is left behind, and the next run
+re-walks terms it has already paid for.** That is this module's one job failing in the
+direction that costs money, in the exact function this report calls "a ledger making a repeat
+impossible".
+
+The tree already had the answer and eight sibling modules already used it: `atomic_io.replace`
+is a documented drop-in wrapping a WinError 5/32 retry, imported in `email_finder.py:469`,
+`ig_client.py:186` and `crawl_suggested.py:41` with the same one-line comment. Mine did not.
+**Found by a peer round's guard, after I had committed.** Fixed and proved by driving: a
+runtime spy confirms the save routes through `atomic_io.replace` exactly once (with a control
+proving the spy can read zero), and `retry_win32` was driven with a callable that raises twice
+then succeeds so the retry the fix depends on is *observed*, not assumed.
+
+### 5.1 A rule worth more than this round: a suite that silently skips a third of itself still says OK
+
+Adding those tests, my append landed the new class **after** the `if __name__ == "__main__"`
+block. `unittest` therefore printed:
+
+```
+Ran 10 tests in 0.025s
+OK
+```
+
+**Four tests did not exist as far as the runner was concerned, and the suite was green.** I
+caught it only because I expected 14 and counted. Moving one block to the end of the file
+turned it into `Ran 14 tests ... OK`.
+
+**The transferable form: a green suite is evidence only if you know how many tests it was
+supposed to run.** "OK" is a statement about the tests that executed, never about the tests you
+wrote. This is the same family as a check that skips its work and returns OK rather than
+SKIPPED — the shape that hid a dead model here for five days. **Count the tests, not the
+verdict.**
+
+### 5.2 The rest
 
 **My test was wrong and the code was right.** My expansion-loop test asserted that a second call
 returns nothing; it failed, correctly — `expand` caps each call at a limit and the subject had
