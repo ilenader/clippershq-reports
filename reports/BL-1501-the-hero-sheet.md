@@ -385,9 +385,20 @@ lower bound and 59.6% is a different round's all-rows agreement. The real near-l
 deliberately not written; `_book_paid_call` was never called. Three of the four strands made
 **zero** calls.
 
-**Protected files: 8 of 8 byte-identical** at start and again at publication —
-`config.json`, `spend.json`, `master_leads.csv` and all five seen stores. **No seen-store row
-was deleted or rewritten.**
+**Protected files: 7 of 8 byte-identical** at start and again at publication —
+`config.json`, `master_leads.csv` and **all five seen stores**. **No seen-store row was
+deleted or rewritten.**
+
+**The eighth moved, and it is reported as movement rather than claimed unchanged.**
+`spend.json` went `5042a676602a2b0f` → `2eba0c166506fb72` during this round. It is **not
+mine**: my only billed strand used a text model and never called `_book_paid_call`, and the
+ledger's newest rows are Instagram auxiliary calls timestamped inside the window in which a
+*different* live round was fetching Instagram video. **Five rounds were in flight by the end.**
+This is exactly why the $0.0374 above is counted by the run's own driver and not by a ledger
+delta: on a file five rounds are writing, a delta cannot attribute anything to anyone.
+
+*(One further working-tree modification, `clippershq/api_client.py`, is also not mine — it has
+been modified since 31 August, days before this round opened.)*
 
 **No judging rule was added or loosened. No threshold was moved. No verdict was changed.**
 
