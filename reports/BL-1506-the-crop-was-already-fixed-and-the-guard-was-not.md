@@ -175,18 +175,36 @@ RUBRIC (the meme body)        2,126 B
   + EDITS_ADDENDUM            6,628 B   -> the two edits briefs
 ```
 
-**And only the page's own platform block is already sent. Zero leaks:**
+⚠️ **ONE FIGURE THERE IS UNIT-DEPENDENT AND TWO ROUNDS DISAGREED ON IT.** `EDITS_ADDENDUM` is
+**6,624 characters and 6,628 bytes** — the gap is exactly two non-ASCII characters at three
+bytes each. Both numbers are correct; neither is "the" size. The file was clean and unmodified
+throughout, so the disagreement was units, not an edit.
 
-| brief | own platform lines present | other-platform lines leaked |
+**And only the page's own platform block is already sent. Zero leaks — 0 in all four.**
+
+⚠️ **STATE THE RULE, OR THE COUNT IS NOT A COUNT.** Two rounds measured "platform-only lines"
+and got different answers, and the difference was entirely the definition:
+
+| rule | TikTok-only | Instagram-only |
 |---|---|---|
-| tiktok/memes | 35/35 | **0** |
-| tiktok/edits | 35/35 | **0** |
-| instagram/memes | 41/41 | **0** |
-| instagram/edits | 41/41 | **0** |
+| lines in BOTH that platform's briefs and NEITHER of the other's, **no length filter** | **36** | **43** |
+| the same rule with a `>25 character` filter (what this round first used) | 35 | 41 |
 
-⚠️ **THE CONTROL HAD TO BE BUILT ON WHOLE LINES, AND I PROVED THE WORD-LEVEL ONE CANNOT FIRE.**
-The bare word "TikTok" appears in **all four** briefs, and so does "Instagram" — so a two-way
-control on those words is blind by construction. Measured and reported rather than assumed.
+The gap is 1 TikTok and 2 Instagram lines shorter than 26 characters. **36 / 43 is the better
+figure because it contains no arbitrary cut**, and it is a peer's measurement, reproduced here.
+The counts are colour; **the invariant is that no cross-platform line reaches the other
+platform's brief, and that holds at 0 in all four.**
+
+⚠️ **AND MY LEAK TEST WAS A SUBSTRING TEST, WHICH IS NOT A LINE TEST.** Re-run under the
+unfiltered rule it reported **2 leaks**. Both are the 9-character fragment `together.` — a
+wrapped TikTok continuation line that occurs as a *substring* inside Instagram prose. True
+line-level membership is **0 in all four**. The uncomfortable part: my original `>25` filter
+suppressed that false positive by accident, so **the first run was right for the wrong
+reason**, and only a peer challenging a different number surfaced it.
+
+⚠️ **THE WORD-LEVEL CONTROL CANNOT FIRE, AND I PROVED IT.** The bare word "TikTok" appears in
+**all four** briefs, and so does "Instagram" — so a two-way control on those words is blind by
+construction. Measured, not assumed.
 
 ---
 
