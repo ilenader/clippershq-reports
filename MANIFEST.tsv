@@ -345,6 +345,8 @@ BL-1503-two-brains	leadgen	0.67	auto (stack markers)	2026-09-05		BL-1503 — Two
 BL-1504-the-judge-never-saw-a-video	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1504 — The judge has never seen a video frame, and the guard that stops it is right
 BL-1505-the-resend-did-not-arrive	leadgen	1.00	auto (stack markers)			BL-1505 — the resend did not arrive, and the picture chooser was wrong across 708 pages
 BL-1506-the-crop-was-already-fixed-and-the-guard-was-not	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1506 — The crop was already fixed. The guard that stops it returning was not.
+BL-1507-the-19-points-were-never-measured	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1507 — his four decisions, and the 19 points that were never measured
+BL-1508-the-cost-baseline	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1508 — The cost baseline: where every cent and every second goes
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -799,6 +801,7 @@ BL-837-clippershq-full-sweep	ambiguous	0.00	auto (stack markers)	2026-09-04		BL-
 BL-837	leadgen	1.00	auto (stack markers)	2026-08-01		BL-837 — All seven landed. Franchise fill **doubled to 45.2%**, provenance went **0 → 194 declared**, and item 7's premise was wrong: there is no IMDb ID in any caption, only a score.
 BL-838-clippershq-instagram-vendor-cost	leadgen	0.94	auto (stack markers)	2026-09-05		BL-838: Instagram costs 17 times more than TikTok, and 15 of those 17 are calls rather than price
 BL-838	leadgen	1.00	auto (stack markers)	2026-08-01		BL-838: The literal-argument shape is clean — all three were already fixed. The live defect is one layer later: 30 of 34 computed values are dropped before storage, and 9 keys are unreachable through `field()`
+BL-839-clippershq-rate-limit-bypass	ambiguous	0.00	auto (stack markers)	2026-09-05		BL-839 — the bypass was working. It was reading the wrong route.
 BL-839	leadgen	1.00	auto (stack markers)	2026-08-01		BL-839 — BUILT: the frame sampler, phash dedup and timestamped per-frame OCR. But the economics do NOT reproduce — measured **16.01 CPU-hours per 1,000**, not 6.6, because dedup keeps **82.7%** of frames (not 41%) and OCR costs **4.03 s/frame** (not 1.397)
 BL-840	leadgen	1.00	auto (stack markers)	2026-08-01		BL-840 — Item 1 is settled: `gemini-flash-latest` prices at **$1.50/$7.50**, BL-835's *worst* case. Item 2 is **NOT settled** — the free tier allows **20 requests per day per model**, so n=100 was never reachable, and my n=18 is a different corpus.
 BL-841	leadgen	1.00	auto (stack markers)	2026-08-01		BL-841 — Metering proven under a real SIGKILL. And the wiring that was supposed to prove it was double-counting every run past 25 calls
