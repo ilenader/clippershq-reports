@@ -285,6 +285,8 @@ defect by the new test rather than endorsed as a contract.
 * **A sub-agent's framing needed correcting too** — it named the panel comment as "the one un-disclaimed live site the operator sees". The comment is a comment; the operator-visible artefact is the expected column. Same conclusion, different object.
 * **My own instrument was inflating a published number.** `mark_reader.self_consistency` groups on `(platform, handle)` — the unstable key I fixed in `resolve()` last round but did not fix in its sibling. Stabilising it moves the ceiling **93.9% [91.9, 95.4] → 91.8% [89.5, 93.6]** page-level and **92.6% → 89.0%** pair-level, because **281 pairs straddling the split were never compared**. My first hypothesis for the mechanism — that whole repeat pages were being dropped — measured **0** and was wrong; the pairs were the mechanism. It has 8 external callers, **all in `scratch/`**, so it cost past rounds' analyses and nothing shipped. **The 75.6% sittings ceiling is unaffected** — that comes from the sibling function, which already fixes the key.
 * Two sub-agent matchers were **caught lying by their own controls and discarded before publication** — one reported 151 false positives (1.19%) by matching a two-letter sequence inside an ordinary surname. Those numbers never reached this report, which is the system working.
+* **My leak check reported four artefacts clean and there were five.** The fifth carried 2 real addresses and the pre-commit guard caught it — see §6. I had applied the round's own "prove the zero" rule to my detectors and not to my *file list*, which is the same error one rung up.
+* **My first handle-leak detector flagged two false positives**, both ordinary English nouns in my own prose that happen to also be somebody's handle. Narrowing the rule then risked narrowing it to nothing, so the fix came with a control that plants a *real* distinctive handle into a copy of the report and confirms it is still caught.
 
 **The brief's:**
 
@@ -306,12 +308,26 @@ defect by the new test rather than endorsed as a contract.
 sub-agents. Verified by each agent independently and by the run's own accounting, not by a
 ledger delta (`spend.json` is shared and moved during the round because other rounds are live).
 
-**Addresses.** No address, local part, or row-bearing domain appears anywhere in this report or
-in any committed artefact. Every artefact was byte-scanned for address-shaped literals before
-publication: **zero real hits** across all four agent JSON files (the only matches were an
-agent's own synthetic fixtures). Role **prefix categories** are published as shapes; the
-addresses behind them are not. No redaction by truncated local part was used anywhere — that
-would have been the whole local part on 145 rows.
+**Addresses.** No address, local part, or row-bearing domain appears anywhere in this report.
+Role **prefix categories** are published as shapes; the addresses behind them are not.
+
+**And my own leak check missed a file — the commit guard caught it.** I byte-scanned the four
+agent JSON artefacts and reported them clean, which they were. There was a fifth artefact: a
+157 KB raw grep-hits file, and it carried **2 real addresses** from the lead store. The
+pre-commit guard refused the commit and named the file. I did not use `--no-verify`; the two
+values were replaced with a salt-free hash carrying **no local part and no domain**, the file
+re-verified at 0, and only then was it committed. The lesson is the round's own rule turned on
+me: *a scan that reports "all four files clean" has only proved something about the four files
+it looked at.* The guard was the control I did not run myself.
+
+**A defect found while fixing that: the shipped redaction helper is unsafe on short local
+parts.** `write_point_guard.redact()` renders an address as `local[:2] + "**@" + true_domain`.
+For a local part of one or two characters, `local[:2]` **is the entire local part**, so the
+"redacted" output is the complete address. Demonstrated on synthetics: a two-character local
+comes back whole, a nine-character one does not. Agent B measured **145 rows whose local part
+is ≤ 2 characters**, so this is live, and it is the exact redaction form this round's brief
+names as forbidden. Not changed here — it is a shared helper and another round holds files
+near it — but it is ranked below.
 
 **Concurrency.** Three other rounds were live throughout. The seen stores **only grew** (+38 and
 +3 rows) and no row key was lost. Seven `clippershq/` files and the dashboard state are dirty in
@@ -330,7 +346,8 @@ loosened, no threshold moved, and no verdict can move — no production code was
 3. **Fix the "expected 4-8%" column** to say what the Python already says — that it is an outside rule of thumb, never measured here. It is the only place the invented figure is presented as fact to the person making decisions.
 4. **Give the merge an audit trail before it runs again.** Not a rule change — just recording what was absorbed. 1,277 keys carry the shared-manager shape and a wrong merge currently deletes a person and reports nothing.
 5. **Use `--from-master` on every MX refresh.** The bare command cannot see 45.8% of the live domains and will keep reporting success while the gate keeps refusing.
-6. **Treat the reply column as a slow accumulator, not a metric.** Report it blended until an arm reaches ~60 replies. Per-brain reply rates are multi-quarter at his volume, and publishing one earlier would be noise with a decimal point.
+6. **Fix `write_point_guard.redact()` for short local parts.** It keeps `local[:2]`, which for a one- or two-character mailbox is the whole thing, so the "redacted" form is the complete address — on 145 live rows. Every report that has used this helper should be re-checked. Small, mechanical, and it is the difference between a redaction and a disclosure.
+7. **Treat the reply column as a slow accumulator, not a metric.** Report it blended until an arm reaches ~60 replies. Per-brain reply rates are multi-quarter at his volume, and publishing one earlier would be noise with a decimal point.
 
 ---
 
