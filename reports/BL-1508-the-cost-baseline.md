@@ -13,13 +13,23 @@ label `unattributed`.
 
 ## What is actually stopping him
 
+> ⚠️ **CORRECTED 2026-09-06 by BL-1509.** The paragraph below originally said the funnel
+> *"buys discovery for roughly 1,700 accounts for every one it judges"*. **The ratio is right and
+> the verb is wrong.** Those accounts are **read free** from `seed_accounts_file` (15,971 handles)
+> at run start. The run made **36** discovery calls; at 22–27 accounts per call that could yield
+> at most **972**, so 15,915 is **16.4x more than any paid call could have produced**. Discovery
+> on that run cost **$0.0249**, not the $10.99 the wrong reading implies, and cutting it to zero
+> would save $0.0249 on a run of that size. The supply glut is real; **the spend glut on
+> discovery is not.** Correction found by the BL-1513 session; arithmetic re-derived here two
+> ways. §5 is corrected to match.
+
 **The funnel is not expensive at finding, capturing or judging pages — measured end to end it
 delivers a graded page for about 1.7x the target on both money and clock. What puts it 17x to
-35x over is everything either side of that: it buys discovery for roughly 1,700 accounts for
-every one it judges, and only about one delivered page in six to ten ever yields an email
-address.** The single highest-value thing to do next is not another speed-up of the judge — that
-is 13% of spend — it is to **stop buying discovery the funnel never processes, and to measure
-the delivered→address conversion, which is the step nobody has ever costed.**
+35x over is what happens after: paid calls land on pages that are never delivered, and only about
+one delivered page in six to ten ever yields an email address.** The single highest-value thing
+to do next is not another speed-up of the judge — that is 13% of spend — it is to **reject more
+pages before the paid call, and to measure the delivered→address conversion, which is the step
+nobody has ever costed.**
 
 ---
 
@@ -178,13 +188,26 @@ This does not close the gap and must not be sold as if it does.**
 
 ## 5. The largest line of spend, and the largest consumer of clock
 
-**Largest spend: DISCOVERY — 66.7% (Instagram) and 69.5% (TikTok) of vendor dollars.** Removing
-it entirely is impossible; the funnel cannot judge a page it has not found. But it is being
-**over-bought by orders of magnitude**: one run discovered 15,915 accounts and judged 9. Those
-accounts are banked in the checkpoint rather than thrown away, so this is inventory, not pure
-waste — but it is money spent now for value that 14,299 uncarried pages say is not being
-consumed. **Sizing discovery to throughput is the largest single saving available, and it needs
-no new capability.**
+**Largest spend: DISCOVERY — 66.7% (Instagram) and 69.5% (TikTok) of vendor dollars.** That
+share is correct. ⚠️ **But what it is a share OF is small, and the original version of this
+section drew the wrong conclusion from it.**
+
+The run "discovered 15,915" accounts — and **it did not buy them.** They were read free from
+`seed_accounts_file`, which holds 15,971 handles today (the 56-handle gap is `expand_suggested`
+appending during the run). Two independent proofs:
+
+- **Arithmetic, needing no file:** 36 discovery calls at 22–27 accounts each is at most **972**.
+  15,915 is **16.4x impossible**.
+- **The file:** 15,971 handles on disk, read at run start, free.
+
+So the honest restatement is: accounts **entering the walk** per page judged is **1,768 : 1**;
+accounts **bought** per page judged is at most **108 : 1**. Discovery on that run cost
+**$0.0249**, and cutting it to zero would save **$0.0249** — not the $10.99 that "over-bought"
+implied. **The supply glut is real; the spend glut on discovery is not.**
+
+**Which moves the target.** The money is not upstream. It is downstream — on paid calls that land
+on pages never delivered, and on the delivered→address step. A free filter that rejects earlier
+is aimed at the right thing; buying less discovery is not.
 
 **Largest clock: the vision judge — 79% of stage work.** It is **already parallelised**: 32 lanes,
 38.1 pages/min, 1,420 s of work in 315 s of wall. Further gains there are bounded by that 4.5x
