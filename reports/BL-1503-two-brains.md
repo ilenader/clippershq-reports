@@ -22,7 +22,8 @@ memes brief  =  RUBRIC  +  <platform addendum>
 edits brief  =  RUBRIC  +  <platform addendum>  +  EDITS_ADDENDUM
 ```
 
-So `RUBRIC` (2126 B) *is* the meme body, `EDITS_ADDENDUM` (6624 B) *is* the edit body,
+So `RUBRIC` (2126 chars) *is* the meme body, `EDITS_ADDENDUM` (6624 chars, 6628
+UTF-8 bytes) *is* the edit body,
 and the two platform addenda are exactly the "small named platform section" he asked for.
 There were never four independent brains to collapse — there were two bodies and two platform
 blocks, assembled four ways.
@@ -167,6 +168,29 @@ A shipped guard, `test_neither_platforms_rules_reach_the_other`, asserts that no
 shared preamble in one platform's brief mentions the other platform. **It caught my own first
 attempt this round** — see §7.
 
+⚠️ **A NOTE ON HOW THAT GUARD HAD TO BE BUILT, because two other rounds independently tried the
+obvious version and it cannot work.** A control on the bare words "TikTok" and "Instagram"
+**cannot fire**: each word appears in all four briefs, and so does "CONTACT SHEET". The check
+has to be built on whole LINES. Measured on the live briefs, under the rule *"present in both
+of that platform's briefs and neither of the other's"*: **36 TikTok-only lines and 43
+Instagram-only**, and **0 cross-platform lines in any of the four** — which is the invariant
+that matters. A peer measured 35/41 with a >25-character filter, and I quoted 34/41 from an
+older round without re-measuring; all three are the same guard under different rules, which is
+exactly why the rule belongs beside the number. Their filter also turned out to be masking a
+false positive of their own: a substring test matched the 9-character fragment `together.`
+inside Instagram prose, and the length filter had been silently suppressing it.
+
+⚠️ **AND A TRAP LEFT IN PLACE DELIBERATELY, recorded here because the fix belongs to whoever is
+next in that file.** In `meme_finder`, `_cols = min(_tiles, 3) if _single else 3` computes a
+value that, on the composed-sheet path, **nothing reads**: `_cols` is passed as `page_cols`, and
+`free_judge._messages` consumes it only when `single_video` is true, which requires
+`1 <= _tiles <= 2`. Two separate rounds read that assignment and concluded the funnel was
+cropping composed sheets. It is not: measured over every `capture_manifest.json` on disk,
+**3,292 Instagram capture records — 96.5% take the whole sheet, 3.5% take the crop**, and that
+3.5% genuinely is one or two covers. A computed value nothing uses will keep producing that
+inference until it carries a comment saying so. I have not added one, because another round is
+mid-edit in that file and a comment is not worth a merge conflict for them.
+
 ---
 
 ## 1. The four briefs, and what moved
@@ -187,7 +211,12 @@ mutating the Instagram platform block turns only the two Instagram brains red. A
 cannot go red is not a guard, and this project has a recorded case of a whole rubric being
 replaced while four assertions held.
 
-**Only `EDITS_ADDENDUM` changed** — +1,463 bytes, 5161 → 6624. `RUBRIC`,
+**Only `EDITS_ADDENDUM` changed** — 5161 → 6624 characters (+1,463), or 5,161 →
+6628 UTF-8 bytes (+1,467). ⚠️ **The two figures differ and the difference is not a defect:**
+the new text contains two non-ASCII characters (a warning sign and its variation selector) at
+three bytes each. A peer round and I read 6,624 and 6,628 off the same clean file and spent a
+round-trip on it before noticing we were quoting different units — so this report states which.
+`RUBRIC`,
 `TIKTOK_ADDENDUM` and `INSTAGRAM_ADDENDUM` are byte-identical to the committed versions, which
 is the two-brain claim proven rather than asserted.
 
@@ -558,17 +587,43 @@ mutation-proved: eight mutants across `meme_finder`, `free_judge` and `tiktok_fi
 caught, and a control mutation that changes only a comment correctly stays green. All files
 were restored byte-for-byte afterwards, verified by sha256.
 
-**Fifteen suites in the full run are red and none of them is caused by this round.** Attributed
-by driving, not assumed: all six files this round touches were reverted to the committed `HEAD`
-and every one of the fifteen re-run.
+⚠️ **I DO NOT HAVE A COMPLETE FULL-RUN VERDICT LINE, AND I AM NOT GOING TO IMPLY ONE.** Three
+attempts to run the whole tree were cut short — the first by my own 3,000-second timeout, the
+next two killed. The furthest reached 249 suites of the tree before stopping. A partial run is
+not a result, and this project has published a wrong number from a tidy partial before.
 
-**Fourteen were still red without my changes** — `bl1307_veto_refused`, `bl1308_refuted_brief`,
-`bl1350_gates`, `bl1359_ig_cost_fixes`, `bl1389_no_caller`, `bl1400_ordering_and_third_state`,
-`bl1444_board_and_sheets`, `dashboard`, `dashboard_redesign`, `doc_citations`, `estimated_flag`,
-`meme_finder`, `send_list_rebuild`, `silent_zero_shape`. Two of them
-(`bl1307_veto_refused`, `bl1308_refuted_brief`) fail on `scratch/bl1441_ast_sink_tests.json`, an
-untracked artefact dated 2026-08-30 belonging to BL-1441. They are reported here, not fixed:
-they are other rounds' territory.
+What I have instead is per-suite evidence, which for attribution is stronger than one line:
 
-**The fifteenth, `test_song_examples`, was flaky, not mine** — see §7. The restore after that
-comparison was verified by sha256 on all six files.
+**Every suite touching the files this round changed is green** — `bl1503` (20 checks), `bl1440`
+(13), `bl1499` (7), `bl1447` (13), `bl1486` (12), `bl1471` (6), and the TikTok group 7/7 (187).
+
+**Every red observed across the partial runs has been attributed by driving, not assumed.** All
+six files this round touches were reverted to the committed `HEAD` and each red re-run:
+
+- **14 were already red without my changes** — `bl1307_veto_refused`, `bl1308_refuted_brief`,
+  `bl1350_gates`, `bl1359_ig_cost_fixes`, `bl1389_no_caller`, `bl1400_ordering_and_third_state`,
+  `bl1444_board_and_sheets`, `dashboard`, `dashboard_redesign`, `doc_citations`,
+  `estimated_flag`, `meme_finder`, `send_list_rebuild`, `silent_zero_shape`. Two of them fail on
+  `scratch/bl1441_ast_sink_tests.json`, an untracked artefact dated 2026-08-30 belonging to
+  BL-1441. Reported, not fixed: other rounds' territory.
+- **1 was a flake I briefly mislabelled as mine** — `test_song_examples`; see §7.
+- **1 is another round's work in flight** — `bl1419_defects_and_bands`, whose
+  `TheGridIndexPicksTheNewest` pins the exact rule BL-1505 is replacing in `_grid_index`. I
+  confirmed it from their diff rather than swapping their file out mid-edit.
+- **1 was genuinely mine, and is fixed.** `test_claims_manifest` went red because
+  `docs/claims/BL-1492.claims` declares `func clippershq/meme_finder.py::_approvals_state` and
+  this round deleted that function. The wrong repair is to drop the line, which erases a finding
+  that was correct. The right one is `superseded:`, a kind that exists for this and asserts
+  **absence** — so the claim passes while the function is gone and **fails if it is ever
+  re-added**, which is the point, because re-adding it would re-wire the dead 16-card review
+  into the funnel. BL-1492 now verifies 17/17 and this round files its own manifest at 20/20.
+  Both were committed *after* the code and instruments, because a manifest checks at HEAD: it
+  waits for the code, never the reverse. Filing it first produced 6 failures that said nothing
+  about the work. `tools/commit.py` also refused to bundle BL-1492's file with mine — correctly,
+  since that would put a departed round's work under my name — so they are two commits, the
+  foreign one filed under BL-1492's own id.
+
+`tests/test_bl1503_his_own_packs.py` is **20 checks, green**, and every guard in it was
+mutation-proved: eight mutants across `meme_finder`, `free_judge` and `tiktok_finder` all
+caught, a control mutation touching only a comment correctly staying green, and every file
+restored byte-for-byte afterwards, verified by sha256.
