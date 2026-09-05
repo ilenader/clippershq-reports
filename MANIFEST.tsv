@@ -342,6 +342,7 @@ BL-1500-he-sent-176-not-200-and-now-151-have-material	leadgen	1.00	auto (stack m
 BL-1501-the-hero-sheet	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1501 — The sheet was built correctly and then three quarters of it was thrown away
 BL-1502-the-levers-were-already-pulled	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1502 — Two of the three levers were already pulled, and one was two models fused
 BL-1503-two-brains	leadgen	0.67	auto (stack markers)	2026-09-05		BL-1503 — Two brains, and his own pages wired into them
+BL-1506-the-crop-was-already-fixed-and-the-guard-was-not	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1506 — The crop was already fixed. The guard that stops it returning was not.
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
