@@ -338,6 +338,7 @@ BL-1496-the-ruler-was-wrong-four-ways	leadgen	1.00	auto (stack markers)			BL-149
 BL-1497-he-did-send-them	leadgen	1.00	auto (stack markers)	2026-09-04		BL-1497 — He did send them. All four sets are on disk.
 BL-1498-the-search-term-engine	leadgen	1.00	auto (stack markers)			BL-1498 — The search-term engine: his instinct is right about breadth and wrong about purity
 BL-1499-the-brain-sees-one-frame	ambiguous	0.00	auto (stack markers)	2026-09-04		BL-1499 — the brain saw one twelfth of the picture, and was told two opposite things about it
+BL-1501-the-hero-sheet	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1501 — The sheet was built correctly and then three quarters of it was thrown away
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -788,6 +789,7 @@ BL-835-clippershq-trainer-system	payments	1.00	auto (stack markers)	2026-09-04		
 BL-835	leadgen	1.00	auto (stack markers)	2026-08-01		BL-835 — Frame-by-frame video understanding: Gemini on VIDEO declines 9/9 where BL-731's thumbnails declined 0/10. Per-frame OCR is 12x cheaper than the brief assumed. Scene detection is refuted — 6 of 10 clips have no cuts at all
 BL-836-clippershq-pending-clips-invisible	payments	1.00	auto (stack markers)	2026-09-04		BL-836: the clips page says 40 pending and shows none. The count is right and the list is wrong.
 BL-836	leadgen	1.00	auto (stack markers)	2026-08-01		BL-836: The clip export is wired to both entry points — and the retrieval round trip is closed: `clip_id` works, and the fresh manifest served a rendition the library never stored
+BL-837-clippershq-full-sweep	ambiguous	0.00	auto (stack markers)	2026-09-04		BL-837 — I walked the whole platform, and here is what was broken
 BL-837	leadgen	1.00	auto (stack markers)	2026-08-01		BL-837 — All seven landed. Franchise fill **doubled to 45.2%**, provenance went **0 → 194 declared**, and item 7's premise was wrong: there is no IMDb ID in any caption, only a score.
 BL-838	leadgen	1.00	auto (stack markers)	2026-08-01		BL-838: The literal-argument shape is clean — all three were already fixed. The live defect is one layer later: 30 of 34 computed values are dropped before storage, and 9 keys are unreachable through `field()`
 BL-839	leadgen	1.00	auto (stack markers)	2026-08-01		BL-839 — BUILT: the frame sampler, phash dedup and timestamped per-frame OCR. But the economics do NOT reproduce — measured **16.01 CPU-hours per 1,000**, not 6.6, because dedup keeps **82.7%** of frames (not 41%) and OCR costs **4.03 s/frame** (not 1.397)
