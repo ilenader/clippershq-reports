@@ -347,6 +347,7 @@ BL-1505-the-resend-did-not-arrive	leadgen	1.00	auto (stack markers)			BL-1505 �
 BL-1506-the-crop-was-already-fixed-and-the-guard-was-not	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1506 — The crop was already fixed. The guard that stops it returning was not.
 BL-1507-the-19-points-were-never-measured	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1507 — his four decisions, and the 19 points that were never measured
 BL-1508-the-cost-baseline	leadgen	1.00	auto (stack markers)	2026-09-05		BL-1508 — The cost baseline: where every cent and every second goes
+BL-1509-the-free-filter	leadgen	1.00	auto (stack markers)	2026-09-06		BL-1509 — The free filter: what the funnel can decide without spending a cent
 BL-1510-the-answer-key-was-built-and-never-used	leadgen	1.00	auto (stack markers)	2026-09-06		BL-1510 — The answer key was built, tested and shipped. Nobody has ever handed it a file.
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
