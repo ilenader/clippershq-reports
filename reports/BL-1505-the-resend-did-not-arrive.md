@@ -211,6 +211,42 @@ days apart to keep the span wide.
 unrelated and **not mine** — I have left it red rather than sweep it into this round, because I
 have not diagnosed it and a repair I cannot justify is worse than a red I can name.
 
+## 3.6 ⚠️ THE GUARD ON THE OLD RULE — RE-PINNED, RENAMED, AND PROVED IN BOTH DIRECTIONS
+
+`tests/test_bl1419_defects_and_bands.py` pins `_grid_index`'s behaviour, and my change turned it
+red. **I did not run it** (§5.6). A peer round found it.
+
+⚠️ **And the obvious repair would have destroyed the record.** The class was named
+`TheGridIndexPicksTheNewest`; swapping the expected path and moving on would have erased *why*
+newest-wins existed. So it is **renamed** the richest-recent-sheet name, the invariant
+is restated in the file in three parts, and the real-collision test now asserts the **shipped**
+rule rather than a paraphrase of it.
+
+**Four new guards, deliberately synthetic.** ⚠️ **The real tree cannot exercise the recency
+window**: the largest displacement anywhere in it is **11.0 days against a 30-day window**, so a
+guard reading only real files can never tell this window from **no window at all**. It would pass
+for years and stop meaning anything the first time a corpus went stale.
+
+```
+test_a_thin_crop_does_not_displace_a_full_sheet_from_the_same_week
+test_an_ancient_busy_snapshot_still_LOSES            <- BL-1419's decision, guarded
+test_the_window_is_a_real_boundary_and_not_decoration   <- wins 2d inside, loses 2d outside
+test_a_page_with_one_picture_is_untouched
+```
+
+**Proved by mutation in both directions**, because a guard that passes proves nothing until it
+can fail:
+
+| mutation | result |
+|---|---|
+| revert the rule to **newest-wins** | **3 guards fire** |
+| remove the **window** (largest-wins across all history = BL-1419's defect) | **2 guards fire**, including the ancient-snapshot one |
+| restored | **25 of 25 green** (was 21 tests) |
+
+**Suites re-run after the repair:** `grid` 2/2, `bl1419` 1/1, `camera` 1/1, `sheet` 7 of 8. The
+one red there, `test_bl1444_board_and_sheets`, is **pre-existing** — proved by reverting my
+change and re-running, where it still fails.
+
 ---
 
 # 4. WHAT WAS REFUSED OR NOT DONE
@@ -251,6 +287,13 @@ have not diagnosed it and a repair I cannot justify is worse than a red I can na
    working discriminator is **size**: a wrapper has three keys, a body has thousands.
 5. **I mis-attributed a red suite as pre-existing and stopped looking**, which hid four failures
    of my own for a full round (§3.5).
+6. **⚠️ I PUBLISHED THIS REPORT WITH THE GUARD ON THE RULE I REPLACED LEFT RED, AND I DID NOT
+   RUN IT.** A regex `-k` matched no suites, so I fell back to three separate runs — `pack`,
+   `meme_finder`, `exemplar` — and **silently dropped `bl1419` and `grid` from that list**. The
+   suite that pins `_grid_index`'s behaviour is the one suite that had to be run, and it was the
+   one I lost. A peer round found it and told me. **A fallback that quietly narrows what it
+   checks is worse than the failure it was working around**, because the narrower run still
+   prints a green summary. Corrected in §3.6 below.
 
 ---
 
