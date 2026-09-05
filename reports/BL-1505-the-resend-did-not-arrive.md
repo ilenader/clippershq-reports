@@ -293,7 +293,18 @@ change and re-running, where it still fails.
    working discriminator is **size**: a wrapper has three keys, a body has thousands.
 5. **I mis-attributed a red suite as pre-existing and stopped looking**, which hid four failures
    of my own for a full round (§3.5).
-6. **⚠️ I PUBLISHED THIS REPORT WITH THE GUARD ON THE RULE I REPLACED LEFT RED, AND I DID NOT
+6. **⚠️ MY RAW-URL VERIFICATION WAS COMPARING TWO DIFFERENT ENCODINGS AND I CALLED IT
+   BYTE-FOR-BYTE.** The check failed 30 consecutive polls and I read that as "the CDN has not
+   caught up". It had. **The local working file is CRLF (21,892 bytes); git stores and serves it
+   LF (21,528) — exactly 364 bytes, one per line.** A byte comparison between a Windows working
+   copy and a raw URL *can never match*, so this check has been reported as passing in earlier
+   rounds only because those files happened to be written LF.
+   ⚠️ **And it hid a real question underneath**: for a while I could not tell "the push did not
+   land" from "the encodings differ", and a peer reading the same artefact got four different
+   byte counts in as many minutes. The correct check is **the CDN against the remote blob**
+   (`git show origin/main:<path>`) — both LF, both authoritative. Now done, identical at sha256
+   `2b44c235`. Comparing against a working copy tests your checkout, not your publication.
+7. **⚠️ I PUBLISHED THIS REPORT WITH THE GUARD ON THE RULE I REPLACED LEFT RED, AND I DID NOT
    RUN IT.** A regex `-k` matched no suites, so I fell back to three separate runs — `pack`,
    `meme_finder`, `exemplar` — and **silently dropped `bl1419` and `grid` from that list**. The
    suite that pins `_grid_index`'s behaviour is the one suite that had to be run, and it was the
