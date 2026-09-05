@@ -121,6 +121,12 @@ A sibling round independently found the same shape from the other direction: of 
 pages it checked, **18 of 18** were being handed **a different round's photograph** — so an
 exemplar would have shown the model a page he never graded, wearing his grade.
 
+**And the size of the problem was reached twice, independently:** my census gives **3,031 of
+11,159 pages (27.2%)** with more than one picture; that round's gives **3,030 of 11,157**. Two
+separate walks, two separate implementations, the delta being files written between them. It is
+the first cross-round agreement anyone has recorded on this number, which is worth more than
+either figure alone.
+
 **THE HARD PART, AND I GOT IT WRONG FIRST.** BL-1419 deliberately changed this rule *from*
 "largest file wins" *to* "newest wins", for a good reason: a bigger PNG is usually a picture with
 **more in it**, i.e. the account at its busiest, so size-preferring reached back through history
