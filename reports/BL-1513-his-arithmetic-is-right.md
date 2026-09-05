@@ -415,8 +415,46 @@ tail are reported separately because the tail is where the wall lives: p90 falls
 9.00, so **this fixes the common case and not the walled one** — and it must not be read as
 having fixed the wall.
 
-Projected across the measured population, the fix addresses **1,060 of the zero-tile captures**
-and recovers roughly **3,920 s of decode** that was being spent to produce nothing.
+⚠️ **A denominator correction to my own first draft of this section.** I wrote that the fix
+"addresses 1,060 of the zero-tile captures". **1,060 is not a count of zero-tile captures** — it
+is the number of records captured by *today's* code, the corpus the projection runs over. The
+correct statement: projected over those 1,060 records (4.30 h of capture), the fix recovers
+**3,920 s of decode + 1,085 s of settle = 1.39 h, or 32.3% of capture clock.** Independently
+corroborated by an untouched real-browser suite going **74.3 s → 27.9 s**.
+
+**The mechanism, because it is a GENERAL fix and not a tuning:** the decode wait tested
+`if (tiles.length < 6) return false` — a bound that a page with fewer than six tiles can never
+satisfy. Measured on those 1,060 records: **0–5 tiles timed out 100% of the time at every count;
+6+ tiles timed out 0.0%. Zero crossover.** **534 of 1,060 pages (50.4%) burned the full 8,000 ms
+by construction**, and **230 pages corpus-wide had a perfectly good grid and shipped it anyway.**
+Fixed by comparing against the page's own ceiling rather than a fixed 6. A second GENERAL fix
+collapsed three copies of "has this page settled?" into one chokepoint — two earlier rounds had
+fixed one copy and then two of three, so the classifier knew a page was a wall while the *wait*
+did not (12.37 s against 8.85 s for the same wall in older wording).
+
+**And a live paired A/B on real Instagram, $0.00, one browser on one IP, arm order shuffled:**
+
+| | median | p90 | max | total |
+|---|---:|---:|---:|---:|
+| old | 2.63 | 10.17 | 13.12 | 66.4 s |
+| **new** | **2.12** | **2.72** | **2.77** | **30.5 s** |
+
+**The tail is all of it** — only 4 of 14 pages moved at all, and the ten healthy 8–12-tile pages
+moved ≤0.6 s in either direction.
+
+⚠️ **THE NO-VERDICT-MOVED CONTROL FOR CAPTURE: 0 differences on 39/39 fixture pairs and 14/14
+live pairs**, across tiles, clip width, shot count, base pixels, suppressed-shot and HTTP status.
+And the one genuinely unclassifiable page moved 12.48 → 12.41 s — **unchanged, which is the proof
+that no new gate was added.**
+
+⚠️ **Two fixes were deliberately NOT shipped, because both would change what the judge sees.**
+Instagram's real 404 string is missing from the not-found detector, and the age gate is now
+*named* but not suppressed — fixing either would remove a picture from the judge's queue, which
+is a judging change wearing a bug-fix's clothes. Both are recorded in-source so they are not
+"tidied" later. The age gate remains a fifth state that is photographed and judged as a profile.
+
+⚠️ **And a false-zero the agent caught in its own first pass:** keying the population on "has a
+handle" swept in a TikTok delivered-state file and produced **112 false zeros**. Excluded.
 
 ⚠️ **No judging rule was added or loosened and no threshold moved.** Capture is upstream of
 judging; what changes is how long the funnel spends discovering that a page has no picture, not
@@ -540,11 +578,15 @@ remainder, and a stage there would be a guess dressed as a measurement.
 ### The suite
 
 No peer suite run was live, so the full suite was attempted in slices.
-**90 suites run, 1 failure**, and I **re-derived** that red rather than inheriting a count:
+**90 suites run, 1 failure in those slices** (three pre-existing reds in total across the round), and I **re-derived** that red rather than inheriting a count:
 
 `test_bl1307_veto_refused` — caused by an untracked `scratch/bl1441_ast_sink_tests.json` dated
 **30 August**, which predates this round by a week. It has been red in every full run since at
 least BL-1440. Not caused by anything here.
+
+**Two further pre-existing reds were found by sub-agents and are named rather than folded into a
+count:** `test_bl1359_ig_cost_fixes` and `test_bl1389_no_caller`. Both were verified red
+**before** any change by restoring the pre-patch file and re-running — not assumed.
 
 Additionally the sub-agents ran their own affected families green: ledger 53, funnel 833, caps
 30, vendor 21, `run_` 123, headless 47, panels 28, spend 8, status 5, plus the new
