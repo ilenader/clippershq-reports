@@ -352,6 +352,7 @@ BL-1510-the-answer-key-was-built-and-never-used	leadgen	1.00	auto (stack markers
 BL-1511-what-fails-without-saying-so	ambiguous	0.00	auto (stack markers)			BL-1511 — What fails without saying so
 BL-1512-seventeen-of-eighteen-fail-without-saying-so	leadgen	1.00	auto (stack markers)			BL-1512 — 17 of 18 fail without saying so, and six of them remember it
 BL-1513-his-arithmetic-is-right	leadgen	1.00	auto (stack markers)	2026-09-06		BL-1513 — His arithmetic is right, and here is exactly which part of the system disagrees with it
+BL-1515-a-free-model	leadgen	1.00	auto (stack markers)	2026-09-06		BL-1515 — A free model that is good enough, proved on his own grades
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -809,6 +810,7 @@ BL-838	leadgen	1.00	auto (stack markers)	2026-08-01		BL-838: The literal-argumen
 BL-839-clippershq-rate-limit-bypass	ambiguous	0.00	auto (stack markers)	2026-09-05		BL-839 — the bypass was working. It was reading the wrong route.
 BL-839	leadgen	1.00	auto (stack markers)	2026-08-01		BL-839 — BUILT: the frame sampler, phash dedup and timestamped per-frame OCR. But the economics do NOT reproduce — measured **16.01 CPU-hours per 1,000**, not 6.6, because dedup keeps **82.7%** of frames (not 41%) and OCR costs **4.03 s/frame** (not 1.397)
 BL-840	leadgen	1.00	auto (stack markers)	2026-08-01		BL-840 — Item 1 is settled: `gemini-flash-latest` prices at **$1.50/$7.50**, BL-835's *worst* case. Item 2 is **NOT settled** — the free tier allows **20 requests per day per model**, so n=100 was never reachable, and my n=18 is a different corpus.
+BL-841-clippershq-marketplace-audit	payments	1.00	auto (stack markers)	2026-09-06		BL-841: the marketplace, established from the code rather than from the description
 BL-841	leadgen	1.00	auto (stack markers)	2026-08-01		BL-841 — Metering proven under a real SIGKILL. And the wiring that was supposed to prove it was double-counting every run past 25 calls
 BL-842	leadgen	1.00	auto (stack markers)	2026-08-01		BL-842 — The tag ranking was an artifact of **list position**: 16 of 24 tags had never been walked, and measuring them turned "no yield" into **116 more pages**. Walk top-2 **7.0% → 5.0%**. `speech_frac`/`ocr` are **unwired, not gated**. And `user_pk` saves nothing — 30% of the walk's paid calls were avoidable
 BL-843	leadgen	1.00	auto (stack markers)	2026-08-01		BL-843 — Subtitles wired ($0, 37/37 fetched live), the ~30 discarded DECLARED fields now reach storage, and the audio axis will no longer be born unreadable
