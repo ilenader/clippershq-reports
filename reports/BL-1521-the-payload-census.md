@@ -393,6 +393,13 @@ own leak scan did not:** the scan covered the report and the manifest — what *
 looked at what my agents wrote. Redacted copies are committed in their place, replacing the whole
 value, because a truncation with an ellipsis still fingerprints the address.
 
+**Five files are deliberately left uncommitted and are not orphans:** the four raw artefacts
+(`scratch/bl1521_agentA_02/03/05/06_*.json`), which carry the addresses, and one composed sheet
+PNG under `scratch/bl1521_agentB_sheet_out/`, which is a picture of real accounts. Their redacted
+counterparts and the redactor itself are committed, so every number above remains reproducible
+from HEAD. **The claim was released with `--force` for exactly this reason, and this sentence is
+the record of it** — the next round should not stand off from those paths wondering who owns them.
+
 ---
 
 ## 5. What was refused
