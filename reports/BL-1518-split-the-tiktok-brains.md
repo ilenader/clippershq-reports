@@ -40,7 +40,7 @@ it searched "&lt;subject&gt;edits" and then checked whether the account *name* c
 The search matched on the name; the test re-read the search. An earlier honest attempt returned
 **22.7%**, median 0.205.
 
-Seven parts were asked for. **Four were delivered, three were not** — see Section 4.
+Seven parts were asked for. **Five were delivered, two were not** — see Section 4.
 
 ---
 
@@ -299,7 +299,50 @@ control, so **what raises is the function the funnel actually calls**.
 silently reported nothing on the other; the builder **refuses rather than guesses** when a free
 variable is unaccounted for, which is how the difference was found.
 
-### 3.8 Safety state
+### 3.8 Part 5 — does edits need a different picture? No. But the picture is broken anyway.
+
+**The picture is not where the money is, and that is the answer to the part as asked.** The
+whole picture pipeline costs about **2.4 seconds per page and effectively $0**: cover fetch and
+compose ~2.06s (12 parallel CDN fetches, the binding stage), composing 0.29s, JPEG encoding
+0.04s. A cheaper picture cannot move edits from $1.19 to $0.50, because that gap is upstream in
+call volume. Three corrections to what this round started with:
+
+- **The 155×275 crop is dead**, fixed by BL-1499. `crop_to_one_cover = (not frame_strip) and
+  n_tiles <= 1` — multi-tile sheets now go through `grid_b64` uncropped. Carrying the old
+  figure forward would have been wrong.
+- **OCR never runs on the live path.** `speech_fracs = None` is a literal at the judge call
+  site, and `ocr_can_change_a_verdict(speech_fracs=None)` gates the work, so the gate is inert.
+  `OCR_SECONDS_PER_PAGE = 32.9` is still pinned by `tests/test_bl1333_speed.py:225` — a pinned
+  constant for a stage that does not execute. Freshly measured, if it did run it would be
+  ~23.4s/page, so the pinned number is wrong *and* moot.
+- **`frame_strip` is still unwired** — the one production call site never passes it.
+
+**But measuring the picture turned up a defect worth more than the question asked.** Using a
+blank-cell detector proved on planted controls (a fully flat sheet reads 12/12 blank; a
+3-filled sheet reads exactly 3 filled — pixel *variance*, not darkness, because the builder
+paints grey 24 and a prior detector tested grey&lt;16 and scored a fully empty sheet as 0.0 blank):
+
+| Run | Sheets | Exactly ONE panel of 12 | All 12 panels |
+|---|---:|---:|---:|
+| 20260905_235818 | 70 | **53 = 75.7%** | 10.0% |
+| 20260905_212810 | 63 | **34 = 54.0%** | 15.9% |
+| bl1260_volume | 134 | 0 = 0.0% | 28.4% |
+
+Pooled over the two most recent dated production runs: **87 of 133 = 65.4% [56.9, 73.1]** of
+pages reached the judge carrying **one panel out of twelve**, padded onto a mostly-blank
+465×992 canvas. It is **not** a universal property — the volume corpus shows 0% — so it varies
+by run and the pooled figure should not be quoted as a constant.
+
+**Why this matters more for edits than for memes, and why it belongs in this round:** a meme
+page can be recognised from one still. **An edit page cannot.** What makes a page an edit page
+is motion, cut rhythm and overlay text across time — precisely what a single cover frame
+destroys. The judge is being asked the edits question, on three pages in five, from the one
+piece of evidence that cannot answer it. This is a quality defect, not a cost one, and it is a
+plausible contributor to the 75.8% [69.1, 81.5] accuracy ceiling measured in an earlier round.
+**It is a hypothesis, not a measurement — I did not test whether panel count predicts judge
+accuracy**, and it should be tested before anything is built on it.
+
+### 3.9 Safety state
 
 Backup of 8 files (config, ledger, lead store, all five seen stores), every one sha256 MATCH,
 path built from **one** round constant. Corruption control: one flipped bit → detected.
@@ -311,7 +354,7 @@ Seen-store bodies found **by shape**, not by key name — `clip_seen.json` is a 
 
 ## 4. WHAT WAS REFUSED, AND WHY
 
-**Three of the seven parts were not delivered.** Six sub-agents were dispatched in parallel and
+**Two of the seven parts were not delivered.** Six sub-agents were dispatched in parallel and
 **all six were killed mid-flight by a session rate limit**; two were re-dispatched and their
 results are in Section 8 if they returned. What is missing:
 
@@ -320,8 +363,11 @@ results are in Section 8 if they returned. What is missing:
   inferring it from his grades or the funnel's verdicts. It requires spending; **$0.00 was
   spent this round**, so it is absent, not zero.
 - **Part 1, instrument (c) — resemblance to his hand-supplied edit accounts. NOT RUN.**
-- **Part 5 — whether edits needs a different picture. NOT MEASURED** by me; re-dispatched.
-- **Part 6 — the reserved question. NOT ANSWERED** by me; re-dispatched.
+- **Part 5 — whether edits needs a different picture. DELIVERED** (Section 3.8), on a
+  re-dispatched agent, with its headline independently re-measured by me before it was believed.
+  Its summary named one run; measuring three showed the figure is **corpus-dependent** (75.7%,
+  54.0%, 0.0%), which the single-run summary did not carry.
+- **Part 6 — the reserved question. NOT ANSWERED**; re-dispatched, still running at publication.
 - **Part 7 — BEFORE and AFTER for both brains. NOT RUN.** This is the fourth consecutive
   attempt at the edits AFTER measurement that has not completed.
 
@@ -413,7 +459,15 @@ pages he wanted. **Gating on a noisy count re-creates a defect that has already 
 and removed once.** The honest position: the lever is sized, its feasibility is unmeasured, and
 $0.50 is **not reachable today**.
 
-**5. Fix the cost estimator, or stop consulting it.** It is 6.3× low on discovery and ~30× high
+**5. Test whether the one-panel sheets are costing accuracy — before building anything on
+it.** In the two most recent dated runs, **65.4% [56.9, 73.1] (87/133)** of pages reached the
+judge with **one panel of twelve** on a mostly-blank canvas. A meme page can be recognised from
+one still; an edit page is defined by motion and cut rhythm, which a single cover destroys. This
+costs no money to investigate — the sheets are on disk and the judge verdicts are recorded — and
+if panel count does predict judge error it is a bigger lever on his 75.8% accuracy ceiling than
+anything in this list. **Stated as a hypothesis: I did not measure it.** *Unmeasured.*
+
+**6. Fix the cost estimator, or stop consulting it.** It is 6.3× low on discovery and ~30× high
 on profiles, and the errors partially cancel. Its discovery line still states as fact a claim
 refuted and fixed in the same file. *Measured.*
 
@@ -437,6 +491,7 @@ All committed to the working repo under `BL-1518`:
 | `scratch/bl1518_cost.py` | Per-brain cost model · `bl1518_cost.json` |
 | `scratch/bl1518_term_ledger.py` | 178 terms, 14 categories, append-only journal ledger |
 | `scratch/bl1518_capproof.py` | Cap proof against the shipped bytecode of both brains |
+| `scratch/bl1518_a5_picture.json` | Picture cost split, blank-panel census, crop/OCR/strip verification |
 | `scratch/bl1518_safety.py` | Backups, corruption control, row-keys-by-shape baseline |
 | `tests/test_bl1518_term_ledger.py` | 6 tests, all green, including the real held-file test |
 
