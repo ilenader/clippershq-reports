@@ -11,14 +11,8 @@ BL-835 built this and said plainly its arithmetic was proven on the pure functio
 creating a real payout. Nobody had used it since: 0 trainers, 0 pairings, 0 commissions. This round
 created the payouts. A **$1,000** withdrawal by a trained clipper with no referrer:
 
-| | |
-|---|---|
-| platform takes 9% | **$90.00** |
-| what remains | **$910.00** |
-| trainer takes 10% of that | **$91.00** |
-| **the clipper receives** | **$819.00** |
-| trainer pays 9% on his own share | $8.19, leaving **$82.81** |
-
+Platform takes 9%, **$90.00**. What remains, **$910.00**. Trainer takes 10% of that, **$91.00**.
+**The clipper receives $819.00.** The trainer then pays 9% on his own share, $8.19, leaving **$82.81**.
 Every figure was worked out by hand from your rule **first**, then compared: a test whose expectation
 comes from the code it tests only proves the code agrees with itself.
 
@@ -33,13 +27,10 @@ comes from the code it tests only proves the code agrees with itself.
 
 Across all four: $1,400.00 gross became $1,166.25 clipper cash, $116.00 platform fee, $4.00 express
 and $113.75 trainer accrual. **Cash plus cut plus fee plus express equals the gross exactly**, on
-every row and in total. The platform never gained a cent from nowhere.
-
-The referred clipper's trainer takes the same base as an unreferred one, so nobody is charged more for
-how they arrived. **The referrer was held harmless at $9.60** rather than the $8.92 a naive
-calculation would have paid him because his invitee chose a coach. And the control clipper's row
-carries **nothing at all** in the four trainer columns, so it is indistinguishable from a row written
-before the feature existed.
+every row and in total. The referred clipper's trainer takes the same base as an unreferred one, so
+nobody is charged more for how they arrived; **the referrer was held harmless at $9.60** rather than
+the $8.92 a naive calculation would have paid him; and the control clipper's row carries **nothing at
+all** in the four trainer columns, so it is indistinguishable from a pre-feature row.
 
 ## What happens when things go wrong, in 37 checks
 
@@ -61,10 +52,10 @@ below his payments. That is your no-overpayment rule and your paid-is-final rule
 ## Three things that were broken, now fixed
 
 **1. Every clipper's browser was receiving your test campaigns.** `/api/campaigns/spend` had no test
-filter of any kind, so the id and the total spend of every test campaign went to everyone signed in.
-Nothing drew it, but it left the building. This is **not** a sandbox problem: it was already true, and
-your own rules already said clippers cannot have that endpoint in full. Now a clipper sees **0 of 2**
-test campaigns and you still see the one that has spend.
+filter, so the id and total spend of every test campaign went to everyone signed in. Nothing drew it,
+but it left the building. **Not** a sandbox problem: it was already true, and your own rules already
+said clippers cannot have that endpoint in full. A clipper now sees **0 of 2**, and you still see the
+one that has spend.
 
 **2. A trainer's screen showed "0 clips" beside "$91 earned from them".** The dashboard used the rule
 that decides what to *charge for* to decide what to *show*, so when a pairing ended the work vanished
@@ -87,13 +78,13 @@ and bumping the consent record so it cannot claim they agreed to a list they nev
 ## Two things you should know
 
 **A silent trainer takes two presses, not one.** You said the 10% should stop "entirely including
-accrued-but-unpaid". Taking trainer status back stops all future cuts immediately but does **not** wipe
-what is already accrued ($14.11 in the test). Ending each pairing does that, and refunds it to the
-clipper. Those two were separated deliberately when the system was built.
+accrued-but-unpaid". Taking trainer status back stops all future cuts at once but does **not** wipe
+what is already accrued ($14.11 in the test); ending each pairing does that and refunds it. The two
+were separated deliberately when the system was built.
 
 **A trainer still cannot be paid.** There is no cashout route anywhere in the product, so nothing can
 turn an accrued commission into money. The accrual, the ledger and the refunds all work; the last step
-does not exist. Building it is its own round, and the shape was already specified.
+does not exist, and building it is its own round.
 
 ## Nothing real was touched
 
