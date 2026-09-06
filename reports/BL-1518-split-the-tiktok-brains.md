@@ -40,7 +40,7 @@ it searched "&lt;subject&gt;edits" and then checked whether the account *name* c
 The search matched on the name; the test re-read the search. An earlier honest attempt returned
 **22.7%**, median 0.205.
 
-Seven parts were asked for. **Five were delivered, two were not** — see Section 4.
+Seven parts were asked for. **Six were delivered, one was not** — see Section 4.
 
 ---
 
@@ -342,7 +342,51 @@ plausible contributor to the 75.8% [69.1, 81.5] accuracy ceiling measured in an 
 **It is a hypothesis, not a measurement — I did not test whether panel count predicts judge
 accuracy**, and it should be tested before anything is built on it.
 
-### 3.9 Safety state
+### 3.9 Part 6 — the reserved question, and a refutation
+
+One agent was given one question and deliberately no list of places to look: *what is different
+about an edit page that nothing in this funnel currently measures?* Its strongest result is a
+**refutation**, which is the more useful outcome.
+
+**The "edit pages look different" hypothesis is refuted once a confound is controlled.** Pixel
+colour-saturation, monochrome fraction and edge density were measured on the judge's own cover
+images, 224 edit-labelled versus 1,520 hashtag-labelled TikTok pages (labels from `found_via`,
+the same mechanism used throughout this round).
+
+| | Saturation AUC | n |
+|---|---:|---|
+| Uncontrolled | **0.6245** | 220 / 220 |
+| Restricted to capture batches holding **both** labels | **0.5464** | 96 edit / 364 meme |
+
+The uncontrolled figure looked promising; the edit and meme samples had simply been captured in
+**different batches under different pipeline settings**. Restricting to the two capture
+directories that hold both labels collapses it to a coin flip, and every other pixel feature
+sits in 0.42–0.60 — the same flat band this project has already learned to distrust. The
+detectors were validated first on planted synthetic controls where they separate cleanly
+(saturation 148.8 vs 0.0; monochrome fraction 0.003 vs 1.0), **so the flat real-world result is
+a genuine absence of signal rather than a broken instrument.**
+
+**What it found instead is structural, and it has never been extracted.** `aweme_type` is
+TikTok's own video-versus-photo-carousel flag, 100% filled on 2,020 sampled videos in an earlier
+census. It appears **nowhere in any `clippershq/*.py`** — verified independently. `_video_of`
+does not read it. **A photo-mode post cannot be a video edit by definition**, so this is a
+non-circular structural signal — it does not depend on the search term, the account name, or a
+model's opinion — and nothing has ever looked at it.
+
+`duration` fares similarly: extracted into the video record at `tiktok_finder.py:374-375` at
+100% fill, and read back by nothing in the finder path. It arrives from the vendor and
+dead-ends. (Other files mention `duration`, but those are the clip-editing subsystem's unrelated
+`duration_s`.)
+
+**Why the question could not be closed, stated rather than papered over:** **zero of the 321
+edit-term-discovered TikTok pages have a retained raw vendor payload anywhere on disk** — only
+their cover images survive. And every prior video-level measurement in this project was run on
+meme-labelled pages: of one earlier round's 105 captured handles, 26 are still in the seen store
+and **all 26 are hashtag-labelled, none edit-labelled**. So the `aweme_type` question *for edit
+pages specifically* has never been measured by anyone, and a no-network round cannot fetch what
+it needs to close it.
+
+### 3.10 Safety state
 
 Backup of 8 files (config, ledger, lead store, all five seen stores), every one sha256 MATCH,
 path built from **one** round constant. Corruption control: one flipped bit → detected.
@@ -354,7 +398,7 @@ Seen-store bodies found **by shape**, not by key name — `clip_seen.json` is a 
 
 ## 4. WHAT WAS REFUSED, AND WHY
 
-**Two of the seven parts were not delivered.** Six sub-agents were dispatched in parallel and
+**One of the seven parts was not delivered, and two instruments within Part 1 were not run.** Six sub-agents were dispatched in parallel and
 **all six were killed mid-flight by a session rate limit**; two were re-dispatched and their
 results are in Section 8 if they returned. What is missing:
 
@@ -367,7 +411,9 @@ results are in Section 8 if they returned. What is missing:
   re-dispatched agent, with its headline independently re-measured by me before it was believed.
   Its summary named one run; measuring three showed the figure is **corpus-dependent** (75.7%,
   54.0%, 0.0%), which the single-run summary did not carry.
-- **Part 6 — the reserved question. NOT ANSWERED**; re-dispatched, still running at publication.
+- **Part 6 — the reserved question. DELIVERED** (Section 3.9), and its headline is a
+  refutation. What it could not close is named there: the raw vendor payloads for edit-term
+  pages do not exist on disk.
 - **Part 7 — BEFORE and AFTER for both brains. NOT RUN.** This is the fourth consecutive
   attempt at the edits AFTER measurement that has not completed.
 
@@ -467,7 +513,13 @@ costs no money to investigate — the sheets are on disk and the judge verdicts 
 if panel count does predict judge error it is a bigger lever on his 75.8% accuracy ceiling than
 anything in this list. **Stated as a hypothesis: I did not measure it.** *Unmeasured.*
 
-**6. Fix the cost estimator, or stop consulting it.** It is 6.3× low on discovery and ~30× high
+**6. Extract `aweme_type` — TikTok's own video-vs-photo flag, 100% filled, never read.** It
+appears nowhere in the codebase. A photo-mode post cannot be a video edit *by definition*, so
+this is a structural, non-circular signal that costs nothing extra to collect — it is already in
+payloads being paid for and thrown away. It has never been measured for edit pages because no
+raw payload for an edit-term page was ever retained. *Unmeasured; free to start collecting.*
+
+**7. Fix the cost estimator, or stop consulting it.** It is 6.3× low on discovery and ~30× high
 on profiles, and the errors partially cancel. Its discovery line still states as fact a claim
 refuted and fixed in the same file. *Measured.*
 
@@ -491,6 +543,7 @@ All committed to the working repo under `BL-1518`:
 | `scratch/bl1518_cost.py` | Per-brain cost model · `bl1518_cost.json` |
 | `scratch/bl1518_term_ledger.py` | 178 terms, 14 categories, append-only journal ledger |
 | `scratch/bl1518_capproof.py` | Cap proof against the shipped bytecode of both brains |
+| `scratch/bl1518_a6_reserved.json` | Pixel-feature AUCs before and after the batch control; the unextracted-field census |
 | `scratch/bl1518_a5_picture.json` | Picture cost split, blank-panel census, crop/OCR/strip verification |
 | `scratch/bl1518_safety.py` | Backups, corruption control, row-keys-by-shape baseline |
 | `tests/test_bl1518_term_ledger.py` | 6 tests, all green, including the real held-file test |
