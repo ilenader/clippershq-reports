@@ -621,6 +621,14 @@ followers **0/30 → 30/30 [88.65, 100]**, post count **0/30 → 30/30**. **But 
 against 10/10 paid, and contact email 0/30 against 3/10.** It buys a size band, not a bio and not
 an address.
 
+### I published a test count I could not stand behind
+
+I quoted **"189 passed, 14 red"** while the runner was still going, labelled it a partial, and
+named its denominator — and the completed run says **310 passed, 20 red.** Every one of the six
+late arrivals turned out to be pre-existing, so the conclusion held; **the number did not.**
+Naming a result as partial is a disclosure, not a safeguard, and I should have either waited for
+the runner or published no count at all.
+
 ### The 102 stranded addresses were ONE address
 
 BL-1521 reported "102 rows stranded" and this brief repeated it as "102 real addresses, which is
@@ -689,10 +697,16 @@ table** — never a command-line grep, which once matched its own command line, 
 `crossdedup`, `embed`, `profile`: 16 suites, ALL PASS, zero red.**
 
 **The full runner is `tests/run_all.py`** (`unittest discover` under-reports here). It runs **458
-suites** and was still running when this report was published: **189 suites had passed and 14 were
-red.** ⚠️ **That is a PARTIAL run and it is named as one rather than quoted as a total.**
+suites**. **COMPLETED: 310 passed, 20 distinct suites red.**
 
-⚠️ **THIRTEEN OF THE FOURTEEN WERE ALREADY RED BEFORE THIS ROUND, AND EACH WAS PROVED BY REMOVAL
+⚠️ **CORRECTION — THIS SECTION FIRST PUBLISHED "189 PASSED, 14 RED" FROM A RUN THAT WAS STILL
+GOING.** I labelled it a partial and named its denominator, and it was **still wrong**: the
+completed run found **six more red suites**, a 43% increase on the figure I published. **Labelling
+a partial does not make it safe to quote.** The finished number is above; the six late arrivals are
+in their own table below, and every one of them is pre-existing — but I did not know that when I
+published, and the honest reading is that I published a count I had no way to stand behind.
+
+⚠️ **NINETEEN OF THE TWENTY WERE ALREADY RED BEFORE THIS ROUND, AND EACH WAS PROVED BY REMOVAL
 RATHER THAN ASSERTED** — run against a clean worktree detached at the pre-round commit, not argued
 from a diff:
 
@@ -712,6 +726,23 @@ from a diff:
 | `test_bl1444_board_and_sheets` | pre-existing | fails at the pre-round commit |
 | `test_bl1516_paid_call_ordering` | expected-by-design | **its own census says so** — 1 expected-by-design, 0 unexpected, 10 expected-red now green. Not independently re-proved by me. |
 | **`test_bl1348_gates`** | ⚠️ **CAUSED BY THIS ROUND — and fixed** | see below |
+
+**The six that arrived after publication, all pre-existing:**
+
+| suite | status | how it was established |
+|---|---|---|
+| `test_brief_leakcheck` | pre-existing, **and improved** | **2 failures at the pre-round commit, 1 now** |
+| `test_doc_citations` | pre-existing | 3 failures at the pre-round commit, 3 now — unchanged |
+| `test_estimated_flag` | pre-existing | its 2 real failures are identical at the pre-round commit. ⚠️ Its third **was SKIPPED there** — "no production ledger here", because `spend.json` is gitignored and absent from a worktree — and it fails on a ledger row stamped **BL-1441, 30 August** |
+| `test_lock_and_snapshot` | **flaky, not red** | fails inside the 458-suite run and **passes standalone**; a load artefact, not a defect |
+| `test_dashboard` | independent, **not re-proved** | it did not finish inside my timeout, so this row is an argument rather than a measurement: the round's commit touches **0 files under `dashboard/`** and the suite imports nothing from `clippershq` |
+| `test_dashboard_redesign` | pre-existing | **fails at the pre-round commit** (2 failures, 7 errors) |
+
+⚠️ **AND THE GITIGNORED-FILE HOLE APPEARED A THIRD TIME, IN ITS MOST DANGEROUS FORM.** Twice it
+made a suite ERROR in a clean worktree for reasons unrelated to the change. In
+`test_estimated_flag` it instead made a check **SKIP** — and a skip reads as a pass. **A proof by
+removal that silently skips the assertion is worse than one that errors**, because nothing in the
+output tells you the question was never asked.
 
 ⚠️ **THE CLEAN-WORKTREE METHOD HAS A HOLE AND I FOUND IT THE HARD WAY.** `config.json` is
 **gitignored**, so a worktree checked out at any commit has none — and every suite that reads it
