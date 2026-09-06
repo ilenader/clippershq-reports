@@ -363,6 +363,7 @@ BL-1521-the-payload-census	leadgen	1.00	auto (stack markers)	2026-09-06		BL-1521
 BL-1522-the-brain-that-delivered-58-pages	leadgen	1.00	auto (stack markers)	2026-09-06		BL-1522 — TikTok edits delivered 58 pages at $1.64 per 1,000. The zero was an accounting error, twice.
 BL-1523-show-him-his-terms	leadgen	1.00	auto (stack markers)	2026-09-06		BL-1523 — HIS HASHTAGS, HIS SEARCH TERMS, AND WHAT EACH ONE ACTUALLY RETURNS
 BL-1524-one-leak-was-real-one-was-the-floor-one-did-not-exist	leadgen	1.00	auto (stack markers)			BL-1524 — one leak was real, one was the gate's floor, and one did not exist
+BL-1525-one-hashtag-call	leadgen	1.00	auto (stack markers)	2026-09-06		BL-1525 — One hashtag call: everything it returns, and what we still have to pay for
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -825,11 +826,17 @@ BL-841-clippershq-marketplace-audit	payments	1.00	auto (stack markers)	2026-09-0
 BL-841	leadgen	1.00	auto (stack markers)	2026-08-01		BL-841 — Metering proven under a real SIGKILL. And the wiring that was supposed to prove it was double-counting every run past 25 calls
 BL-842-clippershq-sandbox-tooling	cross	0.50	auto (stack markers)	2026-09-06		BL-842: a sandbox that reproduces defects instead of passing tests
 BL-842	leadgen	1.00	auto (stack markers)	2026-08-01		BL-842 — The tag ranking was an artifact of **list position**: 16 of 24 tags had never been walked, and measuring them turned "no yield" into **116 more pages**. Walk top-2 **7.0% → 5.0%**. `speech_frac`/`ocr` are **unwired, not gated**. And `user_pk` saves nothing — 30% of the walk's paid calls were avoidable
+BL-843-clippershq-trainer-cashout	payments	1.00	auto (stack markers)	2026-09-06		BL-843 — the trainer cashout, and every trainer figure made true
 BL-843	leadgen	1.00	auto (stack markers)	2026-08-01		BL-843 — Subtitles wired ($0, 37/37 fetched live), the ~30 discarded DECLARED fields now reach storage, and the audio axis will no longer be born unreadable
+BL-844-clippershq-completed-full-spend	payments	1.00	auto (stack markers)	2026-09-06		BL-844 — a COMPLETED campaign reads fully spent, and can now be seen at all
 BL-844	ambiguous	0.00	auto (stack markers)	2026-08-01		BL-844 — SETTLED: `gemini-2.5-flash-lite` declines the unanswerable control **73 of 73** at **$1.39 per 1,000**. BL-840's 55.6% fabrication rate was an artifact of the free tier and a broken join — it does not reproduce. The middle tier costs 4.2x and buys nothing
+BL-845-clippershq-marketplace-sandbox	payments	1.00	auto (stack markers)	2026-09-06		BL-845 — the whole marketplace, exercised in the sandbox
 BL-845	leadgen	1.00	auto (stack markers)	2026-08-01		BL-845: The walk was not run — `clip_runner.py` was rewritten three times during this round
+BL-846-clippershq-historical-refresh	leadgen	0.78	auto (stack markers)	2026-09-06		BL-846 — one authoritative stat refresh for every clip on a finished campaign
 BL-846	leadgen	1.00	auto (stack markers)	2026-08-01		BL-846: All four BL-842 defects fixed — and the user_pk saving is real but ORDER-DEPENDENT, so the walk I ran to prove it saved nothing
+BL-847-clippershq-marketplace-hardening	cross	0.50	auto (stack markers)	2026-09-06		BL-847 — the marketplace, hardened where nobody had looked
 BL-847	ambiguous	0.00	auto (stack markers)	2026-08-01		BL-847 — AUDIT: only ONE candidate gating field is not a property of two accounts. `layout` is 67.4% fill across 61 accounts at **5.9% top-2 concentration**; `content_genre` is 28.3% fill from **11 accounts, 70.8% of it one page**. And it sits in the `measured` tier — the one a declared-only consumer throws away
+BL-848-clippershq-youtube-refresh	leadgen	0.67	auto (stack markers)	2026-09-06		BL-848 — the 338 YouTube clips BL-846 could not reach
 BL-848	leadgen	1.00	auto (stack markers)	2026-08-01		BL-848: the speech gate is wired — `speech_frac` measures, `field()` reads it, `format` is no longer null on 100% of clips. And the answer to "is it 90% music-only" is no: it is about half
 BL-849	payments	1.00	auto (stack markers)	2026-08-01		BL-849 — LABELLING: the control caught a real fabrication at **1 in 178 (0.56%)**, inside BL-844's ~4.1% bound and now a measured rate rather than a bound. The three-way comparison shows vision, OCR and subtitles return **three different answers on the same clip**. The pass is **26.8% complete and still running**
 BL-850	leadgen	0.85	auto (stack markers)	2026-08-01		BL-850: Nothing about a repost clip predicts how it does. The account does — and the library only ever collected winners.
