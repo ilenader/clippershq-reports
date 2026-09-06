@@ -48,9 +48,22 @@ Restore verified byte-identical: sha256 `c8d16199edffd437` before and after, `gi
 
 **Fix category: LOCAL.** It protects one guard in one file. Searching one layer up: the general form — *every guard in this repo that was mutation-proved but never given a committed test* — is not addressed here and remains open.
 
-**Suite state, stated honestly rather than claimed green.** The new suite is 9 of 9 green and mutation-proved. The claims manifest verifies 3 of 3 at HEAD, and **`tests/test_claims_manifest.py` — the one suite this round's manifest could have turned red — was run to completion and PASSED (exit 0).** The full run of **451 suites** was started and had **not finished** when this was published — at 52 suites in, one unrelated failure had appeared (`tests/test_atomic_io.py`). **I did not take "pre-existing" on trust:** both of this round's commits are pure ADDITIONS (`git show --name-status` reports `A` for both paths and no modification to any existing file), so breaking a pre-existing suite is structurally impossible for this change. That is a proof, not an assumption — but **the full suite result is NOT VERIFIED here**, and a green suite would only be evidence if I could say how many it was meant to run.
+**Suite state — and I published a wrong claim here, which is corrected below.**
 
-**Observed in passing, and recorded because it makes the guard non-theoretical:** while driving an unrelated probe, `SilentlyQuartered` **fired on a real contact sheet from the mark set** — a 1,720 px source encoded at 431 px, exactly one quarter, with `single_video=False`. Whether that is a true positive on a real defect or a false positive on a legitimately wide sheet, **I did not establish, and I am not claiming either.**
+The full run of **451 discovered suites** completed after publication: **428 PASS, 23 FAIL, 19 skipped, 10,200 checks.** The new suite is 9 of 9 green and mutation-proved; `tests/test_claims_manifest.py` — the one suite this round's manifest could have turned red — passed to completion.
+
+**One of those 23 failures was MINE, and the first version of this report said that was structurally impossible.** I argued that because both commits were pure ADDITIONS (`git show --name-status` reports `A` and no modification to any existing file), breaking a pre-existing suite could not happen. **That reasoning is wrong. A guard that SCANS EVERY FILE IN THE REPO can be broken by adding one**, and this repo has several.
+
+`tests/test_no_unchecked_stdout.py` failed **because of my new test file.** Proved by removal, not by argument — the check the brief demands and the one I had skipped:
+
+```
+ARM A  my file present   FAILED (failures=1)
+ARM B  my file removed   OK
+```
+
+**And the guard was right.** My `test_survives_dash_O` read a subprocess's `stdout` without checking its `returncode`. Its objection, verbatim: *"a subprocess result's stdout is read with no return-code check. A crashed program's empty output reads as 'nothing found'."* A crashed probe produces empty output, and empty output is indistinguishable from a genuinely disarmed guard. **That is precisely the silent-failure shape this project catalogues — committed by me, inside a test whose entire purpose is to stop a guard failing silently.** Fixed by asserting `returncode == 0` and surfacing stderr before reading stdout. Re-verified: my suite 9/9 green, the stdout guard now OK, and the mutation proof still KILLED with a byte-identical restore.
+
+**The remaining 22 failures: I attribute none of them and I claim nothing about them.** I did not take "pre-existing" on trust — I proved one was mine and fixed it — but I did not individually establish the origin of the other 22, and saying they predate me would be exactly the assumption that hid this one.
 
 ---
 
@@ -204,6 +217,10 @@ RETURNED WITHOUT ESCALATING
 **I used the wrong check on the reports clone.** I tested `[ -d ../clippershq-reports/.git ]`. A peer warned that the same clone had been **broken until 16:00 today with `.git/objects` deleted** while HEAD, config, refs and packed-refs all remained — so the directory looks healthy and `[ -d .git ]` returns true in both states. Re-verified properly with `git rev-parse --is-inside-work-tree` and `count-objects -v` (5,825 packed objects). Healthy — but my original check could not have told me otherwise.
 
 **My first probe of the chain was wrong twice** — wrong function signature, then wrong return type — and each failure printed an empty "models asked" list. **An empty list from a broken probe looks identical to an empty list from a chain that does not escalate.** Only the third attempt, once the free model actually appeared in the asked list, produced evidence. The two earlier "zeros" were instrument failures and are discarded.
+
+**I published a claim of structural impossibility and it was false.** I wrote that breaking a pre-existing suite was impossible for this change because both commits only ADDED files. A repo-wide scanning guard can be broken by adding a file, and one was — `tests/test_no_unchecked_stdout.py`, by my own test. I found it only because I ran the removal check anyway. **The argument felt airtight, which is exactly why I should have run the check before publishing rather than after.**
+
+**And the defect it caught was mine, in a test written to stop silent failures.** I read a subprocess's stdout without checking its return code, so a crashed probe's empty output would have been indistinguishable from a disarmed guard. Section 2 has the detail. Two rounds ago I catalogued this shape; this round I committed it.
 
 **And my own console mangled its own output.** Several transcripts in this round render an em-dash as a replacement character, because the console is not UTF-8. Cosmetic here — but it is the same defect class that makes a peer's `claim.py list` crash partway through the third record, so that peer saw only two of four in-flight claims.
 
