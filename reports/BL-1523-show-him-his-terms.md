@@ -373,10 +373,11 @@ by a hardcoded set at `clippershq/meme_finder.py:5793`: `search:motivation quote
 `search:baller quotes` (0/23), `search:movie edits` (0/20), `search:car edits` (0/19), plus
 `hashtag:memesdaily` (0/56) and `hashtag:animemes` (0/15).
 
-**⚠️ And one that no `found_via` table anywhere can see: `reels:sad quotes` returned
-`HTTP 200, 0 medias` on 41 of 41 calls.** It has never produced an account, so it has no
-provenance row in any store — it appears only as `reels_errors: 1` in the run-stats files.
-**$0.0283 burned, recurring.** Positive control: the same regex over the same logs reads
+**⚠️ And one that no `found_via` table anywhere can see: `reels:sad quotes` has 42 attempts on
+record and zero successes, ever.** 41 returned `HTTP 200, 0 medias`; the 42nd is a
+`LamaTokApiError` that gave up after 3 vendor tries. It has never produced an account, so it has
+no provenance row in any store — it appears only as `reels_errors: 1` in the run-stats files.
+**$0.0290 burned, recurring.** Positive control: the same regex over the same logs reads
 `reels 'movie edits' -> 12 distinct account(s)`. This is the third instance in this report of a
 term being invisible *precisely because it is completely dead* — and a textbook case of the
 standing rule to **validate on list length, never on status**.
