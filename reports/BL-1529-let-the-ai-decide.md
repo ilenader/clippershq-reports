@@ -21,9 +21,11 @@ real. For the picture, `video_strip.hero_for_video()` now chains probe → frame
 because, called rather than read, that layout puts each small tile at **139 px against a 155 px
 floor**; two smalls give 208 px. And the two unexplained crawl shortfalls have a named cause:
 `videos_from_handle` **never paged**, the second of two search callers, the first of which was
-fixed by another round. **What did not run: the four batches of 25, the four interactive
-sheets, the 260 re-admission (specified precisely, deliberately not executed), and the rule
-census that would let every non-recency rule step aside.** Those are Section 5. **There are no
+fixed by another round. **The rule census IS complete and costed — letting every other rule step aside takes TikTok
+from 22.4% to 70.0% of pages reaching the model for $0.27 and +3.2 minutes — but the rules
+still cut, because the change itself did not land.** What did not run: the four batches of 25,
+the four interactive sheets, and the 260 re-admission (specified precisely, deliberately not
+executed). Those are Section 5. **There are no
 `.bat` files, because no sheet was built.**
 
 ---
@@ -35,7 +37,7 @@ census that would let every non-recency rule step aside.** Those are Section 5. 
 > thirty — should go to the AI. The AI is the guy who says yes or no, NOT the system
 > automatically saying no."
 
-Keep exactly two automatic rejections — **recency** (his 180-day wall) and **the post floor**,
+Keep exactly two automatic rejections — **recency** (his 180-day wall on TikTok; ⚠️ **Instagram's is 152 days, not 180** — that number is TikTok's only) and **the post floor**,
 lowered to 1. Every other rule annotates instead of rejecting. Give the model the whole video.
 Fix what went wrong last run. Then run 100 pages, 25 per brain, edits first, and build four
 sheets.
@@ -158,6 +160,64 @@ which has broken three times in this repository on correct code.
   `('edits', 'config')`.
 
 ---
+
+### 3.1 The rule census — every rejection that fires before the model
+
+**MEASURED.** 41 rules enumerated (20 TikTok, 21 Instagram), ranked by pages killed.
+
+**TikTok** (`run.json`, 767 rows): `posts_floor` **253** · `stale` **232** (214 pre-purchase,
+18 post) · `thin_evidence` → UNJUDGED **105** · `picture_judge` (the model) **45** ·
+`low_avg_views` 3 · `not_english` 2 · `green_screen` 2 · `talking_creator` **0** ·
+`template_overlay` **0** · `share_per_play` **0** · his three hand rules **0**.
+
+**Instagram** (14,417 rows): `capture_failed` **8,575** · shortfalls 1,185 · `picture_judge`
+1,054 · `profile_unreadable` 673 · `photo_heavy` 541 · `bars_kill` 308 · `creator_page` 289 ·
+`stale` 269 · `format_share` **253** · `too_few_posts` 217 · `not_english` 27 ·
+`short_captions` **0** · `language_gate` **0**.
+
+**TikTok has no mode-conditional free rule** — mode picks only the search terms and the model's
+rubric. Instagram suspends exactly two in edits mode.
+
+**The nine dead rules resolve to 8 (or 10, depending on whether the three hand rules count as
+one or three — both counts are in the JSON and neither is picked).** All verified with firing
+positive controls: the hand rules read `views`/`video_count`/`posted_at_least_days` and the live
+pack sends none of the three; `talking_creator` and `template_overlay` die on one hard-`None`
+assignment that kills two rules; `short_captions` has `MIN_CAPTION_CHARS = 0` so its test is
+unreachable; the IG `language_gate` key is absent from config **and** top level.
+**`gates["recency"] = True` is NOT a defect** — the real check runs, `g_recency` is never read,
+but `why` **is** recorded. It already annotates, which is the shape this round wants.
+
+**⚠️ THE `except: return True` PREMISE IS REFUTED, DRIVEN.** With a planted `ImportError` behind
+a control that separates, `page_language_ok` **raises, prints, and bumps a counter**; the page is
+admitted with `language_unjudged=True`. Four such sites exist and **none is a gate on any page
+path**. On handler counts, a fifth definition (strict = no raise, no log, no counter) gives
+**897 strict / 1,191 loose over 1,284** — the same denominator as the 1,283 already on record,
+**so the 425/472 vs 409/945 gap is purely definitional. Flagged, not closed.**
+
+**Two of the five reject-on-absent sites are out of scope:** `market_filter.py:417` and
+`quality_gate.py:1200` — **neither finder imports or calls them** (they belong to the editor and
+music funnels). `meme_finder.py:2757` is **unscoreable**, 0 verdicts move. And `format_share`
+fires **253 times, not the 973 a reason-string grep gives** — the same sentence narrates hook
+counts on *passing* pages, and the agent published 973 internally before its own numbers
+corrected it.
+
+### 3.2 What letting the rules step aside would actually cost
+
+| | reaches the model today | if every rule but two steps aside | change |
+|---|---|---|---|
+| **TikTok** | 172 of 767 (22.4%) | **537 of 767 (70.0% [66.7, 73.2])** | ×3.12 |
+| **Instagram** | 1,960 of 14,417 (13.6%) | **4,660 (32.3%)** | ×2.38 |
+
+**⚠️ Two corrections to the framing.** Of TikTok's ×3.12, **243 is already shipped** — this
+round's own increment is **+122** (54.1% → 70.0%). And **lowering the post floor 10 → 1 releases
+only 10 pages in that run**, not 253; my own across-21-runs figure was 22, and the two
+denominators are named rather than reconciled. Instagram's ceiling is **35.7%, because 64.3% of
+those pages have no picture at all.**
+
+**Price: $0.0325 + $0.2403 = $0.27.** Clock, marginal ~1.55 s/page measured (0.84 s sheet +
+0.71 s judge): **+3.2 minutes on an 11.07-minute TikTok run.** Instagram adds judge calls only —
+those pages already have their picture. **The model is effectively free; the clock is the real
+price, and it is small.**
 
 ## 4. WHAT WAS REFUSED, AND WHY
 
