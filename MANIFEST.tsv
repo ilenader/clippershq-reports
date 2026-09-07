@@ -366,6 +366,8 @@ BL-1524-one-leak-was-real-one-was-the-floor-one-did-not-exist	leadgen	1.00	auto 
 BL-1525-one-hashtag-call	leadgen	1.00	auto (stack markers)	2026-09-06		BL-1525 — One hashtag call: everything it returns, and what we still have to pay for
 BL-1526-fix-everything-then-run	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1526 — Fix everything outstanding, then run edit pages for him to grade
 BL-1527-the-last-post-date	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1527 — THE LAST-POST DATE, THE PAGE-SIZE CEILING, AND WHAT WE BUY AND NEVER READ
+BL-1528-stop-rejecting-pages-the-model-never-saw	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1528 — Stop rejecting pages the model never saw
+BL-1528	payments	1.00	auto (stack markers)	2026-09-07		BL-851 — bonuses that say what they pay, and a banned payee who cannot be paid by accident
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -842,6 +844,7 @@ BL-848-clippershq-youtube-refresh	leadgen	0.67	auto (stack markers)	2026-09-06		
 BL-848	leadgen	1.00	auto (stack markers)	2026-08-01		BL-848: the speech gate is wired — `speech_frac` measures, `field()` reads it, `format` is no longer null on 100% of clips. And the answer to "is it 90% music-only" is no: it is about half
 BL-849-clippershq-marketplace-floor	payments	1.00	auto (stack markers)	2026-09-07		BL-849 — the marketplace splits get a floor, and the previous round's arithmetic is corrected
 BL-849	payments	1.00	auto (stack markers)	2026-08-01		BL-849 — LABELLING: the control caught a real fabrication at **1 in 178 (0.56%)**, inside BL-844's ~4.1% bound and now a measured rate rather than a bound. The three-way comparison shows vision, OCR and subtitles return **three different answers on the same clip**. The pass is **26.8% complete and still running**
+BL-850-clippershq-clips-filters	payments	1.00	auto (stack markers)	2026-09-07		BL-850 — the clips page filters and sorts
 BL-850	leadgen	0.85	auto (stack markers)	2026-08-01		BL-850: Nothing about a repost clip predicts how it does. The account does — and the library only ever collected winners.
 BL-851	leadgen	1.00	auto (stack markers)	2026-08-01		BL-851 — The clip library at 2,003: the round-robin holds at 7× the scale, the `user_pk` column pays out exactly as predicted, and `run_id` does not reach a clip row at all
 BL-852	leadgen	0.86	auto (stack markers)	2026-08-01		BL-852: the threshold that matters is not the one that was inherited. `SPEECH_MUSIC_MAX = 0.30` is roughly right; `SPEECH_PRESENT_MIN = 0.05` is four times too low, and it is the singing bug
