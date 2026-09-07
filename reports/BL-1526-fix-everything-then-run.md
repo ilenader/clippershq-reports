@@ -399,6 +399,25 @@ reports back as *"CLIPPERSHQ_MODE in the environment"* — and the target, depth
 overridden **in memory**, because `run_funnel` takes the config as a parameter. The file was never
 written.
 
+**Deliberately not committed, and neither is an orphan.**
+
+* **The browser screenshot** (`scratch/bl1526_agentS_shot_redacted.png`). It is redacted with
+  black boxes rather than blur, and it is **still withheld** — ⚠️ **the handle detector has a known
+  false negative on alpha-blended watermarks, so it CANNOT PROVE a sheet clean**, and a previous
+  round withheld images for exactly this reason. The console output, the 24 passing assertions and
+  the marks read back off disk are all reported in text instead. **An image I cannot prove clean
+  does not get published because it would have been convenient.**
+* **`clippershq/api_client.py`**, which is modified in the working tree and **belongs to another
+  round** — its added lines carry BL-1221 and BL-1469 markers, not mine. I listed it in my claim's
+  write-set at round start and should not have; claiming a file I did not touch is how a round
+  blocks a peer. **Left exactly as found.**
+* **Everything under `output/`** — the run's own artefacts, the 577 handle-named PNGs and the
+  built sheet. `output/` is gitignored (`.gitignore:98`) and it holds real creator handles and one
+  real address.
+
+**The claim was released with `--force` for these three reasons, and this sentence is the record of
+it** — the next round should not stand off from those paths wondering who owns them.
+
 Paths in this report are relative to the repository root under `%USERPROFILE%`.
 
 ---
