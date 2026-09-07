@@ -234,8 +234,10 @@ gitignored, so a `git worktree` at any commit has neither, and proof-by-removal 
 suites erroring for unrelated reasons and one **SKIPPING with "no production ledger here" — and a
 skip reads as a pass.** `--head` is the sound instrument.
 
-⚠️ **THE FULL 464-SUITE RUNNER DID NOT FINISH, AND NO COUNT FROM IT APPEARS IN THIS REPORT.** It
-had completed 78 suites when this was written. **Labelling a partial as partial is a disclosure,
+⚠️ **THE FULL 464-SUITE RUNNER FINISHED AFTER THIS REPORT WAS FIRST PUBLISHED. ITS VERDICT:
+383 PASS, 22 DISTINCT RED — AND ONE OF THE 22 IS OURS.** The original text said no count from it
+appeared here, because it had completed only 78 suites at the time. That was the right call then
+and the finished number is above now. **Labelling a partial as partial is a disclosure,
 not a safeguard** — an earlier round published "189 passed, 14 red" with exactly that disclaimer
 and the finished run said **310 passed, 20 red, a 43% miss.** So the rule is: quote the verdict
 line or quote nothing. **Nothing is quoted.**
@@ -331,6 +333,36 @@ author corrected it to **397 of 464 ran, 376 PASS / 21 FAIL, 67 never run and UN
 forbidding it, because a number arrived in a summary and I did not ask whether the run behind it
 had reached its verdict line. **Quoting someone else's partial is the same sin as quoting your
 own.**
+
+### ⚠️ CORRECTION, POST-PUBLICATION: one red IS attributable to this round
+
+`tests/test_bl1404_no_verdict_without_a_cover.py` — **18 tests OK at the pre-round commit
+`b9bc7bad`, and RED in this round's tree.** It is ours, and the report first said no red was.
+
+**It is a byte-window guard breaking on correct code, for the THIRD time in this class.** The
+check was `block = TF_SRC[i - 1400 : i + 900]` around an anchor, then a substring search inside
+that slice. This round added an explanatory comment above the branch; the anchor moved and
+`v["unjudged"] = True` fell **outside the 1,400-byte lookback**. **The behaviour it guards never
+changed — only the distance between two strings did.** The same class has now hit `test_bl1344`
+(fixed BL-1516) and `test_bl1484` (fixed BL-1525, and again this round).
+
+**Fixed by parsing instead of slicing:** the branch is now located as the smallest `if` whose body
+mentions `no_cover_to_judge`, and the assertions run against that branch's own source. **Proved in
+four directions:** green as shipped; **green with 40 comment lines inserted above the assignment —
+the exact change that broke the old guard**; **RED when the unjudged assignment is removed**; and
+green restored. It carries its own control asserting the probe actually found the branch, without
+which an empty return would pass every assertion vacuously. 19 tests, green under `-O`.
+
+⚠️ **AND A METHOD NOTE THAT COST ME THE FIRST ANSWER.** I checked this suite with the runner's
+`--head` flag and it was red there too, which I nearly read as "pre-existing". **`--head` runs a
+clean extract of HEAD — and HEAD now CONTAINS this round's commits.** Once a round is committed,
+`--head` cannot answer attribution at all; the comparison has to be against the **pre-round**
+commit. And that comparison is only sound if the **gitignored** files are copied in — `test_bl1404`
+reads `config.json` twice, so a bare worktree would have failed it for the wrong reason and
+produced a confident wrong answer in the other direction.
+
+**The other 21 reds remain unattributed to this round**, each re-run against a shadow tree carrying
+only this round's hunks reversed and red both ways.
 
 ### A test runner returned success on a planted failure
 
