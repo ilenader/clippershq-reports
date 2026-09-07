@@ -255,8 +255,50 @@ price, and it is small.**
    never measured, which is $0 and already written in the builder but **uncommitted and
    post-dating the sheet he graded**. ⚠️ Any rebuild must reuse the **same `sheet_id`** or his 6
    marks are orphaned. Not done.
-6. **The second paging hole at `meme_finder.py:3305`** and **the term engine** — dispatched, not
-   returned, not landed.
+6. **The second paging hole at `meme_finder.py:3305`** and **the term engine** — **the
+   investigation returned after first publication and is folded in at §3.3; neither change was
+   landed.** Both findings correct the brief, and one corrects this report.
+
+### 3.3 The paging hole and the term engine — and two corrections
+
+**⚠️ THE PAGING PRIZE IS 1.58×, NOT THE 10× THE BRIEF IMPLIED — and it was measured by account
+ID, never by a count.** Two stored multi-page captures from different days gave the *identical*
+result: **12 → +7 → 0**, with **pages 3 and 4 byte-identical to page 2** (md5) while
+`has_more: true` on **7 of 7 pages**. Net-new on pages 2+: 7/36 = 19.4% [9.8, 35.0] and
+7/24 = 29.2% [14.9, 49.2].
+
+**The contrast control proves the saturation is the surface, not the reader:** the same reader
+on the *hashtag* surface walked 35 pages for **763 of 1,002 net-new = 76.1% [73.4, 78.7], with
+0 byte-identical pairs — 26.4×.** So the reels surface saturates and the hashtag surface does
+not. **And the first paging hole was TikTok — a different vendor entirely — so the two were
+never parallel cases.**
+
+**⚠️ AND IT IS NOT VERIFIED THAT PAGING EVEN WORKS ON THE SHIPPED ENDPOINT.** Both captures used
+`/v2/fbsearch/reels` paged on `reels_max_id`; the shipped call is `/v2/search/reels` with
+`page_id`. Nothing on disk shows `page_id` advancing that endpoint — which is exactly the
+"accepted and ignored" shape this project has been bitten by. **Confirmed defect** (AST: no
+cursor parameter, no page loop, zero cursor constants; grep agrees at zero; the positive control
+fires on `accounts_from_hashtag`, which *is* wired) — **but the fix must be measured before it is
+believed, and it must never stop on `has_more`.**
+
+**⚠️ A CORRECTION TO THIS REPORT: the term engine does not have "zero importers".** It has
+**zero importers inside `clippershq/`** and **eight repo-wide** — 3 scratch probes, 2 tests, and
+`tools/term_engine.py`, a read-only CLI whose own line 19 says it "does not turn anything on"
+(and which itself has no caller). The honest phrasing is **zero PRODUCTION importers**. Controls:
+`atomic_io` 183 hits, `ig_client` 432, `free_judge` 323.
+
+**And here grep OVER-counts, which is the reverse of the usual warning:** 440 hits across repo
+`.py` files, flagging `main.py`, `control.py`, `preflight.py`, `state.py` — **every one is the
+config key `search_terms`, not the module.** Module imports in that set: **0**. The module shares
+its name with a config key and text search cannot tell a name from an import.
+
+**The duplicate-draw defect was driven:** 4 workers × 5 terms → 20 draws, **5 distinct, 15
+duplicates**, all four lists identical. Control: after `record()`, overlap is 0 — so the fault is
+precisely the missing *reserve* between draw and record. Under his "use it once, never again"
+rule that is a term walked and **paid for twice**, and it must be fixed before any parallel use.
+
+**The recommendation is WIRE IT** — the funnel's whole term supply is **30 phrases on disk
+against a 236-term generator (7.9×)** — but single-lane only until the reserve lands.
 7. **The new picture is UNSCORED.** `hero_for_video` exists and is tested, but it is **not wired
    into the judge call**, because a new picture is a judging change and I could not score it
    paired on his marks without a run. Per the brief's own rule — if it scores worse, ship it off
