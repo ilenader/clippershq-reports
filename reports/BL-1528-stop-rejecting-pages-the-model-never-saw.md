@@ -366,6 +366,24 @@ never a command-line grep, which once matched its own command line, and never
 `dashboard/.running.json`, a stale marker since 30 August. Re-checked before every write under
 `clippershq/`. **No Python process was killed. No seen-store row was deleted or un-latched.**
 
+**Deliberately not committed, and none of it is an orphan.**
+
+Four agents built **shadow trees** — full copies of `clippershq/` with only their own hunks
+reversed — because that is how a red suite is proved pre-existing without trusting an argument.
+Those copies are **regenerable, and they re-export real addresses**: ⚠️ **19 real addresses sit as
+string literals in three production modules' self-test blocks**, so any snapshot of the tree
+carries them, and my staged-set scan caught **531 hits** across
+`scratch/bl1528_E/beforeroot/`, `scratch/bl1528_mine_reverted/` and `scratch/bl1528_head/`.
+**They stay out of the commit.** Three test-output logs went the same way for the same reason —
+one contained a real creator address.
+
+⚠️ **My scan found them; the pre-commit guard was never reached.** That is the point of scanning
+**what you are committing rather than what you wrote** — the guard checks lead-store addresses
+only, so a clean pass there would not have meant publishable.
+
+**The claim was released with `--force` for that reason, and this sentence is the record of it** —
+the next round should not stand off from those paths wondering who owns them.
+
 Paths in this report are relative to the repository root under `%USERPROFILE%`.
 
 ---
