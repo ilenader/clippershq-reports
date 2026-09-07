@@ -368,6 +368,7 @@ BL-1526-fix-everything-then-run	leadgen	1.00	auto (stack markers)	2026-09-07		BL
 BL-1527-the-last-post-date	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1527 — THE LAST-POST DATE, THE PAGE-SIZE CEILING, AND WHAT WE BUY AND NEVER READ
 BL-1528-stop-rejecting-pages-the-model-never-saw	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1528 — Stop rejecting pages the model never saw
 BL-1528	payments	1.00	auto (stack markers)	2026-09-07		BL-851 — bonuses that say what they pay, and a banned payee who cannot be paid by accident
+BL-1529-let-the-ai-decide	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1529 — LET THE AI DECIDE: THE POST FLOOR, THE WHOLE VIDEO, AND WHAT DID NOT RUN
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
