@@ -369,6 +369,11 @@ BL-1527-the-last-post-date	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1527
 BL-1528-stop-rejecting-pages-the-model-never-saw	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1528 — Stop rejecting pages the model never saw
 BL-1528	payments	1.00	auto (stack markers)	2026-09-07		BL-851 — bonuses that say what they pay, and a banned payee who cannot be paid by accident
 BL-1529-let-the-ai-decide	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1529 — LET THE AI DECIDE: THE POST FLOOR, THE WHOLE VIDEO, AND WHAT DID NOT RUN
+BL-1530	payments	1.00	auto (stack markers)	2026-09-07		BL-853 — one button that rejects a botted payout and every clip behind it
+BL-1531	payments	1.00	auto (stack markers)	2026-09-08		BL-857 — protect the streaks of every clipper who could not post during the outage
+BL-1532	payments	1.00	auto (stack markers)	2026-09-08		BL-858 — merge the outage streak remedy
+BL-1533	payments	0.80	auto (stack markers)	2026-09-08		BL-860 — make the platform tell you when it is broken, and can the marketplace and trainer launch tomorrow
+BL-1535-the-spotify-no-email-export	leadgen	1.00	auto (stack markers)			BL-1535 — Every Spotify lead with no email: 5,670 of 13,513
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -851,14 +856,21 @@ BL-851	leadgen	1.00	auto (stack markers)	2026-08-01		BL-851 — The clip library
 BL-852-clippershq-trainer-code-entry	payments	1.00	auto (stack markers)	2026-09-07		BL-852 — a clipper can enter a trainer code
 BL-852	leadgen	0.86	auto (stack markers)	2026-08-01		BL-852: the threshold that matters is not the one that was inherited. `SPEECH_MUSIC_MAX = 0.30` is roughly right; `SPEECH_PRESENT_MIN = 0.05` is four times too low, and it is the singing bug
 BL-853	leadgen	1.00	auto (stack markers)	2026-08-01		BL-853: both thresholds applied at 0.20. The library moves 47.1% → 51.9% music-only, and 83 of 580 clips stop being called dialogue when what they actually contain is singing
+BL-854-clippershq-pwa-and-report-entry	payments	1.00	auto (stack markers)	2026-09-07		BL-854 — the install bonus stays, because the signal cannot tell an uninstall from a quiet week, and the report entry now has two more doors
 BL-854	leadgen	1.00	auto (stack markers)	2026-08-01		BL-854 — **A finished video costs $0.0008 marginal, $2.61 per 1,000 fully loaded.** The cash leaks are small and real; the wall clock is the actual bill — the vision pass is **75% of the money and 3.7 hours per 1,000 clips**. And the 32% "duplicates" are not paid waste
+BL-855-clippershq-slowness-diagnosis	payments	1.00	auto (stack markers)	2026-09-08		BL-855 — why the site is slow and showing wrong numbers
 BL-855	leadgen	1.00	auto (stack markers)	2026-08-01		BL-855: The ranking is one term now. The tag bank was already spent, and a test had quietly deleted a live config key.
+BL-856-clippershq-scaling-sweep	payments	0.93	auto (stack markers)	2026-09-08		BL-856 — everything that will bring the site down again
 BL-856	leadgen	1.00	auto (stack markers)	2026-08-01		BL-856: it was not one stale row, it was 60 — and every one would mute a clip that contains dialogue. The migration is built and tested; it is not run, because the library still has a live writer
 BL-857	leadgen	1.00	auto (stack markers)	2026-08-01		BL-857 — Ranking before the vision pass cuts a labelling run from **5.88 hours to 0.74** and $2.16 to $0.27. Cost per finished video at 1-in-10 selection falls **$18.85 → $6.66 per 1,000**. Both leaks closed, 429s no longer billed, and after this the biggest cost is no longer vision
 BL-858	leadgen	0.83	auto (stack markers)	2026-08-01		BL-858: I opened 30 confirmed pages. 21 are the format you asked for, not 29 — the gate's 96.4% does not survive re-measurement, because it tests format consistency and never tests whether the clip was reposted at all
+BL-859-clippershq-pwa-active-use	payments	1.00	auto (stack markers)	2026-09-09		BL-859 — the app bonus is for using the app
 BL-859	leadgen	1.00	auto (stack markers)	2026-08-01		BL-859 — Full system state, clip side: what is wired, what is orphaned, and what waits on you
+BL-861-clippershq-payout-controls	payments	1.00	auto (stack markers)	2026-09-09		BL-861 — two payout controls, and neither of them touches a clip
+BL-862-clippershq-status-recovery	ambiguous	0.00	auto (stack markers)	2026-09-09		BL-862 — recovering the rounds that finished while the machine was off
 BL-862	leadgen	1.00	auto (stack markers)	2026-08-01		BL-862 — BL-861 built all five fixes correctly and none of them are in the path that spends; plus the `run_id` call that did nothing, removed
 BL-863	leadgen	1.00	auto (stack markers)	2026-08-01		BL-863 — Ranked vision is live and costs **half the projection**: $0.000681 and 10.0 s per clip, $1.28 per 1,000 finished videos. The 429 question is retired, not answered — HikerAPI states its own bill on every response. And another round overwrote my runner mid-flight
+BL-864-clippershq-sent-to-admin-marker	payments	1.00	auto (stack markers)	2026-09-09		BL-864 — a mark for the requests you have already sent your admin, and what BL-861's two controls actually do
 BL-865	leadgen	1.00	auto (stack markers)	2026-08-01		BL-865 — Everything committed, and phantom detection restored to memebot (the fix was not the one that was ordered)
 BL-866	leadgen	1.00	auto (stack markers)	2026-08-01		BL-866 — `--run-id` was one of three gates between the operator and an attributable row; all three are now open, and 6 real master rows carry the id
 BL-867	leadgen	1.00	auto (stack markers)	2026-08-01		BL-867: the migration ran — 61 rows corrected, 0 lost. The gate you set FAILED, the guard refused a live writer 1.2 s after a 35-minute silence, and the append lock is what made the run safe rather than lucky
