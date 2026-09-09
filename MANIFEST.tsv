@@ -377,6 +377,7 @@ BL-1534-the-model-decides-and-can-see	leadgen	1.00	auto (stack markers)	2026-09-
 BL-1535-the-spotify-no-email-export	leadgen	1.00	auto (stack markers)			BL-1535 — Every Spotify lead with no email: 5,670 of 13,513
 BL-1536-drain-one-hashtag-and-deliver-fifty	leadgen	1.00	auto (stack markers)	2026-09-09		BL-1536 — one hashtag, fifty pages, and a stop that actually stops
 BL-1537-what-the-recency-wall-is-throwing-away	leadgen	1.00	auto (stack markers)	2026-09-09		BL-1537 — what the 180-day recency wall is throwing away
+BL-1538-the-date-was-never-the-pages-date	leadgen	1.00	auto (stack markers)	2026-09-09		BL-1538 — the recency wall was reading the wrong video's date
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -887,7 +888,9 @@ BL-869-clippershq-trainer-launch-readiness	payments	1.00	auto (stack markers)	20
 BL-869	leadgen	1.00	auto (stack markers)	2026-07-23		BL-869 — main brought current, and the reset guard re-tested
 BL-870-clippershq-marketplace-observability	payments	1.00	auto (stack markers)	2026-09-09		BL-870 — the platform recorded what worked, so nobody who gave up was ever visible
 BL-870	leadgen	1.00	auto (stack markers)	2026-08-01		BL-870 — Both preconditions failed, so the runner still has not landed. What I could land, I did: **the language gate now runs before payment, and the "obvious" version of that fix would have been wrong 15% of the time**. Duplicate first-writes closed, unmetered calls made impossible
+BL-871-clippershq-marketplace-integrity	cross	0.50	auto (stack markers)	2026-09-09		BL-871 — one hole is real and fixed, one is unfixable by hashing and needs no hashing, one is trivially detectable
 BL-871	leadgen	1.00	auto (stack markers)	2026-08-01		BL-871: it was flaky AND the runner was broken — two different faults at two different times, and collapsing them into one would have been wrong either way
+BL-872-clippershq-scaling-sweep-two	payments	0.83	auto (stack markers)	2026-09-09		BL-872 — the database is fine, the cron is not, and the real number is 512 clips rather than 4,035
 BL-872	leadgen	0.96	auto (stack markers)	2026-08-01		BL-872 — The claim tool had **three** ways to say "no conflict" wrongly, not one. And the disjoint-labelling premise had already half-fixed itself before this round measured it
 BL-873	leadgen	1.00	auto (stack markers)	2026-08-01		BL-873 — The ranked selector landed: committed before running, both unranked runners retired, and a real pass measured. Ranked labelling costs 15% MORE per clip ($1.57 vs $1.36/1k) — the saving is volume, not unit price. The vision/speech disjointness premise expired: overlap is 784 of 2,003, above independence.
 BL-874	leadgen	1.00	auto (stack markers)	2026-08-01		BL-874 — main advances itself now, and the two things a clone cannot tell you are written down
