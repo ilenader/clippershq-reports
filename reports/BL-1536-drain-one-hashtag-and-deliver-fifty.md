@@ -306,6 +306,10 @@ sheet directory, and its mtime is at or after the run's start. A builder once fe
 unfiltered image search and served him pictures 12–13 days old from other rounds, **including
 an Instagram login form he scored 10**. On this build: **55 of 55 rows passed, 0 refused.**
 
+**The `.bat` was verified as the thing he will actually use** — launched from its own
+directory the way a double-click launches it, python comes up listening and the page serves
+all 50 cards. It picks a free port itself, so there is no port for him to remember.
+
 **Round trip, proved from the browser:** clicked KEEP on row 1 → `marks.jsonl` on disk carried
 `{"call":"KEEP","row":1,…,"mode":"edits","platform":"tiktok","lane":"hashtag"}` → reloaded →
 header read *"graded 1 of 3 · keep 1"* and *"1 mark(s) already on disk"*. **Then the test mark
@@ -369,9 +373,15 @@ result.get("walked") or 0` for the page budget — **neither key is in the resul
 `.get()` on an absent key is a silent zero that would have made `stop_after_pages` fire never.
 Checked against the literal declaration and replaced with `len(rows)`.
 
-**6. I trusted a launcher's exit code for about a minute.** `start "" "…​.bat"` returned 0
-with **no python listening** — the exact "the launcher returned 0" trap. Caught by checking
-the listening-port table for a python owner rather than believing the return code.
+**6. I trusted a launcher's exit code for about a minute — and then nearly libelled the
+`.bat` for it.** `cmd /c start "" "….bat"` returned 0 with **no python listening** — the exact
+"the launcher returned 0" trap, caught by checking the listening-port table for a python
+owner rather than believing the return code. **But the `.bat` was not the problem.** Launched
+the way a double-click actually launches it (`Start-Process` from its own directory), it
+starts the server correctly and serves all 50 cards — **verified after the fact**. The
+failure was my `cmd /c start` invocation from a git-bash shell, not the file he will use.
+Worth separating, because "the launcher returns 0 and nothing happens" and "the launcher is
+broken" are different findings and only the first one happened.
 
 **7. The watcher told me the run had halted. It had not.** Its 25-minute window had expired.
 A sub-agent's report is a claim; I checked the log was still growing before repeating it.
