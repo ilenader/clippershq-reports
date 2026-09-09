@@ -79,35 +79,49 @@ check: `Start-Process` from its own directory, then the listening-port table con
 
 **Round trip proved:** clicked KEEP on card #2 → `answers.jsonl` on disk carried the answer
 with `mode`/`platform`/`lane` and the question id stamped at write time → reloaded → the
-header read *"answered 1 of 5 · keep 1"* and the control came back selected. **The test mark
-was then deleted** — a probe row once landed in his ground truth. Console: **clean, zero
-messages.**
+header read *"answered 1 of 5 · keep 1"* and the control came back selected. **Every test
+answer was then deleted, and the deletion verified after the automated tab was closed** — a
+probe row once landed in his ground truth. Console: **clean, zero messages.**
+
+**The sheet he opens is empty.** `answers.jsonl` does not exist; the first answer in it will
+be his.
 
 ---
 
 ## WHAT YOU GOT WRONG
 
-**1. The sheet wrote four answers that nobody gave, and I nearly shipped it that way.** On the
-first ever load of this page I found **`answered 2 of 5 · keep 2`** with no human having
-touched it: two KEEPs on rows 1 and 4 at page-load time, then a clear on both ten seconds
-later. **It did not reproduce on a clean reload and I never established the mechanism.** An
-answer he did not give is worse than no answer — it would land in his ground truth as his
-opinion. Rather than chase a cause I could not pin down, I made the class impossible: every
-handler now requires **`ev.isTrusted`**, which is false for any synthetic or programmatic
-event, and the controls carry `autocomplete="off"`. The keyboard shortcut had to stop
-dispatching a synthetic `change` and call the save path directly — faking a gesture is
-exactly what the guard exists to refuse.
+**1. The sheet appeared to write answers nobody gave — and I got the cause wrong twice before
+isolating it.** Across two builds, answers were persisted with no human having touched the
+page: first two KEEPs and two clears at load time, later six writes across all five rows
+spread over 31 seconds. **The cause was my own browser automation interacting with the page**,
+established by the only control that settles it: delete the file, **close the automation-
+attached tab**, wait 90 seconds — **nothing is written**. It is not a defect in the sheet and
+it will not happen when he opens it, because there is no automation attached to his browser.
+
+**My two wrong diagnoses along the way, both acted on before being tested:**
+
+- **"It is browser autofill."** No evidence beyond the timing; refuted by a clean reload.
+- **"It is my bare-letter K/D shortcuts."** The pattern fitted — a DROP on one card and a
+  KEEP on another, a second apart — so I removed the shortcut block. **The writes continued
+  with zero keydown listeners on the page**, which killed that theory outright.
+
+**What I kept anyway, and why.** Every write path now requires **`ev.isTrusted`** and the
+controls carry `autocomplete="off"`. Neither was the cure, but both are correct hardening for
+a page that persists to his ground truth, and neither costs anything. **The K/D shortcuts stay
+removed on THIS five-card sheet** — at n=5 clicking is no slower and it is one less surface —
+but the justification I removed them for was wrong, and **BL-1536's fifty-card sheet should
+keep its shortcuts**, where fast keyboard grading genuinely earns its place.
 
 **2. I twice concluded the guard was blocking legitimate clicks. It was not — I kept
-missing.** The first click targeted the radio by reference, and that radio is a
-`1px`, `opacity:0` input; the second landed on the "why" field because the page scrolled
-between my screenshot and my click. I had already started reasoning about relaxing the guard
-before checking whether the control was even being hit. It was a miss both times, and a real
-coordinate click persists correctly.
+missing.** The first click targeted the radio by reference, and that radio is a `1px`,
+`opacity:0` input; the second landed on the "why" field because the page scrolled between my
+screenshot and my click. I had started reasoning about relaxing the guard before checking
+whether the control was being hit at all. A real coordinate click persists correctly.
 
-**3. My first instinct was that the phantom writes were browser autofill.** I had no evidence
-for that beyond the timing, and the clean-reload test refuted it. It is recorded above as
-*mechanism not established*, which is what it is.
+**3. The deeper mistake behind all three.** Each time I inferred a mechanism from a pattern
+that fitted, and changed code on it, before running the control that would have distinguished
+it. The control that finally worked — close the tab and see if writes stop — was available
+from the first minute and cost 90 seconds.
 
 ---
 
