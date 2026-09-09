@@ -373,6 +373,7 @@ BL-1530	payments	1.00	auto (stack markers)	2026-09-07		BL-853 — one button tha
 BL-1531	payments	1.00	auto (stack markers)	2026-09-08		BL-857 — protect the streaks of every clipper who could not post during the outage
 BL-1532	payments	1.00	auto (stack markers)	2026-09-08		BL-858 — merge the outage streak remedy
 BL-1533	payments	0.80	auto (stack markers)	2026-09-08		BL-860 — make the platform tell you when it is broken, and can the marketplace and trainer launch tomorrow
+BL-1534-the-model-decides-and-can-see	leadgen	1.00	auto (stack markers)	2026-09-09		BL-1534 — the model decides, and it can see the whole video
 BL-1535-the-spotify-no-email-export	leadgen	1.00	auto (stack markers)			BL-1535 — Every Spotify lead with no email: 5,670 of 13,513
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
@@ -869,6 +870,7 @@ BL-859	leadgen	1.00	auto (stack markers)	2026-08-01		BL-859 — Full system stat
 BL-861-clippershq-payout-controls	payments	1.00	auto (stack markers)	2026-09-09		BL-861 — two payout controls, and neither of them touches a clip
 BL-862-clippershq-status-recovery	ambiguous	0.00	auto (stack markers)	2026-09-09		BL-862 — recovering the rounds that finished while the machine was off
 BL-862	leadgen	1.00	auto (stack markers)	2026-08-01		BL-862 — BL-861 built all five fixes correctly and none of them are in the path that spends; plus the `run_id` call that did nothing, removed
+BL-863-clippershq-cash-not-gross	payments	1.00	auto (stack markers)	2026-09-09		BL-863 — show the cash, not the gross, and stop the seventh round happening
 BL-863	leadgen	1.00	auto (stack markers)	2026-08-01		BL-863 — Ranked vision is live and costs **half the projection**: $0.000681 and 10.0 s per clip, $1.28 per 1,000 finished videos. The 429 question is retired, not answered — HikerAPI states its own bill on every response. And another round overwrote my runner mid-flight
 BL-864-clippershq-sent-to-admin-marker	payments	1.00	auto (stack markers)	2026-09-09		BL-864 — a mark for the requests you have already sent your admin, and what BL-861's two controls actually do
 BL-865	leadgen	1.00	auto (stack markers)	2026-08-01		BL-865 — Everything committed, and phantom detection restored to memebot (the fix was not the one that was ordered)
