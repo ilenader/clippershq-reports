@@ -382,6 +382,7 @@ BL-1539-play-by-play-and-fifty-more	leadgen	1.00	auto (stack markers)	2026-09-09
 BL-1540	leadgen	1.00	auto (stack markers)			BL-1540 — the same work, 3.54x faster, and two duplicate bugs found on the way
 BL-1541	leadgen	1.00	auto (stack markers)			BL-1541 — the email harvester: 103 addresses for 8.9 cents in 2.6 minutes
 BL-1542	leadgen	1.00	auto (stack markers)			BL-1542 — one thousand addresses, none of them a duplicate, 966 of them checked
+BL-1543	leadgen	1.00	auto (stack markers)			BL-1543 — one hashtag holds at least 525 accounts, not 86. We were using a quarter of it.
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
