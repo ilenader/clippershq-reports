@@ -380,6 +380,7 @@ BL-1537-what-the-recency-wall-is-throwing-away	leadgen	1.00	auto (stack markers)
 BL-1538-the-date-was-never-the-pages-date	leadgen	1.00	auto (stack markers)	2026-09-09		BL-1538 — the recency wall was reading the wrong video's date
 BL-1539-play-by-play-and-fifty-more	leadgen	1.00	auto (stack markers)	2026-09-09		BL-1539 — fifty more, narrated, and the operator graded them live at 54 of 54
 BL-1540	leadgen	1.00	auto (stack markers)			BL-1540 — the same work, 3.54x faster, and two duplicate bugs found on the way
+BL-1541	leadgen	1.00	auto (stack markers)			BL-1541 — the email harvester: 103 addresses for 8.9 cents in 2.6 minutes
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
