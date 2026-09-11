@@ -385,6 +385,7 @@ BL-1542	leadgen	1.00	auto (stack markers)			BL-1542 — one thousand addresses, 
 BL-1543	leadgen	1.00	auto (stack markers)			BL-1543 — one hashtag holds at least 525 accounts, not 86. We were using a quarter of it.
 BL-1544	leadgen	1.00	auto (stack markers)			BL-1544 — 767 more addresses, zero duplicates, and the deep re-walk costs MORE per address
 BL-1546-an-at-handle-is-not-an-address	ambiguous	0.00	auto (stack markers)			BL-1546 — An @handle in a bio is not an address: 66 of 1,870 removed
+BL-1547-the-overnight-research-round	leadgen	1.00	auto (stack markers)			BL-1547 — the overnight research round (INTERIM, half-time)
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
