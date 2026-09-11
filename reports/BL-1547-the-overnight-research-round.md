@@ -760,3 +760,10 @@ be in the raw file.
 - **Concluded:** Publishing with --update to the SAME filename the interim used, so this round has exactly one report file
 - **Next:** Verify CDN against the remote blob as the last action
 - *(2026-09-11 23:45:06)*
+
+### 41. My leak scan caught TWO REAL PROBLEMS in the sub-agents' own instrument scripts, at commit time
+- **Why:** The scan runs on what git will record, not on what I wrote, and the sub-agents wrote most of these files
+- **Returned:** FOUR T1 scripts hardcoded the absolute repo path INCLUDING HIS USERNAME, and t2_bio_analysis.py contained ONE REAL LEAD-STORE ADDRESS embedded as a literal
+- **Concluded:** Fixed: paths now derive from __file__, and the address was REDACTED AS A WHOLE VALUE (never truncated -- local[:2] is the entire local part on 145 real rows). All .py files re-parsed clean afterwards. Re-scanned after the last edit: 0 problems
+- **Next:** A first attempt at the path fix CRASHED on re.error: incomplete escape \U -- the same Windows-path escaping class that has corrupted files in this repo before. Switched to plain string replacement
+- *(2026-09-11 23:46:40)*
