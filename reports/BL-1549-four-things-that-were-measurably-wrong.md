@@ -224,6 +224,20 @@ key it refuses to fall back to and how wrong it would be. The pattern is copied 
 `harvest_run.Budget`, whose own default unit is `1e9` so a caller who forgets refuses the first
 call rather than mispricing every one.
 
+> ⚠️ **CORRECTION, ADDED AFTER FIRST PUBLICATION. I SHIPPED THIS FIX BROKEN AT TWO OF THE SIX
+> SITES.** `clippershq/caption_finder.py:1087` and `:1315` were repaired by a plain text
+> replacement that inserted `cost = _ig_price(config)` **and no import**, so the very first call
+> raised `NameError: name '_ig_price' is not defined`. The other four sites were repaired by the
+> AST fixer, which emits the local import, and were fine. **I verified that all six modules
+> IMPORTED and never DROVE any of them** — and an import check cannot see a name that is only
+> resolved when the function runs. The full suite caught it, after I had published.
+>
+> Both sites are now repaired and `tests/test_caption_finder.py` is **`ALL GREEN -- 1/1 suites
+> passed, 44 checks`**. A new instrument, `scratch/bl1549/drive_price_sites.py`, parses every
+> `_ig_price` call site and asserts the name actually **resolves in that function's own scope**;
+> it finds **7 call sites across 4 files, all bound**, and its detector is proved on planted
+> bound and unbound source first.
+
 **An AST sweep of all of `clippershq/` now finds zero surviving chains**, and the committed test
 proves that sweep can see a *planted* one — a clean sweep from a blind detector is a false
 absence.
@@ -278,7 +292,19 @@ not a random sample. Worth one funded test; not worth quoting as a price.
    same class as the SIGPIPE and heredoc traps this repo has already paid for. And one heredoc
    *did* mangle my escaping mid-round, exactly as the brief warned; I switched to file-based
    edits.
-7. **My test-attribution method produced a FALSE ACCUSATION against myself, and I nearly acted
+7. **I SHIPPED THE HEADLINE FIX BROKEN AT TWO OF SIX SITES, AND PUBLISHED BEFORE FINDING OUT.**
+   `caption_finder.py:1087` and `:1315` got `cost = _ig_price(config)` with **no import**, from
+   a plain text replacement I ran before writing the AST fixer. Every call raised
+   `NameError: name '_ig_price' is not defined`. **I checked that all six modules IMPORTED and
+   concluded the fix was driven** — but an import cannot resolve a name that is only looked up
+   when the function runs, and this project has already written that lesson down from a module
+   that died with `NameError: math`. The full suite found it ~40 minutes after I published.
+   The repair is committed, `test_caption_finder` is green again at 44 checks, and there is now
+   an instrument (`scratch/bl1549/drive_price_sites.py`) that parses **every** `_ig_price` call
+   site and asserts the name resolves in that function's own scope — 7 sites across 4 files, all
+   bound, detector proved on planted bound and unbound source. **The lesson is not "I made a
+   typo": it is that "the module imports" was the wrong check, and I accepted it as proof.**
+8. **My test-attribution method produced a FALSE ACCUSATION against myself, and I nearly acted
    on it.** Running the four reds in a detached pre-round worktree said
    `test_bl1307_veto_refused` **passed** there and therefore that I had broken it. I did not. The
    guard scans `scratch/` for files pointing a judge at a refuted brief, and its only offender —
@@ -288,7 +314,7 @@ not a random sample. Worth one funded test; not worth quoting as a price.
    **This is the "a SKIP reads as a PASS" trap one level deeper: an empty scan corpus also reads
    as a pass.** Had I trusted the first result I would have gone looking to "fix" a guard that
    was working correctly — the exact failure the brief warns about.
-8. **I committed the two-clocks bug myself, in the round that fixed it.** I was about to report
+9. **I committed the two-clocks bug myself, in the round that fixed it.** I was about to report
    this round's spend as **$0.0024** — the figure the last probe run printed. The true total is
    **$0.0078 across 13 calls in four sessions**, because every run built a fresh budget and
    reported only its own session. **A 3.25x understatement, from the identical mechanism, by the
@@ -335,18 +361,35 @@ ALL GREEN -- 1/1 suites passed, 9 checks    (1.1s)    [-k writer]
 ALL GREEN -- 6/6 suites passed, 176 checks  (22.4s)   [-k outcome]
 ```
 
-**The full 475-suite run did not reach a verdict line before this report was written, so none is
-quoted.** At 92 suites it showed four reds, and **all four were attributed to the pre-round
-commit, not to this round** — by checking each one out at `62cfbcdd` in a detached worktree with
-the gitignored files copied in:
+**The full run finished after first publication. Its verdict line, quoted verbatim from the
+runner — not the wrapper, whose exit code was a separate `exit=1`:**
 
-| red suite | verdict at pre-round |
-|---|---|
-| `tests/test_atomic_io.py` | FAIL — pre-existing (`proxy_pool.py:290`, untouched here) |
-| `tests/test_bl1300_judge_first.py` | FAIL — pre-existing |
-| `tests/test_bl1307_veto_refused.py` | FAIL — pre-existing *(see below)* |
-| `tests/test_bl1308_refuted_brief.py` | FAIL — pre-existing |
+```
+FAILED -- 26 red of 476 suite(s)   (2553.3s)
+```
 
-This round changed seven files, all in `clippershq/`: `caption_finder` (+12/−3),
-`control` (+14/−3), `email_harvester` (+61), `ig_client` (+60), `repost_finder` (+7/−2),
-`run` (+21/−3), `writer` (+38). None is touched by any of the four failing guards.
+**One of those 26 was mine, and it is now fixed: `tests/test_caption_finder.py`** — the
+`NameError` described in §7. After the repair it is `ALL GREEN -- 1/1 suites passed, 44 checks`.
+
+**The other 25 were attributed per suite name, never by subtracting totals.** This round changed
+seven files, all in `clippershq/`: `caption_finder` (+12/−3), `control` (+14/−3),
+`email_harvester` (+61), `ig_client` (+60), `repost_finder` (+7/−2), `run` (+21/−3),
+`writer` (+38). An **AST import scan** of all 26 red suites — not a grep, which had already
+misled me on the token `run` — found only **five** that import anything this round touched:
+
+| red suite | imports a changed module | failing check | verdict |
+|---|---|---|---|
+| `test_caption_finder` | `caption_finder`, `ig_client` | `NameError: _ig_price` | **MINE — fixed** |
+| `test_bl1300_judge_first` | `run` | `judge_page` call ordering in the finders | pre-existing (also confirmed at `62cfbcdd`) |
+| `test_dashboard_redesign` | `control` | poll interval, font size under 13px | pre-existing |
+| `test_funnel` | `control`, `ig_client`, `writer` | `D2: editor_pct 15 (CREATOR?) -> CUT` | pre-existing (file was already dirty at session start) |
+| `test_meme_finder` | `run` | `record_many is one write and merges` | pre-existing |
+
+The remaining 21 import nothing this round touched. Four of them — `test_atomic_io`,
+`test_bl1300_judge_first`, `test_bl1307_veto_refused`, `test_bl1308_refuted_brief` — were also
+independently checked out at the pre-round commit `62cfbcdd` and **failed there too**.
+
+*(The historical baseline quoted to me was `FAILED -- 25 red of 475 suite(s)`. This run is 476
+suites because this round adds one. **I am deliberately not computing 26 − 25 = 1**: subtracting
+two runner totals is a documented way to be right only by luck, and the attribution above is by
+name.)*
