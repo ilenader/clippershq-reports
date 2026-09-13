@@ -16,8 +16,8 @@ is **4.6 minutes** of *fetching*, but see the next sentence, because fetching is
 binding constraint. The catch is a **silent per-IP quota at roughly 445 hydrated
 renders** (HTTP 200 throughout, no error, no CAPTCHA), keyed to the IP and **not** reset by
 cookies, a fresh process or a different engine — so 2,000 pages needs about **4.5 quota
-windows** — and **the quota did not recover at all in 39.4 minutes of monitoring (0 of 28,
-Wilson [0.00% – 12.06%])**, so those windows are not cheap. **For "1,000–2,000 usernames,
+windows** — and **the quota did not recover at all in 72.6 minutes of monitoring (0 of 50,
+Wilson [0.00% – 7.14%])**, so those windows are not cheap. **For "1,000–2,000 usernames,
 really fast and reliably" the honest answer is therefore the paid call, not the free
 route.** He does not need to buy those either: **PrivadoVPN,
 Windscribe and Proton are all already installed on this machine and all three have free
@@ -154,14 +154,15 @@ that probe was measuring `urllib`, which fails for a reason pacing cannot fix, s
 not answer the recovery question.**
 
 **The recovery question now HAS an answer, and it is the one that decides the route.** A
-browser-engine monitor ran **14 probes over 39.4 minutes** and recovered **0 of 28
-[0.00% – 12.06%]**. The quota did not lift at all.
+browser-engine monitor ran to completion: **25 probes over 72.6 minutes**, recovering **0 of
+50 [0.00% – 7.14%]**. The quota did not lift at all in an hour and a quarter.
 
 ⚠️ **ONE CONFOUND, STATED RATHER THAN BURIED:** probing every 3 minutes is not a clean idle
 test. If the limiter is a *sliding* window, the monitor's own probes may have been holding it
 shut. A correct measurement needs a single probe after one long, fully idle gap, and this
-round did not run one. So the honest claim is **"no recovery observed in 39.4 minutes of
-3-minute polling"**, not "the quota never recovers".
+round did not run one. So the honest claim is **"no recovery observed in 72.6 minutes of
+3-minute polling"**, not "the window exceeds 75 minutes" and not "the quota never
+recovers".
 
 ## 6. Part 3 — free exits, and he already owns three
 
@@ -299,8 +300,8 @@ checked the receipts themselves with a controlled before/after on two endpoint t
    fingerprint. Drive Chromium, which is already installed.
 3. **Treat the free browser route as a background trickle, not a bulk route — this is a
    change from what this report first recommended.** At ~445 renders per window and **no
-   recovery observed in 39.4 minutes**, 2,000 usernames is roughly 4.5 windows of unknown and
-   apparently long duration. Rotating exits (PrivadoVPN, Windscribe, Proton — installed and
+   recovery observed in 72.6 minutes**, 2,000 usernames is roughly 4.5 windows of unknown and
+   apparently long duration — most of a day at best. Rotating exits (PrivadoVPN, Windscribe, Proton — installed and
    free) buys one window each, which is worth having against the **16,306-row backlog** over
    weeks. It is **not** the way to get this week's 2,000.
 4. **Do not ship the verified filter.** It discards 82.6% of the editor supply.
@@ -315,8 +316,9 @@ checked the receipts themselves with a controlled before/after on two endpoint t
   assumption.** The harness is built and validated against the blocked exit (it correctly
   reports a clean zero with its controls intact) and needs one command once a VPN is up.
 * **Quota recovery time under a CLEAN idle gap.** Measured under 3-minute polling: **0 of
-  28 over 39.4 minutes [0.00% – 12.06%]**. A single probe after one long untouched gap was
-  **not** run, so a sliding-window limiter held open by the monitor itself is not excluded.
+  50 over 72.6 minutes [0.00% – 7.14%]**. A single probe after one long untouched gap was
+  **not** run, so a sliding-window limiter held open by the monitor's own traffic is not
+  excluded, and the window's true length is therefore still unknown.
 * **The mobile-hotspot exit**, which is a residential mobile address and usually the least
   blocked kind. Not tested.
 * **Tor.** Not installed; nothing was installed to find out.
