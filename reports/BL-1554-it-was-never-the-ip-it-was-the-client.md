@@ -12,10 +12,14 @@ and `Sec-Fetch-*` it fails; over HTTP/2 it fails. What Chromium supplies that no
 client can is the **TLS handshake fingerprint**, and that is the one dimension this project
 had never varied. **So the free route is: drive a real browser engine, which is already
 installed here.** Inside its allowance it runs at **0.137 s per page** — his 2,000 usernames
-is **4.6 minutes** of fetching. The catch is a **silent per-IP quota at roughly 445 hydrated
+is **4.6 minutes** of *fetching*, but see the next sentence, because fetching is not the
+binding constraint. The catch is a **silent per-IP quota at roughly 445 hydrated
 renders** (HTTP 200 throughout, no error, no CAPTCHA), keyed to the IP and **not** reset by
 cookies, a fresh process or a different engine — so 2,000 pages needs about **4.5 quota
-windows**, i.e. a handful of exit changes. He does not need to buy those either: **PrivadoVPN,
+windows** — and **the quota did not recover at all in 39.4 minutes of monitoring (0 of 28,
+Wilson [0.00% – 12.06%])**, so those windows are not cheap. **For "1,000–2,000 usernames,
+really fast and reliably" the honest answer is therefore the paid call, not the free
+route.** He does not need to buy those either: **PrivadoVPN,
 Windscribe and Proton are all already installed on this machine and all three have free
 tiers.** And the honest fallback he should hear before spending a day on any of this: at
 $0.00069064 a call, **2,000 usernames costs $1.38**, and every bio-less Instagram row he owns
@@ -144,10 +148,20 @@ gray-area move that might have needed a policy decision is simply unavailable.
 
 **This round then spent that quota on itself.** My own browser run, executed afterwards, got
 **0 of 12** — every one a login wall — and the native TLS clients went to 302 as well. A
-pacing probe on `urllib` ran **16 probes with gaps widening to 10 minutes** and never once
-returned content; but that probe was measuring `urllib`, which fails for a reason pacing
-cannot fix, so **it does not answer the recovery question**. Recovery time is **ABSENT, not
-zero** — a monitor was still returning 0 at t+12 minutes.
+pacing probe on `urllib` ran to completion — **21 probes, 14 of them on real
+institutional accounts, gaps widening to 15 minutes, 0 ever served [0.00% – 21.53%]** — but
+that probe was measuring `urllib`, which fails for a reason pacing cannot fix, so **it does
+not answer the recovery question.**
+
+**The recovery question now HAS an answer, and it is the one that decides the route.** A
+browser-engine monitor ran **14 probes over 39.4 minutes** and recovered **0 of 28
+[0.00% – 12.06%]**. The quota did not lift at all.
+
+⚠️ **ONE CONFOUND, STATED RATHER THAN BURIED:** probing every 3 minutes is not a clean idle
+test. If the limiter is a *sliding* window, the monitor's own probes may have been holding it
+shut. A correct measurement needs a single probe after one long, fully idle gap, and this
+round did not run one. So the honest claim is **"no recovery observed in 39.4 minutes of
+3-minute polling"**, not "the quota never recovers".
 
 ## 6. Part 3 — free exits, and he already owns three
 
@@ -283,9 +297,12 @@ checked the receipts themselves with a controlled before/after on two endpoint t
    needs no network route at all.
 2. **Stop using `urllib` for the page. It can never work** — it is not the IP, it is the TLS
    fingerprint. Drive Chromium, which is already installed.
-3. **Rotate the exit every ~445 renders.** PrivadoVPN, Windscribe and Proton are installed and
-   free. 2,000 usernames ≈ 4.5 windows ≈ a handful of location changes, at 4.6 minutes of
-   actual fetching.
+3. **Treat the free browser route as a background trickle, not a bulk route — this is a
+   change from what this report first recommended.** At ~445 renders per window and **no
+   recovery observed in 39.4 minutes**, 2,000 usernames is roughly 4.5 windows of unknown and
+   apparently long duration. Rotating exits (PrivadoVPN, Windscribe, Proton — installed and
+   free) buys one window each, which is worth having against the **16,306-row backlog** over
+   weeks. It is **not** the way to get this week's 2,000.
 4. **Do not ship the verified filter.** It discards 82.6% of the editor supply.
 5. **And know the fallback price before spending a day on any of it: 2,000 usernames is
    $1.38.** Every bio-less Instagram row you own is $11.26. The free route is worth building
@@ -297,7 +314,9 @@ checked the receipts themselves with a controlled before/after on two endpoint t
   abused and are often blocked *harder* than a home IP. **Unmeasured — a real risk, not an
   assumption.** The harness is built and validated against the blocked exit (it correctly
   reports a clean zero with its controls intact) and needs one command once a VPN is up.
-* **Quota recovery time.** A monitor was still at 0 at t+12 minutes. Not established.
+* **Quota recovery time under a CLEAN idle gap.** Measured under 3-minute polling: **0 of
+  28 over 39.4 minutes [0.00% – 12.06%]**. A single probe after one long untouched gap was
+  **not** run, so a sliding-window limiter held open by the monitor itself is not excluded.
 * **The mobile-hotspot exit**, which is a residential mobile address and usually the least
   blocked kind. Not tested.
 * **Tor.** Not installed; nothing was installed to find out.
