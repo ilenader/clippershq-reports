@@ -15,6 +15,24 @@ still holds **11 `PLACEHOLDER` values**, and a finished 20-editor pilot has sat 
 **42.8 days**. A qualified editor costs about **$0.105**. **Pay the $13.94, send the twenty, and
 spend the next round deciding a rate.**
 
+> ### ⚠️ AMENDMENT — 2026-09-15, after a machine crash
+>
+> **This report was published on 2026-09-14 at 22:59 and the round did not stop there.** A
+> second sweep and a deferred experiment ran on afterwards, and the machine went down at
+> approximately 00:18 with that work on disk and unpublished. It has now been recovered,
+> re-derived and finished. **Three things in the version you may have already read are now
+> out of date, and one of them is a correction against me:**
+>
+> 1. **§7 said the HTTP/2 question was ABSENT. It is now MEASURED, and the answer is no.**
+>    After **12.6 hours of genuinely untouched exit** a single probe found the window **open**,
+>    and 30 paired fetches then found **no HTTP/2 advantage** — see §7.
+> 2. **The round claimed `spend_usd: 0.0` with "nothing off the books". The vendor spend was
+>    indeed zero, but the claim was wrong in the other direction:** my own suite run wrote
+>    **212 rows and $0.038270 of spend that never happened** into the production ledger. See
+>    §12.
+> 3. **§3 and §4 were a Python-heavy sweep.** Three further ecosystems and the mirror class
+>    were searched afterwards and are added as **§3b and §3c**.
+
 ---
 
 ## 1. What this project is, and what the round was asked
@@ -88,6 +106,81 @@ Nothing clears the bar. Judged by **last commit and open issues, never stars**:
 **His "95% is already built" does not hold for this specific need** — anonymous, bulk, bio-text,
 free. What is built and alive either shares the exact chokepoint already measured at 0/12, or is
 a live mirror that does not parse the one field required.
+
+## 3b. The second sweep — the ecosystems the first pass missed
+
+The first sweep was Python-heavy. Three more territories were searched, none of which cost an
+Instagram request.
+
+### JavaScript, browser extensions, userscripts, Go, Rust, PHP, Ruby
+
+**Functionally empty, and two high-star projects were confirmed traps.**
+
+| candidate | last commit | login? | verdict |
+|---|---|---|---|
+| `@aduptive/instagram-scraper` (npm) | **2026-09-13** — yesterday | no | actively developed, zero-dependency, good tests — and hits the **identical** `web_profile_info` endpoint already measured 0/12 |
+| `postaddictme/instagram-php-scraper` | 2025-05-28, **3,337 stars** | effectively yes | **the star trap.** Its own tracker: *"`?__a=1&__d=dis` no longer working"* (2024-01), *"cookies expire after 20-30 requests and need to re-login"* (2023-12) |
+| `floriandiud/instagram-users-scraper` | 2025-01-06, 158 stars | yes | its own issue #2, still open: *"The scrapper script is no more working"* (2024-08) |
+| `ranbot-ai/instagram-scraper` (Puppeteer) | 2025-02 | cookies slot | README: *"Proxy: Residential Zone"* — **purchased proxies, refused** |
+| `veeso/instagram-scraper-rs` | 2024-10, **archived** | yes | archived and login-gated |
+| `dwisulfahnur/ig-crawler-chrome-extension` | **2026-05-06** | yes | **the most novel mechanism found anywhere**: issues no request of its own, passively reads network responses the browser already received. Refused on login, and needs a human driving a browser per account |
+| n8n Instagram "guest" nodes | 2026-01 / 2025-07 | no | *"your n8n server IP may be temporarily blocked"* in their own README; and they take a **post shortcode**, not a username — wrong object |
+| Go / Ruby / older PHP scrapers | 2016–2020 | mixed | dormant 5–9 years against a platform that has re-walled repeatedly |
+| Apify Instagram actors | active | — | closed-source, paid-proxy backends — the Scrapfly pattern again |
+
+**Every candidate that reads profile data without a login converges on the same
+`web_profile_info` surface.** New language, same wall. Every candidate with a materially
+different execution model either requires a login, requires purchased proxies, or targets posts
+rather than profiles.
+
+### Forks of the dead, and non-English ecosystems
+
+**Forks:** `drawrowfly` has 12 forks, all stale copies of the same 2023 commit (one shows a 2026
+`pushed_at` but every actual commit is from 2022 — a re-fork event, not new work). `cloudrac3r/bibliogram`
+is 404; `Booteille/bibliogram` archived 2020. **No living Nitter-for-Instagram successor exists
+in any language.**
+
+**Non-English:** Gitee's only Instagram hits were a deleted repo and a mirror of `instagrapi`
+(login-required). Chinese repos (`ins_spider`, `ig404`, `SimpleInstagram`, `ins_crawler`) all
+last pushed 2018–2023. Russian parsers 2019–2022, dead. Indonesian and Portuguese terms
+surfaced only the same English projects or paid services. **Honest conclusion: empty.**
+
+## 3c. The mirror class — the data is there, and it is out of scope
+
+This is the closest the round came to a real second source, and the reason it fails is worth
+stating precisely, because it is a rule and not an engineering limit.
+
+**`imginn.com` carries the real bio text.** Verified by fetching through a real browser: 9 of 10
+brand accounts returned the genuine biography (`@nike` → "Just Do It.", `@nasa` → "Making the
+seemingly impossible, possible. ✨"), with `@natgeo` the one miss. **No wall appeared across a
+10-request run**, and the selector was found by live DOM inspection — `div.bio` inside
+`.user-meta`. It is **not instagram.com**, so it has an entirely separate rate budget: precisely
+the property every other candidate lacks.
+
+**The rest of the family is dead or sealed.** `picuki.com` now redirects to a TikTok viewer —
+it has left Instagram entirely. `picnob.com`/`pixwox.com` both redirect to `pixnoy.com` and sit
+behind a Cloudflare Turnstile that did not clear even in a real browser after 20 seconds.
+`gramhir.com` times out. `dumpor.io` returns a 200 shell whose profile data never populates.
+**So the two bridges RSS-Bridge actually ships — `PicnobBridge.php` and `PicukiBridge.php` —
+point at dead hosts**, and neither extracts a bio anyway (Picuki's has a *commented-out* author
+field: someone started this and gave up).
+
+**Why it is refused rather than pursued.** `imginn.com` sits behind Cloudflare bot management.
+Tested here directly: **Playwright Chromium was blocked in both headless and headful mode**,
+controls 0 of 2 each time — and the control is what makes that statement safe, because without
+it a zero on our own handles would have measured the gate rather than the mirror's coverage.
+Only a real user-profile browser passed.
+
+⚠️ **So the honest verdict is not "too hard" — it is OUT OF SCOPE.** Cloudflare bot management
+**is** a platform control. One person opening one page is ordinary browsing; automating past the
+challenge for ~20,000 accounts is evading a control, and this round refuses those rather than
+testing them. **It would have been out of scope even if Playwright had passed.**
+
+**What would change it:** if any mirror serves plain HTTP without a bot challenge, this becomes
+a live candidate immediately — the data is demonstrably there and the rate budget is separate.
+Mirrors churn constantly, so this is worth one cheap re-check in a future round. **Our coverage
+of small creator accounts remains UNMEASURED** — the controls failed before a single one of our
+handles was tried.
 
 ## 4. Territory (b) — sources that are not Instagram
 
@@ -181,53 +274,148 @@ raw hashtag payloads and already wired as "free" into `ig_discovery.py` and `mai
 correlation with email presence **has never been measured against ground truth**, because no
 dataset on disk pairs the two. It could be stronger than anything above. **ABSENT, not zero.**
 
-## 7. The HTTP/2 test — the one lead worth spending a window on, and it is ABSENT
+## 7. The HTTP/2 lead — MEASURED, and the answer is no
 
-PR #2730's claim is specific and falsifiable: HTTP/1.1 gets `429`, **the identical request over
-HTTP/2 succeeds**, independent of account, session and IP. And it was a genuine gap here —
-BL-1554 did test HTTP/2 and got 0/10, **but every Python arm that round sent a browser
-user-agent**, which BL-1557 later proved always returns a shell. **HTTP/2 combined with the
-non-browser `PROFILE_UA` had never been tried.**
+This is the one candidate that is in scope, needs no login, costs nothing to adopt, and has
+**dated, independent corroboration from strangers**. It deserves the detail.
+
+**The claim** (instaloader PR #2730, opened 2026-08-15 by `e3rd`, branch pushed 2026-08-22,
+**still open and unmerged**): Instagram answers `web_profile_info` with `429` over **HTTP/1.1**
+while the **identical** request over **HTTP/2** returns `200` — *"independent of account, session
+and IP address"*, with the rollout *"partial"*.
+
+**Six independent, dated reports on that PR:**
+
+| date | who | what they said |
+|---|---|---|
+| 2026-08-15 | `tomballgithub` | both protocols worked for them — **unaffected**, which is what "partial rollout" predicts |
+| 2026-08-22 | `davispuh` | reproduced the 429/200 split, and found a real bug in the patch (`urllib3.HTTPHeaderDict` on urllib3 1.x) — fixed same day |
+| 2026-08-22 | `okkesd` | *"As of today, it works for me, thanks!!!"* |
+| 2026-08-23 | `KertLynx` | *"I confirm too. This MR worked for me."* |
+| 2026-08-30 | `apastel` | *"Adding another 'works for me!' comment, because it does."* |
+| **2026-09-05** | `marty90` | *"it works for me. I got rid of the 429 at every request."* |
+
+**And the counter-evidence, which is why this is not a settled rule.** The same repo's PR #2676
+added an equivalent HTTP/2 adapter in March 2026 and its author **withdrew it on 2026-06-12**:
+*"plain HTTP/1.1 now completes the full profile-metadata + get_posts workflow with no 429… the
+host-level block that originally forced HTTP/2 appears to have lifted (Instagram's flagging was
+evidently temporal)."*
+
+**So the honest characterisation is: an intermittent, partial, host-dependent block that
+appeared, lifted in June, and reappeared from August onward — with the workaround independently
+confirmed working nine days before this round ran.** That is a far better lead than "someone
+opened a PR", and it is exactly the kind of thing the operator meant by *"it's out there, it's
+open source"*.
+
+**Two further threads worth recording:**
+
+* `LiVeenMusic` (2026-09-09) argues `web_profile_info` is being **retired server-side** for a
+  reason unrelated to HTTP version, and suggests `graphql/query` instead.
+* A **different** angle exists: `mahimmazidul/instaloader`, pushed **2026-09-12**, uses
+  **curl_cffi TLS impersonation** rather than protocol version. Its own author calls it
+  *"experimental"*, and `chipperpip` reported on **2026-09-13** that it did **not** fix the 429
+  on Windows. Distinct mechanism, distinct evidence, unresolved.
+
+Notably **no equivalent discussion exists in gallery-dl or yt-dlp** — their open 429 issues never
+mention protocol version. The phenomenon appears to be visible only because instaloader's
+maintainers instrumented for it.
+
+### What I actually measured, and the mistake in the middle of it
 
 **Run 1 — three arms, one variable at a time, 8 handles each:**
 
-| arm | content | bio | protocol actually negotiated |
-|---|---|---|---|
-| A urllib HTTP/1.1 (shipped) | 0/8 [0.0–32.4] | 0/8 | HTTP/1.1 ×8 |
-| B httpx HTTP/1.1 | 0/8 [0.0–32.4] | 0/8 | HTTP/1.1 ×8 |
-| **C httpx HTTP/2** | 0/8 [0.0–32.4] | 0/8 | **HTTP/2 ×8 — verified** |
+| arm | content | protocol negotiated |
+|---|---|---|
+| A urllib HTTP/1.1 (shipped) | 0/8 [0.0–32.4] | HTTP/1.1 ×8 |
+| B httpx HTTP/1.1 | 0/8 [0.0–32.4] | HTTP/1.1 ×8 |
+| **C httpx HTTP/2** | 0/8 [0.0–32.4] | **HTTP/2 ×8 — verified, not assumed** |
 
-Arm B exists so a win for C could not be "httpx behaves differently from urllib", and the
-negotiated protocol was read off `response.http_version` rather than assumed — `httpx` falls
-back silently to 1.1 when h2 is unavailable, which would have made a null result meaningless.
+Arm B exists so a win for C could not be dismissed as "httpx differs from urllib", and the
+protocol was read off `response.http_version` because `httpx` falls back silently when h2 is
+unavailable. **The instrument worked; the window did not.** All three arms were walled, so the
+run is **ambiguous, not a refutation.**
 
-**The instrument worked. The window did not.** All three arms were walled, so this is
-**ambiguous, not a refutation** — a real HTTP/2 effect would be invisible here.
+⚠️ **Run 2 was worse, and the fault was mine.** I built a retest that polled every 20 minutes
+waiting for a fresh window — **3 requests an hour against a refill I had just measured at 2.5–5.8
+an hour.** The poller was spending tokens at roughly the rate they arrived, so the bucket could
+never accumulate the ten the test needed. It sat walled through five polls and 145 minutes.
+**This is precisely the confound I criticised BL-1554 for** — it polled every 3 minutes and
+concluded "no recovery in 72.6 minutes" — reproduced by me one round after I wrote the lesson
+down. The operator caught it and told me to stop.
 
-**Run 2 — the retest, designed properly and still ABSENT:**
+### Run 3 — one probe after real silence, and then the answer
 
-Sized to the bucket (5 paired H1/H2 fetches on the *same* handle rather than 24 spread across
-arms), waiting 45 minutes and then polling for a fresh window, with nothing else in the session
-permitted to touch Instagram. Through **t+125 minutes it never reopened**:
+The poller was stopped at 23:25 on 2026-09-14, the exact epoch of the last Instagram request was
+written to `scratch/bl1559/silence_marker.json`, and a **hard time gate was compiled into the
+probe script** so it physically refuses to fire before three hours of untouched exit have
+elapsed. *(Proven: invoked early it printed `REFUSING: only 0.04 h of silence so far` and issued
+no request.)* The machine then crashed, which — for this one experiment — was the best thing
+that could have happened: **the exit sat completely untouched for 12.6 hours**, far longer than
+the design called for, with no poller in the way.
 
-    t+ 45.0 min  bytes=498,400  content=False
-    t+ 65.0 min  bytes=497,837  content=False
-    t+ 85.1 min  bytes=498,813  content=False
-    t+105.1 min  bytes=505,886  content=False
-    t+125.1 min  bytes=501,556  content=False
+**The probe, request number one after 12.61 hours of silence:**
 
-⚠️ **AND THE REASON IS PARTLY MY OWN DESIGN, WHICH IS THE POINT.** I set the poll interval to 20
-minutes — **3 requests an hour — against a refill I had just measured at 2.5–5.8 an hour.** The
-poller is spending tokens at roughly the rate they arrive, so the bucket can never accumulate
-the ten needed for the pairs. **This is precisely the confound I criticised BL-1554 for**
-(it polled every 3 minutes and concluded "no recovery in 72.6 minutes"), written into my own
-harness one round after I wrote the lesson down.
+    bytes=836,085   content=True   bio=True   0.89s   (HTTP/1.1)
 
-**So the HTTP/2 claim is neither confirmed nor refuted here. It is ABSENT**, and the way to
-settle it is a single 5-pair run after an *un-polled* overnight idle — no detector, no probe,
-just the test. That is a ten-minute job for whoever picks this up, and the script
-(`scratch/bl1559/bl1559_http2_retest.py`) is written; it needs only `BL1559_POLL_MIN` raised far
-above the refill rate, or removed entirely in favour of a fixed long wait.
+**THE WINDOW WAS OPEN.** That single number is the first clean refill measurement this project
+has ever taken — every previous one was contaminated by the poller that produced it.
+
+**Then the window was spent on the paired test, 30 pairs, same handle both arms, order
+alternating, protocol verified per response:**
+
+| arm | content | 95% CI |
+|---|---|---|
+| H1 (HTTP/1.1) | **17/30 = 56.7%** | [39.2–72.6] |
+| H2 (HTTP/2) | **15/30 = 50.0%** | [33.2–66.8] |
+
+    H2 won where H1 failed, same handle : 0
+    H1 won where H2 failed, same handle : 2
+    protocols negotiated : {'HTTP/1.1': 30, 'HTTP/2': 30}
+
+**VERDICT — declared before the run, not after: `no http2 advantage at this exit`.** The
+threshold for "reproduces" was set in the script as *h2_only ≥ 2 and h2_only > h1_only*. It
+came in at **0 against 2 the other way**.
+
+**And the denominator that matters is smaller and cleaner than 30.** The window drained during
+the run, on a hard cliff:
+
+    h1: CCCCCCCCCCCCCCCCC..............
+    h2: CCCCCCCCC.CCCCCC...............
+        (pair 1 ............ pair 30)
+
+Restricted to the **17 pairs taken while the window was still open**, H1 is **17 of 17** and H2
+is **15 of 17**. HTTP/2 did not win a single pair its HTTP/1.1 twin lost, in either slice.
+**PR #2730 does not reproduce at this exit.** That does not make the PR's authors wrong — six
+strangers reproduced it on their own hosts, and the claim was always "partial rollout,
+host-dependent". It means **this host is not one of the affected ones, and adopting the patch
+here buys nothing.**
+
+### The by-product: a capacity number, and a correction to our own two-tier model
+
+The cliff is itself a measurement. Counting every request issued across both runs of the probe:
+
+| | |
+|---|---|
+| requests issued into the fresh window | **72** |
+| requests that returned content | **43** |
+| **position of the last request carrying content** | **#45** |
+| consecutive shells after it | **27, unbroken** |
+
+**A 12.6-hour idle bought roughly 45 fetches — not the 300–450 the two-tier model in §2
+predicted for an overnight refill.** BL-1558 proposed a small fast bucket (~10, ~25 min) over a
+large slow one (~300–450, overnight); BL-1557 saw a ~300-fetch burst after a night. **This run
+says an overnight-scale idle can yield an order of magnitude less than that**, which most likely
+means the slow bucket refills against how *deeply* it was drained rather than on a fixed
+schedule — this round drained it hard, repeatedly, for two days. **The two-tier model should be
+treated as unsettled, and the ~300–450 figure as an upper bound observed once, not a capacity.**
+
+**The cliff falls at the same place in both arms**, which is worth stating on its own: it is
+**one bucket, shared across protocols**, not a per-protocol quota.
+
+⚠️ **One observation reported without a conclusion.** The probe returned a bio that did **not**
+value-match the paid bio stored for that handle. The harness's own rule is that a non-match is
+not a failure — bios change, and the control for it is running the shipped route on the same
+handle in the same window, which this run did not do. **One handle, no control, no finding.**
 
 ## 8. The dissent — the funnel has never been used
 
@@ -367,8 +555,30 @@ command. Both were repaired, and the lesson is mechanical: **prose with money or
 it goes through a file write or a quoted heredoc, never through a double-quoted shell string.**
 This is the third round in which shell quoting has corrupted something I wrote.
 
+**6. I certified the round's money with a claim I had not tested in both directions.** The claim
+filed `spend_usd: 0.0` with the note *"nothing to book and nothing off the books"*. The vendor
+half was right and I had proved it. **The ledger half I had not looked at at all** — and my own
+suite run had put **212 rows and $0.038270 of spend that never happened** into the production
+`spend.json` while I was writing that sentence. I checked the direction I had been burned in
+last round and not the other one. **§12 has the mechanism, driven.**
+
+**7. I published over a red leak-scan verdict without recording why.** The scanner printed `NOT
+publishable as-is` on 8 hits and I published four minutes later. The decision was correct — all
+8 are ordinary English words — **but nothing in the round says so**, so the next person to read
+`leakscan.json` sees a red receipt against a published file and no explanation. **A judgement
+call that overrides a safety check has to be written down at the moment it is made, or it is
+indistinguishable from ignoring the check.**
+
 ## 11. What did not run, reported as ABSENT
 
+* ~~**Whether HTTP/2 lifts the wall.**~~ **NO LONGER ABSENT — measured in §7: it does not, at
+  this exit.**
+* **What actually governs the slow bucket's refill.** §7 shows a 12.6-hour idle buying ~45
+  fetches where the model predicted 300–450. Depth-of-drain is the obvious candidate and it is
+  untested.
+* **How much of the ledger's $3.63 of `free_judge_paid` is fabricated by test runs.** §12
+  proves the mechanism and bounds it; it does not separate real from fake.
+* **What added the row to `spotify_playlists_seen.json`.** §12 — a real change, unattributed.
 * **Whether `account_type` (business/creator) predicts an email.** The field is in the raw payload
   and already wired as free, and **no dataset on disk pairs it with ground truth**. It could be
   stronger than every signal in §6. Needs one paired harvest.
@@ -383,3 +593,117 @@ This is the third round in which shell quoting has corrupted something I wrote.
   **This is the most valuable unanswered question in the round.**
 * **The editor rate.** 13.3% [5.31–29.68] against BL-1548's 29.37% [27.57–31.23] — a 2x
   disagreement that moves every cost-per-editor number here.
+
+## 12. The crash audit — what the interrupted session actually left behind
+
+The machine went down mid-round. Everything below was re-established from disk, and every
+prerequisite was re-derived by driving the code rather than by reading an earlier report.
+
+### Money — and a correction against my own claim
+
+**Vendor spend: $0.00, and that part of the claim holds.** An AST scan of all nine scripts this
+round wrote finds **no vendor client, no ledger writer and no paid call reachable from any of
+them** — no `IgClient`, no HikerAPI, no LamaTok, no `record_aux_spend`. Ground truth was reused
+from the 170 paid profiles already on disk. The probe runs above fetch `instagram.com` directly,
+which is free.
+
+⚠️ **But the claim also said "nothing to book and nothing off the books", and that was wrong —
+in the opposite direction from the leak it was guarding against.** Comparing the ledger against
+this round's own round-start backup:
+
+    spend.json    rows 37,754 -> 37,966    (+212)    $0.038270
+
+**212 rows of spend that never happened were written into the production ledger by my own suite
+run.** They are labelled `free_judge_paid:*` and they land between 21:37:21 and 21:44:08 on
+2026-09-14 — inside the suite window of 21:30:01–22:08:08. *(That window is trustworthy: the 480
+per-suite durations sum to 2,283.9s against a reported 2,286.9s, so the run was sequential and
+the timeline reconstructs.)*
+
+**The mechanism, driven rather than inferred.** A recorder was substituted for
+`record_aux_spend` and `free_judge.should_reject()` was called once, exactly as the tests in that
+window call it:
+
+    book_calls                : 1
+    label                     : free_judge_paid:nex-n2-mini
+    vision_usd                : 8.9e-05
+    spend_path                : <repo>/spend.json      <- THE PRODUCTION LEDGER
+    writes_production_ledger  : true
+
+**`_book_paid_call` defaults to the production ledger, and the tests in that window stub `_ask`
+but not the booking.** So the network call never happens — no real money leaves — and the
+ledger is charged anyway. *(This was verified with a recorder precisely so that proving it would
+not add another 212 rows to the ledger.)*
+
+**Both halves matter and they are different faults.** BL-1557 found money that was spent and
+never booked. This is **money that was booked and never spent** — and it is the same class of
+error, which is that the ledger is not a measurement of anything unless both directions hold.
+
+**Scale, bounded honestly.** `free_judge_paid` rows across all time: **29,285 rows, $3.634493 —
+5.50% of the $66.11 lifetime total.** That is an **upper bound** on fabricated spend, not a
+finding: real funnel passes use the same label through the same function, and I could not
+separate them. Row density does not separate them either — the paid lane throttles at
+`PAID_RPM = 200`, and the busiest second in the whole ledger holds 6 rows, comfortably inside
+it. **The proven floor is the $0.038270 from my own run. Separating the rest is a real question
+and it is left open, stated as a question rather than answered by assumption.**
+
+### The nine stores, bodies compared by shape
+
+Re-fingerprinted with this round's own backup code, so the comparison is the same measurement
+taken twice rather than two different ones:
+
+| store | rows at start | rows now | natural key set | indexed digest |
+|---|---|---|---|---|
+| clip_seen.json | 2,193 | 2,193 | same | same |
+| config.json | 174 | 174 | same | same |
+| master_leads.csv | 73,001 | 73,001 | same | same |
+| meme_pages_seen.json | 6,196 | 6,196 | same | same |
+| repost_seen.json | 1,715 | 1,715 | same | same |
+| **spend.json** | 37,754 | **37,966** | same | **CHANGED** |
+| **spotify_playlists_seen.json** | 1,984 | **1,985** | **CHANGED** | **CHANGED** |
+| state.json | 5 | 5 | same | same |
+| tiktok_pages_seen.json | 3,270 | 3,270 | same | same |
+
+**Seven of nine are byte-identical. Nothing was left half-written** — all nine parse, and the
+row counts are exact, not approximate.
+
+`spend.json` is the +212 above. **`spotify_playlists_seen.json` gained exactly one playlist, and
+I am not going to tell you what wrote it.** Its mtime falls inside the suite window, but **mtime
+is not evidence in this repo** — OneDrive rewrites it — and the added row carries no timestamp
+of its own. **A real change, cause unattributed.** Given what the ledger did in the same window
+a test is the obvious suspect, but "obvious suspect" is not a measurement.
+
+### The suite — the verdict line, quoted
+
+The run **completed** at 22:08, an hour and a half before the crash. It is not a partial run:
+
+    FAILED -- 25 red of 480 suite(s)   (2286.9s)
+
+**25 red against BL-1558's 26, attributed per suite name and not by subtracting totals: zero
+new failures, and `test_claims_manifest.py` went red → GREEN**, confirming bc1abb27's fix
+landed. No production code changed after that run — the only tracked file that differs from
+HEAD is `tests/test_bl1221_supply.py`, whose working copy is dated **2026-08-31**, two weeks
+before this round, and is therefore somebody else's uncommitted edit, not a mid-edit of mine.
+
+### The leak scanner said NOT PUBLISHABLE, and it was wrong 8 times out of 8
+
+The pre-publish scan flagged this report with **8 hits for "a real creator handle"** and printed
+`VERDICT: 1 FILE(S) CARRY A HIT -- NOT publishable as-is`. It was published anyway, and **that
+was the right call, but the round never wrote down why.** The eight tokens are:
+
+    basic · evidence · issues · records (×2) · youtube (×3)
+
+**Every one is an ordinary English word that also happens to be somebody's handle** in a corpus
+of 72,846 of them. The report contains **no `@` sigil anywhere** and no real handle. **8 of 8
+false positives.**
+
+**And the amended report demonstrates it on itself.** Re-scanned after these sections were
+added, the count rose from 8 to **20 — and five of the new hits are the sentence above**, the
+one that lists the false-positive tokens in order to explain that they are false positives. A
+detector that fires on its own post-mortem is not calibrated; it is matching English.
+
+This is the exact mirror of BL-1548, where the same detector's exclusion list **swallowed 23 of
+the 30 longest real handles**. One direction hides real leaks; the other makes the verdict line
+unreadable, which is worse than useless because an operator learns to publish over it. **The fix
+is not a longer stoplist in either direction** — it is requiring the `@` sigil, or gating
+matches on word frequency, so that a token has to look like a handle and not merely collide with
+one.
