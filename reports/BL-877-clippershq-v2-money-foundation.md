@@ -683,3 +683,62 @@ and it must call `computeV2BudgetCost` as a pre-flight gate for the reason in PA
 ---
 
 **PERFORM NO FIX ON ANYTHING ABOVE. The one defect this round found, it fixed and re-proved.**
+
+---
+
+## ADDENDUM — INDEPENDENT POST-MERGE VERIFICATION (2026-09-16)
+
+**THIS ROUND WAS FOUND ALREADY SHIPPED AND MERGED. NOTHING WAS REBUILT AND NOTHING WAS RE-RUN
+AGAINST THE DATABASE THAT WRITES A ROW.** `main` was already at `668cae6c`, the merge of
+`checkpoint/BL-877` into `8dcc0c02`, with `pre-BL-877`, `post-BL-877`, `pre-merge-BL-877` and
+`post-merge-BL-877` all present. Re-running the round would have meant a second
+`CREATE UNIQUE INDEX CONCURRENTLY`, a second sandbox population and a duplicate merge, so the
+round was instead **verified from source, from the live catalogue and from a clean build**. Every
+claim below was checked directly, not read out of this report.
+
+**DB `now()` at verification: `2026-09-16 13:45:29.932817+00`, cast `::text`.**
+
+### What was verified, and how
+
+| claim | how it was checked | result |
+|---|---|---|
+| merged and pushed | `git rev-parse HEAD origin/main` | **both `668cae6c`**, identical |
+| merge is real | merge commit parents | `8dcc0c02` + `ff6bc6fd` |
+| the four tables exist | `information_schema.tables` | **4 of 4** present |
+| the indexes exist | `pg_indexes` | **20 indexes**, including the three unique `clipId` indexes on posts, editor earnings and platform earnings |
+| nothing is user-reachable | grep over `src/app` and `src/app/api` | **0** files referencing `marketplaceV2`, **0** route dirs matching `*v2*`, **0** v2 routes under `/api/marketplace` |
+| teardown was exact | live counts | **0** rows in all four v2 tables, **0** clips carrying `marketplaceV2PostId`, **0** `bl877sbx-` users, campaigns or clips |
+| `isMarketplaceClip` | live join across the full population | **0** v2 clips carrying it true |
+| money files unchanged | `git rev-parse <ref>:<file>` on **both** refs, blob OID | `clip-earnings-writer.ts`, `tracking.ts`, `clip-earnings-invariant-middleware.ts`, `money-decimal.ts` and `campaign-era.ts` **byte-identical**; only `balance.ts` and `earnings-calc.ts` moved, and the whole diff was read |
+| `earnings-calc.ts` change | full diff | **one keyword**, `function` to `export function`, plus comment. No body, signature or behaviour change |
+| the v1 marketplace | `git diff --name-only pre-BL-877 main` | **15 files**, and **not one** is a v1 marketplace source file |
+| v2 never touches v1 tables | grep inside both v2 modules | **0** references to `marketplaceCreatorEarning`, `marketplacePlatformEarning`, `marketplaceSubmission` or `marketplaceVideoHash` |
+| the poster leg | read `marketplace-v2-writer.ts` | written **only** through `writeClipEarnings`, with a transaction client required and `throw` on a missing one |
+| no stored editor total | grep the four v2 models | **no** total field exists to drift |
+| the arithmetic | **re-ran `scripts/sandbox/bl877-arith.ts`** | **9 of 9 passed, 0 failed**, exit 0. 4,237 of 4,237 grosses sum exactly; the rejected form over-allocates on 898 of the same 4,237 |
+| BACKLOG | `grep -c "^## BL-"` | **197** items, one above BL-874's 196 |
+| the report | blob OID, local against the reports repo | **`d0b1b75d`** on both. The published copy is byte-identical |
+| the worktree | `git worktree list` and listing `C:\w` | **one worktree**, the main checkout. `C:\w` is **empty**. `C:\w\b877` is gone |
+
+### The build, honestly
+
+`npm run build` was re-run on `main` at verification, from a log, with the exit code echoed by the
+build's own shell rather than read off a pipe: **`BUILD_EXIT=0`**.
+
+* `check:prisma-bypass` — **0 violations**.
+* `check:removed-fields` — OK across 784 files.
+* `check:event-wiring` — **0 problems**.
+* **BL-348 hooks gate** — `eslint` is genuinely present (**3 binaries** in `node_modules/.bin`, so the
+  gate did not silently no-op) and reported **10 problems, 0 errors, 10 warnings** against the
+  ceiling of 11. **Pass, with one warning of headroom.**
+* `next build` completed and emitted the full route table.
+
+### What this addendum does NOT claim
+
+* **It did not re-run the sandbox.** The 25 sandbox checks and the $500.00-against-$225.00
+  demonstration are this report's own, from the shipping round. What was re-verified is that the
+  fix they justified is on `main`, that it reads the two aggregates, and that the database is clean.
+* **The Railway redeploy is still owed and was not performed.** Until it happens the deployed
+  `balance.ts` is the pre-BL-877 one. **This is harmless today and only today**, because there are
+  zero v2 rows platform-wide, so the two new aggregates would sum to zero anyway. It must be done
+  before Round Four, which is the first round where v2 money moves.
