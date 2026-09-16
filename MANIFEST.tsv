@@ -402,6 +402,7 @@ BL-1559-no-free-route-and-a-funnel-that-has-never-been-used	leadgen	1.00	auto (s
 BL-1560-the-hashtag-hypothesis-is-refused	leadgen	1.00	auto (stack markers)			BL-1560 — the hashtag hypothesis is refused, and the lever is somewhere else entirely
 BL-1561-the-free-route-and-what-actually-sets-the-price	leadgen	1.00	auto (stack markers)			BL-1561 — the free bio route, and the thing that actually sets the price
 BL-1562-settle-the-population-not-the-rate	leadgen	1.00	auto (stack markers)			BL-1562 — settle the population, not the rate
+BL-1563-911-addresses-and-a-depth-wall-at-page-170	leadgen	1.00	auto (stack markers)			BL-1563 — 911 net-new addresses, a depth wall at page 170, and the editor rate this round could not measure
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -920,7 +921,9 @@ BL-873-clippershq-missing-balance	payments	1.00	auto (stack markers)	2026-09-09	
 BL-873	leadgen	1.00	auto (stack markers)	2026-08-01		BL-873 — The ranked selector landed: committed before running, both unranked runners retired, and a real pass measured. Ranked labelling costs 15% MORE per clip ($1.57 vs $1.36/1k) — the saving is volume, not unit price. The vision/speech disjointness premise expired: overlap is 784 of 2,003, above independence.
 BL-874	leadgen	1.00	auto (stack markers)	2026-08-01		BL-874 — main advances itself now, and the two things a clone cannot tell you are written down
 BL-875	leadgen	1.00	auto (stack markers)	2026-08-02		BL-875 — **BLOCKED, as instructed.** `clip_vision.py` is claimed by BL-937 and dirty, so I did not land the split. The gap is no longer theoretical: a **new** tooling retirement accrued 34 minutes ago while the two-way rule was live
+BL-876-clippershq-marketplace-v2-design	payments	0.91	auto (stack markers)	2026-09-16		BL-876 — the second marketplace, designed completely, before any code
 BL-876	leadgen	1.00	auto (stack markers)	2026-08-02		BL-876 — The three-way split is **live**: `PARSER_GEN` stamped at failure, one branch in `should_skip`, and bumping the constant re-opens everything an older parser buried. BL-937's 169 lines were already committed, so item 1 was moot
+BL-877-clippershq-v2-money-foundation	payments	1.00	auto (stack markers)	2026-09-16		BL-877 — marketplace v2, the money foundation, entirely invisible
 BL-877	leadgen	1.00	auto (stack markers)	2026-08-01		BL-877 — A finished video costs $0.0195, and the ledger has never seen 40% of the bill
 BL-878	leadgen	1.00	auto (stack markers)	2026-08-01		BL-878 — the two silent defects fixed, and the automation that has never once fired on its own
 BL-879	leadgen	1.00	auto (stack markers)	2026-08-01		BL-879 — What the operator actually does every day
