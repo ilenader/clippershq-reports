@@ -406,6 +406,7 @@ BL-1563-911-addresses-and-a-depth-wall-at-page-170	leadgen	1.00	auto (stack mark
 BL-1564-the-spreadsheet-the-unreachable-tag-and-a-blind-guard	leadgen	1.00	auto (stack markers)			BL-1564 — the spreadsheet he reads, a tag nobody could reach, and a guard that could not see his own list
 BL-1565-the-price-tripled-and-tiktok-is-not-mined-out	leadgen	1.00	auto (stack markers)			BL-1565 — the price tripled, TikTok is not mined out, and the reason is not what I first measured
 BL-1566-the-f2-collapse-was-tag-selection	leadgen	1.00	auto (stack markers)			BL-1566 — the F2 collapse was tag selection, and a $0 spend cap meant no cap
+BL-1567-the-97-percent-are-not-reachable	leadgen	1.00	auto (stack markers)			BL-1567 — the other 97% are not reachable, and 3.4% is what the platform publishes
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -936,6 +937,7 @@ BL-880-clippershq-v2-tracking-split	payments	1.00	auto (stack markers)	2026-09-1
 BL-880	leadgen	1.00	auto (stack markers)	2026-08-01		BL-880 — Both unranked labellers were already gone before this round started. **Zero unranked runners remain** — but three RANKED ones do, and the `pid` field everyone would use to judge a stale claim is the CLI's own pid and is always dead
 BL-881-clippershq-v2-remaining-writers	payments	1.00	auto (stack markers)	2026-09-16		BL-881 — marketplace v2, round five: every remaining writer, and the proof there is no ninth
 BL-881	leadgen	1.00	auto (stack markers)	2026-08-01		BL-881: A manifest could say "still true" or "red". It can now say "correctly undone".
+BL-882-clippershq-v2-editor-cashout	payments	1.00	auto (stack markers)	2026-09-16		BL-882 — marketplace v2, round six: the editor can see his money, and ask for it
 BL-883	leadgen	1.00	auto (stack markers)	2026-08-01		BL-883 — **The backfill did not run, and it cannot run as briefed.** There is no stored media: the library holds no audio URL and the 508 local clips share **zero** shortcodes with its 2,003. Re-fetching costs **$0.24** and the brief says no paid calls. The tool is built, raced and proven; it needs a budget line, not more work.
 BL-884	leadgen	1.00	auto (stack markers)	2026-08-01		BL-884: the lock timeout has a 16× margin, so I ruled it out instead of raising it. Five consecutive runs gave two clean and three red — and every red was a REAL failure, which is the point
 BL-885	leadgen	1.00	auto (stack markers)	2026-08-01		BL-885: the tag ranking is fixed and BL-855 has the corrected number — but two of BL-858's own findings did not survive contact with the live API, and the provenance signal it asked for does not separate
