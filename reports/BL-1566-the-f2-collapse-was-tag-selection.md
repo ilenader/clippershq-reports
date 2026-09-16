@@ -201,7 +201,46 @@ free cutter.** The spend is intended; the word "free" in the name is what is wro
 why a standing memory still reads *"the free reject gate has ZERO live models that may cut"* —
 a sentence true only if "free" means "zero-cost".
 
-### 5e. A column declared on 74,162 rows that nothing ever writes
+### 5e. Dead things that READ LIKE SAFETY CHECKS
+
+The sweep for values computed and never read finished after this report was first published
+and the report was updated in place. **Its most valuable findings are not merely unused —
+they are inert twins of guards that look live.**
+
+**`meme_finder.py:5555` `JUDGE_RULES_NEEDING_PROFILE`.** Its own comment says it exists so
+that "a rule which is in NEITHER set refuses the deferral — an unknown rule fails CLOSED".
+AST: **1 store, 0 loads.** Nothing reads it. The fail-closed property is real but comes from
+the *allowlist* beside it, `JUDGE_RULES_POSTS_ONLY` (1 store, **1 load**). So the comment
+describes a mechanism that does not exist, next to one that does.
+
+**`ig_client.py:804` and `api_client.py:360` `unexpected_status_count`.** The comment is
+explicit about why it was added: without it "a vendor changing its refusal code would look
+exactly like Instagram running out of posts — **silently, and at full price**". AST in both
+clients: **2 stores, 0 loads.** The thing built to stop a silent, paid-for failure mode is
+itself silent. Same shape for `unbilled_requests` and `throttled_requests`
+(`ig_client.py:795-796`), whose comment promises "the run summary can say so" — it does not.
+
+**Both instruments failed once, in opposite directions**, which is the case for running both:
+
+| | AST | grep |
+|---|---|---|
+| attributes stored, never loaded | 28 | **0 — a false zero** |
+| counters incremented, never branched on | 352 | **0 — a false zero** |
+| module constants never referenced | 90 of 1,752 | 33 |
+
+grep's zeros came from counting a wordlist, a shipped *copy* of the app under `output/`, and
+report prose as "readers"; excluding those restored 26 findings. And the 440x over-count
+reproduced exactly — `checked` returned **3,437 grep lines against 3 real sites**. In the
+other direction **AST alone produced 7 false positives**, all reads via
+`getattr(o, "name", …)` — including `tt_deep_calls`, which would have been reported as a
+broken vendor-billing split had the text pass not shown it works.
+
+⚠️ **VARYING-AND-UNREAD is reported separately from merely unread**: 26 attributes and 9
+summary keys carry real per-run information that is computed and discarded, against 33
+constants that could never have decided anything. And every verdict is an **UPPER BOUND** on
+deadness — leaf-name matching cannot see a read via a runtime-assembled name.
+
+### 5f. A column declared on 74,162 rows that nothing ever writes
 
 `vision_verdict` is declared in `writer.py::FULL_COLUMNS` (`writer.py:78`) and `_build_row`
 ends `return [rec.get(col, "") for col in FULL_COLUMNS]` (`writer.py:2135`). An AST pass finds
@@ -245,7 +284,7 @@ said the spread was noise.
 * **The depth tail beyond page 30 was not walked** this round, so nothing here speaks to it.
 * **The funnel-cap zero-means-uncapped sites are reported, not fixed** — six sites, each
   needing its own consumer audit.
-* **The dead-value sweep (what else is computed and never read) DID NOT FINISH before this report was written. Reported as ABSENT, not as 'nothing found'.**
+* **The dead-value sweep FINISHED AFTER first publication; this report was updated in place (same filename) rather than a second file being created. Its findings are section 5e.**
 * **BL-1562's claim is still stale-OPEN** with its report published and no manifest. Noted,
   not touched — another round's claim.
 * No outreach was sent. This project does not send.
