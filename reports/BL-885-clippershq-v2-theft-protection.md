@@ -257,5 +257,12 @@ survives a tick. No Apify actor ran, no wallet address was printed, the 11 BL-67
 12. **No admin page sets a `<title>`** — all 43 inherit one, a 2.4.2 failure, in tension with
     CLAUDE.md's "Tab title: just Clippers HQ".
 
+**The worktree, stated exactly.** Git's registration is pruned and `git worktree list` shows only
+the main checkout; every file under `C:/w/b885` is deleted and the directory measures **0 entries**.
+The bare directory NODE survives because one of this session's own lingering shells still holds it as
+its working directory, and six removal attempts over thirty seconds did not clear it. It is empty and
+unregistered, and it disappears when those shells exit. Nothing about it is claimed as clean that is
+not.
+
 **Rollback:** revert the merge commit, then `DROP TABLE IF EXISTS marketplace_v2_strikes`. Nothing
 else reads that table and no conversion has been run on real data, so dropping it strands no money.
