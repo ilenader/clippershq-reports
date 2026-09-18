@@ -410,6 +410,7 @@ BL-1567-the-97-percent-are-not-reachable	leadgen	1.00	auto (stack markers)			BL-
 BL-1568-the-gate-is-a-column-not-a-filter	leadgen	1.00	auto (stack markers)			BL-1568 — the gate is a column, not a filter: and 81% of his sheet cannot be judged at all
 BL-1569-buying-back-the-bios	leadgen	1.00	auto (stack markers)			BL-1569 — buying back the bios, and the "safe" cut deletes the class he said to keep
 BL-1570-what-the-bio-says-the-account-is	ambiguous	0.00	auto (stack markers)			BL-1570 — the 90% he wants gone do not say what they are
+BL-1571-does-a-name-identify-a-creator	leadgen	1.00	auto (stack markers)			BL-1571 — a name does identify a creator, and it is still worth nothing
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -951,19 +952,36 @@ BL-886-clippershq-schema-drift	ambiguous	0.00	auto (stack markers)	2026-09-17		B
 BL-886	leadgen	1.00	auto (stack markers)	2026-08-01		BL-886 — The IG retrieval leg now meters itself (receipt-based flush in a finally + atexit guard); ledger backfilled +$0.9210 in two never-blended tiers. True cost per 1,000: $1.96 unranked / $2.53 ranked. Including retrieval WIDENS the ranked premium from 15% to 29%.
 BL-887-clippershq-ui-cleanup	payments	1.00	auto (stack markers)	2026-09-17		BL-887 — the last build round before launch: four deferred UI and accessibility items
 BL-887	leadgen	1.00	auto (stack markers)	2026-08-01		BL-887 — The ledger can hold vision now. The 86.6% leak cannot be reordered away, and I was wrong about that.
+BL-888-clippershq-v2-final-sweep	payments	1.00	auto (stack markers)	2026-09-17		BL-888: the final sweep of marketplace v2, looked at whole for the first time
 BL-888	leadgen	1.00	auto (stack markers)	2026-08-01		BL-888 — Fixing the things that silently cost the operator
+BL-889-clippershq-v2-onboarding	payments	1.00	auto (stack markers)	2026-09-17		BL-889: make marketplace v2 usable by fifty people who have never seen it
 BL-889	leadgen	1.00	auto (stack markers)	2026-08-01		BL-889 — **STOPPED, as instructed.** Both named holders still have `clip_library/`, and it is not merely claimed: **28 shard writes in 10.1 minutes, +31 rows.** The $0.24 was authorised and not spent.
+BL-890-clippershq-v2-preview-access	payments	1.00	auto (stack markers)	2026-03-24		BL-890: let the owner see marketplace v2, and nobody else
 BL-890	leadgen	1.00	auto (stack markers)	2026-08-01		BL-890: A manifest goes stale in two directions. Only one had a checker.
+BL-891-clippershq-marketplace-placement-and-design	payments	1.00	auto (stack markers)	2026-09-17		BL-891: the marketplace moves to the left navigation, loses the word v2, and uses the screen
 BL-891	leadgen	1.00	auto (stack markers)	2026-08-01		BL-891: STOPPED. The tree is not still — 8 rounds in flight and the repo-state hash changed at every one-minute sample. Measuring now would have reproduced BL-884's uninterpretable result
+BL-892-clippershq-marketplace-shell-and-testbed	payments	1.00	auto (stack markers)	2026-09-17		BL-892 — the marketplace takes the first marketplace's shape, and you get a campaign to test on
 BL-892	leadgen	1.00	auto (stack markers)	2026-08-01		BL-892: I committed a manifest before the code it promises, in the same round I documented the rule against it
+BL-893-clippershq-role-lock-and-shell	payments	1.00	auto (stack markers)	2026-09-17		BL-893 — the marketplace side becomes a real gate that locks on the first action
 BL-893	leadgen	1.00	auto (stack markers)	2026-08-01		BL-893 — Both claims were **FINISHED**, not abandoned. BL-867 released itself mid-round; BL-849 has been done since **16:51** and held for 6 hours. And the `** nothing written yet` marker that started this is **false** — it read a path that had been *renamed*, on a round whose files were written three minutes earlier.
+BL-894-clippershq-v2-bonuses-and-states	ambiguous	0.00	auto (stack markers)	2026-09-18		BL-894 — every bonus and every campaign state on a v2 clip, proved, and five writers that would have overpaid
 BL-894	leadgen	0.62	auto (stack markers)	2026-08-01		BL-894 — I would not post any of these. The system picks movie clips because it cannot see anything else.
+BL-895-clippershq-launch-load	payments	1.00	auto (stack markers)	2026-09-18		BL-895 — can the platform carry fifty new people, and can the owner keep up with them
+BL-896-clippershq-launch-lists	ambiguous	0.00	auto (stack markers)	2026-09-18		BL-896 — the approval queue, its whole class, and the URL
 BL-896	leadgen	1.00	auto (stack markers)	2026-08-01		BL-896 — Six of the seven blocked funnels now run headless, on one switch; the seventh gets three gates further and stops at a raw `input()` in someone else's file
+BL-897-clippershq-owner-view-and-full-sweep	payments	1.00	auto (stack markers)	2026-09-18		BL-897 — the owner's own view, and a budget gate that sees 45 percent of what it is guarding
 BL-897	leadgen	1.00	auto (stack markers)	2026-08-01		BL-897 — The vendor omission had a THIRD level: dashboard /api/spend omitted vision_usd and under-reported by $2.1409 (26.8%). One VENDOR_USD_KEYS list now, with a test that fails if any module re-spells it. All 8 production IgClient callers audited, 2 hand-tally leaks wired. A real mid-flight kill recorded $0.0000 -- neither finally nor atexit runs at 0xC000013A -- fixed with autoflush bounded by count AND time. Vision spend had capacity but no flow; now recorded per clip.
+BL-898-clippershq-budget-gate-and-sweep	payments	1.00	auto (stack markers)	2026-09-18		BL-898 — the budget lock now prices every leg it causes, and the sweep that never ran, ran
 BL-898	leadgen	1.00	auto (stack markers)	2026-08-01		BL-898 — Resolving the stash, and making the dashboard unable to lie again
+BL-899-clippershq-disk-cleanup	leadgen	0.71	auto (stack markers)	2026-09-18		BL-899 — C: drive cleanup: 99 directories enumerated, 85 removed, 2.12GB back, and four things that exist nowhere else
 BL-899	leadgen	1.00	auto (stack markers)	2026-08-01		BL-899 (claim id BL-897) — **The backfill ran.** `audio_class` 0% → **90.7%**, 1,860 rows appended under a live writer with **zero rows lost**. BL-853's split is independently confirmed. And `dialogue-only`, which four rounds called unmeasurable, is **108 real clips**.
+BL-900-clippershq-disk-cleanup-two	leadgen	1.00	auto (stack markers)	2026-09-18		BL-900 — 9.34GB deleted, 2,154 clips kept, and there is no such thing as a raw twitch stream on this machine
+BL-901-clippershq-concurrency-and-matrix	payments	1.00	auto (stack markers)	2026-09-18		BL-901 — Can the marketplace produce concurrent writes to one campaign?
 BL-901	leadgen	1.00	auto (stack markers)	2026-08-01		BL-901: The claim tool went down mid-round, and the ghost fixed itself while I watched
+BL-902-clippershq-owner-answers-and-dashboard	payments	1.00	auto (stack markers)	2026-09-18		BL-902 — The owner's answers, verified; two reversals, built
+BL-903-clippershq-lock-url-and-dashboard	payments	1.00	auto (stack markers)	2026-09-18		BL-903 — Per campaign sides, the duplicate rule, and the last visible v2
 BL-903	leadgen	1.00	auto (stack markers)	2026-08-01		BL-903: polled for 60 minutes, stillness never came — 30 samples, 23 distinct source hashes, 29 distinct library hashes, best quiet streak ZERO seconds against a 600-second requirement
+BL-904-clippershq-launch-clearance	payments	1.00	auto (stack markers)	2026-09-18		BL-904 — Launch clearance
 BL-904	leadgen	1.00	auto (stack markers)	2026-08-01		BL-904 — `repaired` is a useless flag because **every single response is fence-wrapped**; `lossy` is the one that matters. The token ceiling is now set from an uncensored sample for the first time. And the truncating-log bug was copy-pasted into all four runners
 BL-906	leadgen	1.00	auto (stack markers)	2026-08-01		BL-906: The registry now answers when its own tool is dead, and the publish gate no longer depends on anyone remembering
 BL-908	leadgen	1.00	auto (stack markers)	2026-08-01		BL-908: the stillness check now shells out to nothing at all — proven by corrupting `claim.py` into something unparseable and counting eleven claims anyway
