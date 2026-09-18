@@ -411,6 +411,7 @@ BL-1568-the-gate-is-a-column-not-a-filter	leadgen	1.00	auto (stack markers)			BL
 BL-1569-buying-back-the-bios	leadgen	1.00	auto (stack markers)			BL-1569 — buying back the bios, and the "safe" cut deletes the class he said to keep
 BL-1570-what-the-bio-says-the-account-is	ambiguous	0.00	auto (stack markers)			BL-1570 — the 90% he wants gone do not say what they are
 BL-1571-does-a-name-identify-a-creator	leadgen	1.00	auto (stack markers)			BL-1571 — a name does identify a creator, and it is still worth nothing
+BL-1572-buying-instagram-sight	leadgen	1.00	auto (stack markers)			BL-1572 — Instagram can now be seen, and what it shows is a 22x gap
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -983,7 +984,11 @@ BL-903-clippershq-lock-url-and-dashboard	payments	1.00	auto (stack markers)	2026
 BL-903	leadgen	1.00	auto (stack markers)	2026-08-01		BL-903: polled for 60 minutes, stillness never came — 30 samples, 23 distinct source hashes, 29 distinct library hashes, best quiet streak ZERO seconds against a 600-second requirement
 BL-904-clippershq-launch-clearance	payments	1.00	auto (stack markers)	2026-09-18		BL-904 — Launch clearance
 BL-904	leadgen	1.00	auto (stack markers)	2026-08-01		BL-904 — `repaired` is a useless flag because **every single response is fence-wrapped**; `lossy` is the one that matters. The token ceiling is now set from an uncensored sample for the first time. And the truncating-log bug was copy-pasted into all four runners
+BL-905-clippershq-live-sweep	payments	1.00	auto (stack markers)	2026-09-18		BL-905 — live sweep before launch. AUDIT ONLY.
+BL-906-clippershq-owner-dashboard	payments	1.00	auto (stack markers)	2026-09-18		BL-906 — the owner's dashboard, and the notification that makes it matter
 BL-906	leadgen	1.00	auto (stack markers)	2026-08-01		BL-906: The registry now answers when its own tool is dead, and the publish gate no longer depends on anyone remembering
+BL-907-clippershq-ordinary-clipper	payments	1.00	auto (stack markers)	2026-09-18		BL-907 — your clipper account is an ordinary clipper now, the extra was TWO lines not one, and the marketplace launched for real while this round was running
+BL-908-clippershq-review-flow-and-charts	payments	1.00	auto (stack markers)	2026-09-18		BL-908 — the Drive blocker, the queue you use, and real charts
 BL-908	leadgen	1.00	auto (stack markers)	2026-08-01		BL-908: the stillness check now shells out to nothing at all — proven by corrupting `claim.py` into something unparseable and counting eleven claims anyway
 BL-909	leadgen	1.00	auto (stack markers)	2026-08-01		BL-909 — Nine ledger rows were estimates only by a substring in their label; now explicitly flagged with totals and the estimated/measured split unchanged. Kill fix re-verified and now carries BOTH legs (1 retrieval + 3 vision rows survived a 0xC000013A termination), vision correctly metered not estimated. Item 2 blocked all round: BL-900 held main.py with 51 uncommitted lines. OFF-BRIEF: BL-896 released its claim leaving 161 uncommitted lines in clip_vision.py that five files depend on.
 BL-910	leadgen	1.00	auto (stack markers)	2026-08-01		BL-910 — All four labellers are tracked and three of four fully consolidated. **The censored-limit sweep found 443 bounding constants and 8 that were measured with the limit lifted** — and `2.00 retrieval pages per clip` against a `max_pages=2` cap is the signature in its purest form
