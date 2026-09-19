@@ -132,15 +132,35 @@ budgeted campaigns and 0 over budget**. Eleven money files byte-identical by blo
 of 5** at 320, 375, 414, 1280 and 1440 with the phone widths **scrolled**, URL and `innerWidth` read
 back, pan measured at **0px everywhere**.
 
-**The only real rows this round wrote: six `tracking_jobs.isActive` booleans, flipped by id**, by an
-idempotent file kept at `scripts/migrations/BL-912-activate-v2-tracking-jobs.sql`. No money row, no
-clip, no campaign, no user. **Zero sandbox rows were created at all** — the proofs ran against your
-real posts and read-only queries.
+**The only real rows this round wrote: seven `tracking_jobs.isActive` booleans** — six flipped by
+id by `scripts/migrations/BL-912-activate-v2-tracking-jobs.sql`, and a seventh by the sweep
+described below. Both files are idempotent. No money row, no clip, no campaign, no user. **Zero
+sandbox rows were created at all** — the proofs ran against your real posts and read-only queries.
+
+## Added after this report was first published: a seventh post, and the deploy gap
+
+I ran one last confirmation query after publishing and found **7 posts, only 6 active**. A seventh
+real post had arrived at **13:27:52**, with `isActive` false and `lastCheckedAt` NULL, exactly like
+the first six.
+
+**The code fix was not wrong; it had not shipped yet.** It takes effect when Railway redeploys, and
+anything posted in that window is still created dark. The six-id file could not help, because it
+named ids that existed when the cause was found.
+
+So the repair is now stated as a rule rather than as a list, in
+`scripts/migrations/BL-912-activate-v2-tracking-jobs-sweep.sql`: every clip carrying a
+`marketplaceV2PostId` whose job is still inactive. It flipped **exactly 1** row. Verified after:
+**7 posts, 7 active, 0 off.** It is safe to run again at any time and should match zero rows once
+the deploy lands.
+
+**Worth keeping.** Any fix that depends on a deploy leaves a gap behind it, and a rule-scoped sweep
+closes that gap without anybody having to notice the next id.
 
 ## Are real v2 clips now tracking and earning?
 
 **Tracking: yes, proved.** Six posts that had never been polled were polled at 13:00:44 and returned
-2,794 real views between them, and they are scheduled again at 15:00 and 18:00.
+2,794 real views between them, and they are scheduled again at 15:00 and 18:00. The seventh, found
+after publishing, is active alongside them; **all seven of your v2 posts are now tracking.**
 
 **Earning: not yet, and that part is yours.** They are pending in your ordinary clips queue. Approve
 them and the money starts; five of the six will still read zero until they pass 500 views.
