@@ -580,11 +580,19 @@ A round counted the shared Modal component's callers at **three**; there were **
 
 A retrieval subagent counting balance derivations found **eleven** and missed a **twelfth** — the only load-bearing one, found by reading the route by hand. Left out, a maker's cashout would have been accepted, locked his gross into a REQUESTED row, and then thrown `INSUFFICIENT_BALANCE` on every attempt to approve it, forever. The feature would have looked complete, let him ask, and been unable to pay him.
 
-**The rule.** Count with `grep -c` and never pipe it to `head`. Then ask what the *second family* is. A count of files is not a count of call sites. A count of one naming convention is not a count of the behaviour. When an enumeration feeds a decision, re-derive it from source rather than inheriting it, and say in the report how you counted.
+A round auditing a scattered hardcoded value found that **both prior rounds had undercounted it**: one found four and called one of them dead, the next found a fifth and correctly called the first's "only place" claim false, and **both were still wrong — there were seven, and copies six and seven were found by neither. Copy seven was live and clipper-facing.**
+
+That same round then nearly repeated the mistake in its own measurement, and disclosed it: a first pass with a combined `-E` alternation returned **112 hits across 14 files and silently omitted one route** through shell escaping of `\$10` — the very truncation failure the `grep -c` rule exists to prevent, arriving through a different door than `head`.
+
+**The rule.** Count with `grep -c` and never pipe it to `head`. Then ask what the *second family* is. A count of files is not a count of call sites. Check your own pattern for escaping, because a shell can truncate a count as silently as `head` can. A count of one naming convention is not a count of the behaviour. When an enumeration feeds a decision, re-derive it from source rather than inheriting it, and say in the report how you counted.
 
 ## 2. Guards ship unable to fail
 
-**What happened.** At least **ten** separate guard checks on this platform have been found unable to fail, and the running tally was still being incremented three rounds in a row. Every single one was caught by **running the demonstration** rather than reading the guard.
+**What happened.** **Twelve** separate guard checks on this platform have been found unable to fail. Every single one was caught by **running the demonstration** rather than reading the guard.
+
+The twelve, individually described in their own rounds: BL-835, BL-881, BL-882, BL-883, BL-884 (two in one round), BL-885, BL-887, BL-888, BL-896, and BL-898 (two more). Three of them landed in three consecutive rounds, which BL-896 says in its own words: "the third guard in three rounds to ship a check that could not fail."
+
+**The platform's own running tally is wrong, and the way it is wrong is the same defect.** Rounds numbered themselves fifth, sixth, seventh, eighth and ninth in sequence, then BL-896 shipped one without numbering it, and BL-898 then also called itself "the tenth." The count of a defect class about undercounting was itself undercounted. Separately, the phrase "twelfth guard" does appear in the corpus and **means something else entirely** — the twelfth guard *wired into `prebuild`*. Do not read the two twelves as the same number.
 
 The shapes, all real:
 
@@ -593,6 +601,8 @@ The shapes, all real:
 * A check skipped any file that mentioned a helper name **anywhere in it**, so replacing one of two queries with a hand-rolled filter left it green with the hand-rolled filter sitting there.
 * Two checks counted across the whole file, so deleting the one occurrence that mattered left the totals above their thresholds.
 * A `[^)]*` character class could not match the very line it forbade.
+* A refund guard asserted a filter contained `AVAILABLE` and `PENDING`, and the regex **still matched** when `|| c.status === "PAID"` was appended to that same filter, so the one reversion that would refund money already paid to a trainer produced **zero failures**.
+* A page-title guard asked only *does this page resolve to a title*, and walked up to a parent layout that has one, so **every page passed no matter what was deleted**. It asserts distinctness now, which is what the rule was always about.
 * Three of nine checks had never been demonstrated at all, because their anchors were multi-line `\n` strings against CRLF files.
 * A guard's demonstration matched its own tag in the guard's own printed notes.
 * A guard matched only an `href=` attribute and could not see a navigation entry declared as data, then could not see one in a template literal.
@@ -635,7 +645,11 @@ A first attempt at the fix **did nothing, and its own log line caught it**: it d
 
 ## 6. A failure recorded as a fact
 
-**What happened.** A code path decided a video had been deleted by **matching the message string of a caught exception**. An exception message is not a fact about the world; it is a fact about what a library chose to say when something went wrong, and it changes between versions, between network conditions and between a genuine 404 and a timeout. A private account, a rate limit and a transient failure all produced the same verdict as a deleted video.
+**What happened.** A code path decided a video had been deleted by **matching the message string of a caught exception**. It is still there, at `tracking.ts:3131`: a `/not found|no results|private|removed|unavailable/i` regex run against an exception message, and it **zeroes earnings**. Matching the word `private` against an error string to decide whether to zero a person's money is not a rule anybody would write deliberately.
+
+It is currently defanged rather than fixed, and the distinction is worth stating precisely rather than leaving as folklore: the only live string that could match it now sits behind a hard-off guard that throws a different message first, and that guard reads no environment variable, so the branch is **statically unreachable rather than merely disabled**. Measured: exactly six clips in the entire database carry a non-null `savedEarnings`, all six stamped within one second in May 2026, all six with earnings and savedEarnings of zero. No money was ever harmed by it. **It remains a loaded gun pointed at the money path and becomes reachable again the moment anybody re-enables that vendor path.**
+
+The same class, on the Instagram side: a genuine "gone" verdict requires a 404 **and** a specific discriminator in the response body. The Instagram path never inspected the body; it ran a regex against the derived error *string*, and a second reader took the bare status. An exception message is not a fact about the world; it is a fact about what a library chose to say when something went wrong, and it changes between versions, between network conditions and between a genuine 404 and a timeout. A private account, a rate limit and a transient failure all produced the same verdict as a deleted video.
 
 The consequence class is visible in the dead-clip cron: it marked **46 of one clipper's Instagram clips unreachable in three minutes**, moving **$256.35** out of the pool his balance is computed from and dropping his withdrawable figure from $51.99 to **$0.00**. The measured false-positive rate of that cron is **4.34 percent**. And it writes **no audit row at all**: the largest money-visible event in that clipper's history produced nothing in `audit_logs`.
 
@@ -643,15 +657,23 @@ The consequence class is visible in the dead-clip cron: it marked **46 of one cl
 
 ## 7. A list that filters only the rows it loaded
 
-**What happened.** This is the `take:` trap. A query loads a bounded page of rows, filters that page in application code, and then reports a total taken from a separate unbounded count. The number shown is larger than the number the filter ever saw, and the two disagree in a way nobody notices until the totals stop reconciling.
+**What happened, and it hid 41 real clips from the owner for three days.** The owner's clip queue showed him **4 of 46** while his own dashboard, asked in the same minutes, counted **47 PENDING**, which is what the database held. The dashboard was right and the list was wrong.
 
-A live instance of the same shape: a round reported **4,968 overdue tracking jobs sitting on approved, live, earning clips**. Measured properly it was **zero** — the whole overdue backlog sat on PAST or PAUSED campaigns, 4,974 of them on PAST. The population and the predicate had never been intersected.
+The cause: **the status filter was a client-side filter over the 30 rows already loaded.** It was never sent to the server. The API had accepted `?status=` since May and the page had never used it. When an earlier round shrank that page from 100 rows to 30, the owner silently began seeing **8.7 percent of his pending queue and 0 percent of his flagged one, with 41 real clips unreachable for 73.5 hours.**
 
-**The rule.** Filter in the query, not after it. If you must filter in application code, take the count from the same filtered set, never from a separate aggregate. And when you report a population, state the predicate that defines it in the same sentence.
+The same shape elsewhere, measured in one sweep: an admin payouts screen capped at `take: 200` against **221 real payout rows**; an admin user page computing the approved count, the all-time earnings tile **and the unpaid balance tile** from only the newest **50** of one clipper's **870** clips; and a poster's campaign cards counting from a `take: 2000` array **with no `orderBy` at all**, so past 2,000 rows the numbers were wrong, wrong *downward*, and not reproducible between two page loads.
+
+A related failure of the same family: a round reported **4,968 overdue tracking jobs sitting on approved, live, earning clips**. Measured properly it was **zero** — the whole backlog sat on PAST or PAUSED campaigns. The population and the predicate had never been intersected.
+
+**The rule.** Filter in the query, not after it. A `take:` with a client-side filter after it is a lie with a number attached, and it gets worse every time somebody tunes the page size down. If you must filter in application code, take the count from the same filtered set, never from a separate aggregate. Never order by nothing. And when you report a population, state the predicate that defines it in the same sentence.
 
 ## 8. Money computed in a new place instead of an existing derivation
 
 **What happened.** A stamp-versus-share mismatch was measured at **$933.94** and confirmed by a second round. The cause was the same rule existing in two places and drifting apart.
+
+**And once it reached backwards and took money people had already earned.** A feature's self-heal called `recalculateUnpaidEarnings`, which recomputed every approved unpaid clip **without the PWA bonus** and wrote the lower figure through `writeClipEarnings`. The never-below-stored guard inside that writer covers only the budget-headroom clamp, so **nothing floored the drop**, and a clipper who went quiet for two days had already-earned money reduced. The mirror of it still exists on the grant path, where a return moves already-earned money *upward*, and it was left as its own decision rather than fixed in passing.
+
+A gentler version of the same disease cost a full audit round: an admin screen displayed the owner's amount by **recomputing it in the page** from `clip.campaign.ownerCpm`, the campaign's *current* live rate, instead of reading the stored `agency_earnings` row. After a campaign reassignment the recomputed figure disagreed with the stored one, and the owner and the round both read a correct row as a bug before anybody checked.
 
 This is why the marketplace calculator is a separate **twin** file rather than a parameterised rewrite of the first marketplace's calculator: giving the existing function a share parameter would have put a new concern inside a function that pays real money on every tick, and a wrong default would have paid an old clip on the new split. But the one thing the twin does **not** re-implement is the bonus rule; it imports `computePartyBonusPercent` from the original, because re-implementing it would have created a second source of truth for a money rule.
 
@@ -694,7 +716,9 @@ It is a snapshot, dated **19 September 2026**, and the marketplace is four days 
 * The full CSS and design system: the typography scale, the mobile patterns, the design skills. Read `docs/runbooks/domain-and-ui.md`. The always-on rules are in `CLAUDE.md` and are short: dark theme only, accent `#2596be`, CSS variables never hardcoded colours, lucide-react icons only, no emojis, **no dashes as bullets**, mobile-first from 375px, and `data-no-swipe` on any new overlay or the global swipe handler eats its taps.
 * `BACKLOG.md` in the repository root is the standing source of truth for ideas, decisions and deferrals. It is large; append to it by shell and grep the slice you need rather than reading it whole.
 
-**Explicitly unverified in this document:** the count of "twelve guards that shipped unable to fail" could not be reconciled to twelve from the reports read. The running tally found in the reports reaches **ten** by name, with individual rounds numbering their own at the fifth, sixth, seventh, ninth and tenth. The figure may be higher than ten and the pattern is certainly real; the exact count is stated here as **at least ten** rather than twelve. Similarly, the claim that the budget-lock defect went unnoticed for "about twenty rounds" is not stated numerically in any report; what is stated is that the gap "has existed since v2 could write money at all."
+**Explicitly unverified in this document:** the claim that the budget-lock defect went unnoticed for "about twenty rounds" is not stated numerically in any report. What is stated is that the gap "has existed since v2 could write money at all," and that is what PART SEVEN says instead.
+
+**One count in PART SEVEN was corrected after the first draft and the correction is itself instructive.** This document initially said "at least ten" guards had shipped unable to fail, because the reports' own running tally stops at ten. A sweep of all 222 reports then found **twelve** individually described instances, and showed that the tally is wrong in exactly the way PART SEVEN's first entry describes: one round shipped an instance without numbering it and the next round reused the number. A document about undercounting had undercounted, from the same source, in the same direction. It is twelve.
 
 **Two domain rules that are absolute and easy to break by accident:** the domain is **clipershq.com** with one P, and **Belgrade and Serbia are never shown on any frontend page**.
 
