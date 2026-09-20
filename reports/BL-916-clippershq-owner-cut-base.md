@@ -11,8 +11,9 @@
 **2026-09-20. Shipped on `checkpoint/BL-916` (`5ea1bfb0`), merged to `main` as `b750a080`,
 pushed and verified (`origin/main == local HEAD`). Tags `pre-BL-916`, `post-BL-916`,
 `pre-merge-BL-916`, `post-merge-BL-916`. Worktree `C:\w\b916`, removed and verified gone
-(`ls: cannot access '/c/w/b916'`). `checkpoint/BL-723` not merged. Requires a Railway deploy:
-until it lands, the production tick keeps writing the poster-leg figure.**
+(`ls: cannot access '/c/w/b916'`). `checkpoint/BL-723` not merged. The 11:00 UTC production
+tick already wrote gross-based owner cuts on two live clips (see the addendum), so the deploy
+appears to have landed on its own; nothing here assumes it, the rows were read.**
 
 ---
 
@@ -338,3 +339,29 @@ sandbox production server ran on port 3916 and was stopped by its own PID (23352
 
 **IN ONE LINE:** the owner's ordinary cut on a marketplace clip now reproduces his locked share, $0.17
 on $0.35 of legs at 1681 views (0.32998 unrounded, 0.3269 in cents) where the stored row read $0.08.
+---
+
+## ADDENDUM — THE 11:00 UTC PRODUCTION TICK, READ AFTER THE MERGE (db now `2026-09-20 11:02:40.17057+00`)
+
+| clip | views | poster / maker / platform | owner cut | written | what it means |
+|---|---|---|---|---|---|
+| cmu855k9… | 534 | 0.05 / 0.05 / 0.01 | **$0.05** | 11:00:34.169 and 11:00:34.180 | all four written together on the first tick after approval; **$0.05 = round2(0.11 x 0.4925), the three-leg base.** The poster-leg base would have written $0.02 |
+| cmu8fa1r… | 1810 | 0.17 / 0.16 / 0.04 | **$0.18** | 11:00:34.825 and 11:00:34.842 | the gamification figures ($0.39 / $0.36 / $0.08) were written back down to 45/45/10, and **$0.18 = round2(0.37 x 0.4925)**; the old lock would have written $0.08 |
+| cmu84hot… | 1681 | 0.16 / 0.15 / 0.04 | $0.08 | not due until 17:00 | still the poster-leg figure until its next tick, when it becomes $0.17 |
+| cmu8tf4p… | **2782** | **0.57 / 0.54 / 0.12** | $0.27 | stat written 11:00:29.521, money rows **untouched since 09:05:37** | **the second tick in a row that wrote a stat and no money on this clip** |
+
+**The fix is doing in production what it did in the sandbox**: two owner cuts derived from the three
+legs, to the cent, on real fetched views, by the real cron. That is only possible with the merged
+code, so Railway appears to have deployed `b750a080` between the 10:24 push and 11:00; the round did
+not trigger a deploy and does not assume one, it read the rows.
+
+**THE ONE THING STILL WRONG, AND IT IS NOW THE TOP OPEN ITEM.** Clip cmu8tf4p… has had two production
+ticks (10:00, 11:00) that each wrote a new ClipStat and touched the clip row, and neither rewrote its
+four money rows, which still carry gamification's 100 percent figures: poster $0.57, maker $0.54,
+platform $0.12 against a correct $0.26 / $0.25 / $0.05 at 2782 views, owner $0.27 against $0.28. Its
+job reads 0 failures, `lastFailedAt` null, next check 12:00. Nothing in the database distinguishes it
+from cmu8fa1r, which the same tick corrected. The Railway log for `[TRACKING-RECALC-FAIL] Clip cmu8tf4p`
+at 10:00 and 11:00 is where the answer is. **Until it is read, that maker and that poster are recorded
+at roughly twice what they earned on this clip, and a payout would lock it in under the paid floor.**
+Both are unpaid on this campaign today.
+
