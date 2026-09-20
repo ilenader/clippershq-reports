@@ -413,6 +413,7 @@ BL-1570-what-the-bio-says-the-account-is	ambiguous	0.00	auto (stack markers)			B
 BL-1571-does-a-name-identify-a-creator	leadgen	1.00	auto (stack markers)			BL-1571 — a name does identify a creator, and it is still worth nothing
 BL-1572-buying-instagram-sight	leadgen	1.00	auto (stack markers)			BL-1572 — Instagram can now be seen, and what it shows is a 22x gap
 BL-1573-forty-gigabytes-and-the-fast-path	leadgen	0.97	auto (stack markers)			BL-1573 — The 40 GB is `output/`, a third of it is the same PNG stored twice, and the fast path costs $7 a thousand
+BL-1574-the-vault-then-the-reclaim	leadgen	1.00	auto (stack markers)			BL-1574 — The vault, then the reclaim: 4,802 files on two devices, then 54 GB back
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
