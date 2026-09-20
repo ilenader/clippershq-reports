@@ -415,6 +415,7 @@ BL-1572-buying-instagram-sight	leadgen	1.00	auto (stack markers)			BL-1572 — I
 BL-1573-forty-gigabytes-and-the-fast-path	leadgen	0.97	auto (stack markers)			BL-1573 — The 40 GB is `output/`, a third of it is the same PNG stored twice, and the fast path costs $7 a thousand
 BL-1574-the-vault-then-the-reclaim	leadgen	1.00	auto (stack markers)			BL-1574 — The vault, then the reclaim: 4,802 files on two devices, then 54 GB back
 BL-1575-the-re-buy-surface	leadgen	1.00	auto (stack markers)			BL-1575 — The re-buy surface: 77,353 accounts' bios owned and unused, $47 to re-buy, 26 usable
+BL-1576-the-code-has-a-second-copy	leadgen	1.00	auto (stack markers)			BL-1576 — The code has a second copy now; the remote is private but the history is dirty, so do not push
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
