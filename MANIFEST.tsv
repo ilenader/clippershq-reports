@@ -417,6 +417,7 @@ BL-1574-the-vault-then-the-reclaim	leadgen	1.00	auto (stack markers)			BL-1574 �
 BL-1575-the-re-buy-surface	leadgen	1.00	auto (stack markers)			BL-1575 — The re-buy surface: 77,353 accounts' bios owned and unused, $47 to re-buy, 26 usable
 BL-1576-the-code-has-a-second-copy	leadgen	1.00	auto (stack markers)			BL-1576 — The code has a second copy now; the remote is private but the history is dirty, so do not push
 BL-1577-the-tests-wrote-production	leadgen	1.00	auto (stack markers)			BL-1577 — Two writers resolved `config.backups` against the CWD; one resolver fixes both; the five generations were sandbox ledgers and went back anyway
+BL-1578-no-results-file-yet	leadgen	1.00	auto (stack markers)	2026-09-18		BL-1578 — No results file exists yet: the grades are in his browser, not on disk
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -1073,6 +1074,7 @@ BL-993	leadgen	1.00	auto (stack markers)			BL-993 — final send-readiness: the 
 BL-995	leadgen	1.00	auto (stack markers)	2026-08-02		BL-995: the dress rehearsal — the back half runs clean, the front half was held by another round, and a binding cap printed as $0.00
 BL-999	leadgen	1.00	auto (stack markers)	2026-08-02		BL-999 — the ordering fix is in shipping code, the stale denominator is dead, and the labeller is failing 2 calls in 3
 CLIPPERSHQ-HANDOFF	payments	1.00	auto (stack markers)	2026-09-19		CLIPPERS HQ — THE HANDOFF DOCUMENT
+FLASHCUT-2026-09-20-b	ambiguous	0.00	auto (stack markers)	2026-09-20		2026-09-20-b — The subject score was choosing bodies by size; measured against hand labels it goes 60% → 70%, and its ceiling is identity, not weights. Messi v1 is rendered, five gates pass, and its converge mesh sits at 0.24 head widths on the sky celebration.
 INFRA-001	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-001 — You were right: only the menu blocked it, and **headless already shipped while this brief was being written**. The real ceiling is not the API limits — it is 0.5 GB of free RAM against 173 MB of master per process. Railway: **no**.
 INFRA-002	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-002 — Headless mode for every funnel. Two ran concurrently for 47 seconds; the shared state held; and the first real headless run found a funnel-breaking bug the suite could not see
 INFRA-003	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-003 — SPEC: the local dashboard. Six panels, one visible at a time, reading the state files the menus already read. **Smallest honest build: 11–14 hours, zero funnel changes.** The mockup is at `scratch/infra003_mockup.html`
