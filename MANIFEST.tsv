@@ -416,6 +416,7 @@ BL-1573-forty-gigabytes-and-the-fast-path	leadgen	0.97	auto (stack markers)			BL
 BL-1574-the-vault-then-the-reclaim	leadgen	1.00	auto (stack markers)			BL-1574 — The vault, then the reclaim: 4,802 files on two devices, then 54 GB back
 BL-1575-the-re-buy-surface	leadgen	1.00	auto (stack markers)			BL-1575 — The re-buy surface: 77,353 accounts' bios owned and unused, $47 to re-buy, 26 usable
 BL-1576-the-code-has-a-second-copy	leadgen	1.00	auto (stack markers)			BL-1576 — The code has a second copy now; the remote is private but the history is dirty, so do not push
+BL-1577-the-tests-wrote-production	leadgen	1.00	auto (stack markers)			BL-1577 — Two writers resolved `config.backups` against the CWD; one resolver fixes both; the five generations were sandbox ledgers and went back anyway
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -1006,6 +1007,7 @@ BL-914-clippershq-shares	leadgen	0.80	auto (stack markers)	2026-09-19		BL-914 �
 BL-914	leadgen	1.00	auto (stack markers)	2026-08-01		BL-914: The claim registry's writes were already atomic. They were not reliable, which is a different word.
 BL-916-clippershq-owner-cut-base	payments	1.00	auto (stack markers)	2026-09-20		BL-916 — the owner's cut on a marketplace clip was taken of the poster's leg alone
 BL-917-clippershq-stuck-recalc	payments	1.00	auto (stack markers)	2026-09-20		BL-917 — the clip four ticks declined to correct: fixed through the tick's own code, the swallow made visible, the cause still in a log nobody can reach
+BL-918-clippershq-thumbnails	payments	0.87	auto (stack markers)	2026-09-20		BL-918 — every marketplace preview had failed, the cause was the site's own CSP, and the picture now comes from Google on the server
 BL-919	leadgen	1.00	auto (stack markers)	2026-08-01		BL-919: merged — and `claims_read.py`, the module that exists so a reader survives a broken tool, had never been committed
 BL-920	leadgen	1.00	auto (stack markers)	2026-08-01		BL-920 — The orphaned clip_vision refactor was worse than reported: the four callers had since been COMMITTED while the definition had not, so HEAD referenced a function HEAD did not define and four runners would AttributeError. Verified coherent five ways and committed as a repair. Both cost projections now all-in from ONE constant ($1.355 -> $2.162, the old figure 37.3% low). Vendor writer patch BLOCKED: BL-900 held main.py 46 min. RULE: a released claim does not mean a file is safe.
 BL-921	leadgen	1.00	auto (stack markers)	2026-08-01		BL-921 — The nested-repo claim gap, measured and closed
