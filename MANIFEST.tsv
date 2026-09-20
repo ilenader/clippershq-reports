@@ -412,6 +412,7 @@ BL-1569-buying-back-the-bios	leadgen	1.00	auto (stack markers)			BL-1569 — buy
 BL-1570-what-the-bio-says-the-account-is	ambiguous	0.00	auto (stack markers)			BL-1570 — the 90% he wants gone do not say what they are
 BL-1571-does-a-name-identify-a-creator	leadgen	1.00	auto (stack markers)			BL-1571 — a name does identify a creator, and it is still worth nothing
 BL-1572-buying-instagram-sight	leadgen	1.00	auto (stack markers)			BL-1572 — Instagram can now be seen, and what it shows is a 22x gap
+BL-1573-forty-gigabytes-and-the-fast-path	leadgen	0.97	auto (stack markers)			BL-1573 — The 40 GB is `output/`, a third of it is the same PNG stored twice, and the fast path costs $7 a thousand
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -990,10 +991,17 @@ BL-906	leadgen	1.00	auto (stack markers)	2026-08-01		BL-906: The registry now an
 BL-907-clippershq-ordinary-clipper	payments	1.00	auto (stack markers)	2026-09-18		BL-907 — your clipper account is an ordinary clipper now, the extra was TWO lines not one, and the marketplace launched for real while this round was running
 BL-908-clippershq-review-flow-and-charts	payments	1.00	auto (stack markers)	2026-09-18		BL-908 — the Drive blocker, the queue you use, and real charts
 BL-908	leadgen	1.00	auto (stack markers)	2026-08-01		BL-908: the stillness check now shells out to nothing at all — proven by corrupting `claim.py` into something unparseable and counting eleven claims anyway
+BL-909-machine-disk-audit	leadgen	0.60	auto (stack markers)	2026-09-19		BL-909 — Whole machine disk audit
 BL-909	leadgen	1.00	auto (stack markers)	2026-08-01		BL-909 — Nine ledger rows were estimates only by a substring in their label; now explicitly flagged with totals and the estimated/measured split unchanged. Kill fix re-verified and now carries BOTH legs (1 retrieval + 3 vision rows survived a 0xC000013A termination), vision correctly metered not estimated. Item 2 blocked all round: BL-900 held main.py with 51 uncommitted lines. OFF-BRIEF: BL-896 released its claim leaving 161 uncommitted lines in clip_vision.py that five files depend on.
+BL-910-clippershq-first-day	ambiguous	0.00	auto (stack markers)	2026-09-19		BL-910 — the first day, read rather than reasoned about
 BL-910	leadgen	1.00	auto (stack markers)	2026-08-01		BL-910 — All four labellers are tracked and three of four fully consolidated. **The censored-limit sweep found 443 bounding constants and 8 that were measured with the limit lifted** — and `2.00 retrieval pages per clip` against a `max_pages=2` cap is the signature in its purest form
+BL-911-capcut-and-atrain-removal	leadgen	1.00	auto (stack markers)	2026-09-19		BL-911 — CapCut old versions and aTrain removed. Two items, nothing else.
+BL-912-clippershq-v2-tracking-and-mobile	payments	1.00	auto (stack markers)	2026-09-19		BL-912 — v2 clips were never polled a second time
+BL-913-clippershq-handoff	payments	1.00	auto (stack markers)	2026-09-19		BL-913 — the handoff document, and the three figures that were wrong before I wrote them down
 BL-913	leadgen	1.00	auto (stack markers)	2026-08-01		BL-913: adopted — and another round had already built half of it, with a better idea than mine. `stillness.py` now delegates to `claims_read.py` instead of duplicating it
+BL-914-clippershq-shares	leadgen	0.80	auto (stack markers)	2026-09-19		BL-914 — shares were never broken, and the row he saw was the only row that clip ever had
 BL-914	leadgen	1.00	auto (stack markers)	2026-08-01		BL-914: The claim registry's writes were already atomic. They were not reliable, which is a different word.
+BL-916-clippershq-owner-cut-base	payments	1.00	auto (stack markers)	2026-09-20		BL-916 — the owner's cut on a marketplace clip was taken of the poster's leg alone
 BL-919	leadgen	1.00	auto (stack markers)	2026-08-01		BL-919: merged — and `claims_read.py`, the module that exists so a reader survives a broken tool, had never been committed
 BL-920	leadgen	1.00	auto (stack markers)	2026-08-01		BL-920 — The orphaned clip_vision refactor was worse than reported: the four callers had since been COMMITTED while the definition had not, so HEAD referenced a function HEAD did not define and four runners would AttributeError. Verified coherent five ways and committed as a repair. Both cost projections now all-in from ONE constant ($1.355 -> $2.162, the old figure 37.3% low). Vendor writer patch BLOCKED: BL-900 held main.py 46 min. RULE: a released claim does not mean a file is safe.
 BL-921	leadgen	1.00	auto (stack markers)	2026-08-01		BL-921 — The nested-repo claim gap, measured and closed
@@ -1058,6 +1066,7 @@ BL-992	leadgen	1.00	auto (stack markers)			BL-992 — the sentence that contradi
 BL-993	leadgen	1.00	auto (stack markers)			BL-993 — final send-readiness: the mechanism is green, and the copy fix that makes it green is not committed
 BL-995	leadgen	1.00	auto (stack markers)	2026-08-02		BL-995: the dress rehearsal — the back half runs clean, the front half was held by another round, and a binding cap printed as $0.00
 BL-999	leadgen	1.00	auto (stack markers)	2026-08-02		BL-999 — the ordering fix is in shipping code, the stale denominator is dead, and the labeller is failing 2 calls in 3
+CLIPPERSHQ-HANDOFF	payments	1.00	auto (stack markers)	2026-09-19		CLIPPERS HQ — THE HANDOFF DOCUMENT
 INFRA-001	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-001 — You were right: only the menu blocked it, and **headless already shipped while this brief was being written**. The real ceiling is not the API limits — it is 0.5 GB of free RAM against 173 MB of master per process. Railway: **no**.
 INFRA-002	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-002 — Headless mode for every funnel. Two ran concurrently for 47 seconds; the shared state held; and the first real headless run found a funnel-breaking bug the suite could not see
 INFRA-003	leadgen	1.00	auto (stack markers)	2026-08-01		INFRA-003 — SPEC: the local dashboard. Six panels, one visible at a time, reading the state files the menus already read. **Smallest honest build: 11–14 hours, zero funnel changes.** The mockup is at `scratch/infra003_mockup.html`
