@@ -76,7 +76,8 @@ proof's untyped callbacks under `tsc`, not on product code.
    population in words for a screen reader, seen only on the exact route.
 5. **EVERY EMAIL SEND NOW RECORDS ITS OUTCOME** in `email_send_outcomes`: accepted with Resend's
    id, refused with Resend's own words, timed out, errored, or not attempted with the missing
-   variable's name. The two refused owner addresses are an **owner action** (PART 4, numbered).
+   variable's name. The two addresses BL-910 measured as refused were ACCEPTED on the first live
+   tick (ADDENDUM); the owner action in PART 4 applies only if a web-service row reads refused.
 6. **THE SITE SAYS WHAT IT RUNS.** `GET /api/version` answers sha, branch and build time baked at
    build from Railway's own variables, and every trace row carries the sha.
 7. **A GUARD NOW FAILS THE BUILD ON THIS WHOLE FAMILY** (`check:cron-wiring`, four rules,
