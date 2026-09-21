@@ -420,6 +420,7 @@ BL-1577-the-tests-wrote-production	leadgen	1.00	auto (stack markers)			BL-1577 �
 BL-1578-no-results-file-yet	leadgen	1.00	auto (stack markers)	2026-09-18		BL-1578 — No results file exists yet: the grades are in his browser, not on disk
 BL-1579-his-grades-are-in	leadgen	1.00	auto (stack markers)			BL-1579 — His grades are in: 17 of 100 survivors are not editors, no learned rule may cut, and the loop now measures recall
 BL-1580-fix-the-crash-close-the-suites-decide-instagram	leadgen	1.00	auto (stack markers)	2026-09-16		BL-1580 — Every real run since 2026-09-16 would have crashed at "BEFORE YOU SPEND"; fixed, the class is guarded, the suites are boxed, and the Instagram page is waiting
+BL-1581-the-creator-gate-and-the-first-full-suite	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1581 — The creator gate never let a creator through: it was off, and its test was stale; the first full suite under the sandbox; a real TikTok run reaches the screen; 1,000 delivered addresses cost ~$30 and ~30 hours
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -1013,6 +1014,7 @@ BL-917-clippershq-stuck-recalc	payments	1.00	auto (stack markers)	2026-09-20		BL
 BL-918-clippershq-thumbnails	payments	0.87	auto (stack markers)	2026-09-20		BL-918 — every marketplace preview had failed, the cause was the site's own CSP, and the picture now comes from Google on the server
 BL-919-clippershq-midpoint-thumbnails	cross	0.50	auto (stack markers)	2026-09-21		BL-919 — three real frames from inside the video at 25, 50 and 75 percent, the owner picks, and the video is deleted the moment they exist
 BL-919	leadgen	1.00	auto (stack markers)	2026-08-01		BL-919: merged — and `claims_read.py`, the module that exists so a reader survives a broken tool, had never been committed
+BL-920-clippershq-owner-reachability	payments	0.53	auto (stack markers)	2026-09-21		BL-920 — every route by which the platform reaches its owner, measured, and the dead ones brought back to life
 BL-920	leadgen	1.00	auto (stack markers)	2026-08-01		BL-920 — The orphaned clip_vision refactor was worse than reported: the four callers had since been COMMITTED while the definition had not, so HEAD referenced a function HEAD did not define and four runners would AttributeError. Verified coherent five ways and committed as a repair. Both cost projections now all-in from ONE constant ($1.355 -> $2.162, the old figure 37.3% low). Vendor writer patch BLOCKED: BL-900 held main.py 46 min. RULE: a released claim does not mean a file is safe.
 BL-921	leadgen	1.00	auto (stack markers)	2026-08-01		BL-921 — The nested-repo claim gap, measured and closed
 BL-923	leadgen	1.00	auto (stack markers)	2026-08-01		BL-923: one owner for the provenance ladder — my first fix was wrong and a scope guard caught it. The damage turned out to be zero, and I checked rather than assumed
