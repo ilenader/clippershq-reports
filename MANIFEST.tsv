@@ -421,6 +421,7 @@ BL-1578-no-results-file-yet	leadgen	1.00	auto (stack markers)	2026-09-18		BL-157
 BL-1579-his-grades-are-in	leadgen	1.00	auto (stack markers)			BL-1579 — His grades are in: 17 of 100 survivors are not editors, no learned rule may cut, and the loop now measures recall
 BL-1580-fix-the-crash-close-the-suites-decide-instagram	leadgen	1.00	auto (stack markers)	2026-09-16		BL-1580 — Every real run since 2026-09-16 would have crashed at "BEFORE YOU SPEND"; fixed, the class is guarded, the suites are boxed, and the Instagram page is waiting
 BL-1581-the-creator-gate-and-the-first-full-suite	leadgen	1.00	auto (stack markers)	2026-09-07		BL-1581 — The creator gate never let a creator through: it was off, and its test was stale; the first full suite under the sandbox; a real TikTok run reaches the screen; 1,000 delivered addresses cost ~$30 and ~30 hours
+BL-1582-stop-creators-at-the-source	leadgen	1.00	auto (stack markers)			BL-1582 — The creators come from the title-only hashtags: 3.4% KEEP against 28.8% for tags that carry the word "edit"; the spend screen now prices delivered addresses
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
