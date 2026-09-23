@@ -424,6 +424,7 @@ BL-1581-the-creator-gate-and-the-first-full-suite	leadgen	1.00	auto (stack marke
 BL-1582-stop-creators-at-the-source	leadgen	1.00	auto (stack markers)			BL-1582 — The creators come from the title-only hashtags: 3.4% KEEP against 28.8% for tags that carry the word "edit"; the spend screen now prices delivered addresses
 BL-1583-the-first-real-walk-in-a-week	leadgen	1.00	auto (stack markers)			BL-1583 — $1.65 bought 514 addresses and 104 clean ones: tool-word hashtags run at 32.6% KEEP, "title + edit" at 6.8%, and 1,000 clean emails now cost $15.89 instead of $29.82
 BL-1585-the-cut-throws-away-more-editors-than-it-lets-creators-in	leadgen	1.00	auto (stack markers)			BL-1585: the craft cut hides about 8 editors for every creator it lets through, its real editor loss is 21%, not 14.8%, and nothing improves until he grades a cut stratum
+BL-1586-the-full-sweep	leadgen	1.00	auto (stack markers)			BL-1586 (INTERIM, 4 of 8 territories returned): the grading loop has worked once, its pages are now deleted, and "never contacted" was never measured
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -1023,6 +1024,8 @@ BL-921	leadgen	1.00	auto (stack markers)	2026-08-01		BL-921 — The nested-repo 
 BL-922-clippershq-clips-campaign-scope	payments	1.00	auto (stack markers)	2026-09-21		BL-922: the owner selects which campaign states his clips list shows, the scope goes into the query, and every count says what it counts
 BL-923-clippershq-marketplace-simplicity	payments	1.00	auto (stack markers)	2026-09-23		BL-923: the marketplace a person can read on a phone
 BL-923	leadgen	1.00	auto (stack markers)	2026-08-01		BL-923: one owner for the provenance ladder — my first fix was wrong and a scope guard caught it. The damage turned out to be zero, and I checked rather than assumed
+BL-924-clippershq-third-conflict-face	payments	1.00	auto (stack markers)	2026-09-20		BL-924: the third face of the Serializable conflict, the one Postgres raises at COMMIT
+BL-926-clippershq-untest-account	payments	1.00	auto (stack markers)	2026-04-23		BL-926: the named test clipper account is now an ordinary clipper
 BL-927	leadgen	1.00	auto (stack markers)	2026-08-01		BL-927: four of five done — and BL-923's "16 duplicated copies" was overstated, because a shape sweep is a hypothesis and I checked the source
 BL-929	leadgen	1.00	auto (stack markers)	2026-08-01		BL-929 — The coordination tool, verified from a clone
 BL-930	leadgen	1.00	auto (stack markers)	2026-08-01		BL-930 — The tiktok cap binds: $0.02 in 92 seconds where the same run was governed at $40.83. And BL-914's "4x overstatement" was my own measurement error
