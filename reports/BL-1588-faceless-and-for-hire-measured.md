@@ -1,8 +1,12 @@
 # BL-1588: "faceless" cannot be read from a bio, "for hire" barely appears in one, and nothing tested removes creators without costing editors
 
+**IS THE FUNNEL SAFE TO RUN? YES, as far as this round can see. This round changed nothing on it:** no
+code, config, store or tag list was touched. BL-1586's open cap findings on the YouTube and repost funnels
+still stand.
+
 **Round:** BL-1588 · **read-only, $0.00, no vendor call** · every store byte-identical at close (35 files:
 master, `spend.json`, config, the tag ledger, the workbook hashed as bytes and never parsed, every
-`ground_truth/` file) · no suite run · paths redacted · accounts never named, no bio quoted, no handle.
+`ground_truth/` file) · no suite run · accounts never named, no bio quoted, no handle.
 Rules, rubric and decision thresholds were committed **before** any bio was drawn (`3de664ef`); the blind
 labels were committed **before** they were joined to anything (`7e8b6e1a`).
 
@@ -50,18 +54,48 @@ text cannot tell someone selling editing from someone selling reach.
   still above 5%.
 
 **Nothing ships.** The one change that would make both halves of his goal measurable is a grading button
-(§6). It is recommended, not shipped.
+(§7). It is recommended, not shipped.
 
-## 1. What this is, for a reader with no context
+## 1. What it was asked to do
 
 ClippersHQ finds video editors on TikTok and Instagram and delivers their addresses to one operator. His
 goal, unchanged since the start: **faceless editor channels available for hire; no creators, no
 businesses.** BL-1586 found that neither "faceless" nor "for hire" is recorded anywhere. No label, grade or
-rate measures them, so every rate in the project optimises a proxy. This round asks whether the text
-already owned (bio plus display name, 75,540 master rows, 65,972 orphan bios) can carry either one. It spends
-nothing and ships no cut. The standing rules: never wrongly cut a real editor; unknown is a hold.
+rate measures them, so every rate in the project optimises a proxy. This round was asked to make both
+measurable from the text already owned: bio plus display name, 75,540 master rows and 65,972 orphan bios.
+It was to spend $0.00 and ship no cut. The standing rules: never wrongly cut a real editor; unknown is a
+hold.
 
-## 2. Part 1: can "faceless" be read from text at all?
+The five deliverables:
+1. whether "faceless" can be read from text, with the "cannot tell" bucket reported honestly;
+2. the availability vocabulary, mined by frequency ratio;
+3. every candidate priced on both errors, against `name_rule` as a HOLD;
+4. the reach of each candidate in the orphan bios;
+5. a proposed button set, recommended and not shipped.
+
+## 2. What shipped
+
+**Nothing to production.** No module, config key, tag, store or review page was changed. What exists is
+this round's instrument, committed under `scratch/bl1588/` and proved by running it with controls. No
+file was read and called working without being run.
+
+| file | what it does | how it was proved |
+|---|---|---|
+| `rules.py` | the pre-registration: rubric, three face rules, family roots, decisions D1–D5, the mask | committed before the draw (`3de664ef`); 6 mask controls pass; a negative probe caught a bug before the commit (§5) |
+| `sample.py` | the blind draw: 200 fresh + his 99, shuffled; the per-row text is written outside the repo | run; 0 of 299 masked rows carry an address or their own handle |
+| `face_labels.py` | the 299 blind labels, ids only | committed before unblinding (`7e8b6e1a`) |
+| `face_score.py` | unblinds and scores Part 1 | run; asserts his 83/17 before scoring (§5) |
+| `avail.py` | Parts 2–4: mining, pricing, orphan reach | run; circularity assertion 0/967; family controls fire |
+| `reject_boxes.py` | his 17 rejects mapped to BL-1585's published boxes | reproduces BL-1585's counts exactly |
+| `bl1588_leakscan.py`, `adjudicate_leaks.py` | the leak scan and a frequency-based adjudication of its hits | six planted detectors fire; report 0 hits |
+
+## 3. What was measured
+
+Every figure in this section is **MEASURED** from the scripts in §2 and their committed `.out` files, with
+two exceptions. The account projections (~80 leaked creators, ~616 hidden editors, ~187 and ~295 moved)
+are **DERIVED**: a rate multiplied by a row count. The ~80 and ~616 come from BL-1585.
+
+### 3a. Part 1: can "faceless" be read from text at all?
 
 **The draw.** The sample has two parts:
 - **200 fresh rows**, drawn at random (seed 15880) from the 52,010 master TikTok rows that have a bio.
@@ -140,15 +174,15 @@ empty.
 
 **What would answer "faceless":** a picture. That means the profile avatar or the first frames of recent
 videos, judged per account. That is an image call per account, and it is **named and not made**. Its
-price is not derived here. The other route is his own grades with a button that captures it (§6).
+price is not derived here. The other route is his own grades with a button that captures it (§7).
 
-## 3. Part 2: the availability vocabulary, mined by frequency ratio
+### 3b. Part 2: the availability vocabulary, mined by frequency ratio
 
 **This follows up BL-1584's mining, which was never followed up. Two changes:**
 - **No labelled row contributes a count (D5).** His 100, all 260 of the 247-set draws and this round's 299
   are excluded, 559 handles in all.
-- **The words the craft rule itself reads are stripped from every bio before counting.** The first run leaked
-  (see §7). The final **circularity control: `bio_rule` fires on 0 of 967 stripped KEEP bios.**
+- **The words the craft rule itself reads are stripped from every bio before counting.** The first run
+  leaked (see §5). The final **circularity control: `bio_rule` fires on 0 of 967 stripped KEEP bios.**
 
 Corpus: master rows with a bio, KEEP 967 against CUT 13,353, split by the stored `craft_cut` [CUT].
 
@@ -190,7 +224,7 @@ Editors carry every family more often, but the words for selling labour and for 
 same words ("paid", "open", "dm for"). Both WORK hits among his rejects fall in the "edits, not for hire"
 box.
 
-## 4. Part 3: every candidate priced on both errors
+### 3c. Part 3: every candidate priced on both errors
 
 The asymmetry this is priced against (BL-1585): TikTok leaks about 80 [32–188] creators into KEEP [HIS],
 and hides about 616 [420–883] editors in CUT [247]. That is about 8 hidden editors per leaked creator.
@@ -241,9 +275,12 @@ Every candidate was tested as a rank and as a hold first, and as a cut only agai
      The stored keys were computed on the raw bio and the re-run on the masked one, and at least one row's
      craft verdict differs between them.
    - **The 21.1% loss:** the stored-key form is 22.0% [15.3–30.7] (BL-1585).
-   - **The orphan "dm for" reach:** 1,884 bios the cut discards, reproduced exactly (§5).
+   - **The orphan "dm for" reach:** 1,884 bios the cut discards, reproduced exactly (§3d).
+   - **The fresh-draw face rate:** the pre-specified camera-word rule reads 1–1.3% in three separate
+     corpora: 2/200 fresh rows, 1.3% of TikTok KEEP, and 1.3% of orphans. Bios that say a face is shown
+     are rare everywhere, not just in this draw.
 
-## 5. Part 4: the 65,972 orphan bios, which measure reach and never accuracy
+### 3d. Part 4: the 65,972 orphan bios, which measure reach and never accuracy
 
 These bios carry no label. The table says how many accounts a signal touches, not whether it is right
 about them. The pass reproduces BL-1585: 77,302 keys and **65,972** with a present bio. 5 malformed lines and
@@ -270,35 +307,25 @@ about them. The pass reproduces BL-1585: 77,302 keys and **65,972** with a prese
 The face words reach 733 accounts the cut already discards. The cut is already doing what a face rule would do,
 on the few bios that say it.
 
-## 6. Part 5: the grading button, proposed and not shipped
+## 4. What was refused and why
 
-The live page (`tools/review_loop.py`, which BL-1587 is editing and this round did not touch) offers
-**EDITOR / CREATOR / BUSINESS**. His 100 grades were collected on the older EDITOR / NOT page. Neither page can
-record "edits, but not for hire", and neither captures a face. His 17 rejects, in the boxes BL-1585
-published (reproduced id by id here: `scratch/bl1588/reject_boxes.py`), are 5 creators, 4 edit accounts not
-for hire, 3 musicians, 3 fan/meme/news pages and 2 businesses.
+- **Every availability signal as a CUT:** refused on measurement. Each costs 18–42% of his editors [HIS]
+  (§3c).
+- **`R_FACE` as a cut:** refused. It removes nothing: 0 of 17 rejects and 0 of 82 editors.
+- **`R_FACELESS` as a cut:** refused. It costs 9.8% [5.0–18.1] of his editors, and it fires on the fan and
+  meme pages he rejects.
+- **Self-description as a cut:** refused, although it passes D2 by the letter. Its interval runs to 6.6%, it
+  catches 2 of 17 rejects, and it is on the refuted list.
+- **Not re-proposed, per the brief's refuted list:** `<title>edit` tags, consumer-tool tags, business words
+  as a cut, `is_verified`, follower floors, caps/digit/URL ratios, the personal-name rule, `looks_agency` and
+  the creator gate. None of them was tested again.
+- **The image call that would settle "faceless":** named and not made. The round was $0.00.
+- **The four-button page:** recommended and **not shipped**. More buttons slow his grading, and
+  `tools/review_loop.py` belongs to BL-1587's live claim.
+- **No suite was run.** No test reaches the scratch path this round wrote, and running one risks a live
+  store.
 
-**Recommended: four buttons (A).** One more than today, one key more:
-
-| key | button | means | would have caught among his 17 |
-|---|---|---|---|
-| 1 | **EDITOR FOR HIRE** | edits for other people, or would | 0 (his 83 editors go here) |
-| 2 | **EDITS, NOT FOR HIRE** | fan or hobby edit accounts, promo-slot sellers, edit communities | **4** (both TikTok, two Instagram) |
-| 3 | **CREATOR** | posts themselves: on camera, personal, a performer or musician | **8** (5 creators + 3 musicians) |
-| 4 | **PAGE / BUSINESS** | fan, meme and news pages, labels, companies | **5** (3 pages + 2 businesses) |
-
-**Why four and not more:**
-- **What A settles:** it makes "for hire" measurable in one click, and the 4 rows the current page forces
-  into CREATOR get their own bucket.
-- **Face gets no button.** In this round face separated 3 of 17 rejects and 0 editors, and CREATOR already
-  holds face-on accounts. A separate face toggle doubles the clicks on every card to record something that
-  moved 3 rows.
-
-**Alternative (B): add a fifth, CAN'T TELL.** It gives his standing rule "unknown is a hold" a button, at
-the cost of one more choice per card. His throughput is one page in five. So **A is recommended and B is
-his call. Nothing was shipped.**
-
-## 7. What I got wrong
+## 5. What I got wrong
 
 1. **I tried to claim BL-1587 while another live round held it.** My directory listing at 18:04 did not show
    it; the claim tool refused. Nothing was written under that id, and this round is BL-1588.
@@ -315,8 +342,8 @@ his call. Nothing was shipped.**
    ≥ 90%, and described as not pre-registered.
 6. **I ran one empty shell heredoc** (a no-op) against this round's no-heredoc rule. It wrote nothing.
 7. **The mask has a known hole.** It removes addresses (0 of 299 left), the row's own handle and ASCII
-   at-sign mentions. Other accounts' handles written bare ("IG: name") or in styled Unicode survive in the per-row
-   reading file. That file was kept outside the repo and is not committed. The leak scan below covers
+   at-sign mentions. Other accounts' handles written bare ("IG: name") or in styled Unicode survive in the
+   per-row reading file. That file was kept outside the repo and is not committed. The leak scan covers
    everything that is.
 8. **One rater, and the rater wrote the rules.** The rules were committed before the draw and the labels
    before unblinding, but no second rater measured agreement. Four consistency calls were made while
@@ -326,36 +353,94 @@ his call. Nothing was shipped.**
 9. **His denominators are 82 editors, not 83.** One graded row does not join master.
 10. **My scoring script printed a guess as if it were a measurement.** The line about the 19 missed
     craft-cued rows named `vsp` as a word the rule cannot read. The rule does read it. That line is now
-    measured (§2), and the report quotes the measurement.
+    measured (§3a), and the report quotes the measurement.
 11. **The leak scan flagged two ordinary words in my own prose.** Each matches some account's handle and
     appears in only 6 and 51 master bios, below the 100-bio vocabulary bar. Both were rephrased in the report
     and in `avail.py`. One of them stays in the already-committed pre-registration docstring, `rules.py`, and is
     disclosed here rather than edited after the fact. The other two hits in that file are shaped like
     at-sign handles, and both are mine: the planted `.invalid` control address, and the word "mentions"
     written with an at sign.
+12. **My first publish did not follow the eight-section standard.** It had eight sections, but not these
+    ones. This version replaces it at the same path.
+13. **The public-link check could not pass: the reports repo is now private.** The raw link returns 404 to an
+    anonymous reader, for this report and for BL-1586 alike. Byte identity was verified as an
+    authenticated reader instead (§6).
 
-## 8. Assertions at close
+## 6. Money, stores, disk
 
 ```
+money: $0.00. No vendor call of any kind; spend.json is among the 35 files and is byte-identical.
 store files (35: master, spend.json, config.json, email_harvest_tags.json, the workbook, bl1572 results,
              every ground_truth/ file incl. the label store and every mark file)
-diff start -> end: 35 vs 35 files, 0 moved
+diff start -> close: 35 vs 35 files, 0 moved
+campaigns: config.json unchanged (in the 35); no tag disabled or enabled
 MARK: never opened (the workbook was hashed as bytes, never parsed)
-suites: none run. vendor calls: 0. network: GitHub reads + the publish push only
-mask controls: 4/4 planted address shapes removed, clean prose intact, own handle removed; real draw: 0/299 address, 0/299 own handle
+suites: none run. processes killed: none. disk: 198 KB of scratch files written
+network: GitHub reads, one clone of the reports repo into the session scratchpad, the publish push
+mask controls: 4/4 planted address shapes removed, clean prose intact, own handle removed; real draw 0/299
 circularity control: bio_rule on stripped KEEP bios 0/967
 verdict control: EDITOR 83 / NOT 17 read from his file before scoring
 family controls: each mined family fires on its planted phrase and not on clean prose
-files written: scratch/bl1588/* and this report; per-row reading files outside the repo, not committed
+leak scan (both corpora, 78,177 handles + 16,896 addresses, 6 planted detectors fire): this report 0 hits, 0 C0, 0 CR
+publish: the reports repo is PRIVATE; the anonymous raw fetch is 404 for every report (control: BL-1586);
+         authenticated CDN fetch == remote blob == local, sha256 checked, LF
 concurrent: BL-1587 is live and editing tools/review_loop.py + tests; this round did not touch either
 ```
 
-**What would settle the open halves:**
-- **Faceless:** his grades with a CREATOR button and a picture-based check. The image call is named, not made.
-- **For hire:** the EDITS, NOT FOR HIRE button on one graded page.
-- **Whether the `name_rule` + faceless HOLD is worth its 3 extra parked non-editors:** his grades on cut
-  cards.
+## 7. Ranked next steps, with arithmetic
 
-**Nothing in this report changes what he receives.**
+1. **Give the grading page a button for "for hire".** It is his decision to make; nothing was shipped.
+   The live page (`tools/review_loop.py`, BL-1587's) offers **EDITOR / CREATOR / BUSINESS**. His 100 grades
+   were collected on the older EDITOR / NOT page. Neither page can record "edits, but not for hire", and
+   neither captures a face. His 17 rejects, in the boxes BL-1585 published (reproduced id by id in
+   `scratch/bl1588/reject_boxes.py`), are 5 creators, 4 edit accounts not for hire, 3 musicians, 3
+   fan/meme/news pages and 2 businesses.
+
+   **Recommended: four buttons (A).** One more than today, one key more:
+
+   | key | button | means | would have caught among his 17 |
+   |---|---|---|---|
+   | 1 | **EDITOR FOR HIRE** | edits for other people, or would | 0 (his 83 editors go here) |
+   | 2 | **EDITS, NOT FOR HIRE** | fan or hobby edit accounts, promo-slot sellers, edit communities | **4** (both TikTok, two Instagram) |
+   | 3 | **CREATOR** | posts themselves: on camera, personal, a performer or musician | **8** (5 creators + 3 musicians) |
+   | 4 | **PAGE / BUSINESS** | fan, meme and news pages, labels, companies | **5** (3 pages + 2 businesses) |
+
+   **Why four and not more:**
+   - **What A settles:** it makes "for hire" measurable in one click, and the 4 rows the current page forces
+     into CREATOR get their own bucket.
+   - **Face gets no button.** In this round face separated 3 of 17 rejects and 0 editors, and CREATOR
+     already holds face-on accounts. A separate face toggle doubles the clicks on every card to record
+     something that moved 3 rows.
+
+   **Alternative (B): add a fifth, CAN'T TELL.** It gives his standing rule "unknown is a hold" a button, at
+   the cost of one more choice per card. His throughput is one page in five, so **A is recommended and B is
+   his call.**
+2. **He grades cut cards.** Without that, no HOLD in §3c can be justified in his terms. The best candidate,
+   `name_rule` OR `R_FACELESS`, would park 249 TikTok and 133 Instagram CUT rows. That recovers about 11 of
+   every 23 lost editors on the 247, against 7 for `name_rule` alone.
+3. **Rank before ship, at $0.** Put "dm for", CONTACT and `name_rule` rows first on his sheet. Where each fires,
+   96.6–100% of rows are editors he approved, against his 82.8% base. His inbox does not change, only the
+   order he reads it in.
+4. **Only if "faceless" must be enforced:** an image judgement per account on the avatar or cover frame.
+   It is named, not made, and not priced here. The text cannot do it: F is 2.5% of bios.
+
+## 8. Paths
+
+All under `%USERPROFILE%\OneDrive\Desktop\clipper finder\`:
+- `scratch\bl1588\rules.py`: the pre-registration.
+- `scratch\bl1588\sample.py`, `sample.out` and `sample.json`: the draw and the mask controls.
+- `scratch\bl1588\face_labels.py`: the blind labels.
+- `scratch\bl1588\face_score.py`, `face_score.out` and `face_score.json`: Part 1.
+- `scratch\bl1588\avail.py`, `avail.out` and `avail.json`: Parts 2–4.
+- `scratch\bl1588\reject_boxes.py`: his 17 in BL-1585's boxes.
+- `scratch\bl1588\bl1588_leakscan.py`, `adjudicate_leaks.py`, `leakscan.out` and `leakscan_report.out`: the
+  leak scan.
+- `scratch\bl1588\snap_stores.py` and `stores_start.json` / `stores_end.json` / `stores_close.json`: the store
+  hashes.
+- `scratch\bl1588\verify_publish.py` and `verify_publish.out`: the publish check.
+- `reports\BL-1588-faceless-and-for-hire-measured.md`: this report.
+
+The per-row reading files (masked text and the join key) are in the session scratchpad, outside the repo,
+and are not committed.
 
 https://raw.githubusercontent.com/ilenader/clippershq-reports/main/reports/BL-1588-faceless-and-for-hire-measured.md
