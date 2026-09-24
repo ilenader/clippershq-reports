@@ -428,6 +428,7 @@ BL-1586-the-full-sweep	leadgen	1.00	auto (stack markers)			BL-1586 (INTERIM, 4 o
 BL-1587-nothing-on-his-desktop-again	leadgen	1.00	auto (stack markers)			BL-1587: nothing of his goes on the Desktop again. The backup now runs to the USB stick and is proven by restore, the 323 deleted cards are rebuilt and vaulted at birth, and his one workbook has the 1,248 rows it was missing
 BL-1588-faceless-and-for-hire-measured	leadgen	1.00	auto (stack markers)			BL-1588: "faceless" cannot be read from a bio, "for hire" barely appears in one, and nothing tested removes creators without costing editors
 BL-1592-four-buttons-rank-before-ship-and-closed-claims	leadgen	1.00	auto (stack markers)			BL-1592: the page now asks "for hire", his sheet can sort the likeliest editors to the top, and a closed claim no longer blocks anyone
+BL-1593-two-reds-fixed-keymap-gate-and-ingest-ready	leadgen	1.00	auto (stack markers)			BL-1593: both reds fixed where they were actually wrong, a grade now says which key order made it, and ingest is proven ready, but the page he has open cannot feed it yet
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
