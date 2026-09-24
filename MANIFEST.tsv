@@ -427,6 +427,7 @@ BL-1585-the-cut-throws-away-more-editors-than-it-lets-creators-in	leadgen	1.00	a
 BL-1586-the-full-sweep	leadgen	1.00	auto (stack markers)			BL-1586 (INTERIM, 4 of 8 territories returned): the grading loop has worked once, its pages are now deleted, and "never contacted" was never measured
 BL-1587-nothing-on-his-desktop-again	leadgen	1.00	auto (stack markers)			BL-1587: nothing of his goes on the Desktop again. The backup now runs to the USB stick and is proven by restore, the 323 deleted cards are rebuilt and vaulted at birth, and his one workbook has the 1,248 rows it was missing
 BL-1588-faceless-and-for-hire-measured	leadgen	1.00	auto (stack markers)			BL-1588: "faceless" cannot be read from a bio, "for hire" barely appears in one, and nothing tested removes creators without costing editors
+BL-1592-four-buttons-rank-before-ship-and-closed-claims	leadgen	1.00	auto (stack markers)			BL-1592: the page now asks "for hire", his sheet can sort the likeliest editors to the top, and a closed claim no longer blocks anyone
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -1032,7 +1033,9 @@ BL-926-clippershq-untest-account	payments	1.00	auto (stack markers)	2026-04-23		
 BL-927-clippershq-marketplace-friction	ambiguous	0.00	auto (stack markers)	2026-09-23		BL-927: where a clipper or a poster gets stuck between arriving and being paid
 BL-927	leadgen	1.00	auto (stack markers)	2026-08-01		BL-927: four of five done — and BL-923's "16 duplicated copies" was overstated, because a shape sweep is a hypothesis and I checked the source
 BL-928-clippershq-blur-desktop-and-clipper-filter	payments	1.00	auto (stack markers)	2026-09-24		BL-928: blur off the card badges and the phone top bar, the star removed, the budget desktop, and a clipper campaign filter
+BL-929-clippershq-clips-load-time	payments	1.00	auto (stack markers)	2026-09-24		BL-929: /clips took 14 seconds on a budget desktop because its clip list crossed the wire uncompressed
 BL-929	leadgen	1.00	auto (stack markers)	2026-08-01		BL-929 — The coordination tool, verified from a clone
+BL-930-clippershq-services-and-limits	leadgen	0.60	auto (stack markers)	2026-09-26		BL-930: every external service ClippersHQ uses, what it costs, and how close each is to a limit
 BL-930	leadgen	1.00	auto (stack markers)	2026-08-01		BL-930 — The tiktok cap binds: $0.02 in 92 seconds where the same run was governed at $40.83. And BL-914's "4x overstatement" was my own measurement error
 BL-931	leadgen	1.00	auto (stack markers)	2026-08-01		BL-931: `clip_library` converted on the fourth attempt — and `_call_with_deadline` is not a prose-only merge, it is a real behaviour difference the other three finders are missing
 BL-932	leadgen	1.00	auto (stack markers)	2026-08-01		BL-932: the two-threshold sweep — 9 pairs, 2 that disagree, and the one that already contradicts itself on 2 live rows
