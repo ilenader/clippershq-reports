@@ -429,6 +429,7 @@ BL-1587-nothing-on-his-desktop-again	leadgen	1.00	auto (stack markers)			BL-1587
 BL-1588-faceless-and-for-hire-measured	leadgen	1.00	auto (stack markers)			BL-1588: "faceless" cannot be read from a bio, "for hire" barely appears in one, and nothing tested removes creators without costing editors
 BL-1592-four-buttons-rank-before-ship-and-closed-claims	leadgen	1.00	auto (stack markers)			BL-1592: the page now asks "for hire", his sheet can sort the likeliest editors to the top, and a closed claim no longer blocks anyone
 BL-1593-two-reds-fixed-keymap-gate-and-ingest-ready	leadgen	1.00	auto (stack markers)			BL-1593: both reds fixed where they were actually wrong, a grade now says which key order made it, and ingest is proven ready, but the page he has open cannot feed it yet
+BL-1594-one-page-in-his-home-and-the-undo-that-already-existed	leadgen	1.00	auto (stack markers)			BL-1594: his home now holds one openable grading page; the re-render is held because his clicks cannot be counted; and the config "undo" I said was missing was there all along
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -1038,6 +1039,7 @@ BL-929-clippershq-clips-load-time	payments	1.00	auto (stack markers)	2026-09-24	
 BL-929	leadgen	1.00	auto (stack markers)	2026-08-01		BL-929 — The coordination tool, verified from a clone
 BL-930-clippershq-services-and-limits	leadgen	0.60	auto (stack markers)	2026-09-26		BL-930: every external service ClippersHQ uses, what it costs, and how close each is to a limit
 BL-930	leadgen	1.00	auto (stack markers)	2026-08-01		BL-930 — The tiktok cap binds: $0.02 in 92 seconds where the same run was governed at $40.83. And BL-914's "4x overstatement" was my own measurement error
+BL-931-clippershq-locked-tile	payments	1.00	auto (stack markers)	2026-09-24		BL-931 — the locked "Change what you do" tile: its second line is gone, the lock is not
 BL-931	leadgen	1.00	auto (stack markers)	2026-08-01		BL-931: `clip_library` converted on the fourth attempt — and `_call_with_deadline` is not a prose-only merge, it is a real behaviour difference the other three finders are missing
 BL-932	leadgen	1.00	auto (stack markers)	2026-08-01		BL-932: the two-threshold sweep — 9 pairs, 2 that disagree, and the one that already contradicts itself on 2 live rows
 BL-933	leadgen	1.00	auto (stack markers)	2026-08-01		BL-933 — HEAD is coherent for production. The sweep that proves it had a 34-hit false-positive rate on its first run, and 10 stale scratch probes are real. **`main.py` is not stalled — its diff grew 4x while I worked**
