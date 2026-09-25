@@ -1,6 +1,6 @@
 # BL-932 — a maker now sees every post of his clip, and his views and money day by day
 
-**UNREMOVABLE: none.** Teardown removed 196 sandbox rows. The sweep then found 0 prefixed values across 343 id columns, and 0 of 60 ledgered product rows remain.
+**UNREMOVABLE: none.** Teardown removed 190 sandbox rows. The sweep then found 0 prefixed values across 343 id columns, and 0 of 60 ledgered product rows remain.
 
 **Shipped 2026-09-25.** Branch `checkpoint/BL-932` (3c6a2bb4), merged to main as 675d31a3.
 Rollback: `git reset --hard pre-merge-BL-932`, then in the SQL editor `DROP TABLE IF EXISTS marketplace_v2_editor_daily;`.
