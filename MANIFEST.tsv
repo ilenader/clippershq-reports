@@ -431,6 +431,7 @@ BL-1592-four-buttons-rank-before-ship-and-closed-claims	leadgen	1.00	auto (stack
 BL-1593-two-reds-fixed-keymap-gate-and-ingest-ready	leadgen	1.00	auto (stack markers)			BL-1593: both reds fixed where they were actually wrong, a grade now says which key order made it, and ingest is proven ready, but the page he has open cannot feed it yet
 BL-1594-one-page-in-his-home-and-the-undo-that-already-existed	leadgen	1.00	auto (stack markers)			BL-1594: his home now holds one openable grading page; the re-render is held because his clicks cannot be counted; and the config "undo" I said was missing was there all along
 BL-1595-a-click-carries-its-own-word-and-his-page-is-ready	leadgen	1.00	auto (stack markers)			BL-1595: a click carries its own word, so nothing he graded is lost; his page is re-rendered, proven end to end, and now saves his work to a file every 25 grades
+BL-1596-the-client-funnel-is-alive-and-the-craft-cut-has-a-home	leadgen	1.00	auto (stack markers)			BL-1596: the Spotify client funnel is alive and no longer needs LamaTok, the craft cut has a tested home that matches master on every row, and Danilo gets a skip list
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -1042,8 +1043,11 @@ BL-930-clippershq-services-and-limits	leadgen	0.60	auto (stack markers)	2026-09-
 BL-930	leadgen	1.00	auto (stack markers)	2026-08-01		BL-930 — The tiktok cap binds: $0.02 in 92 seconds where the same run was governed at $40.83. And BL-914's "4x overstatement" was my own measurement error
 BL-931-clippershq-locked-tile	payments	1.00	auto (stack markers)	2026-09-24		BL-931 — the locked "Change what you do" tile: its second line is gone, the lock is not
 BL-931	leadgen	1.00	auto (stack markers)	2026-08-01		BL-931: `clip_library` converted on the fourth attempt — and `_call_with_deadline` is not a prose-only merge, it is a real behaviour difference the other three finders are missing
+BL-932-clippershq-maker-view	payments	1.00	auto (stack markers)	2026-09-25		BL-932 — a maker now sees every post of his clip, and his views and money day by day
 BL-932	leadgen	1.00	auto (stack markers)	2026-08-01		BL-932: the two-threshold sweep — 9 pairs, 2 that disagree, and the one that already contradicts itself on 2 live rows
+BL-933-clippershq-authorisation-errors-alerts	payments	1.00	auto (stack markers)	2026-09-25		BL-933 — object-level authorisation, production errors, the down-signal, and the reminder flood
 BL-933	leadgen	1.00	auto (stack markers)	2026-08-01		BL-933 — HEAD is coherent for production. The sweep that proves it had a 34-hit false-positive rate on its first run, and 10 stale scratch probes are real. **`main.py` is not stalled — its diff grew 4x while I worked**
+BL-934-clippershq-last-money-gaps	payments	1.00	auto (stack markers)	2026-09-26		BL-934 — the last two known money-path gaps, closed before they were reached
 BL-934	leadgen	1.00	auto (stack markers)	2026-08-01		BL-934 — The estimator now counts by views, and it is right in **both** directions: 10 of 10 recovered clips found, 0 of 8 newly-excluded found. But it recovers **no supply** — the exclusion count is unchanged at 162, a 31-for-31 swap, and all 31 are already labelled
 BL-935	leadgen	1.00	auto (stack markers)	2026-08-02		BL-935 (claim id BL-931) — The gate was rejecting **24% of the corpus it guards**. 113 of 472 published reports failed it. Length is gone, replaced by shape and by context; false positives **105 → 35**, every named class cleared, and a test caught my first fix weakening a real detection.
 BL-936-atomic-io-last-site	leadgen	1.00	auto (stack markers)	2026-08-01		BL-936: 23 of 23, and an exemption list with nothing left in it
