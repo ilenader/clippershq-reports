@@ -1,19 +1,19 @@
-# BL-1601: Google Drive was found and 38.5 GB of edits moved in, your swipe feed more than doubled, and mined terms beat hand-made ones
+# BL-1601: Google Drive was found and all 56.9 GB of edits moved in, your swipe feed more than doubled, and mined terms beat hand-made ones
 
 ## CARD
 
 1. **LamaTok key: NOT ROTATED** -- still the key BL-1598 partly printed; rotate it (step 10.1).
-2. **Drive: FOUND** (installed 10-03 evening). **38.5 GB / 8,947 edits moved**, each size+sha256-checked; **14.5 GB waiting** (tonight's downloads, moved at the end of each run).
+2. **Drive: FOUND** (installed 10-03 evening). **56.9 GB / 12,329 edits moved**, each size+sha256-checked; **0 GB waiting** in staging. A sync bug that stalled it was found and fixed.
 3. **End-to-end test: PASSED twice** on a TEMP copy (9 YES; downloaded, verified, moved into a TEMP Drive folder, deleted); your decisions and blocklist byte-identical.
-4. **Swipe feed: 10,192** (was 4,402). New: UFC 747 ($1.07/1k), basketball 666 ($1.19), golf 429 ($1.85), parked pass 2,822 ($1.06), term test 1,104.
+4. **Swipe feed: 10,545** (was 4,402). New: UFC 747 ($1.07/1k), basketball 666 ($1.19), golf 429 ($1.85), parked pass 3,196 ($1.09), term test 1,104.
 5. **Mined vs hand-made terms: 941 vs 756 accounts per dollar** -- mined 1.24x better.
 6. **Memory:** your Chrome (peak ~2,165 processes / 18.7 GB), 15 Claude Code sessions (~5 GB), other jobs (~8 GB). **Long runs now detached** -- the chain survived 2 reaps.
 7. **Second vault root: SET** at D:\ClippersHQ_vault (a different physical disk); 5,553 files re-hashed, restore proved; daily 20:00 backup now goes there (tonight: PASS).
 8. **Spotify:** contact-first, skip list and the 74 unused queries permanent; **cap price fixed** ($1.00 cap = $1.00 real, was $1.15).
-9. **Spent: $6.7164 of $8.75** (LamaTok; Instagram $0). The parked pass is still running detached inside $8.75; final total in section 6.
-10. **YOU:** (1) rotate the LamaTok key; (2) keep this PC on and Drive signed in until ~20 GB uploads; (3) close Chrome windows you do not need; (4) swipe -- Start Menu > ClippersHQ > Swipe accounts (0 decisions so far).
+9. **Spent: $7.1862 of $8.75** (LamaTok; Instagram $0). The last $1.56 goes to the parked pass after 00:10 on 10-05, inside your caps.
+10. **YOU:** (1) rotate the LamaTok key; (2) keep this PC on and Drive signed in until ~31 GB uploads; (3) close Chrome windows you do not need; (4) swipe -- Start Menu > ClippersHQ > Swipe accounts (0 decisions so far).
 
-**Round:** BL-1601 · LamaTok $6.7164 so far (11,194 calls), $0 Instagram · counts only · nothing on the Desktop · master, MARK, your clipper workbook and the clipper label store never written · leak scan on both corpora (edit accounts; lead addresses, domains, handles, names).
+**Round:** BL-1601 · LamaTok $7.1862 so far (11,977 calls), $0 Instagram · counts only · nothing on the Desktop · master, MARK, your clipper workbook and the clipper label store never written · leak scan on both corpora (edit accounts; lead addresses, domains, handles, names).
 
 ## 1. What it was asked to do
 
@@ -42,7 +42,7 @@ Every code change was written test-first, and each test was seen failing first. 
 | 3 | Second vault root | D: is disk 0 (SATA Kingston SA400, 894 GB). C: is disk 1 (NVMe Kingston NV2, 932 GB). The serials differ. `operator_home.VAULT_ROOTS` now has `D:\ClippersHQ_vault`; review_loop and outputs_gc read that one definition. 4 tests. Copy: 5,553 files, 2.01 GB, **0 re-hash mismatches**, both Spotify client files present. A restore from D: matched both the C: copy and your live file. |
 | 3 | Daily 20:00 backup | `ClippersHQ-Backup` now targets `D:\ClippersHQ_vault\backups`. Last 3 scheduled results: **10-01 PASS, 10-02 FAILED** (1 of 219 members did not restore equal; the run overlapped BL-1600's paid chain), **10-03 PASS** (new target, 222 of 222). A manual run to the new target also passed. |
 | 4 | `tools/run_detached.py` | A long job runs as a one-off scheduled task: a pythonw runner, a log, and a job file holding its state and exit code. The task deletes itself. 7 tests. **Live proof:** a $0 dry run whose parent was svchost (Task Scheduler). The shell that launched it exited first. It finished EXITED 0, and its task removed itself. |
-| 5 | Drive last mile | The detector said "not installed" at 14:30. It found Drive at 19:00: G:, My Drive, writable. **Marker test:** written, read back, sha256 equal, test folder removed. The runs' own sync then moved **8,947 edits / 38.5 GB**, each verified by size + sha256 before its staging copy went. **14.5 GB (3,382 files) is still staged**: tonight's new downloads, moved at the end of each run. Drive's upload cache is `%LOCALAPPDATA%\Google\DriveFS\<account>\content_cache` on C: and held 20.3 GB waiting to upload. C: has 102.8 GB free. |
+| 5 | Drive last mile | The detector said "not installed" at 14:30. It found Drive at 19:00: G:, My Drive, writable. **Marker test:** written, read back, sha256 equal, test folder removed. The runs' own sync then moved **8,947 edits / 38.5 GB**, each verified by size + sha256 before its staging copy went. **Then `edits.py sync` moved only 94 of 3,317 and reported success.** Cause, measured: straight after a copy, G: reports a stale size (2,097,152 for a 2,247,166-byte file whose sha256 was already right), and  checked the size first. Earlier copies passed only because the PC was slow enough for the size to catch up. **Fixed** (`0e73e427`, test-first): the check now uses the bytes actually read. The next sync moved **3,163 files / 14.6 GB in 8 minutes**. **Now: 12,329 edits / 56.9 GB in Drive, 0 in staging.** Drive's upload cache is `%LOCALAPPDATA%\Google\DriveFS\<account>\content_cache` on C: and held 31.4 GB waiting to upload. C: has 105.7 GB free. |
 | 6 | End-to-end test (scratch/bl1601/e2e_harvest.py) | **Pass 1, no Drive yet:** a TEMP copy of edits.db with 9 real feed accounts marked YES. The real `edits.py harvest` ran with a $0.05 cap. Results: 11 calls ($0.0066), canary OK, 9 feeds, 69 posts held PENDING by the 3-day rule, 28 good edits downloaded, **28 of 28 verified** by size + sha256, 0 moved (no Drive). **Pass 2, Drive found:** the same run, plus a TEMP folder inside My Drive. 16 downloaded, **11 moved into the TEMP Drive folder**, all verified, folder deleted. **Your database:** decisions and blocklist byte-identical in both passes. Pass 1 also showed account statuses and the db file identical; in pass 2 those two moved only because the paid chain was writing at the same time. 0 test decisions and 0 YES accounts in your real database. |
 | 7 | The chain, detached | See section 3. It runs as a one-off scheduled task and books every 10 calls. It survived two reaps of this session's shells. |
 | 7 | Parked stop rule | `edits.py parked --stop-window 500 --stop-below 0.30 --window-key bl1601`. The window lives in the DB, so it carries across runs: your $3 per-run cap splits the pass. A rate stop is not a failure. 5 tests. |
@@ -63,6 +63,7 @@ Every code change was written test-first, and each test was seen failing first. 
 | Terms marvel HAND (25 pack terms, ran dry) | 654 | 0.3924 | 285 | 1.38 |
 | Terms marvel MINED (25 terms, ran dry) | 854 | 0.5124 | 484 | 1.06 |
 | Parked pass, run 1 (newest seen first) | 4,989 | 2.9934 | 2,822 | 1.06 |
+| Parked pass, run 2 (the rest of 10-04's day cap) | 825 | 0.4950 | 374 | 1.32 |
 | End-to-end tests (TEMP DB) | 22 | 0.0132 | 0 | - |
 
 - **Mined vs hand-made, same niches:**
@@ -72,8 +73,8 @@ Every code change was written test-first, and each test was seen failing first. 
   - The tennis mined terms had already been walked by the 10-03 07:00 task, so they are not in this test.
 - **The parked pass:**
   - Run 1 checked 4,976 authors, and 2,894 were active (58.2%).
-  - The last 500 were at **44.4%**, above your 30% line, so the pass goes on.
-  - 19,021 authors are parked now; the pilots added new ones.
+  - The last 500 were at **44.4%**, above your 30% line, so the pass goes on. After run 2 they were at **47.2%**.
+  - **Where it stands:** 18,262 authors are parked. The last $1.56 runs after 00:10 on 10-05; your day cap leaves nothing earlier.
 - **Database (Part 8):**
   - 90,707 rows moved, and all 90,707 verified by read-back.
   - Video rows went from 261,343 to 170,636, and the archive holds 90,707: **nothing lost**.
@@ -101,13 +102,13 @@ Every code change was written test-first, and each test was seen failing first. 
 3. **The second end-to-end pass wrote `index.csv` files into your real Drive day folders.** The TEMP copy kept `drive_path` values that point into your Drive. I had nulled only the staging paths. No video file was touched, because sync only moves rows that have a staging path. The rewritten indexes listed the same rows your database holds, and the next real run rewrote all of them from your database within the hour.
 4. **I stopped the football mined arm by PID** at $0.17 of its $0.40. It was stuck on the pre-fix lookup, and only the fix would have helped it. The guard closed it and booked its 11 unbooked calls at the next start. Its 159 accounts come from the run's own last progress line, because the kill dropped its counters.
 5. **My first live-config leak control was wrong.** It counted a 390-character pricing note as a secret, so ordinary key names matched it. Fixed to credential-named or credential-shaped values only.
-6. **The vendor's balance moved more than this round booked** in some windows: +3, +14 and +37 requests. LamaTok is shared with every tool on this PC, so a balance delta cannot be billed to one round. This round's spend is its own rows: $6.7164.
+6. **The vendor's balance moved more than this round booked** in some windows: +3, +14 and +37 requests. LamaTok is shared with every tool on this PC, so a balance delta cannot be billed to one round. This round's spend is its own rows: $7.1862 at report time.
 
 ## 6. Money, stores, disk
 
 | | |
 |---|---|
-| LamaTok this round | **$6.7164** (11,194 calls in 1,067 BL-1601 rows, booked every 10 calls). The parked pass continues inside $8.75. |
+| LamaTok this round | **$7.1862** (11,977 calls in 1,141 BL-1601 rows, booked every 10 calls). The chain spends the last $1.5638 after 00:10 on 10-05, then stops. |
 | Instagram (HikerAPI) | $0 |
 | Vendor balance | $230.25 at the first test; $227.02 after the marvel arms |
 | config.json | written once, backup first: `config.backups\config.json.20261003_140126.bl1601_pre_permanent.bak` |
@@ -118,7 +119,7 @@ Every code change was written test-first, and each test was seen failing first. 
 ## 7. Ranked next steps
 
 1. **You:** rotate the LamaTok key.
-2. **You:** swipe. 10,192 accounts wait. After 200 swipes, `tools/edits.py learn` can start earning rules.
+2. **You:** swipe. 10,545 accounts wait. After 200 swipes, `tools/edits.py learn` can start earning rules.
 3. **Point term growth at mined terms:** they bring 1.24x more accounts per dollar, and the hand-made packs ran dry in both niches tested.
 4. **Fix the same cap mispricing in `_find_twitch`** (`control.py`, its own meter block).
 5. **Drop golf** from discovery unless you want it. At $1.85 per 1,000 it costs 1.7x as much as UFC.
@@ -128,9 +129,9 @@ Every code change was written test-first, and each test was seen failing first. 
 - **Code:**
   - `tools/config_peek.py`, `tools/run_detached.py`
   - `clippershq/edits_archive.py`
-  - `clippershq/edits_engine.py` (feed_parked stop rule), `clippershq/edits_db.py` (lookup), `tools/edits.py` (parked flags, archive)
+  - `clippershq/edits_engine.py` (feed_parked stop rule), `clippershq/edits_db.py` (lookup), `clippershq/edits_drive.py` (verify by bytes read), `tools/edits.py` (parked flags, archive)
   - `clippershq/control.py` (Spotify cap price), `clippershq/operator_home.py`, `tools/review_loop.py`, `tools/outputs_gc.py` (vault root)
-- **Tests:** `tests/test_bl1601_*.py` (8 files).
+- **Tests:** `tests/test_bl1601_*.py` (9 files).
 - **Round files:** `scratch/bl1601/`
   - chain.py, chain_results.jsonl
   - e2e_harvest.py, e2e_result*.json
