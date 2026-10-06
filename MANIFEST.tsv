@@ -443,6 +443,7 @@ BL-1604-downloads-paused-scope-set-to-five-niches-out-of-scope-moved-not-deleted
 BL-1605-go-live-3747-videos-wait-for-you-nothing-reaches-drive-unapproved	leadgen	1.00	auto (stack markers)			BL-1605: go-live -- 3,747 fresh videos are waiting for you, and nothing reaches Drive unless you approve it
 BL-1606-the-app-bilingual-portable-minecraft-closed	leadgen	1.00	auto (stack markers)			BL-1606: ClippersHQ is now one app, in Serbian and English. Minecraft got in through "no evidence", which is now closed, and a portable copy waits on D:
 BL-1608-drive-pinned-to-new-account-me-package-everything	leadgen	1.00	auto (stack markers)			BL-1608 (finishes BL-1607): your new Google Drive account is pinned, and the "me" package carries everything
+BL-1609-advisor-tour-the-app-the-rules-the-numbers-the-gaps	leadgen	1.00	auto (stack markers)	2026-10-06		BL-1609: Advisor tour of the app, rules, numbers, money, gaps and reports
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
