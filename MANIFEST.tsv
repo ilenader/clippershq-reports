@@ -444,6 +444,7 @@ BL-1605-go-live-3747-videos-wait-for-you-nothing-reaches-drive-unapproved	leadge
 BL-1606-the-app-bilingual-portable-minecraft-closed	leadgen	1.00	auto (stack markers)			BL-1606: ClippersHQ is now one app, in Serbian and English. Minecraft got in through "no evidence", which is now closed, and a portable copy waits on D:
 BL-1608-drive-pinned-to-new-account-me-package-everything	leadgen	1.00	auto (stack markers)			BL-1608 (finishes BL-1607): your new Google Drive account is pinned, and the "me" package carries everything
 BL-1609-advisor-tour-the-app-the-rules-the-numbers-the-gaps	leadgen	1.00	auto (stack markers)	2026-10-06		BL-1609: Advisor tour of the app, rules, numbers, money, gaps and reports
+BL-1611-the-app-runs-without-claude-code-and-moves-through-drive	leadgen	1.00	auto (stack markers)			BL-1611 — the app runs without Claude Code, and moves to your other PC through Google Drive
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -1065,6 +1066,8 @@ BL-935-clippershq-owner-submit-marketplace	payments	1.00	auto (stack markers)	20
 BL-935	leadgen	1.00	auto (stack markers)	2026-08-02		BL-935 (claim id BL-931) — The gate was rejecting **24% of the corpus it guards**. 113 of 472 published reports failed it. Length is gone, replaced by shape and by context; false positives **105 → 35**, every named class cleared, and a test caught my first fix weakening a real detection.
 BL-936-atomic-io-last-site	leadgen	1.00	auto (stack markers)	2026-08-01		BL-936: 23 of 23, and an exemption list with nothing left in it
 BL-936	leadgen	1.00	auto (stack markers)	2026-08-01		BL-936: the semaphore adoption is blocked — BL-927 holds all four finders *and has them staged in its index*. Three of five items landed; the two that did not are named with evidence
+BL-937-clippershq-poster-only-marketplace	payments	1.00	auto (stack markers)	2026-10-07		BL-937: the marketplace is poster only for clippers
+BL-938-clippershq-marketplace-finish	payments	1.00	auto (stack markers)	2026-07-30		BL-938 — the marketplace finished for the owner
 BL-938	leadgen	1.00	auto (stack markers)	2026-08-02		BL-938 — The last two write-only caps are closed: youtube now takes the smallest of four ceilings instead of its own $5, and google_play has a governor where it had none
 BL-939	leadgen	1.00	auto (stack markers)	2026-08-01		BL-939: the guard that raced the tree now owns its own repo — 5/5 green. The semaphore is blocked by a staged index, and the proxy rule is written down
 BL-940	leadgen	1.00	auto (stack markers)			BL-940 — The empty-bed fix was written, uncommitted, and one `git clean` from gone
