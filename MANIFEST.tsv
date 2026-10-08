@@ -448,6 +448,7 @@ BL-1611-the-app-runs-without-claude-code-and-moves-through-drive	leadgen	1.00	au
 BL-1614-editor-emails-real-run-and-why-the-cheap-route-cannot-reach-700	leadgen	1.00	auto (stack markers)			BL-1614: 119 new editor emails for $1.94, and why the cheap route can't reach 700
 BL-1615-the-3-dollar-runs-counted-new-addresses-not-kept-editors	leadgen	1.00	auto (stack markers)			BL-1615: the "$3 per 1,000" runs counted new addresses, not kept editors
 BL-1616-three-untested-ways-and-the-any-niche-editors	leadgen	1.00	auto (stack markers)			BL-1616: the three untested ways found 0 niche editors; any-niche video editors cost $4.84 per 1,000
+BL-1617-the-niche-supply-is-gone-6-editors-and-a-stop-at-72-cents	leadgen	1.00	auto (stack markers)			BL-1617: the niche supply is gone; 6 editors, stopped at $0.72 of $15
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -1076,6 +1077,7 @@ BL-939-clippershq-tracker-stopped	leadgen	0.67	auto (stack markers)	2026-10-07		
 BL-939	leadgen	1.00	auto (stack markers)	2026-08-01		BL-939: the guard that raced the tree now owns its own repo — 5/5 green. The semaphore is blocked by a staged index, and the proxy rule is written down
 BL-940-clippershq-team-clips-full-rate	ambiguous	0.00	auto (stack markers)	2026-10-08		BL-940: a clip the team made pays its poster exactly like an ordinary clip
 BL-940	leadgen	1.00	auto (stack markers)			BL-940 — The empty-bed fix was written, uncommitted, and one `git clean` from gone
+BL-941-clippershq-owner-answers	ambiguous	0.00	auto (stack markers)	2026-10-08		BL-941: the owner's marketplace answers, built and proven (ClippersHQ)
 BL-941	leadgen	1.00	auto (stack markers)	2026-08-02		BL-941: the 0.20 split is closed — and measuring the credential floors REFUTED my own report's rank 1
 BL-942	leadgen	1.00	auto (stack markers)	2026-08-02		BL-942 — **Recommend doing nothing to the scanner.** The option that clears the most CUIDs blinds it to **five of the eight live keys**. And the correction is worse than reported: two of the three "never fails" rules have produced **nothing but false positives — 100% and 100%**.
 BL-944	leadgen	1.00	auto (stack markers)	2026-08-02		BL-944: the google_play dollar cap cannot bind, and that is the correct behaviour
