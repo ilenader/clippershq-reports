@@ -132,7 +132,10 @@ Two briefs, one round:
 
 ## 6. Leak scan
 
-See the publish commit: secret scan, plus the two-corpus scan on every file this round committed. Results are in the commit message.
+| Scan | Result |
+|---|---|
+| Secret scan (publish_report) | **PASS**: 0 config leaves, 0 emails, 0 credentials |
+| Two-corpus scan (`scratch/bl1604/leak_adjudicate.py`, edit and lead corpora, 31 committed files) | 304 hits. 237 are explained by the public vocabulary. The other 67 were adjudicated by value, without printing them: public athlete, celebrity, club and competition names in the tag lists I typed (gen_niches 56, tags_build 5), plus ordinary words (stacked, combat, comic, deadline). **0 leaks. This report: 0 hits.** |
 
 ## 7. Next
 
