@@ -449,6 +449,7 @@ BL-1614-editor-emails-real-run-and-why-the-cheap-route-cannot-reach-700	leadgen	
 BL-1615-the-3-dollar-runs-counted-new-addresses-not-kept-editors	leadgen	1.00	auto (stack markers)			BL-1615: the "$3 per 1,000" runs counted new addresses, not kept editors
 BL-1616-three-untested-ways-and-the-any-niche-editors	leadgen	1.00	auto (stack markers)			BL-1616: the three untested ways found 0 niche editors; any-niche video editors cost $4.84 per 1,000
 BL-1617-the-niche-supply-is-gone-6-editors-and-a-stop-at-72-cents	leadgen	1.00	auto (stack markers)			BL-1617: the niche supply is gone; 6 editors, stopped at $0.72 of $15
+BL-1621-briefing-for-the-strategist	leadgen	1.00	auto (stack markers)	2026-10-11		BL-1621: briefing for the strategist — the business, the machines, the rules, the money, and what is broken right now
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
@@ -1079,7 +1080,9 @@ BL-940-clippershq-team-clips-full-rate	ambiguous	0.00	auto (stack markers)	2026-
 BL-940	leadgen	1.00	auto (stack markers)			BL-940 — The empty-bed fix was written, uncommitted, and one `git clean` from gone
 BL-941-clippershq-owner-answers	ambiguous	0.00	auto (stack markers)	2026-10-08		BL-941: the owner's marketplace answers, built and proven (ClippersHQ)
 BL-941	leadgen	1.00	auto (stack markers)	2026-08-02		BL-941: the 0.20 split is closed — and measuring the credential floors REFUTED my own report's rank 1
+BL-942-clippershq-edit-variety	payments	1.00	auto (stack markers)	2026-10-09		BL-942: stopping one clip being posted by too many accounts, with genuinely different edits (ClippersHQ)
 BL-942	leadgen	1.00	auto (stack markers)	2026-08-02		BL-942 — **Recommend doing nothing to the scanner.** The option that clears the most CUIDs blinds it to **five of the eight live keys**. And the correction is worse than reported: two of the three "never fails" rules have produced **nothing but false positives — 100% and 100%**.
+BL-944-clippershq-exclusive-reservations	ambiguous	0.00	auto (stack markers)	2026-10-09		BL-944: the exclusive marketplace engine, one clip, one poster (ClippersHQ)
 BL-944	leadgen	1.00	auto (stack markers)	2026-08-02		BL-944: the google_play dollar cap cannot bind, and that is the correct behaviour
 BL-947	leadgen	1.00	auto (stack markers)	2026-08-02		BL-947: 31 claimed, 6 real — and the site named as "the credential scanner" was never unguarded. The scanner was always checked; the *collision* check was not
 BL-948	leadgen	1.00	auto (stack markers)	2026-08-02		BL-948 — The four `count=` defaults were dead, so they are now **impossible**. Six of the other eleven are the same shape; five are load-bearing and legitimate. And the attribution warning came true while I was writing it
