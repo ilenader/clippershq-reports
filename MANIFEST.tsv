@@ -471,6 +471,7 @@ BL-1632-cheaper-faceless-research-one-small-set-near-15-nothing-under-15-at-volu
 BL-1633-office-launcher-installed-and-proved	leadgen	1.00	auto (stack markers)	2026-10-12		BL-1633: the office launcher is installed, fixed and proved on his PC
 BL-1634-housekeeping-facts-restamp-no-double-windows-old-reports-claims-run-all-help	leadgen	1.00	auto (stack markers)	2026-10-12		BL-1634: housekeeping -- FACTS re-stamp, no double windows, 7 old reports published, claims registry clean, run_all --help
 BL-1635-20-basketball-sent-and-the-chance-byte-match-fix	leadgen	1.00	auto (stack markers)	2026-10-13		BL-1635: 20 basketball edits sent to Drive, all 20 clean; the byte check no longer fails a file on a chance match
+BL-1636-send-gates	leadgen	1.00	auto (stack markers)	2026-10-13		BL-1636: wrong niche in the basketball send -- found why, 4 real ones added, and every send now looks at each video first
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
