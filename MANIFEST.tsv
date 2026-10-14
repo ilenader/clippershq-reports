@@ -478,6 +478,7 @@ BL-1639-tv-series-count-as-movies	ambiguous	0.00	auto (stack markers)	2026-10-14
 BL-1640-869-movies-shows-into-the-movies-niche	leadgen	1.00	auto (stack markers)	2026-10-14		BL-1640: the 869 "other movies / shows" library rows are now in the movies (superhero) niche ($0)
 BL-1641-ai-decides-on-and-tennis	leadgen	1.00	auto (stack markers)	2026-10-14		BL-1641: "AI decides" is ON; 100 tennis asked, 1 real tennis edit sent -- tennis edits are scarce, and the library's "tennis" was mostly other sports
 BL-1642-ai-reviewer-keeps-learning	leadgen	1.00	auto (stack markers)	2026-10-14		BL-1642: the AI reviewer keeps learning -- mistake book, rolling score on Home, a daily learner with rollback; v6 decides ~23 % alone (was ~15 %) with 0 wrong on the eye-labelled sets
+BL-1643-raw-emails-mode	leadgen	1.00	auto (stack markers)			BL-1643: RAW EMAILS mode. Every new email on the hashtags you pick costs $4.93 per 1,000 (85 new for $0.42)
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
