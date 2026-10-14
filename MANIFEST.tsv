@@ -473,6 +473,7 @@ BL-1634-housekeeping-facts-restamp-no-double-windows-old-reports-claims-run-all-
 BL-1635-20-basketball-sent-and-the-chance-byte-match-fix	leadgen	1.00	auto (stack markers)	2026-10-13		BL-1635: 20 basketball edits sent to Drive, all 20 clean; the byte check no longer fails a file on a chance match
 BL-1636-send-gates	leadgen	1.00	auto (stack markers)	2026-10-13		BL-1636: wrong niche in the basketball send -- found why, 4 real ones added, and every send now looks at each video first
 BL-1637-ai-video-reviewer	leadgen	1.00	auto (stack markers)	2026-10-14		BL-1637: the AI video reviewer -- built, measured on 1,400 fresh videos, live in SHADOW; v4 never wrong on what it decides alone, but it decides only ~15 %
+BL-1638-pc-off-was-a-windows-update-restart-and-ai-reviewer-audit-1-clean	ambiguous	0.00	auto (stack markers)	2026-10-14		BL-1638: the 03:44 "PC off" was a Windows Update restart; blind audit #1 of the AI video reviewer is clean (240/240)
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
