@@ -17,7 +17,7 @@ $0 HikerAPI. The OpenRouter account has **$0.38 left**.
 | 6 | **$ per 1,000 videos** | **$0.53** (v4, measured on 450: 2.93 calls a video). |
 | 7 | **In the app** | Reviews every waiting video as soon as it lands, after any restart too. **SHADOW**: own table `ai_reviews`, nothing moved, the friend's queue untouched. Live since 08:23; v4 since 10:10. Settings > **AI reviewer > "AI decides for me"** (OFF; owner only). |
 | 8 | **The day's job** | `python tools\edits.py job --football 100 --basketball 100` -- built; **proved only in a fake world ($0)**: `job --fake` ends DONE. |
-| 9 | **Audit** | Blind audit #1 (240 of the 270 v4 auto-decisions) **sent to 3 FIXER at 10:05; result pending.** |
+| 9 | **Audit** | **Blind audit #1 by 3 FIXER: clean -- the AI was right on 240 / 240** (95 % interval 98.5-100 %). Audit #2 is **parked**: it needs ~1,300 new videos judged (~$0.70) and the OpenRouter account has $0.37. |
 
 ## Ground truth (2,963 videos, eye-labelled)
 
@@ -146,6 +146,26 @@ v4 on the earlier sets (not clean: the v4 rule was built from their misses): tun
 - `run_all -k test_bl16*`: **60/60 suites green, 636 checks** (before the v4 edits; the BL-1637 suite was re-run green
   after each change).
 
+## Blind audit #1 (3 FIXER, 10:05-10:15, $0)
+
+- **240 v4 auto-decisions** (152 YES, 88 NO), drawn at random from all 270 on the labelled sets, under anonymous ids.
+  3 FIXER saw no labels and no key.
+- 6 independent Sonnet sub-agents judged every sheet against the spec before opening the AI's answers. 3 FIXER
+  re-checked both disagreements and 8 risky agreements by eye.
+- **Result: AI right on 240 / 240 = 100 %** (95 % interval 98.5-100 %). 0 undecided, 0 wrong.
+- If TV-series character edits are NOT "movies", 2 flip: **238 / 240 = 99.2 %**.
+- **Owner questions** (not errors):
+  1. Do TV-series character edits count as "movies / superheroes"? The reviewer counts film / series as the
+     superhero niche.
+  2. Edits built from still photos with heavy motion effects: the auditor and the AI both said YES; the spec says
+     "photo slideshow = NO".
+- **Fixed from the audit:** a still meme / screenshot (frozen for the whole video) is now kind `static`, not `broken`.
+  The verdict NO was already right.
+- **Limit (the auditor's own words):** the auditors are Claude models too, so they may share the AI's blind spots.
+- **Audit #2 is parked.** Only 30 unseen v4 auto-decisions are left. 200 new ones need ~1,300 more videos through
+  the reviewer (~$0.70); the account has $0.37. Draining it would also stop BL-1636's send gates, which use the same
+  key. Alternative after a top-up: audit the live shadow verdicts on real queue videos as they arrive.
+
 ## Not done
 
 - Research spend ($2.26, 12,164 calls) is booked in spend.json as campaign `ai_review`, label `bl1637_research`.
@@ -162,3 +182,5 @@ v4 on the earlier sets (not clean: the v4 rule was built from their misses): tun
 Code: `clippershq/edits_ai_review.py`, `clippershq/edits_ai_job.py`, `tools/edits.py` (job), `tools/edits_job_fake.py`,
 app / db / i18n / server wiring, `tests/test_bl1637_ai_review.py`. Research scripts: `scratch/bl1637/`.
 Data (private, never the repo): `%LOCALAPPDATA%\ClippersHQ\edits\ai_review\`.
+
+- 10:40 FINDER BL-1637 AI video reviewer: v4 66/66 on a fresh 450 (15.1 % alone), blind audit #1 240/240, live in shadow, audit #2 parked on OpenRouter credit (DONE)
