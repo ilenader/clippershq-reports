@@ -480,6 +480,7 @@ BL-1641-ai-decides-on-and-tennis	leadgen	1.00	auto (stack markers)	2026-10-14		B
 BL-1642-ai-reviewer-keeps-learning	leadgen	1.00	auto (stack markers)	2026-10-14		BL-1642: the AI reviewer keeps learning -- mistake book, rolling score on Home, a daily learner with rollback; v6 decides ~23 % alone (was ~15 %) with 0 wrong on the eye-labelled sets
 BL-1643-raw-emails-mode	leadgen	1.00	auto (stack markers)			BL-1643: RAW EMAILS mode. Every new email on the hashtags you pick costs $4.93 per 1,000 (85 new for $0.42)
 BL-1644-tennis-raw	leadgen	1.00	auto (stack markers)			BL-1644: TENNIS raw run. 634 new tennis emails for $1.30 ($2.05 per 1,000), but only 29 are editors: tennis bios with an email are mostly creators
+BL-1645-overnight-editors	leadgen	1.00	auto (stack markers)			BL-1645: overnight EDITORS run: 674 confirmed editors with emails (football 431, movies 241, tennis 2) for $13.74; tennis is walked out
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
