@@ -501,6 +501,7 @@ BL-1662-new-editor-email-routes	leadgen	1.00	auto (stack markers)	2026-10-17		BL
 BL-1663-sports-football-cotag-walk	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1663 -- sports / football editors from a fresh named-subject co-tag list: 111 editors (63 first world) for $2.39
 BL-1665-editor-emails-per-30	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1665 -- 2,000 / 5,000 / 10,000 real editor emails per $30? Where the money goes, and what free tests showed
 BL-1666-ig-phone-and-tiktok-contact	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1666 -- Instagram public phone saved from the profile call we already pay for; TikTok has no hidden contact field
+BL-1667-cross-platform-editor-emails	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1667 -- More emails for editors we already found: username tools, Osintgram, Instagram, collab partners
 BL-1668-office-stop-hook	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1668: an office window can no longer end its turn idle -- Stop hook sends it to its order or to wait_orders ($0)
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
