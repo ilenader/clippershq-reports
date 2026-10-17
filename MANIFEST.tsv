@@ -499,6 +499,7 @@ BL-1660-length-is-the-video-track	leadgen	1.00	auto (stack markers)			BL-1660: a
 BL-1661-free-edit-checker	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1661: a free edit checker that learns -- built, round 1 done (62 % right on unseen tennis clips); its sure "NOT" is 97 % right, its "EDIT" needs Claude Code ($0)
 BL-1662-new-editor-email-routes	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1662 -- new ways to get REAL editor emails: 7 routes tested, ranked
 BL-1663-sports-football-cotag-walk	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1663 -- sports / football editors from a fresh named-subject co-tag list: 111 editors (63 first world) for $2.39
+BL-1666-ig-phone-and-tiktok-contact	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1666 -- Instagram public phone saved from the profile call we already pay for; TikTok has no hidden contact field
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
