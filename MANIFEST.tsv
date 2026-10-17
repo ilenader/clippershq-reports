@@ -496,6 +496,7 @@ BL-1657-free-email-methods	leadgen	1.00	auto (stack markers)	2026-10-16		BL-1657
 BL-1658-farm-sheets	leadgen	1.00	auto (stack markers)	2026-10-16		BL-1658: the tennis review's sheets can now be made on a Flashcut farm PC -- built and tested ($0); it needs Flashcut to add one job type first
 BL-1659-timeout-is-not-broken	leadgen	1.00	auto (stack markers)	2026-10-16		BL-1659: the AI reviewer rejected 9 good videos as "broken" because the PC was too busy to read them in 60 s; a timeout now leaves the video undecided and it is tried again later ($0)
 BL-1660-length-is-the-video-track	leadgen	1.00	auto (stack markers)			BL-1660: a video with longer sound than picture was called "broken"; the length is now the picture's ($0)
+BL-1661-free-edit-checker	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1661: a free edit checker that learns -- built, round 1 done (62 % right on unseen tennis clips); its sure "NOT" is 97 % right, its "EDIT" needs Claude Code ($0)
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
