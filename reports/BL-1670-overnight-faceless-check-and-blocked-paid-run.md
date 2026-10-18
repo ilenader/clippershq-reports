@@ -46,3 +46,21 @@ never got a budget line for this run (only MILOJE/ALFRED writes budgets; asked 0
 ## Files
 - scratch/bl1670/{partners70.py, shots70.py, chain70.py, process70.py, eyes70.js, mk_eyes70.py, done70.sh, paid70.sh}
 - work data: %LOCALAPPDATA%\ClippersHQ\bl1670_work\ (partner_cands.json, c70_*.tsv, verdicts70.json)
+
+## 4. Paid run 18 Oct (order 0923, wallet line "Finder leads 18 Oct" $30) -- ran 09:25-11:05, stopped at $2.98
+Strict faceless rule: an editor goes on a list only when Opus says F on its page picture (RUBRIC.md).
+| chunk | tags | pages looked at | Opus F (faceless editors) | first world |
+|---|---|---|---|---|
+| b70_m1 movies/TV | 40 | 489 | 6 | 5 |
+| b70_m2 movies/TV | 40 | 462 | 13 | 7 |
+| b70_m3 movies/TV | 39 | 102 | 5 | 1 |
+| b70_m4 6 fresh titles | 6 | 332 | **0** | 0 |
+| b70_s1 sports named co-tags | 39 | 459 | **4** (C 362, X 52, U 23, B 18) | 4 |
+| **total** | 164 | 1,844 | **28** | **17** |
+- Spent **$2.98** (LamaTok counter, base 143,137), $4 booked in the wallet, **$27.02 not spent**.
+- Price: **$106 per 1,000 faceless editors** ($175 per 1,000 first world). BL-1656 sold movies/TV at ~$72/1k and
+  clippers at $43/1k under the looser check; the strict Opus look keeps ~1.5 % of pages, which triples the price.
+- Why so few: 76-80 % of pages behind named movie/TV/sports tags show the owner's face (fans, reactors, players).
+- Stopped by my own price rule (> 3x the usual price). The rest of the $30 needs Dusan's answer, not mine.
+- Files: operator\movies_EDITORS_20261018_m{1..4}.xlsx, sports_EDITORS_20261018_s1.xlsx,
+  editors_{movies,sports}_20261018_firstworld_*.xlsx.
