@@ -505,6 +505,7 @@ BL-1666-ig-phone-and-tiktok-contact	leadgen	1.00	auto (stack markers)	2026-10-17
 BL-1667-cross-platform-editor-emails	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1667 -- More emails for editors we already found: username tools, Osintgram, Instagram, collab partners
 BL-1668-office-stop-hook	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1668: an office window can no longer end its turn idle -- Stop hook sends it to its order or to wait_orders ($0)
 BL-1669-partners-and-no-email-yet	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1669 -- "No email yet" editors list (10,099) + the overnight free read of 9,905 collab partners
+BL-1670-overnight-faceless-check-and-blocked-paid-run	leadgen	1.00	auto (stack markers)	2026-10-17		BL-1670 -- overnight 17->18 Oct: strict faceless check on the old lists done; the paid run never started (no wallet line); free routes closed
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
