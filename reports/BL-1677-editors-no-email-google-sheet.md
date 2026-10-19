@@ -144,6 +144,32 @@ Added: 24,180 TikTok editors (S / M / C); Instagram named on their pages: +205.
 Trap 3: `build_xlsx` called `ws.max_row` per row -- openpyxl rescans every cell, so the build went quadratic and stalled
 past 12 min at 55k rows (py-spy); the row index is tracked now (56k rows build in 23 s, push 2 min).
 
+## 21:01 Dusan reviewed both sheets: tighten (singers / creators / > 70% photos -> "Removed" tab, never deleted)
+
+Both tools now keep a third tab, **Removed** (profile, Sent, reason; emails sheet also the address): a reject moves
+there with its Sent mark, once -- a row he moves back by hand stays where he put it; a removed row is never added again.
+Tests 13/13 (3 new: moves once and keeps Sent, never re-added, emails sheet).
+
+**Singers / creators.** His example reject (a pop-singer fan page of clips and memes) had passed the BL-1670 face check
+as faceless: a stan page shows the singer, not the owner -- the face check cannot see this; a "what is the page about"
+check can. New rubric `scratch/bl1677/RUBRIC77.md`: K keep (sports, movies, TV, actors, athletes) / S singer page (own
+account or a page centred on a musician) / P personal creator / O other / U unsure.
+
+| sheet | method | result |
+|---|---|---|
+| New emails - never sent (1,417) | page pictures we already hold (BL-1670 renders, 1,339 pages, 168 sheets): Sonnet first look, **Opus re-judged all 120 sheets with any non-K** | K 1,019, S 178, O 105, U 37 -> **283 moved** (U stays); 78 have no picture (unchecked) |
+| No email - editors, rows labelled celebrities (6,099 TikTok) | text re-check (7 Sonnet agents, ids verified) | K 1,598, S 2,689, P 1,612, O 54, U 146 -> **4,355 moved** + 90 Instagram named on those pages |
+
+**> 70% photos.** The edit app's own measure (accounts.photo_share, >= 5 posts seen) covers 9,561 sheet rows and 10 of
+the emails: none over 70% (photo pages were already off by status). The rest need fresh posts: a scan of the stored
+hashtag pages was stopped (RAM fell under 1 GB; Dusan: jobs off his PC); an API check is $0.0006 per account
+(12 posts): ~$0.84 for the emails sheet; not paid for the no-email sheet (his 19:26 rule).
+
+| sheet | before | kept | Removed tab |
+|---|---|---|---|
+| New emails - never sent | 1,417 | **1,134** | 283 |
+| No email - editors TikTok / Instagram | 55,710 / 918 | **51,355 / 828** | 4,445 |
+
 ## Next
 - Free pools left are small: 1,269 U pages of the text check, 857 collab partners with no visible niche (need their
   videos read), and the edit-app accounts filed out as music / unclassifiable that were U/X.
