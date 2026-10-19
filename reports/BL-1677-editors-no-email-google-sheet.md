@@ -116,6 +116,37 @@ master_leads.csv already holds every delivered lead row, so it is the only check
 hyperlink and stalled for minutes on 31,600 rows -> read-only load. A push of the big sheet takes ~6 min (Drive's
 conversion).
 
+## The 30,050 no-clear-niche pages: Sonnet text check ($0 vendor)
+
+31 Sonnet agents, 1,000 pages each (handle, found-on tags, nickname, bio, top hashtags, one caption; one letter each).
+Every answer file is used only if its ids match its input exactly (`scratch/bl1677/pool77.py check`).
+
+| letter | pages |
+|---|---|
+| M movies / TV | 15,787 |
+| C celebrities | 5,684 |
+| S sports | 1,915 |
+| X other niche | 4,032 |
+| U cannot tell | 1,231 |
+| N not an edit page | 401 |
+
+(30,050 pages. File 22 was redone: its first agent said it filled lines it did not list with M, so those M labels were not
+judgements; the file was held out and re-run clean -- S 61 / M 548 / C 185 / X 143 / N 25 / U 38.) **Cross-check against the independent blind audit** (143 pages
+seen by both): kept/not-kept agree on 94%; of the pages the check kept, the audit also kept 111/115 = **97%**.
+
+Added: 24,180 TikTok editors (S / M / C); Instagram named on their pages: +205.
+
+| tab | 16:00 | 17:50 | final |
+|---|---|---|---|
+| TikTok | 8,992 | 31,600 | **55,710** (sports 19,356, movies/TV 30,255, celebrities 6,099) |
+| Instagram | 176 | 542 | **918** |
+
+Trap 3: `build_xlsx` called `ws.max_row` per row -- openpyxl rescans every cell, so the build went quadratic and stalled
+past 12 min at 55k rows (py-spy); the row index is tracked now (56k rows build in 23 s, push 2 min).
+
 ## Next
-- The 30,050 no-clear-niche edit-named pages: Sonnet text check (S/M/C kept), ~81% expected to qualify -> ~24,000 more.
+- Free pools left are small: 1,269 U pages of the text check, 857 collab partners with no visible niche (need their
+  videos read), and the edit-app accounts filed out as music / unclassifiable that were U/X.
+- More volume needs new paid walks (raw hashtag pages: ~7% of accounts are edit-named, 61,391 of 842,691) -- only with
+  a money line and Dusan's yes; price to be proven on a small probe first.
 - The 857 collab-partner editors whose niche is not visible (U).
