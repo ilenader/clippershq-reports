@@ -512,6 +512,7 @@ BL-1673-review-app-console-leak	leadgen	1.00	auto (stack markers)	2026-10-18		BL
 BL-1674-unreplied-order-guard	ambiguous	0.00	auto (stack markers)	2026-10-18		BL-1674: unreplied-order guard -- wait_orders.py wakes a window when an order sits in read/ without its reply ($0)
 BL-1675-launcher-leaves-agent-job	ambiguous	0.00	auto (stack markers)	2026-10-19		BL-1675: the office launcher leaves the Windows job it was started in -- it died silently 4x on 18-19 Oct ($0)
 BL-1676-launcher-counts-miloje-resume-bat	leadgen	1.00	auto (stack markers)	2026-10-19		BL-1676: the office launcher counts a window started by MILOJE's resume bat; lookalike bat paths no longer match ($0)
+BL-1677-editors-no-email-google-sheet	leadgen	1.00	auto (stack markers)			BL-1677 -- Dusan's shared Drive folder: "No email - editors" + "New emails - never sent" (1 LEADS, orders 19 Oct 15:16 + 15:46)
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
