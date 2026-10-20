@@ -23,13 +23,22 @@ concert archive), so the miss was the rubric's bar, not the picture: "mostly K e
 the opposite ("an earlier check passed everything and Dusan found that was wrong; when in doubt it is NOT K") and names
 the reject kinds with examples. It also over-reads "DM for promo" as a business, which is why a third look is part of it.
 
-## Next ($0, Claude only)
+## 8. The never-sent sheet, re-checked the same way ($0, 22:02)
 
-The other 1,180 rows of "New emails - never sent" passed the same softer check, so expect a similar share of bad pages.
-Re-check them with STRICT83 (Opus; a Sonnet K is not trusted, BL-1677) and move rejects to its Removed tab.
+The other rows of "New emails - never sent" had passed the same softer check. 1,056 of its 1,180 rows have a stored page
+picture (BL-1670 pics); each was read by an Opus reader and a Sonnet reader (STRICT83, now with a "NOT reasons to reject"
+block: promo lines, non-Spanish languages, TV dramas). They agreed on 875 pages (83%); the 181 splits went to a third Opus
+look. **Kept 614, moved 442** to the sheet's Removed tab: 128 not an edit page, 106 business / shop, 99 Spanish, 26 creator /
+streamer, 83 too little to confirm. Push read back: Editors 738 rows (614 + the 46 + 78 rows with no stored picture, still
+unchecked), Removed 791. Calibration first: Sonnet alone on the settled 110 caught 63 of 66 rejects but wrongly rejected 11
+of 44 keepers (Portuguese read as Spanish, "DM for promo" read as business), which is why it never decides alone.
+
+## Next
+
+The 78 never-sent rows without a stored picture need covers (1 paid call each, ~$0.05) before they can be checked.
 
 ## Files
 
 - `scratch/bl1683/STRICT83.md` rubric; `merge83.py` (two readers + caption check + third look -> `remove112.json`);
-  `rm112.py` (live sheet -> Removed tab, read back); `spanish83.py` (captions); `lab83.py` (strict good per niche / tag / page).
+  `rm112.py` (live sheet -> Removed tab, read back); `mergens83.py` (never-sent sheet: Opus + Sonnet + tie-break -> new_emails_removed.json); `spanish83.py` (captions); `lab83.py` (strict good per niche / tag / page).
 - Work data (private, not in git): `%LOCALAPPDATA%\ClippersHQ\bl1683_work\` (strict answers, review, final.json).
