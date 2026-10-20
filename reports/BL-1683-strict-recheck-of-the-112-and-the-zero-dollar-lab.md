@@ -3,7 +3,7 @@
 Orders (Dusan's HELM chat 20 Oct 19:47 and 19:56, relayed by ALFRED): reject Spanish pages and add the no-business /
 no-creator / no-streamer rules to every check; take the 4 bad accounts he found off the 112 sheet and re-check all 112
 for the same kinds; go back to the lab and bring one short plan with the cost per good editor, testing only with $0.
-**Money: $0.** No vendor call was made.
+**Money: $0.1992** (plan A, section 9); everything else $0.
 
 | | Result |
 |---|---|
@@ -33,6 +33,17 @@ streamer, 83 too little to confirm. Push read back: Editors 738 rows (614 + the 
 unchecked), Removed 791. Calibration first: Sonnet alone on the settled 110 caught 63 of 66 rejects but wrongly rejected 11
 of 44 keepers (Portuguese read as Spanish, "DM for promo" read as business), which is why it never decides alone.
 
+## 9. Plan A run (Dusan HELM 20 Oct 22:10 "yes", hard cap $0.20)
+
+**34 good editors, 46 new e-mails for $0.1992 = $5.90 per 1,000 good editors** (LamaTok counter 129,140 -> 128,808 =
+332 calls). Input: the 271 still-new, public, non-verified accounts that proven editors tag (BL-1669/1670 free read).
+Each needs 2 calls (user_by_username for the secUid + one `/v2/user/medias/by/secUid` page), so the cap bought 166
+(edit-word accounts first, then most-tagged); my plan had priced 1 call. Covers from the CDN ($0), 165 page pictures,
+STRICT83 Opus + Sonnet blind (159 agree), 6 splits by my own look. Codes: K 34, C 78 (mostly the stars being edited), F 30,
+B 13, U 9, L 1. 28 of the 34 sat in the first 56 (edit words); after those only 6 of 109 -- the 105 not bought would run
+~5% good. Delivered: `operator/editors_partners83_20261020.xlsx` -> "New emails - never sent" (+46, 784 rows).
+The route is cheap but small; it grows only by reading the tagged accounts of new good editors (free, slow; a farm-PC job).
+
 ## Next
 
 The 78 never-sent rows without a stored picture need covers (1 paid call each, ~$0.05) before they can be checked.
@@ -40,5 +51,5 @@ The 78 never-sent rows without a stored picture need covers (1 paid call each, ~
 ## Files
 
 - `scratch/bl1683/STRICT83.md` rubric; `merge83.py` (two readers + caption check + third look -> `remove112.json`);
-  `rm112.py` (live sheet -> Removed tab, read back); `mergens83.py` (never-sent sheet: Opus + Sonnet + tie-break -> new_emails_removed.json); `spanish83.py` (captions); `lab83.py` (strict good per niche / tag / page).
+  `rm112.py` (live sheet -> Removed tab, read back); `mergens83.py` (never-sent sheet: Opus + Sonnet + tie-break -> new_emails_removed.json; NS83=pa for plan A); `partpages83.py` (plan A paid pages, cap guard); `deliver83.py` (plan A K -> lead file); `spanish83.py` (captions); `lab83.py` (strict good per niche / tag / page).
 - Work data (private, not in git): `%LOCALAPPDATA%\ClippersHQ\bl1683_work\` (strict answers, review, final.json).
