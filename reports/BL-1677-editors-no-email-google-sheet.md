@@ -170,6 +170,37 @@ hashtag pages was stopped (RAM fell under 1 GB; Dusan: jobs off his PC); an API 
 | New emails - never sent | 1,417 | **1,134** | 283 |
 | No email - editors TikTok / Instagram | 55,710 / 918 | **51,355 / 828** | 4,445 |
 
+## 20 Oct: Dusan's $10 cheaper-email tests (orders 10:09 + 10:18, line "Finder strategy tests 19 Oct")
+
+Run on his PC (his 10:18 words), one paid TikTok walk at a time, every test booked with money_guard first. **Good** =
+the page passes RUBRIC77 as K (sports / movie / TV edit page; singer pages, creators and other pages out), judged on
+its page picture by Sonnet first and **Opus on every sheet with a Sonnet K or U** (plus 10 random other sheets: Opus
+found 0 K on all 240 such pages over T1/T3/T4), and <= 70% photo posts (`scratch/bl1677/photorun77.py`, the run's own
+stored posts). U is not counted. Price = vendor spend (LamaTok counter x $0.0006, TikHub $0.001/call, HikerAPI
+$0.00069/call) / good emails x 1,000. Target $30-50.
+
+| test | route | spend | new addresses | pages judged | good emails | $/1,000 good | after overlap with earlier tests |
+|---|---|---|---|---|---|---|---|
+| T1 | re-walk of 202 proven tags (list A2, own ledger) | $1.70 | 1,136 | 869 | 36 | **$47** | 36 = $47 |
+| T2 | TikHub newest-first feed of 100 proven tags | $0.47 | 157 | 116 | 5 | $95 | 5 = $95 |
+| T3 | re-walk of 230 tags that gave 1 faceless editor before (list B part 1) | $1.57 | 538 | 420 | 44 | **$36** | 41 = $38 |
+| T4 | 2nd re-walk of 100 tags walked 18 Oct (refill after 2 days; own ledger77) | $0.84 | 397 | 298 | 22 | **$38** | 17 = $49 |
+| T5 | Instagram named in the bio of no-email TikTok editors (844, HikerAPI) + their TikTok pages | $0.63 | 39 | 38 | 13 | $48 | 13 = $48 (pool used up) |
+| all | | **$5.21** | | 1,741 | **112 unique** | **$46.5** | |
+
+- The re-walk of tags that already gave editors is inside the target on both lists (A2 $47, B1 $36) and **refills**:
+  the same 100 tags re-walked after 2 days still gave $38 ($49 after removing addresses T1/T3 had just found).
+  Unwalked parts left: list B parts 2-4 (689 tags), list A tags refill every few days.
+- Most pages are still not editors: Opus K is 4-11% of the pages that pass the text filter (P creators 64-83%).
+  Sonnet's K is too generous (T1: 129 Sonnet K -> 36 Opus K), so Opus stays the final word.
+- TikHub newest-first is twice the price (more creators on fresh posts). The IG route is in price but one-off.
+- Spend checked against the LamaTok counter: $4.2222 since T1's base = the per-test sums. $4.79 of the $10 unspent.
+- Delivered: 112 to `operator\editors_tests77_20261020.xlsx` -> pushed to "New emails - never sent" (+112, 1,246 rows).
+- Traps: detached jobs ran at BelowNormal and starved (T1 pictures 18 s CPU in 16 min) -> own PIDs set to Normal;
+  a bash heredoc ate the backslashes of the first eyes workflow (LESSON 23 again) -> `eyes77.js` uses forward slashes.
+- Tools: `chain77.py` (chain72 + ledger77), `photorun77.py`, `eyes77.js`, `merge77.py plan|score`, `ig5_77.py`,
+  `t5pages77.py` (makes T5's pages a walk-shaped run so the same tools score it), `deliver77.py`.
+
 ## Next
 - Free pools left are small: 1,269 U pages of the text check, 857 collab partners with no visible niche (need their
   videos read), and the edit-app accounts filed out as music / unclassifiable that were U/X.
