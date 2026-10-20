@@ -514,6 +514,7 @@ BL-1675-launcher-leaves-agent-job	ambiguous	0.00	auto (stack markers)	2026-10-19
 BL-1676-launcher-counts-miloje-resume-bat	leadgen	1.00	auto (stack markers)	2026-10-19		BL-1676: the office launcher counts a window started by MILOJE's resume bat; lookalike bat paths no longer match ($0)
 BL-1677-editors-no-email-google-sheet	leadgen	1.00	auto (stack markers)			BL-1677 -- Dusan's shared Drive folder: "No email - editors" + "New emails - never sent" (1 LEADS, orders 19 Oct 15:16 + 15:46)
 BL-1678-one-drive-link-with-everything	leadgen	1.00	auto (stack markers)	2026-10-19		BL-1678: one Google Drive link with everything -- 970 approved videos (6.66 GB), cleaned, in 6 niche folders, every file checked on Drive ($0)
+BL-1679-112-editors-sheet-best-edit	leadgen	1.00	auto (stack markers)	2026-10-20		BL-1679: the 112-editors sheet now links each editor's best edit; 3 ways to get below $40 per 1,000 ($0)
 BL-1679-report-drift	leadgen	1.00	auto (stack markers)			BL-1679: 3 published reports were out of date and 113 were never published; `tools/report_drift.py` now finds both ($0)
 BL-1680-facts-restamp	leadgen	1.00	auto (stack markers)	2026-10-18		BL-1680: FACTS.md lifetime spend re-stamped before the commit guard refused anything -- drift $6.79 (91.8% of $7.40) -> 0.0% ($0)
 BL-1681-orphans-committed	leadgen	1.00	auto (stack markers)			BL-1681: 11 reports were public but never in the repo, and 2 passing test files were never committed; all 13 committed now ($0)
