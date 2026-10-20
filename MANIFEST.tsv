@@ -516,6 +516,7 @@ BL-1677-editors-no-email-google-sheet	leadgen	1.00	auto (stack markers)			BL-167
 BL-1678-one-drive-link-with-everything	leadgen	1.00	auto (stack markers)	2026-10-19		BL-1678: one Google Drive link with everything -- 970 approved videos (6.66 GB), cleaned, in 6 niche folders, every file checked on Drive ($0)
 BL-1679-report-drift	leadgen	1.00	auto (stack markers)			BL-1679: 3 published reports were out of date and 113 were never published; `tools/report_drift.py` now finds both ($0)
 BL-1680-facts-restamp	leadgen	1.00	auto (stack markers)	2026-10-18		BL-1680: FACTS.md lifetime spend re-stamped before the commit guard refused anything -- drift $6.79 (91.8% of $7.40) -> 0.0% ($0)
+BL-1681-orphans-committed	leadgen	1.00	auto (stack markers)			BL-1681: 11 reports were public but never in the repo, and 2 passing test files were never committed; all 13 committed now ($0)
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
