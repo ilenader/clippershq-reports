@@ -521,6 +521,7 @@ BL-1681-orphans-committed	leadgen	1.00	auto (stack markers)			BL-1681: 11 report
 BL-1682-3-fixer-on-bogdan	leadgen	1.00	auto (stack markers)			BL-1682: 3 FIXER now works on bogdan's PC; Dusan's PC keeps only a 20 MB relay ($0)
 BL-1683-strict-recheck-of-the-112-and-the-zero-dollar-lab	leadgen	1.00	auto (stack markers)			BL-1683 -- strict re-check of the 112, the Spanish rule, and a $0 lab plan
 BL-1684-gate-timeout-is-not-broken	leadgen	1.00	auto (stack markers)			BL-1684: Send gate -- a picture-check timeout is no longer cached as "broken" ($0)
+BL-1685-movie-editors-6-dollars	leadgen	1.00	auto (stack markers)			BL-1685 -- $6 for 1,000 movie editors, and the plan B test
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
