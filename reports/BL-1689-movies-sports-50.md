@@ -45,3 +45,19 @@ anime/games/business 193+, singers 24+.
 ## Open
 - Dusan/ALFRED: how to go on with the $44.00 (no route reaches 70% of new e-mails; best = partners of proven editors, pool
   used up today; refills of proven tags in 2-3 days). 1916 asks a (70% of the checked list) / b (keep the money).
+
+## Order 2040 (Dusan 20:34: rest of the $50, old method, 70% pause lifted) -- 22 Oct 21:03-23:00
+
+**Result: 179 more real movie/sports editors (302 on the $50 line), $6.78 tonight ($38 per 1,000 real editors), $12.78 of $50 spent.** Paid vendor calls ran on the 3090 (key on ssh stdin only).
+
+| route | cost | new e-mail pages | real (Sonnet + Opus, photos > 30% out) | $ per 1,000 real |
+|---|---|---|---|---|
+| following lists of proven editors (f1-f3, Dusan's step-1 test) | $3.76 incl. $1.68 lost run | 1,512 | 124 (113 delivered new) | 33 (17.7 without the loss) |
+| old method: first re-walk of 406 proven tags (o1) | $1.57 | 592 | 65 | 24 |
+| old method: refill of 254 tags walked 18-20 Oct (o2) | $1.12 | 606 | 11 | 102 |
+| Instagram price test (16 big edit tags) | $0.32 | 34 new e-mails | not checked, 2/34 edit-named | ~$9.3 per 1,000 raw |
+| free TikTok profile re-read on the 3090 (49k no-email editors) | $0 | 14,548 read, then 403 | 19 new e-mails | -- |
+
+Findings: (1) the 3090 can read TikTok profile pages free (bio + link) until TikTok blocks the IP (~14.5k); yield on known no-email editors is 0.13%. (2) LamaTok's Cloudflare blocks Python urllib's User-Agent (1010). (3) A remote job must return answers in small batches -- one ~1,300-payload answer killed the PC side after paying (LESSON 82). (4) Refilling proven tags within days is 4x worse (LESSON 84). (5) The old method is limited by tags, not money: after o1 + o2 the proven-tag pool is used up; asked Dusan (a) co-tags of the new real editors / (b) following lists / (c) both.
+
+Files: operator\editors_bl1689_following_20261022.xlsx, editors_bl1689_oldway_o1_20261022.xlsx, editors_bl1689_oldway_o2_20261022.xlsx; never-sent sheet 1,088 rows. Tools: scratch/bl1689/{fol3090,tag3090,free3090,ig89,cotags89}.py.
