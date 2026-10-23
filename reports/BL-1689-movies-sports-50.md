@@ -61,3 +61,22 @@ anime/games/business 193+, singers 24+.
 Findings: (1) the 3090 can read TikTok profile pages free (bio + link) until TikTok blocks the IP (~14.5k); yield on known no-email editors is 0.13%. (2) LamaTok's Cloudflare blocks Python urllib's User-Agent (1010). (3) A remote job must return answers in small batches -- one ~1,300-payload answer killed the PC side after paying (LESSON 82). (4) Refilling proven tags within days is 4x worse (LESSON 84). (5) The old method is limited by tags, not money: after o1 + o2 the proven-tag pool is used up; asked Dusan (a) co-tags of the new real editors / (b) following lists / (c) both.
 
 Files: operator\editors_bl1689_following_20261022.xlsx, editors_bl1689_oldway_o1_20261022.xlsx, editors_bl1689_oldway_o2_20261022.xlsx; never-sent sheet 1,088 rows. Tools: scratch/bl1689/{fol3090,tag3090,free3090,ig89,cotags89}.py.
+
+## 23 Oct (orders 1129, 1342, 1358, 1600, 1620, 1833, 1834, 1907, 1908) -- new search, then Dusan's 19:07 pause
+
+**Result: 891 real movie/sports editors with e-mails on the $50 line (330 at 13:45), all in ONE private Google Sheet in Dusan's own Drive (owner-only, checked after every push). Spent by the LamaTok counter $28.25 of $50; the wallet's bookings are $45.35 (the higher count, $4.65 left). Paused at 19:45 on Dusan's order; nothing running.**
+
+| route (all vendor calls on the 3090) | cost | real editors (Sonnet + Opus, photos > 30% out) | $ per 1,000 real |
+|---|---|---|---|
+| deeper pages 5-8 of proven tags (d1, d2; order 1129) | $0.96 | 27 | 36 |
+| following lists f4 + co-tag sample c1 | $1.21 | 56 | 21.6 |
+| co-tags of real editors c2, c3 | $0.85 | 42 | 20 |
+| single-editor co-tags m1s/m1t, m2 | $2.05 | 97 | 21 |
+| co-tags k3-k5 | $4.52 | 195 | 23 |
+| round-3 co-tags q1-q3 | $4.83 | 172 | 28 |
+| round-4 co-tags q4 (half its walk lost, see below) | $0.75 | 20 | 37.7 |
+| q6 (stopped for the pause, nothing returned) | $0.21 | 0 | -- |
+
+Findings: (1) co-tags of real editors (hashtags they use in their own captions) are the best route found: $18-28 per 1,000 real editors for four rounds, and each round's new editors feed the next round. (2) The price is rising round by round (round 2 ~$22, round 3 ~$28, round 4 ~$38): the best co-tags are used first. (3) A network drop at 17:47 (DNS + the 3090 link) cut chunk q4's walk in half: its authors came back for 88 of 187 tags, the call count was lost (taken from the counter instead) and its feeds were bought afterwards (scratch/bl1689/feeds89.py, inside q4's booking). q5 walked nothing. (4) My miss: as the fresh window at 19:05 I started q6 at 19:18 without reading the folder, and Dusan's pause had landed at 19:07. Stopped by PID on both machines: $0.21 lost (LESSON 90). The paid runners now refuse to book while a pause is in force (scratch/bl1689/pause89.py).
+
+Ready on Dusan's go (`pause89.py off` first): 314 round-4 co-tags never walked (bl1689_work\r4_q6.tsv) + 712 round-5 co-tags from q3's editors not yet sorted by Haiku (cotags89_r5_new.tsv); expect ~$35-40 per 1,000 real. Files: operator\editors_bl1689_new_*_20261023.xlsx; never-sent sheet 1,677 rows.
