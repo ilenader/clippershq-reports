@@ -15,3 +15,13 @@ outside the guarded files since the 2026-08-15 baseline (top: edits_app 6, edits
 edits_swipe_server 4, edits_transfer 4, raw_emails 4, raw_pages 4, tools/office/check_state 4). Each needs its own judgement (fix, narrow,
 or a baseline line with a measured reason) and most belong to the edits app (2 APP). Not done here.
 Money: $0.
+
+## Part 2 (09:00): the ratchet sites in 1 LEADS' own lead files (98 -> 88 new sites)
+Three of these were real data-loss paths, not style:
+- `raw_emails.save_tag_ids`, `cmd_walk` (tags.json), `cmd_deliver` (the day's `.rows.json`): a torn JSON file was read as empty and then WRITTEN OVER -- the tag-id store, the run's tag list, or the day's earlier delivered rows would be lost. `cmd_deliver`'s `delivered.json` read torn as "nothing delivered yet" -> re-delivery. Now only `FileNotFoundError` means empty; a torn file raises.
+- `raw_pages.page_index`: a torn `pages.json` restarted the numbering -> new pages re-used old numbers and overwrote their pictures. Same fix.
+- `no_email_sheet.Api.alive`: ANY Drive error (expired token, rate limit) read as "file gone" -> callers (no_email_sheet, new_emails_sheet, sheet89) created a NEW sheet/folder and repointed the state. Now only a 404 is "gone"; anything else raises.
+Loud, not narrowed: `raw_emails.dead_domains` (absent -> empty, torn raises), `raw_pages._get` (error types counted, shown in `cmd_covers` as `download_errors`), `raw_pages.render_page` (unreadable avatar/cover prints a line), `raw_pages.cmd_verdicts` (absent judge.json -> no second opinion; torn raises), `no_email_sheet.call` (an HTML error body keeps a reason).
+Live files checked before narrowing: suppress_mx.json (145 dead domains) and both tag-id stores (309,134 / 819,883 ids) parse.
+Suites: test_bl1643_raw_emails, test_bl1644_raw_pages, test_bl1645_text_filter, test_no_email_sheet, test_no_email_yet PASS. test_silent_zero_shape: 88 new ratchet sites left, none in 1 LEADS' files (edits app 2 APP, tools/office 3 FIXER).
+Claims: BL-1677 (old, mine; its only dirty path was this round's no_email_sheet edit) released with --force; BL-1696 widened to these three files.
