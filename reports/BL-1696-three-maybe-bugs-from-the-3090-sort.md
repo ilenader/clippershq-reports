@@ -52,3 +52,7 @@ Claims: BL-1677 (old, mine; its only dirty path was this round's no_email_sheet 
 - `test_bl1489_empty_pack_refuses`, `test_bl1503_his_own_packs`: the pinned exemplar pictures under output/ are no longer on disk (data, not code).
 - `test_silent_zero_shape` ratchet: 81 sites in the edits app (2 APP, paused) and tools/office (3 FIXER).
 - `test_bl1389_no_caller`: the 14 above.
+- `clippershq/raw_pages.py:421` (farm zip cleanup) used a bare `os.remove`; now `atomic_io.remove` (BL-927 Windows lock). `test_atomic_io` still lists 9 unguarded sites in other owners' files: edits_clean, edits_gdrive (2 APP), farm_sheets, tools/office/launcher + remote_fixer x5 (3 FIXER).
+
+## Final check (08:40)
+The 150 suites that import or name a changed module, 2 at a time: 143 green, 7 red -- all red before this round (3090 full_run4 or this note): test_bl1489_empty_pack_refuses, test_bl1503_his_own_packs, test_bl1516_paid_call_ordering, test_silent_zero_shape (ratchet 81), test_atomic_io (9 sites, others' files), test_config_paths and test_estimated_flag (red on the 3090 before this round too; not in this round's files).
