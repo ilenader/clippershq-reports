@@ -25,3 +25,9 @@ Loud, not narrowed: `raw_emails.dead_domains` (absent -> empty, torn raises), `r
 Live files checked before narrowing: suppress_mx.json (145 dead domains) and both tag-id stores (309,134 / 819,883 ids) parse.
 Suites: test_bl1643_raw_emails, test_bl1644_raw_pages, test_bl1645_text_filter, test_no_email_sheet, test_no_email_yet PASS. test_silent_zero_shape: 88 new ratchet sites left, none in 1 LEADS' files (edits app 2 APP, tools/office 3 FIXER).
 Claims: BL-1677 (old, mine; its only dirty path was this round's no_email_sheet edit) released with --force; BL-1696 widened to these three files.
+
+## Part 3 (08:16): finder-side ratchet sites (88 -> 81) + one test that never ran
+- `edit_checker._tags` (measured 0 unparsable of 724,909 edits.db rows -- now says so if one appears), `edit_checker.sheet_numbers` (unreadable sheet prints a line), `free_judge._run_budget` (keeps the exception text in `_STATE["budget_unresolved_why"]`, not only a count), `meme_finder._png_area` (vanished file -> 0; other OSError printed), `mark_reader.load_records` (format tag carries the parse error), `review_loop.cmd_generate` / `cmd_ingest` (unreadable mark lines counted and printed -- they could redraw or re-append a card).
+- `tests/test_bl1529_post_floor.py`: the `__main__` guard sat ABOVE `class HeroSheet`, so run as a script its 4 tests were never defined; moved to the end (8 -> 12 checks).
+- 114 suites that import these modules: 16 red, 15 of them red on the 3090 before this round (full_run4, base 525625d1); the 16th was bl1529 above.
+- Left: 81 ratchet sites, all in the edits app (2 APP), tools/office (3 FIXER) and tools/clippershq_open.py (app launcher).
