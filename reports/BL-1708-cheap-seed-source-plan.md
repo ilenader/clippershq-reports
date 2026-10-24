@@ -1,5 +1,13 @@
 # BL-1708 -- one-page plan: a cheap new seed source (free test first, ONE paid test <= $0.60)
 
+> **HQ numbers (1 LEADS, 25 Oct 01:05, $0; council order 00:46):**
+> - **Follow-list seeds left: 229** checked e-mail editors not yet walked (of 970; 741 walked) -- and most of those 229
+>   were PRIVATE lists at the last free check, so ~0-30 usable. Also 2,023 public lists read only on page 1 (deeper pages
+>   measured $12.4 per 1,000 good on 24/25 Oct, n5).
+> - **Free covers vs paid labels: 92.9% match** (92 of 99 pages judged on paid-feed pictures on 23 Oct, re-pictured free from
+>   the TikTok profile embed on 25 Oct, same Sonnet + Opus eyes): 36 of 39 paid-good stay good, 4 of 60 paid-not-good turn
+>   good. Part of the gap is two days of new posts.
+
 Written by 3 FIXER on the 3090, 24 Oct night. Code and counts only: no data, no handles, no keys on this machine.
 
 ## What the free fixes need (3 FIXER has no data here)
