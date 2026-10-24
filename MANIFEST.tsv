@@ -538,6 +538,7 @@ BL-1702-relay-roles-and-step-allowlist	leadgen	1.00	auto (stack markers)			BL-17
 BL-1703-leads-steps-and-the-3090-round-trip	leadgen	1.00	auto (stack markers)			BL-1703: 1 LEADS on the 3090 -- steps on the relay allowlist, and the round trip proven (24 Oct 18:26)
 BL-1704-app-steps-and-the-3090-round-trip	leadgen	1.00	auto (stack markers)			BL-1704: 2 APP on the 3090 -- app steps on the relay allowlist, and the round trip proven (24 Oct 18:37)
 BL-1705-paid-step-wallet-line	ambiguous	0.00	auto (stack markers)	2026-10-24		BL-1705 -- a paid STEP runs only inside a named wallet line
+BL-1706-under-10-per-1000	leadgen	1.00	auto (stack markers)			BL-1706: Dusan 18:40 -- under $10 per 1,000 real editors with e-mail: the 3 free tests and the forecast
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
