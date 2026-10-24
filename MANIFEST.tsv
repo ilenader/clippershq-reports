@@ -532,6 +532,7 @@ BL-1695-tree-kill-must-not-kill-its-caller	leadgen	1.00	auto (stack markers)			B
 BL-1696-three-maybe-bugs-from-the-3090-sort	leadgen	1.00	auto (stack markers)	2026-08-15		BL-1696 -- the three "maybe bugs" from the 3090 suite sort
 BL-1697-cost-audit-of-the-50	leadgen	1.00	auto (stack markers)			BL-1697: cost audit of the $50 run (BL-1689, 22-23 Oct) -- where 47,079 requests went
 BL-1699-clippershq-atomic-io-last-three	ambiguous	0.00	auto (stack markers)			BL-1699 -- the last three unguarded os.replace/os.remove in clippershq
+BL-1700-free-tests-from-the-cost-audit	leadgen	1.00	auto (stack markers)			BL-1700: the three free tests from the cost audit (Dusan's yes, 24 Oct 16:34) -- $0, reads on the 3090
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
