@@ -110,3 +110,11 @@ Free tests (no paid call), in this order:
 Honest expectation: $10-15 per 1,000 with the same filter. **$5 is not in sight**: the only route that measured $5 (partner
 pages of proven editors, 30 real) had a pool of 116 pages and is used up. I will say so with numbers after the free tests.
 No paid call without Dusan's yes.
+
+## The HQ spend ledger misses the 3090 runs (14:20, 3 FIXER's follow-up)
+`spend.json` for 22-24 Oct holds only the runs made on this PC: 9,473 LamaTok calls / $5.68 (22 Oct m1, s1, s2, m2, a1, m3,
+m4 part, r1 and their feeds) and ig89 $0.31 (HikerAPI). Every run made on the 3090 (f2-f4, o1, o2, p1, d1, d2, c1-c3,
+m1s/m1t, the 23 Oct m2-m4/k5, q1-q4, q6) wrote only zero-call feed rows: ~37,600 calls / ~$22.57 are not in the ledger, so
+the ledger's lifetime TikTok total understates by that much. tag3090/fol3090/part3090/feeds89 book the wallet and
+money89.txt from the counter but never append a spend.json row. Offered: a backfill row per run from money89.txt, a FACTS
+re-stamp, and a ledger write in the 3090 runners -- on a yes.
