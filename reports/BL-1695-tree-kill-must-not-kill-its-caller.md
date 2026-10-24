@@ -1,0 +1,5 @@
+# BL-1695 -- _tree_kill could kill the process that called it (POSIX)
+
+`clippershq/paste_driver.py::_tree_kill` did `os.killpg(os.getpgid(pid), 9)`. When the child shares the caller's process group (spawned without a new session), that signals the caller too. On the 3090 this ended the whole pytest session silently at 79% (test_paste_driver::ThePerLinkClockActuallyFires): no summary, no traceback, twice (01:16 and 00:11 runs). The driver itself is safe in production because proc_detach.spawn_kwargs() gives POSIX children start_new_session=True; any caller that forgets would have killed the driver.
+Fix: if the child's pgid == our pgid, kill only that pid; otherwise killpg as before. The tree-kill test now spawns its child with start_new_session on POSIX (same as the driver), and a new test pins that a same-group child is killed and the caller survives.
+Proof: tests/test_paste_driver.py on the 3090 = 21 passed, 1 failed. The failure (test_without_dash_u_the_log_is_lost) assumes block-buffered stdout and is not affected by this change.

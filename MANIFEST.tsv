@@ -528,6 +528,7 @@ BL-1690-3-fixer-back-on-hq-relay-off	leadgen	1.00	auto (stack markers)	2026-10-2
 BL-1691-relay-host-setting	ambiguous	0.00	auto (stack markers)	2026-10-23		BL-1691 -- 3 FIXER relay host is a setting (bogdan or the 3090)
 BL-1692-pytest-collection-systemexit	leadgen	1.00	auto (stack markers)			BL-1692 -- pytest no longer dies at collection on script-style tests
 BL-1693-export-ships-secrets_guard	leadgen	1.00	auto (stack markers)			BL-1693 -- the code export dropped modules the 3090 needs
+BL-1695-tree-kill-must-not-kill-its-caller	leadgen	1.00	auto (stack markers)			BL-1695 -- _tree_kill could kill the process that called it (POSIX)
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
