@@ -542,6 +542,7 @@ BL-1706-under-10-per-1000	leadgen	1.00	auto (stack markers)			BL-1706: Dusan 18:
 BL-1708-cheap-seed-source-plan	ambiguous	0.00	auto (stack markers)			BL-1708 -- one-page plan: a cheap new seed source (free test first, ONE paid test <= $0.60)
 BL-1710-relay-status-stuck-on-working	ambiguous	0.00	auto (stack markers)			BL-1710 -- 3 FIXER's status said "Working" for hours: the relay never forgot hand-answered orders
 BL-1713-movie-recap-narration-reject	ambiguous	0.00	auto (stack markers)			BL-1713 -- reject movie/TV recap videos (a narrator retells a film over its footage)
+BL-1714-judge-profile-picture-optional	leadgen	1.00	auto (stack markers)			BL-1714 -- the AI judge can now be given the profile picture (OFF until HQ opts in)
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
