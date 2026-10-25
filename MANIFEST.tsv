@@ -548,6 +548,7 @@ BL-1715-voice-kind-audio-features	leadgen	1.00	auto (stack markers)			BL-1715 --
 BL-1716-clip-transcript-flag	leadgen	1.00	auto (stack markers)			BL-1716 -- speech-to-text as a FLAG-ONLY field of the clip lane
 BL-1717-narration-flag-sweep	leadgen	1.00	auto (stack markers)			BL-1717 -- flag-only "long continuous narration" rule, swept on the whisper transcripts
 BL-1718-silent-zero-ratchet-and-friend-spend	leadgen	1.00	auto (stack markers)			BL-1718 -- silent-zero ratchet: 82 new sites listed, one money one fixed
+BL-1721-silent-zero-edits-sites	leadgen	1.00	auto (stack markers)	2026-10-25		BL-1721 -- the app's silent-zero sites: 15 fixed, 52 baselined with a reason
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
