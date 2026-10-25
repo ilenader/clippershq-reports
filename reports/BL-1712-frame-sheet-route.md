@@ -130,3 +130,6 @@ always on the same formats; the fix is the owner's ruling on those formats, writ
   judge ran as agents of this window. Under that load the image reads hit a "request limit" twice: two judge agents
   coded 45 + 19 sheets without seeing them; they said so, those pages were re-run or left out of the score.
 - Files: `bl1712_work\fresh345_score.json`, `bl1712_work\fresh358_12d_seen313.txt`.
+- Update 19:30: the 45 sheets an agent had not seen were judged on the 3090 farm (Dusan's load order: 3090 first, then
+  bogdan, his PC only when both are full). Full 358 set: page-first rubric 338/358 = 94.4% (6 false / 14 missed) vs the
+  previous rubric 345/358 = 96.4%. The page-first rule is not better; keep RUBRIC12c until Dusan rules on the formats.
