@@ -541,6 +541,7 @@ BL-1705-paid-step-wallet-line	ambiguous	0.00	auto (stack markers)	2026-10-24		BL
 BL-1706-under-10-per-1000	leadgen	1.00	auto (stack markers)			BL-1706: Dusan 18:40 -- under $10 per 1,000 real editors with e-mail: the 3 free tests and the forecast
 BL-1708-cheap-seed-source-plan	ambiguous	0.00	auto (stack markers)			BL-1708 -- one-page plan: a cheap new seed source (free test first, ONE paid test <= $0.60)
 BL-1710-relay-status-stuck-on-working	ambiguous	0.00	auto (stack markers)			BL-1710 -- 3 FIXER's status said "Working" for hours: the relay never forgot hand-answered orders
+BL-1712-frame-sheet-route	leadgen	1.00	auto (stack markers)			BL-1712 -- the new judge (frames + speech-to-text) and the main route, measured on 300 hand-checked accounts
 BL-1713-movie-recap-narration-reject	ambiguous	0.00	auto (stack markers)			BL-1713 -- reject movie/TV recap videos (a narrator retells a film over its footage)
 BL-1714-judge-profile-picture-optional	leadgen	1.00	auto (stack markers)			BL-1714 -- the AI judge can now be given the profile picture (OFF until HQ opts in)
 BL-1715-voice-kind-audio-features	leadgen	1.00	auto (stack markers)			BL-1715 -- free audio features for "movie dialogue vs AI voice / random talker"
