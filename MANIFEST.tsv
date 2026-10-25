@@ -546,6 +546,7 @@ BL-1713-movie-recap-narration-reject	ambiguous	0.00	auto (stack markers)			BL-17
 BL-1714-judge-profile-picture-optional	leadgen	1.00	auto (stack markers)			BL-1714 -- the AI judge can now be given the profile picture (OFF until HQ opts in)
 BL-1715-voice-kind-audio-features	leadgen	1.00	auto (stack markers)			BL-1715 -- free audio features for "movie dialogue vs AI voice / random talker"
 BL-1716-clip-transcript-flag	leadgen	1.00	auto (stack markers)			BL-1716 -- speech-to-text as a FLAG-ONLY field of the clip lane
+BL-1717-narration-flag-sweep	leadgen	1.00	auto (stack markers)			BL-1717 -- flag-only "long continuous narration" rule, swept on the whisper transcripts
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
