@@ -87,3 +87,26 @@ Cleaned file: `Desktop\Tools\Editors_82_rechecked_25_Oct.xlsx` (copy in the oper
 ## 9. Lesson
 A judge cannot be measured past the agreement of its own labels. Two careful labellers split on 4.7% of these pages,
 always on the same formats; the fix is the owner's ruling on those formats, written into the rubric, not a bigger model.
+
+## 10. Fresh test, 358 never-seen accounts (order 1401, Dusan's yes 14:01)
+- Pages: 12 new keyword searches (Suits, Dexter, Matrix, John Wick, Batman, Game of Thrones, Mbappe, Neymar, Haaland,
+  LeBron, F1, boxing) + 6 new hashtags, $0.0108. Every account that was on any earlier sheet was left out: 358 fresh.
+- Rubric `scratch/bl1712/RUBRIC12c.md` = the 10:55 rubric + 8 interim format rulings (mine, until Dusan rules):
+  highlight compilations cut to a song = editor; edit pages using interview/pundit clips = editor; one explaining voice =
+  reject; "editor" bio with at least half edit covers = editor; free clip packs, TV-commentary compilations, brand-new
+  pages with no edits = reject; movie scenes cut to a song = editor.
+- Truth: every sheet hand-checked blind; my own look at all 16 judge-vs-label splits (the label stood on 13).
+- **Result: 345 of 358 right = 96.4%.** False editors 4 (98.6% of the judge's 282 "editor" answers are right), missed
+  editors 9. Still below 99.5%, so the paid e-mail step stays paused.
+- What it still gets wrong: it judges the ONE post instead of the PAGE. An edit page whose post happens to be animated,
+  game footage or creator clips is called a reject (7 of the 9 misses); a meme-caption page or a page reposting another
+  team's edits is called an editor (3 of the 4 false editors).
+- Two things broke on the way, both fixed: the 3090's cached speech-to-text model ("small") disappeared at ~14:18, so 101
+  sheets had no transcript (now falls back to the cached large-v3-turbo model; those pages were rebuilt and re-checked);
+  the farm dispatcher started none of our jobs from 14:30 (log: "dispatch held -- a lane bug", reported to 3 FIXER), so
+  the same Sonnet + Opus judge ran as agents of this window with the same rubric.
+- E-mails on the fresh pages: 282 real editors, 24 with an e-mail in the bio, 1 new. Over both tests: 593 real editors,
+  50 with a bio e-mail, 2 new. The search is not the problem; real editors who show a NEW e-mail are about 1 in 300.
+- Old 300 re-judged with the new rubric (partial, the farm stalled): on the 82-list and Dusan's 3 it now gives
+  0 false editors (it sends the one TV-scene page to a second look instead of passing it).
+- Files: `bl1712_work\fresh358_score.json`, `bl1712_work\<run>\hand_*.json / handr_*.json / adj.json`.
