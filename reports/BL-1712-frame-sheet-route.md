@@ -110,3 +110,23 @@ always on the same formats; the fix is the owner's ruling on those formats, writ
 - Old 300 re-judged with the new rubric (partial, the farm stalled): on the 82-list and Dusan's 3 it now gives
   0 false editors (it sends the one TV-scene page to a second look instead of passing it).
 - Files: `bl1712_work\fresh358_score.json`, `bl1712_work\<run>\hand_*.json / handr_*.json / adj.json`.
+
+## 11. "Judge the page, not the post" (order 1618) and a second fresh test, 345 never-seen accounts
+- Fix: `scratch/bl1712/RUBRIC12d.md` = 12c + "look at the 12 covers first: at least half real-footage edits = editor even
+  when this post is animated / game / creator clips; mostly memes, anime, news, other pages' watermarks = reject even
+  when this post is a good edit; the post decides only when covers are missing, or to catch one narrating voice".
+- New pages: 12 new keywords (The Boys, Interstellar, Oppenheimer, Gladiator, Spider-Man, Iron Man, Stranger Things,
+  Vinicius, Yamal, Kobe, Curry, McGregor) + 6 new hashtags, $0.0108; 345 accounts never on any earlier sheet.
+- **Result on the new 345: 334 right = 96.8%** (5 false editors -> 98.2% of its 279 "editor" answers right; 6 missed).
+  The 358 set before was 96.4% with the old rubric: the fix moved it within noise, not to 99.5%.
+- Same fix on the earlier 358 set (313 pages that were actually seen, see below): 94.3% with the fix vs 95.9% without.
+  The page-first rule rescues some edit pages but now rejects some real ones (pages with half meme covers).
+- Conclusion: on fresh pages the judge sits at 96-97%, with about 2% false editors. My own blind labels and a careful
+  Opus label agree about 95% on the same kind of pages, so the remaining errors are mostly "what counts as an edit
+  page" -- Dusan's rulings, not a bigger model, decide them.
+- E-mails on the new pages: 279 real editors, 25 with a bio e-mail, 0 new. Over all three fresh tests: ~870 real
+  editors, ~75 with a bio e-mail, 2 new. The bottleneck stays the e-mail.
+- Process notes: the farm could not take the work (bogdan paused/offline, the 3090 slow), so the same Sonnet + Opus
+  judge ran as agents of this window. Under that load the image reads hit a "request limit" twice: two judge agents
+  coded 45 + 19 sheets without seeing them; they said so, those pages were re-run or left out of the score.
+- Files: `bl1712_work\fresh345_score.json`, `bl1712_work\fresh358_12d_seen313.txt`.
