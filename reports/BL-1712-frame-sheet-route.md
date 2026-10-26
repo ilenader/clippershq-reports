@@ -133,3 +133,21 @@ always on the same formats; the fix is the owner's ruling on those formats, writ
 - Update 19:30: the 45 sheets an agent had not seen were judged on the 3090 farm (Dusan's load order: 3090 first, then
   bogdan, his PC only when both are full). Full 358 set: page-first rubric 338/358 = 94.4% (6 false / 14 missed) vs the
   previous rubric 345/358 = 96.4%. The page-first rule is not better; keep RUBRIC12c until Dusan rules on the formats.
+
+## 12. Night 25-26 Oct: 1,369 good TikTok editor e-mails (orders 2012, 2356, 0935)
+- Result: **1,369 good TikTok editor e-mails**, one row per address, every account judged with frames + speech-to-text
+  (Sonnet, Opus on the unsure); 446 still unsure are not in the list. Files: Desktop\Tools\Good_TikTok_editor_emails_26_Oct.xlsx,
+  Desktop\!CLIPPER LEADS 26 Oct.xlsx, Desktop\Tools\Good_editing_pages_with_emails_26_Oct.xlsx. Dusan asked for 2,000.
+- Sources ($0): the 7,092 e-mail "editors" already in his operator lists (judged by the old picture-only judge) -> only
+  ~19% are real edit pages; 500 edit-app editors whose e-mail was never delivered; 113 from two paid hashtag tests.
+- Paid test (A1/A2, $0.503 on "Finder daily" before the supervisor ruled only the named $20 line may be used): 113 new
+  addresses at $4.3-4.6 per 1,000 raw, but A1 had only 5 real editors in 44 (26 creators) -> ~4 cents per good e-mail,
+  above Dusan's 1-cent stop line. The $20 line never reached the wallet, so nothing was bought after 01:19.
+- What went wrong, in order: (1) the 3090's shared whisper cache lost large-v3-turbo too (~21:50) -> ~4,000 sheets with
+  no transcript; fixed with our own model copy (/home/farm/b12_models) and by rebuilding only the editor/unsure pages and
+  judging them again; (2) a 3090 line cut short crashed a chunk build (now skipped); (3) parallel image-reading agents hit
+  a request limit and coded sheets they had not seen (they removed those; the sheets went back to the farm); (4) the farm
+  lost the jobs of 6 chunks (resubmitted); (5) a hidden Windows line end in a shell list made the repair loop idle for two
+  hours. Lessons in LESSONS/COUNCIL.
+- Tools: scratch/bl1712/pool12.py (main | op2 | fixspeech <run> | deliver), route12.py sheets2 --redo <pages>, paid chain
+  bl1712_work\paid\run_a.sh.
