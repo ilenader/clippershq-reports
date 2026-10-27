@@ -1,5 +1,27 @@
 # BL-1723 -- The next 1,000 editor e-mails: faster and cheaper (Dusan 26 Oct 23:16 + 27 Oct 11:23)
 
+## Test result, 27 Oct 13:57 (order 1246, $1 on "Finder daily") -- the "one change" below did NOT hold
+| | last night's name tags | the $1 test (tags already seen used) |
+|---|---|---|
+| spent | $19.50 | **$0.9798** |
+| calls on tags that do not exist | 24% | **0%** |
+| accounts per call | 12.8 | 17.0 |
+| new addresses per $1 | 188 | 249 (1.3x, not the 1.9x I projected) |
+| real + never delivered | 64% | 82% |
+| **good editors among judged** | **9.7%** | **4.5%** (9 of 199) |
+| **price per NEW good** | ~10 c | **10.9 c** (all 9 delivered) |
+
+Why it failed: (1) only 90 unwalked football/basketball NAME tags passed the free check; the other 1,456 tags came
+from our stored captions, and those edit-tags lead mostly to fans and clip pages (4.4% editors vs 16.8% on football
+name tags). (2) My 1.9x was measured with a circular check: every real tag walked last night saved its tag id, so
+"has a saved id" picked last night's REAL tags by construction. The no-dead-tags part is real; the yield gain was not.
+**Corrected answer:** the best measured route stays football + basketball NAME tags (15-17% good); the waste to cut is
+the 24% of calls on tags that do not exist, which needs an existence check that is free AND not circular (not found yet).
+With that, the measured parts give ~4 c; without it, the honest price of the next 1,000 is ~10-12 c (~$100-120).
+Night A49 final: **203 new good e-mails for $25.15 = ~12.4 c** (every sheet judged by 13:57).
+
+*Written before the test (11:41), kept as it was:*
+
 **Short answer.** Tonight cost **~13 c per NEW good e-mail** ($25.15 for 189 delivered at 10:00; ~11-12 c once the
 379 sheets still waiting for the judge are done). My 23:31 guess was ~4 c. The gap comes from three things, all
 measured below. **The one change: pay only for name-tags we have already seen used (a free check against our stored
