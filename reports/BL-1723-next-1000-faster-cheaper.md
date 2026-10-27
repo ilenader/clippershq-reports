@@ -1,5 +1,13 @@
 # BL-1723 -- The next 1,000 editor e-mails: faster and cheaper (Dusan 26 Oct 23:16 + 27 Oct 11:23)
 
+## Update 27 Oct 15:30 -- the judge was over-strict; corrected prices
+A hand check found the judge's rule book rejected ANIME edits by rule. Fixed (mainstream anime fan edits from the
+show's own footage count; game art / gameplay / memes / fan drawings do not) and every rejected sheet was re-judged:
+- night line "Finder 1000 leads 26 Oct": **218 good for $25.1538 = 11.5 c** (was 200 / 12.6 c);
+- the $1 test below: **14 good = 7.0 c** (was 9 / 10.9 c);
+- anime lane test ($0.4896, tags seen used): **11 good = 4.5 c** -- the cheapest paid lane measured so far.
+The tables below were written before this fix and are kept as they were.
+
 ## Test result, 27 Oct 13:57 (order 1246, $1 on "Finder daily") -- the "one change" below did NOT hold
 | | last night's name tags | the $1 test (tags already seen used) |
 |---|---|---|
