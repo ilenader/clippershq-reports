@@ -1,6 +1,6 @@
 # BL-1723 -- Night 26-27 Oct: 1,000 NEW editor e-mails for $25 (order 2327 + 2335)
 
-**Result: 203 new good TikTok editor e-mails delivered by 27 Oct 13:58 (every sheet judged) for $25.15 (~12.4 c each) of $25 -- **$0.15 over the cap, my bookkeeping error** (see Money);
+**Result: 218 new good TikTok editor e-mails on this line (27 Oct 15:24, after the judge's anime rule was fixed and every reject re-judged) for $25.15 (~11.5 c each) of $25 -- **$0.15 over the cap, my bookkeeping error** (see Money);
 1,000 was not reachable at the price measured tonight.** "New" = address AND account in none of the 790 files ever
 delivered, plus master and his workbook; "good" = the frames + speech-to-text judge said K (Opus second look on unsure)
 and the address passed address_check. File: `Desktop\Tools\NEW_editor_emails_A49_26_Oct.xlsx`.
