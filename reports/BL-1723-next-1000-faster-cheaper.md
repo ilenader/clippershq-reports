@@ -6,6 +6,18 @@ show's own footage count; game art / gameplay / memes / fan drawings do not) and
 - night line "Finder 1000 leads 26 Oct": **218 good for $25.1538 = 11.5 c** (was 200 / 12.6 c);
 - the $1 test below: **14 good = 7.0 c** (was 9 / 10.9 c);
 - anime lane test ($0.4896, tags seen used): **11 good = 4.5 c** -- the cheapest paid lane measured so far.
+- one small test per lane (16:50, "Finder daily", tags seen used only; 1 dead tag in all 5 walks):
+
+  | lane | spent | good | price per new good |
+  |---|---|---|---|
+  | anime | $0.4896 | 11 | **4.5 c** |
+  | football + basketball | $0.9798 | 14 | **7.0 c** |
+  | movies | $0.4896 | 5 | 9.8 c |
+  | combat + other sports | $0.4050 | 4 | 10.1 c |
+  | TV shows | $0.4896 | 3 | 16.3 c |
+
+  **Next 1,000, cheapest measured way:** anime + football/basketball name-tags that pass the seen-tag guard, at
+  ~5-7 c = ~$50-70 (needs Dusan's yes and a money line).
 The tables below were written before this fix and are kept as they were.
 
 ## Test result, 27 Oct 13:57 (order 1246, $1 on "Finder daily") -- the "one change" below did NOT hold
