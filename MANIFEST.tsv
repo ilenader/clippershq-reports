@@ -551,6 +551,7 @@ BL-1718-silent-zero-ratchet-and-friend-spend	leadgen	1.00	auto (stack markers)		
 BL-1721-silent-zero-edits-sites	leadgen	1.00	auto (stack markers)	2026-10-25		BL-1721 -- the app's silent-zero sites: 15 fixed, 52 baselined with a reason
 BL-1723-a49-new-editor-emails	leadgen	1.00	auto (stack markers)			BL-1723 -- A49: 1,000 NEW editor e-mails for <= $27 (26 Oct)
 BL-1723-next-1000-faster-cheaper	leadgen	1.00	auto (stack markers)			BL-1723 -- The next 1,000 editor e-mails: faster and cheaper (Dusan 26 Oct 23:16 + 27 Oct 11:23)
+BL-1723-night-27-oct-name-hashtags	leadgen	1.00	auto (stack markers)			BL-1723 -- Night 26-27 Oct: 1,000 NEW editor e-mails for $25 (order 2327 + 2335)
 BL-1724-inbox-nudge	leadgen	1.00	auto (stack markers)			BL-1724 -- inbox read between chunks
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
