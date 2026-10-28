@@ -554,6 +554,7 @@ BL-1723-next-1000-faster-cheaper	leadgen	1.00	auto (stack markers)			BL-1723 -- 
 BL-1723-night-27-oct-name-hashtags	leadgen	1.00	auto (stack markers)			BL-1723 -- Night 26-27 Oct: 1,000 NEW editor e-mails for $25 (order 2327 + 2335)
 BL-1724-inbox-nudge	leadgen	1.00	auto (stack markers)			BL-1724 -- inbox read between chunks
 BL-1726-edit-signs-gate	ambiguous	0.00	auto (stack markers)			BL-1726 -- edit-signs text gate (half of the e-mail-first gate)
+BL-1728-mention-miner	ambiguous	0.00	auto (stack markers)			BL-1728 -- free @mention miner (code half)
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
