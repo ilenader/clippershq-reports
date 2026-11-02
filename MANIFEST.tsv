@@ -562,6 +562,7 @@ BL-1733-jarvis-free-part	ambiguous	0.00	auto (stack markers)			BL-1733 -- JARVIS
 BL-1734-grand-plan-t2-t8	ambiguous	0.00	auto (stack markers)			BL-1734 -- GRAND_PLAN_1029, 3 FIXER's parts (29 Oct, 3090)
 BL-1735-sheet-draw-on-3090	ambiguous	0.00	auto (stack markers)			BL-1735 -- face29 sheet DRAW step on the 3090 (30 Oct)
 BL-1737-edit-finder-ui	leadgen	1.00	auto (stack markers)			BL-1737 -- self-editing edit finder UI (first build)
+BL-1740-bogdan-scan-handoff	leadgen	1.00	auto (stack markers)			BL-1740 -- view scout loosened, and the one command for Bogdan's PC
 BL-538	payments	1.00	auto (stack markers)	2026-07-16		BL-538 — the undo for Pause and Freeze
 BL-539	payments	1.00	auto (stack markers)	2026-07-16		BL-539 — What `isOwnerOverride` has cost the owner, platform-wide
 BL-540	payments	1.00	auto (stack markers)	2026-07-16		BL-540 — Apify cost audit and TikHub migration design
